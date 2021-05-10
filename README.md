@@ -1,24 +1,7 @@
-# README
+# RTIX
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+* 第一次 clone 下來記得要 rails db:create 建立本地的資料庫
 
-Things you may want to cover:
+* 記得 bundle / yarn / rails db:migrate
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+* 目前已安裝 tailwind / foreman

@@ -1,10 +1,10 @@
 import { Controller } from "stimulus"
 
 export default class extends Controller {
-  static targets = ["content", "ticket", "host"]
+  static targets = ["content", "ticket", "host", "calendar"]
 
   connect() {
-    console.log('Hello, Stimulus!');
+    console.log('Hello');
   }
 
   showticket(){
@@ -34,5 +34,10 @@ export default class extends Controller {
   hosthover(){
     this.ticketTarget.style.background = '';
   }
+
+  calendartoggle(){
+      $("#calendar").slideToggle();
+  }
+
 
 }

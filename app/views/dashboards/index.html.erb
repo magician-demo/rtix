@@ -20,9 +20,10 @@
         </div>
         <div data-myorder-target="content">
             <!-- ----------------------------------------------------- -->
-            <h2 class="mt-5 w-10/12 m-auto  font-mono text-3xl pl-4">我的票券</h2>
-            <div class="calendar">
-                
+            <h2 class="mt-5 w-10/12 m-auto font-mono text-3xl pl-4">我的票券</h2>
+            <button class="mt-5 w-10/12 m-auto text-left font-mono pl-4 block" data-action="click->myorder#calendartoggle">匯入我的行事曆</button>
+            <div id="calendar" class="mt-5 w-10/12 m-auto font-mono pl-4 hidden">
+                This is Calendar
             </div>
             <div class="ticket">
                 <table class="mt-12 w-10/12 font-mono m-auto">
@@ -41,7 +42,7 @@
                         </tr>
                         <tr>
                             <td colspan="3">
-                                <a href="" class="p-1 border-2 border-grey-500 mx-2 hover:bg-red-100">票券資料</a> <%= link_to '聯絡主辦單位', new_contact_path, class: "p-1 border-2 border-grey-500 mx-2 hover:bg-red-100" %> <a href="" class="p-1 border-2 border-grey-500 mx-2 hover:bg-red-100">活動頁面</a>
+                                <%=link_to "票券資料", mockup_path, class: "p-1 border-2 border-grey-500 mx-2 hover:bg-red-100" %>     <%= link_to '聯絡主辦單位', new_contact_path, class: "p-1 border-2 border-grey-500 mx-2 hover:bg-red-100" %> <a href="" class="p-1 border-2 border-grey-500 mx-2 hover:bg-red-100">活動頁面</a>
                             </td>
                         </tr>
                     </tbody>
@@ -86,7 +87,11 @@
 
 
 <template id="ticketview">
-    <h2 class="mt-5 w-10/12 m-auto  font-mono text-3xl pl-4">我的票券</h2>
+    <h2 class="mt-5 w-10/12 m-auto font-mono text-3xl pl-4">我的票券</h2>
+    <button class="mt-5 w-10/12 m-auto text-left font-mono pl-4 block" data-action="click->myorder#calendartoggle">匯入我的行事曆</button>
+    <div id="calendar" class="mt-5 w-10/12 m-auto font-mono pl-4 hidden">
+        This is Calendar
+    </div>
     <div class="ticket">
         <table class="mt-12 w-10/12 font-mono m-auto">
             <thead class="border-b-2 border-grey-500">
@@ -104,17 +109,7 @@
                 </tr>
                 <tr>
                     <td colspan="3">
-                        <a href="" class="p-2 border-2 border-grey-500 mx-2">票券資料</a><a href="" class="p-2 border-2 border-grey-500 mx-2">聯絡主辦單位</a><a href="" class="p-2 border-2 border-grey-500 mx-2">活動頁面</a>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="p-2">Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum, numquam.</td>
-                    <td class="p-2">Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate, assumenda.</td>
-                    <td class="p-2">Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit, nulla.</td>
-                </tr>
-                <tr>
-                    <td colspan="3">
-                        <a href="" class="p-2 border-2 border-grey-500 mx-2">票券資料</a><a href="" class="p-2 border-2 border-grey-500 mx-2">聯絡主辦單位</a><a href="" class="p-2 border-2 border-grey-500 mx-2">活動頁面</a>
+                        <a href="" class="p-1 border-2 border-grey-500 mx-2 hover:bg-red-100">票券資料</a> <%= link_to '聯絡主辦單位', new_contact_path, class: "p-1 border-2 border-grey-500 mx-2 hover:bg-red-100" %> <a href="" class="p-1 border-2 border-grey-500 mx-2 hover:bg-red-100">活動頁面</a>
                     </td>
                 </tr>
             </tbody>

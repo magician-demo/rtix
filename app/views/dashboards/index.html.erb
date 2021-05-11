@@ -2,7 +2,7 @@
     <div class="header bg-gradient-to-r from-red-500 via-red-600 to-red-700 text-base font-mono flex justify-between text-white">
         <div class="left flex justify-between ml-40">
             <div class="logo p-3"><a href="">RTIX</a></div>
-            <div class="myticket"><a href="" class="block font-mono p-3 hover:text-red-100">我的票券</a></div>
+            <div class="myticket"><%=link_to "我的票券", dashboards_path, class: "block font-mono p-3 hover:text-red-100" %></div>
             <div class="explore"><a href="" class="block font-mono p-3 hover:text-red-100">探索活動</a></div>
             <div class="search"><a href="" class="block font-mono p-3 hover:text-red-100">搜尋活動</a></div>
         </div>
@@ -12,7 +12,7 @@
             <div class="account"><a href="" class="block font-mono p-3 hover:text-red-100">建立帳號</a></div>
         </div>
     </div>
-
+    <%= notice %>
     <div class="myorder mt-20" data-controller="myorder">
         <div class="sub-page w-10/12 m-auto flex border-b-2 border-grey-500">
             <div class="ticketview font-mono p-4 hover:bg-red-100 cursor-pointer" data-action="click->myorder#showticket mouseover->myorder#tickethover" data-myorder-target="ticket">票券總覽</div>
@@ -21,6 +21,9 @@
         <div data-myorder-target="content">
             <!-- ----------------------------------------------------- -->
             <h2 class="mt-5 w-10/12 m-auto  font-mono text-3xl pl-4">我的票券</h2>
+            <div class="calendar">
+                
+            </div>
             <div class="ticket">
                 <table class="mt-12 w-10/12 font-mono m-auto">
                     <thead class="border-b-2 border-grey-500">
@@ -38,17 +41,7 @@
                         </tr>
                         <tr>
                             <td colspan="3">
-                                <a href="" class="p-1 border-2 border-grey-500 mx-2 hover:bg-red-100">票券資料</a><a href="" class="p-1 border-2 border-grey-500 mx-2 hover:bg-red-100">聯絡主辦單位</a><a href="" class="p-1 border-2 border-grey-500 mx-2 hover:bg-red-100">活動頁面</a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="p-2">Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum, numquam.</td>
-                            <td class="p-2">Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate, assumenda.</td>
-                            <td class="p-2">Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit, nulla.</td>
-                        </tr>
-                        <tr>
-                            <td colspan="3">
-                                <a href="" class="p-1 border-2 border-grey-500 mx-2 hover:bg-red-100">票券資料</a><a href="" class="p-1 border-2 border-grey-500 mx-2 hover:bg-red-100">聯絡主辦單位</a><a href="" class="p-1 border-2 border-grey-500 mx-2 hover:bg-red-100">活動頁面</a>
+                                <a href="" class="p-1 border-2 border-grey-500 mx-2 hover:bg-red-100">票券資料</a> <%= link_to '聯絡主辦單位', new_contact_path, class: "p-1 border-2 border-grey-500 mx-2 hover:bg-red-100" %> <a href="" class="p-1 border-2 border-grey-500 mx-2 hover:bg-red-100">活動頁面</a>
                             </td>
                         </tr>
                     </tbody>

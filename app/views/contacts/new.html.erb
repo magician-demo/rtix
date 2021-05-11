@@ -1,6 +1,65 @@
-<h1>聯絡主辦單位：XXXXXX</h1>
+<div class="wrapper border-5 border-black">
+    <div class="header bg-gradient-to-r from-red-500 via-red-600 to-red-700 text-base font-mono flex justify-between text-white">
+        <div class="left flex justify-between ml-40">
+            <div class="logo p-3"><a href="">RTIX</a></div>
+            <div class="myticket"><a href="" class="block font-mono p-3 hover:text-red-100">我的票券</a></div>
+            <div class="explore"><a href="" class="block font-mono p-3 hover:text-red-100">探索活動</a></div>
+            <div class="search"><a href="" class="block font-mono p-3 hover:text-red-100">搜尋活動</a></div>
+        </div>
+        <div class="right flex justify-between mr-40">
+            <div class="create"><a href="" class="block font-mono p-3 hover:text-red-100">建立活動</a></div>
+            <div class="org"><a href="" class="block font-mono p-3 hover:text-red-100">選擇組織</a></div>
+            <div class="account"><a href="" class="block font-mono p-3 hover:text-red-100">建立帳號</a></div>
+        </div>
+    </div>
+    <%= link_to '返回上一頁', dashboards_path, class: "w-24 my-5 border-2 border-grey-500 mx-2 hover:bg-gray-100 block text-center font-mono" %> 
 
-<%= form_for(@contact) do |form| %>
-<div>
-    <%form.label :
+    <div class="errormsg m-auto">
+        <ul>
+            <% if @contact.errors %>
+              <% @contact.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+              <% end %>
+        </ul>
+            <% end %> 
+    </div>
+
+    <div class="mt-24">
+        <h1 class="text-4xl font-bold text-center">聯絡主辦單位：XXXXXX</h1>
+        <div class="w-3/6 m-auto">
+            <%= form_for(@contact) do |form| %>
+            <div>
+                <%= form.label :name, "姓名" ,class: 'font-mono' %>
+                <br>
+                <%= form.text_field :name, class: 'rounded border-2 border-gray-100 w-full' %>
+            </div>
+            <div>
+                <%= form.label :email, "電子信箱" ,class: 'font-mono' %>
+                <br>
+                <%= form.text_field :email, class: 'rounded border-2 border-gray-100 w-full' %>
+            </div>
+            <div>
+                <%= form.label :tel, "電話" ,class: 'font-mono' %>
+                <br>
+                <%= form.text_field :tel, class: 'rounded border-2 border-gray-100 w-full' %>
+            </div>
+            <div>
+                <%= form.label :event, "活動名稱" ,class: 'font-mono' %>
+                <br>
+                <%= form.text_field :event, class: 'rounded border-2 border-gray-100 w-full' %>
+            </div>
+            <div>
+                <%= form.label :title, "主旨" ,class: 'font-mono' %>
+                <br>
+                <%= form.text_field :title, class: 'rounded border-2 border-gray-100 w-full' %>
+            </div>
+            <div>
+                <%= form.label :feedback, "意見反饋" ,class: 'font-mono' %>
+                <br>
+                <%= form.text_area :feedback, class: 'rounded border-2 border-gray-100 w-full h-48' %>
+            </div>
+                <%= form.submit "送出", class: "px-2 py-1 bg-gray-200 hover:bg-gray-300" %>
+            <% end %>
+        </div>
+    </div>
 </div>

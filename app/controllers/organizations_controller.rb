@@ -1,6 +1,6 @@
 class OrganizationsController < ApplicationController
   before_action :find_organization, only: [:show, :edit, :update, :destroy]
-  before_action :check_user!
+  before_action :authenticate_user!
 
   def index
     @organizations = current_user.organizations.all

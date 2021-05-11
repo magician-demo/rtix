@@ -5,9 +5,8 @@
 <table>
   <thead>
     <tr>
-      <th>Title</th>
-      <th>Descraption</th>
-      <th>User</th>
+      <th>組織名稱</th>
+      <th>擁有者</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -15,12 +14,10 @@
   <tbody>
     <% @organizations.each do |organization| %>
       <tr>
-        <td><%= organization.title %></td>
-        <td><%= organization.descraption %></td>
+        <td><%= link_to organization.title, organization %></td>
         <td><%= organization.user_id %></td>
-        <td><%= link_to 'Show', organization %></td>
-        <td><%= link_to 'Edit', edit_organization_path(organization) %></td>
-        <td><%= link_to 'Destroy', organization, method: :delete, data: { confirm: '確定要刪除組織嗎？' } %></td>
+        <td><%= link_to '編輯', edit_organization_path(organization) %></td>
+        <td><%= link_to '刪除', organization, method: :delete, data: { confirm: '確定要刪除組織嗎？' } %></td>
       </tr>
     <% end %>
   </tbody>

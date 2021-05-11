@@ -1,8 +1,6 @@
-<%= form_with(model: organization) do |form| %>
+<%= form_for(@organization) do |form| %>
   <% if organization.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(organization.errors.count, "error") %> prohibited this organization from being saved:</h2>
-
       <ul>
         <% organization.errors.each do |error| %>
           <li><%= error.full_message %></li>
@@ -12,13 +10,14 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :title %>
-    <%= form.text_field :title %>
+    <%= form.label :組織名稱 %>
+    <%= form.text_field :title, placeholder: '請輸入名稱' %>
   </div>
 
   <div class="field">
-    <%= form.label :descraption %>
-    <%= form.text_area :descraption %>
+    <%= form.label :組織簡介 %>
+    <br>
+    <%= form.text_area :descraption, placeholder: '介紹一下組織' %>
   </div>
 
   <div class="actions">

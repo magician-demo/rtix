@@ -21,24 +21,22 @@
         <div data-myorder-target="content">
             <!-- ----------------------------------------------------- -->
             <h2 class="mt-5 w-10/12 m-auto font-mono text-3xl pl-4">我的票券</h2>
-            <button class="mt-5 w-10/12 m-auto text-left font-mono pl-4 block" data-action="click->myorder#calendartoggle">匯入我的行事曆</button>
-            <div id="calendar" class="mt-5 w-10/12 m-auto font-mono pl-4 hidden">
-                This is Calendar
-            </div>
             <div class="ticket">
                 <table class="mt-12 w-10/12 font-mono m-auto">
                     <thead class="border-b-2 border-grey-500">
-                        <tr>
+                        <tr class="bg-gradient-to-r from-yellow-400 via-red-500 to-pink-500 text-white">
                             <th>活動名稱</th>
                             <th>活動舉辦時間</th>
                             <th>張數</th>
+                            <th>匯入行事曆</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
-                            <td class="p-2">Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum, numquam.</td>
-                            <td class="p-2">Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate, assumenda.</td>
-                            <td class="p-2">Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit, nulla.</td>
+                            <td class="p-2">Lorem ipsum dolor sit</td>
+                            <td class="p-2">Lorem ipsum dolor sit efewfefefwe</td>
+                            <td class="p-2">1</td>
+                            <td class="p-2 text-center"><a href="" class="block rounded-lg font-bold font-mono text-sm hover:text-blue-700">Google Calendar</a></td>
                         </tr>
                         <tr>
                             <td colspan="3">
@@ -47,6 +45,10 @@
                         </tr>
                     </tbody>
                 </table>
+            </div>
+            <h2 class="mt-20 w-10/12 m-auto text-left font-mono text-lg pl-4 border-2 bg-gradient-to-r from-yellow-400 via-red-500 to-pink-500 font-bold text-white" data-action="click->myorder#calendartoggle">RTIX活動行事曆</h2>
+            <div id="calendar" class="mt-5 w-10/12 m-auto font-mono pl-4 hidden">
+                <iframe src="https://calendar.google.com/calendar/embed?height=600&amp;wkst=1&amp;bgcolor=%238E24AA&amp;ctz=Asia%2FTaipei&amp;src=cnRpeHhydWJ5MUBnbWFpbC5jb20&amp;src=YWRkcmVzc2Jvb2sjY29udGFjdHNAZ3JvdXAudi5jYWxlbmRhci5nb29nbGUuY29t&amp;src=ZW4udGFpd2FuI2hvbGlkYXlAZ3JvdXAudi5jYWxlbmRhci5nb29nbGUuY29t&amp;color=%23039BE5&amp;color=%2333B679&amp;color=%230B8043&amp;showTitle=0&amp;showPrint=0&amp;showTabs=1&amp;showCalendars=0&amp;showDate=1" style="" width="1150" height="500" frameborder="0" scrolling="no"></iframe>
             </div>
             <div class="recommended mt-20 w-10/12 m-auto font-mono pl-4">
                 <h2 class="text-3xl">推薦活動</h2>
@@ -88,32 +90,34 @@
 
 <template id="ticketview">
     <h2 class="mt-5 w-10/12 m-auto font-mono text-3xl pl-4">我的票券</h2>
-    <button class="mt-5 w-10/12 m-auto text-left font-mono pl-4 block" data-action="click->myorder#calendartoggle">匯入我的行事曆</button>
-    <div id="calendar" class="mt-5 w-10/12 m-auto font-mono pl-4 hidden">
-        This is Calendar
-    </div>
     <div class="ticket">
         <table class="mt-12 w-10/12 font-mono m-auto">
             <thead class="border-b-2 border-grey-500">
-                <tr>
+                <tr class="bg-gradient-to-r from-yellow-400 via-red-500 to-pink-500 text-white">
                     <th>活動名稱</th>
                     <th>活動舉辦時間</th>
                     <th>張數</th>
+                    <th>匯入行事曆</th>
                 </tr>
             </thead>
             <tbody>
                 <tr>
-                    <td class="p-2">Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum, numquam.</td>
-                    <td class="p-2">Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate, assumenda.</td>
-                    <td class="p-2">Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit, nulla.</td>
+                    <td class="p-2">Lorem ipsum dolor sit</td>
+                    <td class="p-2">Lorem ipsum dolor sit efewfefefwe</td>
+                    <td class="p-2">1</td>
+                    <td class="p-2 text-center"><a href="" class="block rounded-lg font-bold font-mono text-sm hover:text-blue-700">Google Calendar</a></td>
                 </tr>
                 <tr>
                     <td colspan="3">
-                        <a href="" class="p-1 border-2 border-grey-500 mx-2 hover:bg-red-100">票券資料</a> <%= link_to '聯絡主辦單位', new_contact_path, class: "p-1 border-2 border-grey-500 mx-2 hover:bg-red-100" %> <a href="" class="p-1 border-2 border-grey-500 mx-2 hover:bg-red-100">活動頁面</a>
+                        <%=link_to "票券資料", mockup_path, class: "p-1 border-2 border-grey-500 mx-2 hover:bg-red-100" %>     <%= link_to '聯絡主辦單位', new_contact_path, class: "p-1 border-2 border-grey-500 mx-2 hover:bg-red-100" %> <a href="" class="p-1 border-2 border-grey-500 mx-2 hover:bg-red-100">活動頁面</a>
                     </td>
                 </tr>
             </tbody>
         </table>
+    </div>
+    <h2 class="mt-20 w-10/12 m-auto text-left font-mono text-lg pl-4 border-2 bg-gradient-to-r from-yellow-400 via-red-500 to-pink-500 font-bold text-white" data-action="click->myorder#calendartoggle">RTIX活動行事曆</h2>
+    <div id="calendar" class="mt-5 w-10/12 m-auto font-mono pl-4 hidden">
+        <iframe src="https://calendar.google.com/calendar/embed?height=600&amp;wkst=1&amp;bgcolor=%238E24AA&amp;ctz=Asia%2FTaipei&amp;src=cnRpeHhydWJ5MUBnbWFpbC5jb20&amp;src=YWRkcmVzc2Jvb2sjY29udGFjdHNAZ3JvdXAudi5jYWxlbmRhci5nb29nbGUuY29t&amp;src=ZW4udGFpd2FuI2hvbGlkYXlAZ3JvdXAudi5jYWxlbmRhci5nb29nbGUuY29t&amp;color=%23039BE5&amp;color=%2333B679&amp;color=%230B8043&amp;showTitle=0&amp;showPrint=0&amp;showTabs=1&amp;showCalendars=0&amp;showDate=1" style="" width="1150" height="500" frameborder="0" scrolling="no"></iframe>
     </div>
     <div class="recommended mt-20 w-10/12 m-auto font-mono pl-4">
         <h2 class="text-3xl">推薦活動</h2>

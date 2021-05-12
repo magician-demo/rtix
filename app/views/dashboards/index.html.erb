@@ -26,17 +26,21 @@
                     <thead class="border-b-2 border-grey-500">
                         <tr class="bg-gradient-to-r from-yellow-400 via-red-500 to-pink-500 text-white">
                             <th>活動名稱</th>
-                            <th>活動舉辦時間</th>
+                            <th>活動舉辦時間 & 地點</th>
                             <th>張數</th>
-                            <th>匯入行事曆</th>
+                            <th>匯入我的行事曆</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
-                            <td class="p-2">Lorem ipsum dolor sit</td>
-                            <td class="p-2">Lorem ipsum dolor sit efewfefefwe</td>
-                            <td class="p-2">1</td>
-                            <td class="p-2 text-center"><a href="" class="block rounded-lg font-bold font-mono text-sm hover:text-blue-700">Google Calendar</a></td>
+                            <td class="p-2 text-center"><span class="event">5xRuby Demo Day</span></td>
+                            <td class="calendarinfo p-2 text-center">
+                                <span class="font-bold">From:</span> <span class="syear">2021</span>/<span class="smonth">05</span>/<span class="sdate">12</span> @ <span class="stime">0500</span><br>
+                                <span class="font-bold">To:</span> <span class="eyear">2021</span>/<span class="emonth">05</span>/<span class="edate">12</span> @ <span class="etime">0700</span><br>
+                                <span class="font-bold">Location:</span> <span class="address">Taipei City</span> 
+                            </td>
+                            <td class="p-2 text-center">1</td>
+                            <td class="p-2 text-center"><a href="" class="block rounded-lg font-bold font-mono text-sm hover:text-blue-700" data-action="click->myorder#import">Google Calendar</a></td>
                         </tr>
                         <tr>
                             <td colspan="3">
@@ -88,23 +92,30 @@
 
 
 
+
+
+
+
+
+
+
 <template id="ticketview">
     <h2 class="mt-5 w-10/12 m-auto font-mono text-3xl pl-4">我的票券</h2>
     <div class="ticket">
         <table class="mt-12 w-10/12 font-mono m-auto">
             <thead class="border-b-2 border-grey-500">
                 <tr class="bg-gradient-to-r from-yellow-400 via-red-500 to-pink-500 text-white">
-                    <th>活動名稱</th>
-                    <th>活動舉辦時間</th>
-                    <th>張數</th>
-                    <th>匯入行事曆</th>
+                    <th class="text-center">活動名稱</th>
+                    <th class="text-center">活動舉辦時間</th>
+                    <th class="text-center">張數</th>
+                    <th class="text-center">匯入行事曆</th>
                 </tr>
             </thead>
             <tbody>
                 <tr>
                     <td class="p-2">Lorem ipsum dolor sit</td>
                     <td class="p-2">Lorem ipsum dolor sit efewfefefwe</td>
-                    <td class="p-2">1</td>
+                    <td class="p-2 class="text-center"">1</td>
                     <td class="p-2 text-center"><a href="" class="block rounded-lg font-bold font-mono text-sm hover:text-blue-700">Google Calendar</a></td>
                 </tr>
                 <tr>
@@ -147,10 +158,8 @@
 </template>
     
 
-
-
 <template id="hostview">
-    <h2 class="mt-5 w-10/12 m-auto  font-mono text-3xl pl-4">舉辦中的活動</h2>
+    <h2 class="mt-5 w-10/12 m-auto  font-mono text-3xl pl-4">所舉辦的活動</h2>
     <ul class="mt-5 w-10/12 m-auto font-mono pl-4">
         <li class="text-center float-left mx-5">
             <img src="https://picsum.photos/250/200" alt="">

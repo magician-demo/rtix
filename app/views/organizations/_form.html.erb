@@ -1,0 +1,26 @@
+<%= form_for(@organization) do |form| %>
+  <% if organization.errors.any? %>
+    <div id="error_explanation">
+      <ul>
+        <% organization.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :組織名稱 %>
+    <%= form.text_field :title, placeholder: '請輸入名稱' %>
+  </div>
+
+  <div class="field">
+    <%= form.label :組織簡介 %>
+    <br>
+    <%= form.text_area :descraption, placeholder: '介紹一下組織' %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

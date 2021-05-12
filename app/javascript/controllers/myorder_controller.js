@@ -33,6 +33,7 @@ export default class extends Controller {
 
   calendartoggle(){
     $("#calendar").slideToggle();
+    $("#dropdown").toggleClass("far fas");
   }
 
   import(){

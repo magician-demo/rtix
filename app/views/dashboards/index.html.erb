@@ -1,4 +1,4 @@
-<div class="wrapper">
+<div class="wrapper w-full">
     <div class="header bg-gradient-to-r from-red-500 via-red-600 to-red-700 text-base font-mono flex justify-between text-white">
         <div class="left flex justify-between ml-40">
             <div class="logo p-3"><a href="">RTIX</a></div>
@@ -12,6 +12,7 @@
             <div class="account"><a href="" class="block font-mono p-3 hover:text-red-100">建立帳號</a></div>
         </div>
     </div>
+
     <%= notice %>
     <div class="myorder mt-20" data-controller="myorder">
         <div class="sub-page w-10/12 m-auto flex border-b-2 border-grey-500">
@@ -50,7 +51,7 @@
                     </tbody>
                 </table>
             </div>
-            <h2 class="mt-20 w-10/12 m-auto text-left font-mono text-lg pl-4 border-2 bg-gradient-to-r from-yellow-400 via-red-500 to-pink-500 font-bold text-white" data-action="click->myorder#calendartoggle">RTIX活動行事曆</h2>
+            <h2 class="mt-20 w-10/12 m-auto text-left font-mono text-lg pl-4 border-2 bg-gradient-to-r from-yellow-400 via-red-500 to-pink-500 font-bold text-white" >RTIX活動行事曆  <button><i id="dropdown" class="far fa-calendar-alt" data-action="click->myorder#calendartoggle"></i></button></h2> 
             <div id="calendar" class="mt-5 w-10/12 m-auto font-mono pl-4 hidden">
                 <iframe src="https://calendar.google.com/calendar/embed?height=600&amp;wkst=1&amp;bgcolor=%238E24AA&amp;ctz=Asia%2FTaipei&amp;src=cnRpeHhydWJ5MUBnbWFpbC5jb20&amp;src=YWRkcmVzc2Jvb2sjY29udGFjdHNAZ3JvdXAudi5jYWxlbmRhci5nb29nbGUuY29t&amp;src=ZW4udGFpd2FuI2hvbGlkYXlAZ3JvdXAudi5jYWxlbmRhci5nb29nbGUuY29t&amp;color=%23039BE5&amp;color=%2333B679&amp;color=%230B8043&amp;showTitle=0&amp;showPrint=0&amp;showTabs=1&amp;showCalendars=0&amp;showDate=1" style="" width="1150" height="500" frameborder="0" scrolling="no"></iframe>
             </div>

@@ -172,16 +172,13 @@ GEM
     rb-inotify (0.10.1)
       ffi (~> 1.0)
     regexp_parser (2.1.1)
-<<<<<<< HEAD
+    responders (3.0.1)
+      actionpack (>= 5.0)
+      railties (>= 5.0)
     rqrcode (2.0.0)
       chunky_png (~> 1.0)
       rqrcode_core (~> 1.0)
     rqrcode_core (1.0.0)
-=======
-    responders (3.0.1)
-      actionpack (>= 5.0)
-      railties (>= 5.0)
->>>>>>> db834d852b2ef75d89c8e1cf319d48eb6b4deed7
     rubyzip (2.3.0)
     sass-rails (6.0.0)
       sassc-rails (~> 2.1, >= 2.1.1)

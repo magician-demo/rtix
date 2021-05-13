@@ -13,6 +13,7 @@
 
 # Architecture (機動性調整)
 ![image](https://user-images.githubusercontent.com/75147824/118145231-fae23480-b43f-11eb-90e8-b41363d3bbd6.png)
+圖示連結： https://whimsical.com/rtix-fc-0509-UXH11eyGThovE8BAmfA8dE
 
 
 # Version

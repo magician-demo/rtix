@@ -1,13 +1,18 @@
 <div class="flex justify-end mr-4">
-  <span class="close" data-controller="cart" data-action="click->cart#showCart" >購票清單</span>
+  <span class="close" data-controller="cart" data-action="click->cart#showCart" >購票清單(<%= @ticket_count%>)</span>
 </div>
+
 <div class="cart">
 <% seat.each do |s|%>
-  <ul>
-    <li>這是<%= s.id%>號位</li>
-    <li><%= s.area%></li>
-    <li><%= s.ticket.price%></li>
-  </ul>
+  <div class="bg-red-500 my-2 mx-2 rounded relative">
+    <span class="px-2"><%= s.area%><%= s.id%>號位</span><br>
+    <span class="px-2">$<%= s.ticket.price%></span>
+    <div class="absolute right-1 top-0 z-10 cursor-pointer" 
+         data-controller="cart"
+         data-action="click->cart#cancelled"
+         data-seat-id="<%= s.id%>"
+         >Ｘ</div>
+  </div>
 <% end %>
 </div>
 
@@ -17,7 +22,8 @@
 <div class="row">
   <% seats.each do |s| %>
       <div 
-          class="seat" 
+          class="seat
+          <%= 'selected' if seat_status(s.id) === 'selected' %>" 
           data-seat-id="<%= s.id%>" 
           data-controller="seat"
           data-action ="click->seat#addLineItem"

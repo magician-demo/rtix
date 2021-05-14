@@ -5,16 +5,18 @@ export default class extends Controller {
   showCart(){
     const cart = document.querySelector('.cart')
     cart.classList.toggle('showcart')
-  }
+  };
 
   cancelled(){
     let ax = axios.create()
     let token = document.querySelector('meta[name=csrf-token]').content
     ax.defaults.headers.common['X-CSRF-Token'] = token
-    const id = this.element.dataset['seatId']
-    ax.delete('http://localhost:3000/line_items',{seat_id: id})
+    const id = this.element.dataset['itemId']
+    ax.delete(`http://localhost:3000/line_items/${id}`)
     .then(res => {
-      console.log(res);
+      if(res.data['status'] === 'for_sale'){
+
+      }
     })
     .catch(err => {
       console.log(err);

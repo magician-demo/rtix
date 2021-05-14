@@ -15,8 +15,10 @@ export default class extends Controller {
     ax.delete(`http://localhost:3000/line_items/${id}`)
     .then(res => {
       if(res.data['status'] === 'for_sale'){
-
+        const seat = document.querySelector(`.seat:nth-of-type(${res.data['seat_id']})`)
+        seat.classList.remove('selected')
       }
+      this.element.parentElement.remove()
     })
     .catch(err => {
       console.log(err);

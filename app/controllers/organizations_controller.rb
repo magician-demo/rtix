@@ -21,16 +21,6 @@ class OrganizationsController < ApplicationController
     else
       render :new
     end
-
-    # respond_to do |format|
-    #   if @organization.save
-    #     format.html { redirect_to @organization, notice: "組織建立成功！" }
-    #     format.json { render :show, status: :created, location: @organization }
-    #   else
-    #     format.html { render :new, status: :unprocessable_entity }
-    #     format.json { render json: @organization.errors, status: :unprocessable_entity }
-    #   end
-    # end
   end
 
   def update
@@ -55,6 +45,6 @@ class OrganizationsController < ApplicationController
     end
 
     def organization_params
-      params.require(:organization).permit(:title, :descraption)
+      params.require(:organization).permit(:title, :description)
     end
 end

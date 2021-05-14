@@ -20,24 +20,15 @@ class LineItemsController < ApplicationController
   def destroy
     line_item = LineItem.find(params[:id])
     seat = line_item.seat
+    id = line_item.seat.id
     ticket = seat.ticket
     if line_item.destroy
       seat.update(status: 'for_sale')
       ticket.amount += 1
       ticket.save
-      render json: {status: 'for_sale'}
+      render json: {status: 'for_sale', seat_id: id}
     else
       render json: {status: 'error'}
     end
-    # seat = Seat.find(params[:seat_id])
-    # ticket = seat.ticket
-    # if user_cart.line_items.find_by(seat_id: params[:seat_id]).destroy
-    #   ticket.amount += 1
-    #   ticket.save
-    #   seat.update(status: 'for_sale')
-    #   render json: {status: 'for_sale'}
-    # else
-    #   render json: {status: 'error'}
-    # end
   end
 end

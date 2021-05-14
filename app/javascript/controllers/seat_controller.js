@@ -1,9 +1,12 @@
 import { Controller } from "stimulus"
 import axios from 'axios'
 
+
 export default class extends Controller {
+  
   addLineItem(){
     let count = document.getElementById('ticket_count')
+    const cart = document.querySelector('.showcart')
     let ax = axios.create()
     let token = document.querySelector('meta[name=csrf-token]').content
     const id = this.element.dataset['seatId']

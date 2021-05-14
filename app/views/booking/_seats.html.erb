@@ -10,11 +10,17 @@
   </ul>
 <% end %>
 </div>
+
+<%# 分隔線 %>
+
+
 <div class="row">
   <% seats.each do |s| %>
-      <div class="seat" data-seat-id="<%= s.id%>" 
-           data-controller="seat"
-           data-action ="click->seat#addLineItem"
-           ><%= s.id%></div>
+      <div 
+          class="seat" 
+          data-seat-id="<%= s.id%>" 
+          data-controller="seat"
+          data-action ="click->seat#addLineItem"
+      ></div>
   <% end %>
 </div>

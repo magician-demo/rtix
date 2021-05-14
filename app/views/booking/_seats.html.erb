@@ -1,5 +1,7 @@
 <div class="flex justify-end mr-4">
-  <span class="close" data-controller="cart" data-action="click->cart#showCart" >購票清單(<%= @ticket_count%>)</span>
+  <span class="close" data-controller="cart" data-action="click->cart#showCart" >
+    購票清單(<span id="ticket_count"><%= @ticket_count%></span>)
+  </span>
 </div>
 
 <div class="cart">

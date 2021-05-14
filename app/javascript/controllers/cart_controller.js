@@ -8,6 +8,7 @@ export default class extends Controller {
   };
 
   cancelled(){
+    let count = document.getElementById('ticket_count')
     let ax = axios.create()
     let token = document.querySelector('meta[name=csrf-token]').content
     ax.defaults.headers.common['X-CSRF-Token'] = token
@@ -17,6 +18,7 @@ export default class extends Controller {
       if(res.data['status'] === 'for_sale'){
         const seat = document.querySelector(`.seat:nth-of-type(${res.data['seat_id']})`)
         seat.classList.remove('selected')
+        count.innerHTML = Number(count.textContent) - 1
       }
       this.element.parentElement.remove()
     })

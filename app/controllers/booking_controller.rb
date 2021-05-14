@@ -6,13 +6,8 @@ class BookingController < ApplicationController
 
   def show
     @ticket = current_event.tickets.find(params[:id])
-    @seats = current_event.tickets.find(params[:id]).seats
+    @seats = current_event.tickets.find(params[:id]).seats.sort_by{ |seat| seat.id}
     @seat = current_user.cart.seats
-  end
-
-
-  private
-  def current_event
-    @event = Event.find(params[:event_id])
+    @ticket_count = current_user.cart.seats.count
   end
 end

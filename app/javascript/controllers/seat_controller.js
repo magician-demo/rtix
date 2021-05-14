@@ -9,7 +9,9 @@ export default class extends Controller {
     ax.defaults.headers.common['X-CSRF-Token'] = token
     ax.post('http://localhost:3000/line_items',{seat_id: id})
       .then(res =>{
-        console.log(res);
+        if(res.data['status'] === 'selected'){
+          this.element.classList.add('selected')
+        }
       })
       .catch(err =>{
         console.log(err);

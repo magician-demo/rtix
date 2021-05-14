@@ -1,0 +1,20 @@
+<div class="flex justify-end mr-4">
+  <span class="close" data-controller="cart" data-action="click->cart#showCart" >購票清單</span>
+</div>
+<div class="cart">
+<% seat.each do |s|%>
+  <ul>
+    <li>這是<%= s.id%>號位</li>
+    <li><%= s.area%></li>
+    <li><%= s.ticket.price%></li>
+  </ul>
+<% end %>
+</div>
+<div class="row">
+  <% seats.each do |s| %>
+      <div class="seat" data-seat-id="<%= s.id%>" 
+           data-controller="seat"
+           data-action ="click->seat#addLineItem"
+           ><%= s.id%></div>
+  <% end %>
+</div>

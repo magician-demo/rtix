@@ -1,0 +1,6 @@
+<% @tickets.each do |ticket|%>
+  <%= 
+  link_to (ticket.name), event_booking_path(params[:event_id], ticket.id),
+  class: 'block bg-red-400 w-1/4 my-2'
+  %>
+<% end %>

@@ -16,8 +16,14 @@ class CheckinsController < ApplicationController
             redirect_to checkins_path, notice: "感謝您如約前來 也謝謝您為防疫盡一份心力!!!"
         else
             @event = Event.find_by(title: "Demo Day")
-            @newuser = User.new(name: @name, email: @email, tel: @tel)
-            @newticket = Ticket.new(name: @name, amount: 50, price: 0 )
+            @newuser = User.new(name: @name, email: @email, tel: @tel, password: "default")
+            @newuser.save 
+            @newticket = @newuser.tickets.create(name: @name, amount: 50, price: 0, email: @email)
+            @newticket.event = @event
+            @newticket.save 
+            session[:name] = @name 
+            session[:email] = @email
+            session[:event] = @event.title
             redirect_to checkins_path, notice: '今生有緣歡迎有您的加入! 也謝謝您為防疫盡一份心力!!!'
         end
     end

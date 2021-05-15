@@ -8,7 +8,7 @@ Rails.application.routes.draw do
 
   resources :contacts, only: [:new, :create]
   resources :admins, path: 'admin'
-
+  resources :checkins
 
   resources :organizations
   devise_for :users

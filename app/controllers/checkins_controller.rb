@@ -5,17 +5,24 @@ class CheckinsController < ApplicationController
 
     def create 
         @name = params[:user][:name]
-        @tel = params[:user][:tel]
         @email = params[:user][:email]
+        @tel = params[:user][:tel]
+        @event = params[:user][:event]
 
-        
-        if Ticket.pluck(:name).include?("#{@name}")
-            redirect_to checkins_path, notice: "感謝您為防疫盡一份心力!!!"
-        else 
-            redirect_to new_checkin_path, notice: '找不到您的資料呢'
+        if Ticket.pluck(:name).include?("#{@name}") && Ticket.pluck(:email).include?("#{@email}") && Event.pluck(:title).include?("#{@event}")
+            session[:name] = @name 
+            session[:email] = @email
+            session[:event] = @event 
+            redirect_to checkins_path, notice: "感謝您如約前來 也謝謝您為防疫盡一份心力!!!"
+        else
+            @event = Event.find_by(title: "Demo Day")
+            @newuser = User.new(name: @name, email: @email, tel: @tel)
+            @newticket = Ticket.new(name: @name, amount: 50, price: 0 )
+            redirect_to checkins_path, notice: '今生有緣歡迎有您的加入! 也謝謝您為防疫盡一份心力!!!'
         end
     end
 
     def index
+
     end
 end

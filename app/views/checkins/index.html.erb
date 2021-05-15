@@ -1,2 +1,10 @@
 <%= notice %>
-<h1></h1>
+<h1>入場憑證</h1>
+<p>入場時, 請出示此憑證予現場人員, 謝謝!</p>
+<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Id ad distinctio nihil eius quae quod minima molestias consequuntur rerum, vitae itaque, doloremque suscipit cum quos sit est hic aliquam </p> <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci cupiditate natus tempora a? Dolor suscipit vitae tenetur delectus alias dolore rem molestiae architecto doloremque quod nostrum ea cumque doloribus mollitia magnam, explicabo labore repellendus esse in nemo? Pariatur nihil doloribus minus alias! Labore, itaque! Earum harum dicta expedita ab sed!</p>
+
+<h2>Hi <%=session[:name] %>, 歡迎您的到來!</h2>
+<h3><%= session[:event] %> 有您的參與, 蓬蓽生輝 ! </h3>
+<br>
+<%= qr_gen(session[:name],session[:email], session[:event]) %> 
+

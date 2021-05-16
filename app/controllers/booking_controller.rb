@@ -1,7 +1,7 @@
 class BookingController < ApplicationController
   before_action :authenticate_user!
   def index
-      @tickets = current_event.tickets.sort_by{ |ticket| ticket.id}
+    @tickets = current_event.tickets.sort_by{ |ticket| ticket.id}
   end
 
   def show

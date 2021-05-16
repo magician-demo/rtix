@@ -8,6 +8,7 @@ export default class extends Controller {
   addLineItem(){
     let count = document.getElementById('ticket_count')
     const cart = document.querySelector('.cart')
+    let total_price = document.querySelector('.cart_total_price')
     let ax = axios.create()
     let token = document.querySelector('meta[name=csrf-token]').content
     const id = this.element.dataset['seatId']
@@ -16,6 +17,7 @@ export default class extends Controller {
       .then(res =>{
         count.innerHTML = Number(count.textContent) + 1
         cart.prepend(addList(res.data['area'], res.data['id'], res.data['price'], res.data['itemId']))
+        total_price.innerHTML = `票券總價：$${res.data['total_price']}`
       })
       .catch(err =>{
         console.log(err);

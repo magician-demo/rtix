@@ -10,7 +10,7 @@ class LineItemsController < ApplicationController
       ticket.amount -= 1
       ticket.save
       seat.update(status: 'selected')
-      render json: {status: 'selected', area: seat.area, id: seat.id, price: seat.ticket.price, itemId: line_item.id}
+      render json: {area: seat.area, id: seat.id, price: seat.ticket.price, itemId: line_item.id}
     else
       render json: {status: 'error'}
     end
@@ -20,13 +20,11 @@ class LineItemsController < ApplicationController
   def destroy
     line_item = LineItem.find(params[:id])
     seat = line_item.seat
-    id = line_item.seat.id
     ticket = seat.ticket
     if line_item.destroy
       seat.update(status: 'for_sale')
       ticket.amount += 1
       ticket.save
-      render json: {status: 'for_sale', seat_id: id}
     else
       render json: {status: 'error'}
     end

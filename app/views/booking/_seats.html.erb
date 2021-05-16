@@ -1,27 +1,3 @@
-<div class="flex justify-end bg-red-500">
-  <span class="px-2 py-2 text-white cursor-pointer" data-controller="cart" data-action="click->cart#showCart" >
-    購票清單(<span id="ticket_count"><%= @ticket_count%></span>)
-  </span>
-</div>
-
-<div class="cart" id="cart">
-<% seat.each do |s|%>
-  <div class="cart_list">
-    <span class="px-2"><%= s.area%><%= s.id%>號位</span><br>
-    <span class="px-2">$<%= s.ticket.price%></span>
-    <div class="remove_btn" 
-         data-controller="cart"
-         data-action="click->cart#cancelled"
-         data-item-id="<%= s.line_item.id%>"
-         >Ｘ</div>
-  </div>
-<% end %>
-  <div class="cart_submit_btn">
-    Submit!
-  </div>
-</div>
-<%# 分隔線 %>
-
 <div class="row">
   <% seats.each do |s| %>
       <div 

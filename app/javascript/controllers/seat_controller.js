@@ -14,10 +14,8 @@ export default class extends Controller {
     ax.defaults.headers.common['X-CSRF-Token'] = token
     ax.post('http://localhost:3000/line_items',{seat_id: id})
       .then(res =>{
-        if(res.data['status'] === 'selected'){
-          count.innerHTML = Number(count.textContent) + 1
-          cart.prepend(addList(res.data['area'], res.data['id'], res.data['price'], res.data['itemId']))
-        }
+        count.innerHTML = Number(count.textContent) + 1
+        cart.prepend(addList(res.data['area'], res.data['id'], res.data['price'], res.data['itemId']))
       })
       .catch(err =>{
         console.log(err);

@@ -1,5 +1,6 @@
 import { Controller } from "stimulus"
 import axios from 'axios'
+import consumer from "../channels/consumer"
 
 
 export default class extends Controller {
@@ -14,7 +15,6 @@ export default class extends Controller {
     ax.post('http://localhost:3000/line_items',{seat_id: id})
       .then(res =>{
         if(res.data['status'] === 'selected'){
-          this.element.classList.add('selected')
           count.innerHTML = Number(count.textContent) + 1
           cart.prepend(addList(res.data['area'], res.data['id'], res.data['price'], res.data['itemId']))
         }
@@ -22,6 +22,23 @@ export default class extends Controller {
       .catch(err =>{
         console.log(err);
       })
+  }
+  connect(){
+    this.channel = consumer.subscriptions.create({channel: 'SeatStatusChannel', seat_id: this.element.dataset['seatId']},{
+      connected: this._cableConnected.bind(this),
+      disconnected: this._cableDisconnected.bind(this),
+      received: this._cableReceived.bind(this)
+    })
+  }
+  _cableConnected(){
+  }
+  _cableDisconnected(){
+  }
+  _cableReceived(data){
+    const seat = document.querySelector(`[data-seat-id='${data.id}']`)
+    if(data.message === 'changed!'){
+      seat.classList.toggle('selected')
+    }
   }
 }
 

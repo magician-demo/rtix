@@ -6,23 +6,21 @@
 
 <div class="cart" id="cart">
 <% seat.each do |s|%>
-  <div class="bg-red-500 my-2 mx-2 rounded relative py-2">
+  <div class="cart_list">
     <span class="px-2"><%= s.area%><%= s.id%>號位</span><br>
     <span class="px-2">$<%= s.ticket.price%></span>
-    <div class="absolute right-1 top-0 z-10 cursor-pointer" 
+    <div class="remove_btn" 
          data-controller="cart"
          data-action="click->cart#cancelled"
          data-item-id="<%= s.line_item.id%>"
          >Ｘ</div>
   </div>
 <% end %>
-  <div class="bg-red-500 rounded w-1/3 my-2 cursor-pointer mx-auto text-white text-center">
+  <div class="cart_submit_btn">
     Submit!
   </div>
 </div>
-
 <%# 分隔線 %>
-
 
 <div class="row">
   <% seats.each do |s| %>

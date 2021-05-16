@@ -1,6 +1,7 @@
 <% @tickets.each do |ticket|%>
-  <%= 
-  link_to (ticket.name), event_booking_path(params[:event_id], ticket.id),
-  class: 'block bg-red-400 w-1/4 my-2'
-  %>
+
+  <div class="block bg-red-400 w-1/4 my-2">
+    <%=link_to (ticket.name), event_booking_path(params[:event_id], ticket.id), class:'block'%>
+    <%=link_to '$'+ticket.price.to_s, event_booking_path(params[:event_id], ticket.id), class:'block'%>
+  </div>
 <% end %>

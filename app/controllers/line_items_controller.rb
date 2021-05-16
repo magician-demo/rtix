@@ -10,7 +10,7 @@ class LineItemsController < ApplicationController
       ticket.amount -= 1
       ticket.save
       seat.update(status: 'selected')
-      render json: {status: 'selected'}
+      render json: {status: 'selected', area: seat.area, id: seat.id, price: seat.ticket.price, itemId: line_item.id}
     else
       render json: {status: 'error'}
     end

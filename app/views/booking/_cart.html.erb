@@ -2,7 +2,7 @@
 <% seat.each do |s|%>
   <div class="cart_list">
     <span class="px-2"><%= s.area%><%= s.id%>號位</span><br>
-    <span class="px-2">$<%= s.ticket.price%></span>
+    <span class="px-2 price">$<%= s.ticket.price%></span>
     <div class="remove_btn" 
          data-controller="cart"
          data-action="click->cart#cancelled"
@@ -10,6 +10,9 @@
          >Ｘ</div>
   </div>
 <% end %>
+  <div class="cart_total_price">
+    票券總價：$<%= price%>
+  </div>
   <div class="cart_submit_btn">
     Submit!
   </div>

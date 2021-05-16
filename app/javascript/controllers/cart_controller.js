@@ -8,6 +8,7 @@ export default class extends Controller {
   };
 
   cancelled(){
+    let total_price = document.querySelector('.cart_total_price')
     let count = document.getElementById('ticket_count')
     let ax = axios.create()
     let token = document.querySelector('meta[name=csrf-token]').content
@@ -17,6 +18,7 @@ export default class extends Controller {
     .then(res => {
       this.element.parentElement.remove()
       count.innerHTML = Number(count.textContent) - 1
+      total_price.innerHTML = `票券總價：$${res.data['total_price']}`
     })
     .catch(err => {
       console.log(err);

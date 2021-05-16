@@ -16,7 +16,7 @@ export default class extends Controller {
     ax.delete(`http://localhost:3000/line_items/${id}`)
     .then(res => {
       if(res.data['status'] === 'for_sale'){
-        const seat = document.querySelector(`.seat:nth-of-type(${res.data['seat_id']})`)
+        const seat = document.querySelector(`[data-seat-id='${res.data['seat_id']}']`)
         seat.classList.remove('selected')
         count.innerHTML = Number(count.textContent) - 1
       }

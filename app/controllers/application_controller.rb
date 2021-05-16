@@ -1,7 +1,11 @@
 class ApplicationController < ActionController::Base
   helper_method :seat_status
   def user_cart
-    current_user.cart
+    if current_user.cart
+      current_user.cart
+    else
+      Cart.new(user_id: current_user.id)
+    end
   end
 
   def current_event

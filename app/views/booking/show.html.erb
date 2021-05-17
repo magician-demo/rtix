@@ -1,7 +1,11 @@
 <div class="flex justify-between bg-red-500">
-  <span class="px-2 py-2 text-white cursor-pointer left-0">
-    <%= link_to '取消購票', line_items_empty_path, data:{confirm: '確定要取消購票嗎？將會清空購票清單！'}%>
+  <span class="px-2 py-2 text-white cursor-pointer">
+    <%= link_to '取消購票 ｜', line_items_empty_path, data:{confirm: '確定要取消購票嗎？將會清空購票清單！'}%>
+    <%= link_to '上一頁', event_booking_index_path(params[:event_id])%>
   </span>
+  <span class="count_down px-2 py-2 text-white cursor-pointer"
+        data-controller="timer"
+  ><%= @count_down%></span>
   <span class="px-2 py-2 text-white cursor-pointer" data-controller="cart" data-action="click->cart#showCart" >
     購票清單(<span id="ticket_count"><%= @ticket_count%></span>)
   </span>

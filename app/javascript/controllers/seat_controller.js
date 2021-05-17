@@ -2,7 +2,6 @@ import { Controller } from "stimulus"
 import axios from 'axios'
 import consumer from "../channels/consumer"
 
-
 export default class extends Controller {
   
   addLineItem(){
@@ -20,7 +19,7 @@ export default class extends Controller {
         total_price.innerHTML = `票券總價：$${res.data['total_price']}`
       })
       .catch(err =>{
-        console.log(err);
+        console.log(err.response.data);
       })
   }
   connect(){

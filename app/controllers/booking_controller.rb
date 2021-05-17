@@ -2,6 +2,9 @@ class BookingController < ApplicationController
   before_action :authenticate_user!
   def index
     @tickets = current_event.tickets.sort_by{ |ticket| ticket.id}
+    @ticket_count = user_cart.seats.count
+    @seat = user_cart.seats
+    @total_price = total_price
   end
 
   def show

@@ -15,6 +15,11 @@
   </div>
 
   <div class="field">
+    <%= form.label :組織網址 %>
+    <%= form.text_field :domain_name %>
+  </div>
+
+  <div class="field">
     <%= form.label :組織簡介 %>
     <br>
     <%= form.text_area :description, placeholder: '介紹一下組織' %>

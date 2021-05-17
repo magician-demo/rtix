@@ -12,7 +12,8 @@ export default class extends Controller {
     let token = document.querySelector('meta[name=csrf-token]').content
     const id = this.element.dataset['seatId']
     ax.defaults.headers.common['X-CSRF-Token'] = token
-    ax.post('http://localhost:3000/line_items',{seat_id: id})
+    // ax.post('http://localhost:3000/line_items',{seat_id: id})
+    ax.post('/line_items',{seat_id: id})
       .then(res =>{
         count.innerHTML = Number(count.textContent) + 1
         cart.prepend(addList(res.data['area'], res.data['id'], res.data['price'], res.data['itemId']))

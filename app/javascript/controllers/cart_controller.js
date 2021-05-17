@@ -2,6 +2,7 @@ import { Controller } from "stimulus"
 import axios from 'axios'
 
 export default class extends Controller {
+
   showCart(){
     const cart = document.querySelector('.cart')
     cart.classList.toggle('showcart')
@@ -19,10 +20,13 @@ export default class extends Controller {
       this.element.parentElement.remove()
       count.innerHTML = Number(count.textContent) - 1
       total_price.innerHTML = `票券總價：$${res.data['total_price']}`
-      console.log(res);
+      if(cart.innerHTML.length <= 180){
+        cart.classList.remove('showcart')
+      }
     })
     .catch(err => {
       console.log(err);
     })
   }
 }
+

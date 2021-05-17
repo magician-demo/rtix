@@ -14,5 +14,10 @@
   <%= @organization.user_id %>
 </div>
 
+<div>
+  <div>網址:</div>
+  <%= @organization.domain_name %>
+</div>
+
 <%= link_to '編輯', edit_organization_path(@organization) %> |
 <%= link_to '上一頁', organizations_path %>

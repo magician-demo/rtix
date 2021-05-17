@@ -41,10 +41,10 @@ class OrganizationsController < ApplicationController
 
   private
     def find_organization
-      @organization = current_user.organizations.find(params[:id])
+      @organization = current_user.organizations.friendly.find(params[:id])
     end
 
     def organization_params
-      params.require(:organization).permit(:title, :description)
+      params.require(:organization).permit(:title, :description, :domain_name)
     end
 end

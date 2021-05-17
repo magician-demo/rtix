@@ -5,5 +5,6 @@ Rails.application.routes.draw do
     resources :booking, only: [:index, :show]
   end
   resources :line_items, only: [:create, :destroy]
+  get '/line_items/empty', to: 'line_items#empty_cart'
   root "events#index"
 end

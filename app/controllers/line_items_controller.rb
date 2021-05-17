@@ -11,6 +11,7 @@ class LineItemsController < ApplicationController
       ticket.save
       seat.update(status: 'selected')
       render json: {area: seat.area, id: seat.id, price: seat.ticket.price, itemId: line_item.id, total_price: total_price}
+      response.headers['Access-Control-Allow-Origin'] = '*'
     else
       render json: {status: 'error'}
     end
@@ -26,8 +27,21 @@ class LineItemsController < ApplicationController
       ticket.amount += 1
       ticket.save
       render json: {total_price: total_price}
+      response.headers['Access-Control-Allow-Origin'] = '*'
     else
       render json: {status: 'error'}
     end
+  end
+
+
+  def empty_cart
+    line_items = user_cart.line_items
+    line_items.each do |l|
+        l.seat.update(status: 'for_sale')
+        l.seat.ticket.amount += 1
+        l.seat.ticket.save
+        l.destroy
+      end
+    redirect_to events_path
   end
 end

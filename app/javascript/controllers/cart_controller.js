@@ -19,6 +19,7 @@ export default class extends Controller {
       this.element.parentElement.remove()
       count.innerHTML = Number(count.textContent) - 1
       total_price.innerHTML = `票券總價：$${res.data['total_price']}`
+      console.log(res);
     })
     .catch(err => {
       console.log(err);

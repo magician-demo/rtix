@@ -6,12 +6,12 @@ Ticket.create(
   name: '豪華票',
   price: '1900',
   amount: '250',
-  event_id: Event.first.id
+  event_id: 1
 )
 250.times do
   Seat.create(
     area: 'A區',
-    ticket_id: Ticket.first.id,
+    ticket_id: 1,
     status: 'for_sale'
   )
 end

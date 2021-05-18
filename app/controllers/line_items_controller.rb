@@ -33,15 +33,14 @@ class LineItemsController < ApplicationController
     end
   end
 
-
   def empty_cart
-    line_items = user_cart.line_items
-    line_items.each do |l|
-        l.seat.update(status: 'for_sale')
-        l.seat.ticket.amount += 1
-        l.seat.ticket.save
-        l.destroy
-      end
-    redirect_to events_path
+    redirect_to event_path(user_cart.seats.first.ticket.id)
+    seats = user_cart.seats
+    seats.update(status: 'for_sale')
+    seats.each do |s|
+      s.ticket.amount += 1
+      s.ticket.save
+    end
+    user_cart.line_items.destroy_all
   end
 end

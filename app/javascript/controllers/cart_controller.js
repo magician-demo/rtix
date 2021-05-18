@@ -15,7 +15,7 @@ export default class extends Controller {
     let token = document.querySelector('meta[name=csrf-token]').content
     ax.defaults.headers.common['X-CSRF-Token'] = token
     const id = this.element.dataset['itemId']
-    ax.delete(`http://localhost:3000/line_items/${id}`)
+    ax.delete(`/line_items/${id}`)
     .then(res => {
       this.element.parentElement.remove()
       count.innerHTML = Number(count.textContent) - 1

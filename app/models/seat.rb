@@ -4,9 +4,6 @@ class Seat < ApplicationRecord
   after_commit :broadcast_me
 
   def broadcast_me
-    ActionCable.server.broadcast "SeatStatusChannel:#{id}",{
-      message: 'changed!',
-      id: id
-    }
+    ActionCable.server.broadcast "SeatStatusChannel:#{id}",{message: 'changed!',id: id}
   end
 end

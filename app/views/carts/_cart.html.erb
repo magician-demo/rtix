@@ -1,13 +1,19 @@
 <div class="showCart" id="cart">
 <% seat.each do |s|%>
   <div class="cart_list">
-    <span class="px-2"><%= s.area%><%= s.id%>號位</span><br>
-    <span class="px-2 price">$<%= s.ticket.price%></span>
+    <div class="order-detail px-3 flex space-x-1 border-b-2 border-black p-2">
+    <div class="item-name w-2/12"><%= s.area%><%= s.id%>號位</div>
+    <div class="item-name w-2/12">$<%= s.ticket.price%></div>
+
+    <%# <span class="px-2"><%= s.area%><%= s.id%>號位</span><br> %>
+    <%# <span class="px-2 price">$<%= s.ticket.price%></span> %>
     <div class="remove_btn" 
          data-controller="cart"
          data-action="click->cart#cancelled"
          data-item-id="<%= s.line_item.id%>"
          >Ｘ</div>
+    
+    </div>
   </div>
 <% end %>
   <div class="cart_total_price">

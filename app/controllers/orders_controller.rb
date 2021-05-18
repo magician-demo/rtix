@@ -28,7 +28,7 @@ class OrdersController < ApplicationController
     #   )
     #   price = current_user.cart.seats[s].ticket.price
     # end
-    
+    @order.itemList = current_user.cart.seats
     @order.totalAmount = total_price
     @order.serial
     @order.save

@@ -40,7 +40,7 @@ export default class extends Controller {
     let location = $('.address').text();
 
     window.open(`https://www.google.com/calendar/render?action=TEMPLATE&sf=true&output=xml&text=${event}&location=${location}&dates=${stime}/${etime}`, '_blank').focus();
-    
   }
+
 
 }

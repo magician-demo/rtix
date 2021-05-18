@@ -1,4 +1,4 @@
-<div class="cart" id="cart">
+<div class="showCart" id="cart">
 <% seat.each do |s|%>
   <div class="cart_list">
     <span class="px-2"><%= s.area%><%= s.id%>號位</span><br>
@@ -13,8 +13,5 @@
   <div class="cart_total_price">
     票券總價：$<%= price%>
   </div>
-  <div class="cart_submit_btn">
-    <%# Submit! %>
-    <%= link_to "結帳！", cart_path, class: "cart_submit_btn" %>
-  </div>
+  
 </div>

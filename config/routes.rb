@@ -15,5 +15,7 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :orders, only: [:show, :create]
+  delete "/carts/empty", to: 'carts#empty_cart'
+
+  resources :orders, only: [:show]
 end

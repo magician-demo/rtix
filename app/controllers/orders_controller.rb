@@ -6,20 +6,30 @@ class OrdersController < ApplicationController
 
   def show
     # @order = Order.find(params[:id])
+    @price = total_price
+    @area = seats_area
+    
   end
 
+  def seats_area
+    seats = user_cart.seats
+    seats.each do |s|
+      s.find(params[:id])
+    end
+  end
   
-  # current_user.cart
+  
+
   def create
     @order = Order.new(user_id: current_user.id)
     # @order = current_user.Orders.new(order_params)
-    price = 0
-    current_cart.line_items.each do |item|
+   
+    current_user.cart.line_items.each do |item|
       @order.order_items.new(
-        seat_id: item.seat.id, 
-        # quantity: item.quantity,
+        seat_id: current_user.cart.seat.id, 
+        quantity: current_user.cart.seats.count
       )
-      # price += item.seat.ticket.price*item.quantity
+      price = total_price
     end
     @order.totalAmount = price
     @order.serial

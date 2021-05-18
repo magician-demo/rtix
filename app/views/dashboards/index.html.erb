@@ -7,15 +7,16 @@
         </div>
         <div data-myorder-target="content">
             <h2 class="mt-5 w-10/12 m-auto font-mono text-4xl pl-4">我的票券</h2>
-            <%= render @events %>
-        
+            <div><%= render @tickets %></div>
         </div>
 
-        <div class="clearfix" style="clear:both;"></div>
 
+        <div class="clearfix" style="clear:both;"></div>
         <div class="recommended">
-            <h2 class="mt-5 w-10/12 m-auto font-mono text-4xl border-black">推薦活動</h2>
+            <h2 class="mt-5 w-10/12 m-auto font-mono text-4xl border-b-2 border-grey-500">精選活動</h2>
+            <!-- FIXME: The scrollbar should be horizontal. -->
             <div class="scroll overflow-x-scroll h-96">
+            <!-- FIXME: link_to in Hotwire behaves weirdly. -->
                 <%= turbo_stream_from "events" %>
                 <%= turbo_frame_tag "events" do %>
                     <%= render @events %>
@@ -30,100 +31,13 @@
 
 
 
-
-
-
-
-
-<!-- <template id="ticketview">
-    <h2 class="mt-5 w-10/12 m-auto font-mono text-3xl pl-4">我的票券</h2>
-    <div class="ticket">
-        <table class="mt-12 w-10/12 font-mono m-auto">
-            <thead class="border-b-2 border-grey-500">
-                <tr class="bg-gradient-to-r from-yellow-400 via-red-500 to-pink-500 text-white">
-                    <th>活動名稱</th>
-                    <th>活動舉辦時間 & 地點</th>
-                    <th>張數</th>
-                    <th>匯入我的行事曆</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td class="p-2 text-center"><span class="event">5xRuby Demo Day</span></td>
-                    <td class="calendarinfo p-2 text-center">
-                        <span class="font-bold">From:</span> <span class="syear">2021</span>/<span class="smonth">05</span>/<span class="sdate">12</span> @ <span class="stime">0500</span><br>
-                        <span class="font-bold">To:</span> <span class="eyear">2021</span>/<span class="emonth">05</span>/<span class="edate">12</span> @ <span class="etime">0700</span><br>
-                        <span class="font-bold">Location:</span> <span class="address">Taipei City</span> 
-                    </td>
-                    <td class="p-2 text-center">1</td>
-                    <td class="p-2 text-center"><a href="" class="block rounded-lg font-bold font-mono text-sm hover:text-blue-700" data-action="click->myorder#import">Google Calendar</a></td>
-                </tr>
-                <tr>
-                    <td colspan="3">
-                        <%=link_to "票券資料", mockup_path, class: "p-1 border-2 border-grey-500 mx-2 hover:bg-red-100" %>     <%= link_to '聯絡主辦單位', new_contact_path, class: "p-1 border-2 border-grey-500 mx-2 hover:bg-red-100" %> <a href="" class="p-1 border-2 border-grey-500 mx-2 hover:bg-red-100">活動頁面</a>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
-    <h2 class="mt-20 w-10/12 m-auto text-left font-mono text-lg pl-4 border-2 bg-gradient-to-r from-yellow-400 via-red-500 to-pink-500 font-bold text-white" >RTIX活動行事曆  <button><i id="dropdown" class="far fa-calendar-alt" data-action="click->myorder#calendartoggle"></i></button></h2> 
-    <div id="calendar" class="mt-5 w-10/12 m-auto font-mono pl-4 hidden">
-        <iframe src="https://calendar.google.com/calendar/embed?height=600&amp;wkst=1&amp;bgcolor=%238E24AA&amp;ctz=Asia%2FTaipei&amp;src=cnRpeHhydWJ5MUBnbWFpbC5jb20&amp;src=YWRkcmVzc2Jvb2sjY29udGFjdHNAZ3JvdXAudi5jYWxlbmRhci5nb29nbGUuY29t&amp;src=ZW4udGFpd2FuI2hvbGlkYXlAZ3JvdXAudi5jYWxlbmRhci5nb29nbGUuY29t&amp;color=%23039BE5&amp;color=%2333B679&amp;color=%230B8043&amp;showTitle=0&amp;showPrint=0&amp;showTabs=1&amp;showCalendars=0&amp;showDate=1" style="" width="1150" height="500" frameborder="0" scrolling="no"></iframe>
-    </div>
-    <div class="recommended mt-20 w-10/12 m-auto font-mono pl-4">
-        <h2 class="text-3xl">推薦活動</h2>
-        <ul class="flex justify-between">
-            <li class="text-center">
-                <img src="https://picsum.photos/250/200" alt="">
-                <h3>Activity Name</h3>
-                <p>date & time</p>
-            </li>
-            <li class="text-center">
-                <img src="https://picsum.photos/250/200" alt="">
-                <h3>Activity Name</h3>
-                <p>date & time</p>
-            </li>
-            <li class="text-center">
-                <img src="https://picsum.photos/250/200" alt="">
-                <h3>Activity Name</h3>
-                <p>date & time</p>
-            </li>
-            <li class="text-center">
-                <img src="https://picsum.photos/250/200" alt="">
-                <h3>Activity Name</h3>
-                <p>date & time</p>
-            </li>
-        </ul>
-    </div>
+<template id="ticketview">
+    <h2 class="mt-5 w-10/12 m-auto font-mono text-4xl pl-4">我的票券</h2>
+    <div><%= render @tickets %></div>
 </template>
-    
+
+
 <template id="hostview">
-    <h2 class="mt-5 w-10/12 m-auto  font-mono text-3xl pl-4">所舉辦的活動</h2>
-    <ul class="mt-5 w-10/12 m-auto font-mono pl-4">
-        <li class="text-center float-left mx-5">
-            <img src="https://picsum.photos/250/200" alt="">
-            <h3>Activity Name</h3>
-            <p>date & time</p>
-        </li>
-        <li class="text-center float-left mx-5">
-            <img src="https://picsum.photos/250/200" alt="">
-            <h3>Activity Name</h3>
-            <p>date & time</p>
-        </li>
-        <li class="text-center float-left mx-5">
-            <img src="https://picsum.photos/250/200" alt="">
-            <h3>Activity Name</h3>
-            <p>date & time</p>
-        </li>
-        <li class="text-center float-left mx-5">
-            <img src="https://picsum.photos/250/200" alt="">
-            <h3>Activity Name</h3>
-            <p>date & time</p>
-        </li>
-        <li class="text-center float-left mx-5">
-            <img src="https://picsum.photos/250/200" alt="">
-            <h3>Activity Name</h3>
-            <p>date & time</p>
-        </li>
-    </ul>
-</template> -->
+    <h2 class="mt-5 w-10/12 m-auto font-mono text-4xl pl-4">舉辦的活動</h2>
+    <div><%= render "dashboards/host" %></div>
+</template>

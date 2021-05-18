@@ -1,7 +1,7 @@
 module ApplicationHelper
-    def qr_gen(event, name, id)
+    def qr_gen(name, email, event)
         require 'rqrcode'
-        qrcode = RQRCode::QRCode.new("#{event} - #{name} - #{id}")
+        qrcode = RQRCode::QRCode.new("#{name} - #{email} - #{event}")
         svg = qrcode.as_svg(
         offset: 0,
         color: '000',

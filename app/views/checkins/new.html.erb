@@ -1,0 +1,50 @@
+<%= notice %>
+<div class="wrapper text-center">
+    <div class="header bg-gradient-to-r from-red-500 via-red-600 to-red-700 text-base font-mono flex justify-between text-white">
+        <div class="left flex justify-between ml-40">
+            <div class="logo p-3"><a href="">RTIX</a></div>
+            <div class="myticket"><%=link_to "我的票券", dashboards_path, class: "block font-mono p-3 hover:text-red-100" %></div>
+            <div class="explore"><a href="" class="block font-mono p-3 hover:text-red-100">探索活動</a></div>
+            <div class="search"><a href="" class="block font-mono p-3 hover:text-red-100">搜尋活動</a></div>
+        </div>
+        <div class="right flex justify-between mr-40">
+            <div class="create"><a href="" class="block font-mono p-3 hover:text-red-100">建立活動</a></div>
+            <div class="org"><a href="" class="block font-mono p-3 hover:text-red-100">選擇組織</a></div>
+            <div class="account"><a href="" class="block font-mono p-3 hover:text-red-100">建立帳號</a></div>
+        </div>
+    </div>
+    <h1 class="text-5xl font-mono text-center font-bold m-10">因應COVID-19防疫新生活運動實聯制登記表</h1>
+    <ul class="m-auto text-left w-2/3 border-2 my-12">
+        <li>1.為維持國內疫情之穩定控制，本場所配合政府「COVID19（武漢肺炎）」防疫新生活運動，採行實聯制措施。依據「個人資料保護法之特定目的及個人資料之類別」代號012公共衛生或傳染病防治之特定目的，蒐集以上個人資料，且不得為目的外利用。所蒐集之資料僅保存 28 日，屆期銷毀。感謝您的配合。</li>
+        <li>2. 個人資料利用之對象及方式：為防堵疫情而有必要時，得提供衛生主管 機關依傳染病防治法等規定進行疫情調查及聯繫</li>
+        <li>3. 或更正、請求停止處理或利用、請求刪除等。相關權利行使方式：【例 如】本人攜帶身分證明文件至（地址○○○○○）臨櫃申辦、或至（網 址 https://○○○○○）線上填具資料申</li>
+        <li>4. 當事人如無法配合本實聯制作業，將○○○○○（請說明對其權益之影 響，如無法進入場館或參與活動等</li>
+        <li>5. 本實聯制其他相關措施說明，請參閱 http://at.cdc.tw/8QI4hA。</li>
+    </ul>
+    
+    <div class="form m-auto border-2 w-1/2">
+        <%= form_for(@user, url: checkins_path) do |form|%>
+        <div class="m-5">
+            <%= form.label :name,"姓名" ,class: "font-bold font-mono" %>: 
+            <%= form.text_field :name, class: 'rounded border-2 border-gray-100 w-2/3'%>
+        </div>
+        <div class="m-5">
+            <%= form.label :email,"電子信箱" ,class: "font-bold font-mono" %>:
+            <%= form.text_field :email, class: 'rounded border-2 border-gray-100 w-2/3'%>
+        </div>
+        <div class="m-5">
+            <%= form.label :tel, "聯繫電話", class: "font-bold font-mono" %>:
+            <%= form.text_field :tel, class: 'rounded border-2 border-gray-100 w-2/3'%>
+        </div>
+        <div class="m-5">
+            <%= form.label :event, "所參與的活動", class: "font-bold font-mono" %>:
+            <%= form.text_field :event, class: 'rounded border-2 border-gray-100 w-2/3'%>
+        </div>
+            <%= form.submit "提交" %>
+            <% end %>
+    </div>
+
+    <div class="footer mt-20 m-auto font-mono bg-gray-600 p-8">
+        <p class="text-white">Lorem ipsum dolor sit amet consectetur adipisicing elit. Est ex assumenda optio itaque nobis earum dolor, debitis non odio atque voluptates dolorum, maxime perferendis cum dolore quibusdam ratione tempore impedit!</p>
+    </div>
+</div>

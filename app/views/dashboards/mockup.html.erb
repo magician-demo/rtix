@@ -24,17 +24,18 @@
     <div class="contactinfo w-5/6 m-auto my-10">
         Lorem ipsum dolor sit, amet consectetur adipisicing elit. Earum id rerum optio aut mollitia laborum accusamus sapiente possimus unde. Sunt architecto praesentium iste, doloremque aut facilis officiis nemo! Ex, tenetur?
     </div>
-    <div class="ticketinfo w-5/6 m-auto my-10">
+    <div class="ticketinfo w-5/6 m-auto my-20">
         <div>
             <button class="p-1 border-2 border-grey-500 mx-2 hover:bg-red-100">取消訂單</button>
         </div>
-        <div>
+        <div class="my-20">
             <h3 class="text-2xl font-bold text-center my-10">聯絡人資料</h3>
             Lorem, ipsum dolor sit amet consectetur adipisicing elit. Neque similique repellendus eum odit illo rerum aut quisquam, accusamus explicabo, pariatur natus, alias laboriosam excepturi rem sequi modi quos reprehenderit architecto!
         </div>
-        <div>
-            <h3 class="text-2xl font-bold text-center my-10">票券資訊（含QRcode)</h3>
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Autem, consequuntur molestiae illum ea numquam doloribus exercitationem. Fugit provident labore animi facere ea, blanditiis autem suscipit placeat? Optio impedit necessitatibus rerum!
+        <div class="flex">
+            <h3 class="text-2xl font-bold m-10">票券資訊（含QRcode)</h3>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia, debitis odio aliquid officiis nam repellat qui impedit cupiditate obcaecati reprehenderit deserunt non saepe perspiciatis, minima sapiente ducimus consequuntur, nostrum cumque laudantium earum at atque consectetur fugit. Similique quos nam mollitia repudiandae nihil voluptatibus modi pariatur quae excepturi, distinctio ducimus architecto.</p>
+            <div class="qrcode"><%= qr_gen("DemoDay", "Jack", "2") %></div>
         </div>
     </div>
 

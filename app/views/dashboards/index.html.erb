@@ -1,6 +1,4 @@
 <div class="wrapper w-full">
-
-
     <%= notice %>
     <div class="myorder mt-20" data-controller="myorder">
         <div class="sub-page w-10/12 m-auto flex border-b-2 border-grey-500">
@@ -8,49 +6,14 @@
             <div class="hostview font-mono p-4 hover:bg-red-100 cursor-pointer" data-action="click->myorder#showhost mouseover->myorder#hosthover" data-myorder-target="host">舉辦活動總覽</div>
         </div>
         <div data-myorder-target="content">
-            <!-- ----------------------------------------------------- -->
-            <h1>Original H1 Style</h1>
-            <div class="card" style="width: 18rem;">
-                <img src="..." class="card-img-top" alt="...">
-                <div class="card-body">
-                  <h5 class="card-title">Card title</h5>
-                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                  <a href="#" class="btn btn-primary">Go somewhere</a>
-                </div>
-            </div>
+
 
             <h2 class="mt-5 w-10/12 m-auto font-mono text-3xl pl-4">我的票券</h2>
             <div class="ticket">
-                <table class="mt-12 w-10/12 font-mono m-auto">
-                    <thead class="border-b-2 border-grey-500">
-                        <tr class="bg-gradient-to-r from-yellow-400 via-red-500 to-pink-500 text-white">
-                            <th id="test">活動名稱</th>
-                            <th>活動舉辦時間 & 地點</th>
-                            <th>張數</th>
-                            <th>匯入我的行事曆</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td class="p-2 text-center"><span class="event">5xRuby Demo Day</span></td>
-                            <td class="calendarinfo p-2 text-center">
-                                <span class="font-bold">From:</span> <span class="syear">2021</span>/<span class="smonth">05</span>/<span class="sdate">12</span> @ <span class="stime">0500</span><br>
-                                <span class="font-bold">To:</span> <span class="eyear">2021</span>/<span class="emonth">05</span>/<span class="edate">12</span> @ <span class="etime">0700</span><br>
-                                <span class="font-bold">Location:</span> <span class="address">Taipei City</span> 
-                            </td>
-                            <td class="p-2 text-center">1</td>
-                            <td class="p-2 text-center"><a href="" class="block rounded-lg font-bold font-mono text-sm hover:text-blue-700" data-action="click->myorder#import">Google Calendar</a></td>
-                        </tr>
-                        <tr>
-                            <td colspan="3">
-                                <%=link_to "票券資料", mockup_path, class: "p-1 border-2 border-grey-500 mx-2 hover:bg-red-100" %>     <%= link_to '聯絡主辦單位', new_contact_path, class: "p-1 border-2 border-grey-500 mx-2 hover:bg-red-100" %> <a href="" class=" text-green-900 text-2xl hover:bg-red-100">活動頁面</a>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
 
-            <!-------------------------------------------------------->
+                <%= render @events %>
+
+            </div>
 
 
         </div>

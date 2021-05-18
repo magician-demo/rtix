@@ -5,8 +5,12 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
+    
 
+    <!-- FIXME: The below "style_sheet_tag" (asset pipeline) should not be necessary ?? -> Only using "stylesheet_pack_tag" (webpacker) -->
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+
+
     <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
@@ -25,6 +29,7 @@
 
 
     <%= yield %>
+    <!-- FIXME: should import jquery in application.js, instead of using links here. But somehow. import "jquery" in application.js didn't work -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   </body>
 </html>

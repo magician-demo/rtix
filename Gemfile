@@ -34,6 +34,7 @@ gem 'rqrcode', '~> 2.0'
 gem 'devise', '~> 4.8'
 
 gem "hotwire-rails", "~> 0.1.3"
+gem "jquery-datatables", "~> 1.10"
 
 
 group :development, :test do
@@ -64,6 +65,8 @@ end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+
+
 
 
 

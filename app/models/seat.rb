@@ -1,7 +1,7 @@
 class Seat < ApplicationRecord
   belongs_to :ticket
   has_one :line_item
-  after_commit :broadcast_me
+  after_commit :broadcast_me, on: :update
 
   def broadcast_me
     ActionCable.server.broadcast "SeatStatusChannel:#{id}",{message: 'changed!',id: id}

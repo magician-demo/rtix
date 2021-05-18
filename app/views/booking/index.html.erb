@@ -1,15 +1,6 @@
-<div class="flex justify-between bg-red-500">
-  <span class="px-2 py-2 text-white cursor-pointer">
-    <%= link_to '取消購票', line_items_path, data:{method: 'delete',confirm: '確定要取消購票嗎？將會清空購票清單！'}%>
-  </span>
-  <span class="count_down px-2 py-2 text-white cursor-pointer"
-        data-controller="timer"
-  ></span>
-  <span class="px-2 py-2 text-white cursor-pointer" data-controller="cart" data-action="click->cart#showCart" >
-    購票清單(<span id="ticket_count"><%= @ticket_count%></span>)
-  </span>
-</div>
+<%= render 'navbar', ticket_count: @ticket_count, path: event_path(params[:event_id])%>
 <%= render 'cart', seat: @seat, price: @total_price%>
+
 <% @tickets.each do |ticket|%>
   <div class="block bg-red-400 w-1/4 my-2">
     <%=link_to (ticket.name), event_booking_path(params[:event_id], ticket.id), class:'block'%>

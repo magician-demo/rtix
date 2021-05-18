@@ -21,7 +21,7 @@
       <div class="order-detail px-3 flex space-x-1 border-b-2 border-black p-2">
         <div class="item-name w-2/12">票卷</div>
         <div class="item-area w-2/12"><%= s.area %></div>
-        <div class="item-seat w-3/12"><%= s.id %></div>
+        <div class="item-seat w-3/12"><%= s.id %>號座位</div>
         <div class="item-price w-2/12"><%= s.ticket.price%></div>
         <div class="item-qty w-2/12">x 1</div>
         <div class="item-calc w-1/12"><%= s.ticket.price%></div>  
@@ -57,7 +57,11 @@
   </div>
 </div>
 
-
+id <%= @current_id%><br>
+1訂單號：<%= @amount %><br>
+2訂單號：<%= @order.serial %><br>
+3訂單總金額：<%= @order.totalAmount %><br>
+4檢查碼：<%= @order.checkMacValue %>
 
 
 
@@ -66,24 +70,22 @@
 <form style="display: none" class="new_order" id="new_order" action="https://payment-stage.ecpay.com.tw/Cashier/AioCheckOut/V5" method="post">
 
   <input name="MerchantID" value="2000132">
-  <%# <input name="MerchantTradeNo" value="<%= @order.serial %>"> %>
+  <input name="MerchantTradeNo" value="<%= @order.serial %>">
   <input name="MerchantTradeDate" value="<%= Time.now.strftime('%Y/%m/%d %H:%M:%S') %>">
   <input name="PaymentType" value="aio">
-  <%# <input type=integer name="TotalAmount" value=<%= @order.totalAmount %>> %>
+  <input type=integer name="TotalAmount" value=<%= @order.totalAmount %>>
   <input name="TradeDesc" value="Des">
-  <%# <input name="ItemName" value="<%= @order.serial %>"> %>
-  <input name="ReturnURL" value="https://2bd132599561.ngrok.io/">
+  <input name="ItemName" value="<%= @order.serial %>">
+  <input name="ReturnURL" value="https://d71c50775a63.ngrok.io/">
   <input name="ChoosePayment" value="Credit">
-  <%# <input name="CheckMacValue" value=<%= @order.checkMacValue %>> %>
+  <input name="CheckMacValue" value=<%= @order.checkMacValue %>>
   <input name="EncryptType" value=1>
 
 </form>
 
 <%# ClientBackURL 顯示回商店的按鈕 %>
 <script>
-// document.querySelector('#pay').addEventListener('click', ()=>{
-//     document.querySelector('#new_order').submit()
-//   })
+
 
   document.querySelector('#ecpay').addEventListener('click', ()=>{
     document.querySelector('#pay').classList.add('opacity-100')

@@ -14,6 +14,10 @@ class ApplicationController < ActionController::Base
     current_user.cart.seats
   end
 
+  def current_order
+    @order = Order.find(params[:id])
+  end
+
 
   def checkout
     @order = Order.new

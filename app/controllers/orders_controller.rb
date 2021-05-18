@@ -9,7 +9,11 @@ class OrdersController < ApplicationController
     @price = total_price
     @seats = user_cart.seats
     # byebug
-    
+    # @serial = current_order.serial
+    current_order.serial
+    current_order.totalAmount
+    current_order.checkMacValue
+    @current_id = current_order.id
   end
 
 
@@ -28,27 +32,30 @@ class OrdersController < ApplicationController
     #   )
     #   price = current_user.cart.seats[s].ticket.price
     # end
-    @order.itemList = current_user.cart.seats
+    @order.item_list = [current_user.cart.seats]
     @order.totalAmount = total_price
     @order.serial
-    @order.save
-
+    
     #每筆訂單明細
-    returnUrl = order_path(@order)
-
-    beforeURLEncode = "HashKey=5294y06JbISpM5x9&ChoosePayment=Credit&EncryptType=1&ItemName=#{@order.serial}&MerchantID=2000132&MerchantTradeDate=#{Time.now.strftime('%Y/%m/%d %H:%M:%S')}&MerchantTradeNo=#{@order.serial}&PaymentType=aio&ReturnURL=https://7aad07be40bb.ngrok.io/&TotalAmount=#{@order.totalAmount}&TradeDesc=Des&HashIV=v77hoKGq4kWxNNIS"
-
+    # returnUrl = order_path(@order)
+    
+    beforeURLEncode = "HashKey=5294y06JbISpM5x9&ChoosePayment=Credit&EncryptType=1&ItemName=#{@order.serial}&MerchantID=2000132&MerchantTradeDate=#{Time.now.strftime('%Y/%m/%d %H:%M:%S')}&MerchantTradeNo=#{@order.serial}&PaymentType=aio&ReturnURL=https://d71c50775a63.ngrok.io/&TotalAmount=#{@order.totalAmount}&TradeDesc=Des&HashIV=v77hoKGq4kWxNNIS"
+    
     query = URI.encode_www_form_component(beforeURLEncode).downcase
     dha = Digest::SHA256.hexdigest(query).upcase
     @order.checkMacValue = dha
-
+    @order.save
+    
     # empty_cart!
-    @order.pay!
-
+    # @order.pay!
+    
     redirect_to order_path(@order), notice: "謝謝"
   end
-
+  
   def update
+    #付款
+    @order.pay!
+
     #使用
     @order.use
 

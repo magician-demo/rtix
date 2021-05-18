@@ -7,31 +7,29 @@ class OrdersController < ApplicationController
   def show
     # @order = Order.find(params[:id])
     @price = total_price
-    @area = seats_area
+    @seats = user_cart.seats
+    # byebug
     
   end
 
-  def seats_area
-    seats = user_cart.seats
-    seats.each do |s|
-      s.find(params[:id])
-    end
-  end
+
   
   
 
   def create
     @order = Order.new(user_id: current_user.id)
     # @order = current_user.Orders.new(order_params)
-   
-    current_user.cart.line_items.each do |item|
-      @order.order_items.new(
-        seat_id: current_user.cart.seat.id, 
-        quantity: current_user.cart.seats.count
-      )
-      price = total_price
-    end
-    @order.totalAmount = price
+    @ticket_number = current_user.cart.seats.count
+    @event = current_user.cart.seats.first.ticket.event.title
+    # current_user.cart.seats.each do |s|
+    #   @order.order_items.new(
+    #     seat_id: current_user.cart.seats[s].id, 
+    #     quantity: current_user.cart.seats.count
+    #   )
+    #   price = current_user.cart.seats[s].ticket.price
+    # end
+    
+    @order.totalAmount = total_price
     @order.serial
     @order.save
 

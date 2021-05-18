@@ -1,10 +1,19 @@
 
+@import "~bootstrap/scss/bootstrap.scss";
+
 @import "tailwindcss/base";
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
 
-@import "~bootstrap/scss/bootstrap.scss"
 
 
 
+.ticketcard {
+    @apply w-2/12 float-left m-5
+}
+
+
+.reventcard {
+    @apply w-2/12 m-5
+}
 

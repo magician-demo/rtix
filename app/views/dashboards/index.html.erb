@@ -6,17 +6,23 @@
             <div class="hostview font-mono p-4 hover:bg-red-100 cursor-pointer" data-action="click->myorder#showhost mouseover->myorder#hosthover" data-myorder-target="host">舉辦活動總覽</div>
         </div>
         <div data-myorder-target="content">
-
-
-            <h2 class="mt-5 w-10/12 m-auto font-mono text-3xl pl-4">我的票券</h2>
-            <div class="ticket">
-
-                <%= render @events %>
-
-            </div>
-
-
+            <h2 class="mt-5 w-10/12 m-auto font-mono text-4xl pl-4">我的票券</h2>
+            <%= render @events %>
+        
         </div>
+
+        <div class="clearfix" style="clear:both;"></div>
+
+        <div class="recommended">
+            <h2 class="mt-5 w-10/12 m-auto font-mono text-4xl border-black">推薦活動</h2>
+            <div class="scroll overflow-x-scroll h-96">
+                <%= turbo_stream_from "events" %>
+                <%= turbo_frame_tag "events" do %>
+                    <%= render @events %>
+                <% end %>
+            </div>
+        </div>
+
     </div>
 </div>
 

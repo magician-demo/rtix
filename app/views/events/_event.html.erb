@@ -1,14 +1,11 @@
-<div class="card w-3/12" id="event<%=event.id%>">
+<div class="card reventcard float-left" id="event<%=event.id%>">
     <img src="https://picsum.photos/200/100" class="card-img-top" alt="...">
     <div class="card-body">
-      <h5 class="card-title"><%= event.title %></h5>
-      <p class="card-text"><%= event.description %></p>
-      <span class="font-bold">From:</span> <span class="syear">2021</span>/<span class="smonth">05</span>/<span class="sdate">12</span> @ <span class="stime">0500</span><br>
-      <span class="font-bold">To:</span> <span class="eyear">2021</span>/<span class="emonth">05</span>/<span class="edate">12</span> @ <span class="etime">0700</span><br>
-      <span class="font-bold">Location:</span> <span class="address">Taipei City</span> 
-      <%=link_to "票券資料", mockup_path, class: "p-1 border-2 border-grey-500 mx-2 hover:bg-red-100" %>
-      <%=link_to "票券資料", mockup_path, class: "p-1 border-2 border-grey-500 mx-2 hover:bg-red-100" %>     <%= link_to '聯絡主辦單位', new_contact_path, class: "p-1 border-2 border-grey-500 mx-2 hover:bg-red-100" %>
-      <a href="" class=" text-green-900 text-2xl hover:bg-red-100">活動頁面</a>
-      <a href="" class="block rounded-lg font-bold font-mono text-sm hover:text-blue-700" data-action="click->myorder#import">Google Calendar</a>
+        <h5 class="card-title"><%= event.title %></h5>
+        <p class="card-text"><%= event.description %></p>
+        <span class="font-bold">From:</span> <span class="syear">2021</span>/<span class="smonth">05</span>/<span class="sdate">12</span> @ <span class="stime">0500</span><br>
+        <span class="font-bold">To:</span> <span class="eyear">2021</span>/<span class="emonth">05</span>/<span class="edate">12</span> @ <span class="etime">0700</span><br>
+        <span class="font-bold">Location:</span> <span class="address">Taipei City</span>
+        <a href="" class=" text-green-900 text-2xl hover:bg-red-100">活動頁面</a>
     </div>
 </div>

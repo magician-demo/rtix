@@ -8,5 +8,12 @@ Rails.application.routes.draw do
   get '/line_items/empty', to: 'line_items#empty_cart'
   root "events#index"
 
+  
+  resource :cart, only: [:show, :destroy] do
+    collection do
+      get :checkout
+    end
+  end
+
   resources :orders, only: [:show, :create]
 end

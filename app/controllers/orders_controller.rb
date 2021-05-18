@@ -1,6 +1,7 @@
 require 'digest'
 
 class OrdersController < ApplicationController
+  before_action :authenticate_user!
   # include  Cart
 
   def show
@@ -10,14 +11,15 @@ class OrdersController < ApplicationController
   
   # current_user.cart
   def create
-    @order = current_user.orders.new(order_params)
+    @order = Order.new(user_id: current_user.id)
+    # @order = current_user.Orders.new(order_params)
     price = 0
     current_cart.line_items.each do |item|
       @order.order_items.new(
         seat_id: item.seat.id, 
-        quantity: item.quantity,
+        # quantity: item.quantity,
       )
-      price += item.seat.ticket.price*item.quantity
+      # price += item.seat.ticket.price*item.quantity
     end
     @order.totalAmount = price
     @order.serial
@@ -32,7 +34,7 @@ class OrdersController < ApplicationController
     dha = Digest::SHA256.hexdigest(query).upcase
     @order.checkMacValue = dha
 
-    empty_cart!
+    # empty_cart!
     @order.pay!
 
     redirect_to order_path(@order), notice: "謝謝"

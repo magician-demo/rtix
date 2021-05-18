@@ -9,6 +9,17 @@ class ApplicationController < ActionController::Base
     end
   end
 
+
+  def current_cart
+    current_user.cart
+  end
+
+
+  def checkout
+    @order = Order.new
+  end
+
+
   def current_event
     @event = Event.find(params[:event_id])
   end

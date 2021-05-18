@@ -1,0 +1,40 @@
+<h1 class="h1">填寫表單</h1>
+
+<%# <%= render "cart" %> %>
+<%# 總價<%= @order.TotalAmount%> %>
+
+<div class="body m-auto bg-grey border-t">
+  <div class="content w-4/5 m-auto">
+    <h1 class="text-3xl font-medium mt-3">Event 票卷</h1>
+    <div class="detail text-green-500 text-sm mt-1 mb-2">顯示詳細活動資料▾</div>
+    <div class="step flex justify-center mb-3">
+      <div class="step-each rounded-3xl w-4/12 opacity-40 text-center bg-green-600 m-1 py-2 text-xs text-white ">
+        1 確認票種
+      </div>
+      <div class="step-each rounded-3xl w-4/12 text-center bg-green-600 m-1 py-2 text-xs text-white ">
+        2 填寫表單
+      </div>
+      <div class="step-each rounded-3xl w-4/12 opacity-40 text-center bg-green-600 m-1 py-2 text-xs text-white ">
+        3 取票繳費
+      </div>
+    </div>
+    <div class="order-info border">
+      <%= form_for(@order) do |f| %>
+        <div class="receiver px-3 flex space-x-1 border-b-2 border-black p-2">
+        <div class="item-name w-2/12">姓名</div>
+        <%= f.text_field :receiver, class: "input border", placeholder: "姓名" %>
+        </div>
+        <div class="tel px-3 flex space-x-1 border-b-2 border-black p-2">
+        <div class="item-name w-2/12">聯絡電話</div>
+        <%= f.text_field :tel, class: "input border", placeholder: "聯絡電話" %>
+        </div>
+        <div class="tel px-3 flex space-x-1 border-b-2 border-black p-3">
+        <%= link_to "上一步：確認票種", cart_path, class: "btn-action bg-green-500 p-2.5 text-white rounded-lg" %>
+        <%= f.submit "送出訂單", class: "btn-action bg-red-500 p-2.5 text-white rounded-lg" %>
+        </div>
+      <% end %>
+    </div>
+
+    
+  </div>
+</div>

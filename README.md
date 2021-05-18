@@ -28,3 +28,11 @@
 * SunWei Chou
 * Weij28
 * FriedrichChiu
+
+# Pull後的操作流程！
+* 切換到自己的分支把拉下來的分支 rebase (若有衝突請到 discord 公頻發問)
+* $ yarn 
+* $ bundle install
+* $ rails db:migrate
+* $ rails hotwire:install
+* $ foreman s -> 就可以啟動了唷！

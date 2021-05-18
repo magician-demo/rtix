@@ -35,15 +35,24 @@ class OrdersController < ApplicationController
     @order.item_list = [current_user.cart.seats]
     @order.totalAmount = total_price
     @order.serial
-    
+    @order.save
+    p '==============serial'
+    p @order.serial
+    p '==============serial'
     #每筆訂單明細
     # returnUrl = order_path(@order)
     
-    beforeURLEncode = "HashKey=5294y06JbISpM5x9&ChoosePayment=Credit&EncryptType=1&ItemName=#{@order.serial}&MerchantID=2000132&MerchantTradeDate=#{Time.now.strftime('%Y/%m/%d %H:%M:%S')}&MerchantTradeNo=#{@order.serial}&PaymentType=aio&ReturnURL=https://d71c50775a63.ngrok.io/&TotalAmount=#{@order.totalAmount}&TradeDesc=Des&HashIV=v77hoKGq4kWxNNIS"
+    beforeURLEncode = "HashKey=5294y06JbISpM5x9&ChoosePayment=Credit&EncryptType=1&ItemName=#{@order.serial}&MerchantID=2000132&MerchantTradeDate=#{Time.now.strftime('%Y/%m/%d %H:%M:%S')}&MerchantTradeNo=#{@order.serial}&PaymentType=aio&ReturnURL=https://949c2e887532.ngrok.io/&TotalAmount=#{@order.totalAmount}&TradeDesc=Des&HashIV=v77hoKGq4kWxNNIS"
+
+    
     
     query = URI.encode_www_form_component(beforeURLEncode).downcase
     dha = Digest::SHA256.hexdigest(query).upcase
     @order.checkMacValue = dha
+    p '==============dha'
+    p @order.checkMacValue
+    p '==============dha'
+
     @order.save
     
     # empty_cart!

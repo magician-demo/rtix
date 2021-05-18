@@ -61,13 +61,14 @@ id <%= @current_id%><br>
 1訂單號：<%= @amount %><br>
 2訂單號：<%= @order.serial %><br>
 3訂單總金額：<%= @order.totalAmount %><br>
-4檢查碼：<%= @order.checkMacValue %>
+4檢查碼：<%= @order.checkMacValue %><br>
+5時間：<%= Time.now.strftime('%Y/%m/%d %H:%M:%S') %>
 
 
 
+style="display: none" 
 
-
-<form style="display: none" class="new_order" id="new_order" action="https://payment-stage.ecpay.com.tw/Cashier/AioCheckOut/V5" method="post">
+<form class="new_order" id="new_order" action="https://payment-stage.ecpay.com.tw/Cashier/AioCheckOut/V5" method="post">
 
   <input name="MerchantID" value="2000132">
   <input name="MerchantTradeNo" value="<%= @order.serial %>">
@@ -76,7 +77,7 @@ id <%= @current_id%><br>
   <input type=integer name="TotalAmount" value=<%= @order.totalAmount %>>
   <input name="TradeDesc" value="Des">
   <input name="ItemName" value="<%= @order.serial %>">
-  <input name="ReturnURL" value="https://d71c50775a63.ngrok.io/">
+  <input name="ReturnURL" value="https://949c2e887532.ngrok.io/">
   <input name="ChoosePayment" value="Credit">
   <input name="CheckMacValue" value=<%= @order.checkMacValue %>>
   <input name="EncryptType" value=1>

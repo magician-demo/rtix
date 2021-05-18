@@ -24,5 +24,5 @@ class ApplicationController < ActionController::Base
     end
     sum
   end
-
+  
 end

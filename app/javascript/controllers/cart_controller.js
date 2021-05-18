@@ -18,7 +18,9 @@ export default class extends Controller {
     ax.delete(`/line_items/${id}`)
     .then(res => {
       this.element.parentElement.remove()
+      if(Number(count.textContent) > 0){
       count.innerHTML = Number(count.textContent) - 1
+      }
       total_price.innerHTML = `票券總價：$${res.data['total_price']}`
       if(cart.innerHTML.length <= 180){
         cart.classList.remove('showcart')

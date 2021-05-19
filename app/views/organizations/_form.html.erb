@@ -9,23 +9,23 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :組織名稱 %>
-    <%= form.text_field :title, placeholder: '請輸入名稱' %>
+  <div class="org-field-group">
+    <%= form.label :組織名稱： %>
+    <%= form.text_field :title, placeholder: '請輸入名稱', class: "org-field" %>
   </div>
 
-  <div class="field">
-    <%= form.label :組織網址 %>
-    <%= form.text_field :domain_name %>
+  <div class="org-field-group">
+    <%= form.label :組織網址： %>
+    <%= form.text_field :domain_name, class: "org-field" %>
   </div>
 
-  <div class="field">
-    <%= form.label :組織簡介 %>
+  <div class="org-field-group">
+    <%= form.label :組織簡介： %>
     <br>
     <%= form.text_area :description, placeholder: '介紹一下組織' %>
   </div>
 
-  <div class="actions">
+  <div class="button">
     <%= form.submit %>
   </div>
 <% end %>

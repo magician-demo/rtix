@@ -1,0 +1,21 @@
+ul{
+  li{
+    @apply text-xl px-2 py-3 text-gray-300 hover:bg-yellow-600 hover:text-white
+  }
+}
+
+.org-button{
+  @apply px-2 py-1 ring-opacity-30 rounded bg-yellow-300 border-yellow-300 hover:bg-yellow-600
+}
+
+.org-field-group{
+  @apply text-xl m-4
+}
+
+.org-field{
+  @apply block border border-black rounded mt-1
+}
+
+.show-title{
+  @apply text-2xl
+}

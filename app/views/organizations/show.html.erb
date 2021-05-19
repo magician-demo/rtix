@@ -1,23 +1,34 @@
-<div id="notice"><%= notice %></div>
+<div class="h-screen pt-6">
+  
+  <div class="h-9/10 flex">
+    <%= render 'sidebar' %>
+    
+    <div class="w-full">
+      <div class="w-full text-xl mt-5 text-gray-500 border-b border-gray-400 px-4">
+        組織名稱 <span class="text-3xl text-red-600"><%= @organization.title %></span>
+      </div>
+      
+      <div class="w-full px-4  border-black">
+        <div id="notice"><%= notice %></div>
+        <br>
+        <div>
+          <div class="show-title">組織簡介：</div>
+          <div><%= @organization.description %></div>
+        </div>
+          <br>
+        <div>
+          <div class="show-title">擁有者(暫時顯示):</div>
+          <%= @organization.user_id %>
+        </div>
+        <div>
+          <div class="show-title">網址:</div>
+          <%= @organization.domain_name %>
+        </div>
 
-<div>
-  <div>組織名稱：<%= @organization.title %></div>
+        <%= link_to '編輯', edit_organization_path(@organization), class: "org-button" %>
+        
+      </div>
+    </div>
+  </div>
+  <%= render 'footer' %>
 </div>
-<br>
-<div>
-  <div>組織簡介：</div>
-  <div><%= @organization.description %></div>
-</div>
-  <br>
-<div>
-  <div>擁有者(暫時顯示):</div>
-  <%= @organization.user_id %>
-</div>
-
-<div>
-  <div>網址:</div>
-  <%= @organization.domain_name %>
-</div>
-
-<%= link_to '編輯', edit_organization_path(@organization) %> |
-<%= link_to '上一頁', organizations_path %>

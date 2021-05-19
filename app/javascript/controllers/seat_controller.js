@@ -36,6 +36,7 @@ export default class extends Controller {
   }
   _cableReceived(data){
     const seat = document.querySelector(`[data-seat-id='${data.id}']`)
+    if(!seat)return;
     if(data.message === 'changed!'){
       seat.classList.toggle('selected')
     }

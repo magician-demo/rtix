@@ -30,6 +30,8 @@ class LineItemsController < ApplicationController
       response.headers['Access-Control-Allow-Origin'] = '*'
     else
       render json: {status: 'error'}
+      p "123456"
+      p "==============================="
     end
   end
 

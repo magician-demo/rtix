@@ -9,6 +9,8 @@ class CartsController < ApplicationController
     @current_cart = current_user.cart
     @event_all = Event.all
     
+    @ticket_count = user_cart.seats.count
+    
   end
 
 

@@ -11,7 +11,12 @@ export default class extends Controller {
     let ticketTemplate = document.querySelector('#ticketview');
     let ticketview = ticketTemplate.content.cloneNode(true);
     this.contentTarget.appendChild(ticketview);
-    $('#table_id').DataTable();
+    $('#table_id').DataTable({
+      "scrollY":        "250px",
+      "scrollCollapse": true,
+      "paging":         false,
+      "info":           false
+  });
   }
 
   showhost(){
@@ -22,6 +27,12 @@ export default class extends Controller {
     let hostTemplate = document.querySelector('#hostview');
     let hostview = hostTemplate.content.cloneNode(true);
     this.contentTarget.appendChild(hostview);
+    $('#table_id').DataTable({
+      "scrollY":        "250px",
+      "scrollCollapse": true,
+      "paging":         false,
+      "info":           false
+  });
   }
 
   tickethover(){

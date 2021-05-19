@@ -1,18 +1,23 @@
-<div class="hostview">
+<table id="table_id" class="display table table-info table-striped">
+    <thead>
+      <tr>
+        <th>活動名稱(連至活動頁面)</th>
+        <th>活動描述</th>
+        <th>活動時間/活動地點</th>
+      </tr>
+    </thead>
+    <tbody>
     <% @hosts.each do |host| %>
         <% @events = host.events %>
         <% @events.each do |event| %>
-        <div class="card reventcard float-left" id="event<%=event.id%>">
-            <img src="https://picsum.photos/200/100" class="card-img-top" alt="...">
-            <div class="card-body">
-                <h5 class="card-title"><%= event.title %></h5>
-                <p class="card-text"><%= event.description %></p>
-                <span class="font-bold">From:</span> <span class="syear">2021</span>/<span class="smonth">05</span>/<span class="sdate">12</span> @ <span class="stime">0500</span><br>
-                <span class="font-bold">To:</span> <span class="eyear">2021</span>/<span class="emonth">05</span>/<span class="edate">12</span> @ <span class="etime">0700</span><br>
-                <span class="font-bold">Location:</span> <span class="address">Taipei City</span>
-                <a href="" class=" text-green-900 text-2xl hover:bg-red-100">活動頁面</a>
-            </div>
-        </div>
+      <tr>
+        <td><%= event.title %></td>
+        <td><%= event.description %></td>
+        <td><span class="font-bold">From:</span> <span class="syear">2021</span>/<span class="smonth">05</span>/<span class="sdate">12</span> @ <span class="stime">0500</span><br>
+          <span class="font-bold">To:</span> <span class="eyear">2021</span>/<span class="emonth">05</span>/<span class="edate">12</span> @ <span class="etime">0700</span><br>
+          <span class="font-bold">Location:</span> <span class="address">Taipei City</span></td>
+      </tr>
         <% end %>
-    <% end %>
-</div>
+      <% end %>
+    </tbody>
+  </table>

@@ -6,11 +6,12 @@ export default class extends Controller {
   showticket(){
     this.hostTarget.style.background = '';
     this.ticketTarget.style.background = '#FEE2E2';
-
+    
     this.contentTarget.innerHTML = '';
     let ticketTemplate = document.querySelector('#ticketview');
     let ticketview = ticketTemplate.content.cloneNode(true);
     this.contentTarget.appendChild(ticketview);
+    $('#table_id').DataTable();
   }
 
   showhost(){

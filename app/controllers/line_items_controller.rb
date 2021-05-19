@@ -30,24 +30,15 @@ class LineItemsController < ApplicationController
     end
   end
 
-  def empty_cart
-    redirect_to event_path(user_cart.seats.first.ticket.id)
-    seats = user_cart.seats
-    seats.update(status: 'for_sale')
-    seats.each do |s|
-      s.ticket.amount += 1
-      s.ticket.save
-    end
-    user_cart.line_items.destroy_all
-  end
 
   def random_create
-    params[:ticketCount].each do |k|
-    num = 0
-    id_array = Ticket.find(k[0].to_i).seats.where(status: 'for_sale').ids.sort
-      k[1].to_i.times do
-        seat = Ticket.find(k[0].to_i).seats.where(status: 'for_sale').find(id_array[num])
-        ticket = Ticket.find(k[0].to_i)
+    params[:ticketCount].each do |every|
+    for_sale_ticket = Ticket.find(every[0].to_i).seats.where(status: 'for_sale')
+    num = (for_sale_ticket.ids.count / 2).ceil
+    id_array = for_sale_ticket.ids.sort
+      every[1].to_i.times do
+        seat = for_sale_ticket.find(id_array[num])
+        ticket = Ticket.find(every[0].to_i)
         line_item = user_cart.line_items.new(seat_id: seat.id)
           if line_item.save
             ticket.amount -= 1
@@ -57,20 +48,5 @@ class LineItemsController < ApplicationController
         num += 1  
       end
     end
-    # render json: {seatId: slicer[0], seatArea: slicer[1], seatPrice:slicer[2]}
   end
-
-
-  # private
-  # def slicer
-  #   seat_id = []
-  #   seat_area = []
-  #   seat_price = []
-  #   user_cart.seats.each do |seat|
-  #     seat_id << seat.id
-  #     seat_area << seat.area
-  #     seat_price << seat.ticket.price
-  #   end
-  #   return seat_id, seat_area, seat_price
-  # end
 end

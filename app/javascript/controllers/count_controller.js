@@ -23,12 +23,6 @@ export default class extends Controller{
     ax.defaults.headers.common['X-CSRF-Token'] = token
     ax.post('/line_items/random_create', {ticketCount: ticketCount})
       .then(res => {
-        // function run() {
-        //   for (let i = 0; i < res.data['seatId'].length; i++) {
-        //     ticketInformation(res.data['seatId'][i], res.data['seatArea'][i], res.data['seatPrice'][i])
-        //   }
-        // }
-        // window.alert = run()
         location.reload()
       })
       .catch(err =>{
@@ -37,13 +31,3 @@ export default class extends Controller{
     
   }
 }
-// function ticketInformation(id, area, price) {
-//   let div = document.createElement('div')
-//     div.innerHTML =  `
-//     <div>
-//     <span>${area}${id}號位</span>
-//     <span>$${price}</span>
-//     </div>
-//   `
-//   return div
-// }

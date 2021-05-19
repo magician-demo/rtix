@@ -28,7 +28,8 @@
   </div>
   <%end%>
   <div class="text-center py-2 bg-white w-3/12 m-auto rounded my-2 text-2xl border border-black"
-       data-controller="count" data-action="click->count#buyTicket"
+       data-controller="count" 
+       data-action="click->count#buyTicket"
   >
     <%= link_to '下一步', event_booking_index_path(params[:id]), class: 'block'%>
   </div>

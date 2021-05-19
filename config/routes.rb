@@ -5,7 +5,7 @@ Rails.application.routes.draw do
     resources :booking, only: [:index, :show]
   end
   resources :line_items, only: [:create, :destroy]
-    delete '/line_items', to: 'line_items#empty_cart'
     post '/line_items/random_create', to: 'line_items#random_create'
+  resource :carts, only: [:destroy]
   root "events#index"
 end

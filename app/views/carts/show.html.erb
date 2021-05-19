@@ -17,17 +17,23 @@
     </div>
   <div class="cart-list border">
     
-    <%= render "cart", seat: @seats, price: @total_price %>
-
+    <% if @current_cart.empty? %>
+      <p class="text-lg my-4">
+        購物車目前沒有商品，請回<%= link_to "上一頁", events_path, class: "font-bold px-2 text-sm text-pink-500" %> 選購
+  
+      </p>
+    <% else %>
+      <%= render "cart", seat: @seats, price: @total_price %>
+    <% end %>
 
 
 
   </div>
   <div class="tel px-3 flex space-x-1 border-b-2 border-black p-3">
     <section class="flex mt-4">
-      <%= link_to "商品列表", event_path(@event_id), class: "bg-blue-500 px-4 mr-2 py-2 text-white text-lg rounded-lg opacity-50" %>
+      <%= link_to "商品列表", events_path, class: "bg-blue-500 px-4 mr-2 py-2 text-white text-lg rounded-lg opacity-50" %>
       <%= link_to "清空購物車", carts_empty_path, method: :delete, data: {confirm: "確認清空購物車?!"}, class: "bg-green-500 px-4 py-2 text-white text-lg mr-2 rounded-lg opacity-50"%>
-      <%= link_to "下一步：填寫資料", checkout_cart_path, class: "bg-red-500 px-4 py-2 text-white text-lg rounded-lg"%>
+      <%= link_to "下一步：填寫資料", checkout_cart_path, class: "bg-red-500 px-4 py-2 text-white text-lg rounded-lg" unless @current_cart.empty?%>
     </section>
   </div>
 </div>

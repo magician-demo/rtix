@@ -10,18 +10,16 @@ class ApplicationController < ActionController::Base
   end
 
 
-  def current_cart
-    current_user.cart.seats
-  end
+  
 
   def current_order
     @order = Order.find(params[:id])
   end
 
 
-  def checkout
-    @order = Order.new
-  end
+  # def checkout
+  #   @order = Order.new
+  # end
 
 
   def current_event

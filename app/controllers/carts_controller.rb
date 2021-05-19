@@ -5,7 +5,9 @@ class CartsController < ApplicationController
   def show
     @seats = current_user.cart.seats
     @total_price = total_price
-    @event_id = current_user.cart.seats.first.ticket.event.id
+    # @event_id = current_user.cart.seats.first.ticket.event.id
+    @current_cart = current_user.cart
+    @event_all = Event.all
     
   end
 
@@ -24,6 +26,7 @@ class CartsController < ApplicationController
   end
 
 
+  
 
   def checkout
     @order = Order.new

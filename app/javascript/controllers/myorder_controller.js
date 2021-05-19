@@ -4,8 +4,8 @@ export default class extends Controller {
   static targets = ["content", "ticket", "host", "calendar"]
 
   showticket(){
-    this.hostTarget.style.background = '';
-    this.ticketTarget.style.background = '#FEE2E2';
+    this.hostTarget.classList.remove('addhostab');  
+    this.ticketTarget.classList.add('addticketab');
     
     this.contentTarget.innerHTML = '';
     let ticketTemplate = document.querySelector('#ticketview');
@@ -24,8 +24,8 @@ export default class extends Controller {
   }
 
   showhost(){
-    this.ticketTarget.style.background = '';  
-    this.hostTarget.style.background = '#FEE2E2';
+    this.ticketTarget.classList.remove('addticketab');  
+    this.hostTarget.classList.add('addhostab');
 
     this.contentTarget.innerHTML = '';
     let hostTemplate = document.querySelector('#hostview');

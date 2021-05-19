@@ -31,7 +31,7 @@
     <section class="flex mt-4">
       <%= link_to "商品列表", events_path, class: "bg-blue-500 px-4 mr-2 py-2 text-white text-lg rounded-lg opacity-50" %>
       <%= link_to "清空購物車", carts_empty_path, method: :delete, data: {confirm: "確認清空購物車?!"}, class: "bg-green-500 px-4 py-2 text-white text-lg mr-2 rounded-lg opacity-50"%>
-      <div id="nextone" class="bg-red-500 px-4 py-2 text-white text-lg rounded-lg" ><%= link_to "下一步：填寫資料", checkout_cart_path unless @current_cart.empty?%></div>
+      <%= link_to "下一步：填寫資料", checkout_cart_path, class: "bg-red-500 px-4 py-2 text-white text-lg rounded-lg nextone" unless @current_cart.empty?%>
     </section>
   </div>
 </div>

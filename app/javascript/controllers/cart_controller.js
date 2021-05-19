@@ -58,7 +58,7 @@ export default class extends Controller {
       if(res.data.total_price == 0){
         document.querySelector('.showCart').classList.add('hidden')
         document.querySelector('.empty').classList.remove('hidden')
-        document.querySelector('#nextone').classList.add('hidden')
+        document.querySelector('.nextone').classList.add('hidden')
 
       }
       

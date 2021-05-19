@@ -27,9 +27,6 @@
     @apply w-10/12 m-auto
 }
 
-.recommended {
-    @apply  w-10/12 m-auto h-72 overflow-x-auto
-}
 
 .eventname {
     @apply font-bold text-center align-middle font-mono
@@ -49,4 +46,8 @@
 
 .linkto {
     @apply p-1 mx-2 hover:bg-red-100
+}
+
+.revent {
+    @apply  w-3/12
 }

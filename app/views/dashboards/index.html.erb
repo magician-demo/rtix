@@ -15,10 +15,11 @@
 
         <div style="clear:both;"></div>
 
+
         <div class="content">
             <h2 class="subhead">RTIX精選活動</h2>
             <!-- FIXME: Should be horizontal scrollbar... -->
-            <div class="recommended">
+            <div>
                 <!-- FIXME: link_to in Hotwire behaves weirdly. -->
                 <%= turbo_stream_from "events" %>
                 <%= turbo_frame_tag "events" do %>

@@ -15,7 +15,11 @@ export default class extends Controller {
       "scrollY":        "250px",
       "scrollCollapse": true,
       "paging":         false,
-      "info":           false
+      "info":           false,
+      responsive: true,
+      "columnDefs": [
+        { "width": "20%", "targets": 1 }
+      ]
   });
   }
 
@@ -31,7 +35,11 @@ export default class extends Controller {
       "scrollY":        "250px",
       "scrollCollapse": true,
       "paging":         false,
-      "info":           false
+      "info":           false,
+      responsive: true,
+      "columnDefs": [
+        { "width": "20%", "targets": 1 }
+      ]
   });
   }
 

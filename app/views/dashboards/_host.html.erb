@@ -1,23 +1,28 @@
-<table id="table_id" class="display table table-info table-striped">
-    <thead>
-      <tr>
-        <th>活動名稱(連至活動頁面)</th>
-        <th>活動描述</th>
-        <th>活動時間/活動地點</th>
-      </tr>
-    </thead>
-    <tbody>
-    <% @hosts.each do |host| %>
-        <% @events = host.events %>
-        <% @events.each do |event| %>
-      <tr>
-        <td><%= event.title %></td>
-        <td><%= event.description %></td>
-        <td><span class="font-bold">From:</span> <span class="syear">2021</span>/<span class="smonth">05</span>/<span class="sdate">12</span> @ <span class="stime">0500</span><br>
-          <span class="font-bold">To:</span> <span class="eyear">2021</span>/<span class="emonth">05</span>/<span class="edate">12</span> @ <span class="etime">0700</span><br>
-          <span class="font-bold">Location:</span> <span class="address">Taipei City</span></td>
-      </tr>
+<div class="container">
+  <table id="table_id" class="display table table-dark table-striped table-hover">
+      <thead>
+        <tr>
+          <th class="ftext">活動名稱</th>
+          <th class="ftext">活動描述</th>
+          <th class="ftext">活動時間</th>
+          <th class="ftext">活動地點</th>
+          <th class="ftext">我的組織</th>
+        </tr>
+      </thead>
+      <tbody>
+      <% @hosts.each do |host| %>
+          <% @events = host.events %>
+          <% @events.each do |event| %>
+        <tr>
+          <td class="eventname"><%= event.title %></td>
+          <td class="mtext"><%= event.description %></td>
+          <td class="mtext"><span class="font-bold">From:</span> <span class="syear">2021</span>/<span class="smonth">05</span>/<span class="sdate">12</span> @ <span class="stime">0500</span><br>
+            <span class="font-bold">To:</span> <span class="eyear">2021</span>/<span class="emonth">05</span>/<span class="edate">12</span> @ <span class="etime">0700</span></td>
+          <td class="ftext"><span class="address">台北市</span></td>
+          <td class="ftext"><%= event.organization.title %></td>
+        </tr>
+          <% end %>
         <% end %>
-      <% end %>
-    </tbody>
-  </table>
+      </tbody>
+    </table>
+</div>

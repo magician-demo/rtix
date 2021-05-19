@@ -1,9 +1,13 @@
 $(document).ready( function () {
     $('#table_id').DataTable({
-        "scrollY":        "250px",
+        "scrollY":        "150px",
         "scrollCollapse": true,
         "paging":         false,
-        "info":           false
+        "info":           false,
+        responsive: true,
+        "columnDefs": [
+            { "width": "20%", "targets": 1 }
+          ]
     });
 
 } );

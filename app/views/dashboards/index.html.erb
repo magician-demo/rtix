@@ -1,27 +1,31 @@
-<div class="wrapper w-full">
+<div class="wrapper">
     <%= notice %>
-    <div class="myorder mt-20" data-controller="myorder">
-        <div class="sub-page w-10/12 m-auto flex border-b-2 border-grey-500">
-            <div class="ticketview font-mono p-4 hover:bg-red-100 cursor-pointer" data-action="click->myorder#showticket mouseover->myorder#tickethover" data-myorder-target="ticket">票券總覽</div>
-            <div class="hostview font-mono p-4 hover:bg-red-100 cursor-pointer" data-action="click->myorder#showhost mouseover->myorder#hosthover" data-myorder-target="host">舉辦活動總覽</div>
-        </div>
-        <div data-myorder-target="content">
-            <h2 class="mt-5 w-10/12 m-auto font-mono text-4xl pl-4">我的票券</h2>
-            <div class="w-10/12 m-auto"><%= render "tickets/ticket" %></div>
+    <div class="myorder" data-controller="myorder">
+        <div class="subtab">
+            <div class="ticketab" data-action="click->myorder#showticket mouseover->myorder#tickethover" data-myorder-target="ticket">票券總覽</div>
+            <div class="hostab" data-action="click->myorder#showhost mouseover->myorder#hosthover" data-myorder-target="host">舉辦活動總覽</div>
         </div>
 
-
-        <div class="clearfix" style="clear:both;"></div>
-        <h2 class="mt-3 w-10/12 m-auto font-mono text-4xl p-3 border-b-2 border-grey-500">RTIX精選活動</h2>
-        <!-- FIXME: Should be horizontal scrollbar... -->
-        <div class="recommended w-10/12 m-auto h-72 overflow-x-auto">
-            <!-- FIXME: link_to in Hotwire behaves weirdly. -->
-            <%= turbo_stream_from "events" %>
-            <%= turbo_frame_tag "events" do %>
-                <%= render "events/event" %>
-            <% end %>
+        
+        <div class="content" data-myorder-target="content">
+            <h2 class="subhead">我的票券</h2>
+            <div><%= render "tickets/ticket" %></div>
         </div>
 
+
+        <div style="clear:both;"></div>
+
+        <div class="content">
+            <h2 class="subhead">RTIX精選活動</h2>
+            <!-- FIXME: Should be horizontal scrollbar... -->
+            <div class="recommended">
+                <!-- FIXME: link_to in Hotwire behaves weirdly. -->
+                <%= turbo_stream_from "events" %>
+                <%= turbo_frame_tag "events" do %>
+                    <%= render "events/event" %>
+                <% end %>
+            </div>
+        </div>
     </div>
 </div>
 
@@ -30,12 +34,12 @@
 
 
 <template id="ticketview">
-        <h2 class="mt-5 w-10/12 m-auto font-mono text-4xl pl-4">我的票券</h2>
-        <div class="w-10/12 m-auto"><%= render "tickets/ticket" %></div>
+        <h2 class="subhead">我的票券</h2>
+        <div><%= render "tickets/ticket" %></div>
 </template>
 
 
 <template id="hostview">
-    <h2 class="mt-5 w-10/12 m-auto font-mono text-4xl pl-4">舉辦的活動</h2>
-    <div class="w-10/12 m-auto"><%= render "dashboards/host" %></div>
+    <h2 class="subhead">舉辦的活動</h2>
+    <div><%= render "dashboards/host" %></div>
 </template>

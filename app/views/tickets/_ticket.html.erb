@@ -1,26 +1,29 @@
-<table id="table_id" class="display table table-dark table-striped">
-  <thead>
-    <tr>
-      <th>活動名稱(連至活動頁面)</th>
-      <th>活動描述</th>
-      <th>活動時間/活動地點</th>
-      <th>票券</th>
-      <th>聯絡主辦單位</th>
-      <th>匯入Google行事曆</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @tickets.each do |ticket| %>
-    <tr>
-      <td><%= ticket.event.title %></td>
-      <td><%= ticket.event.description %></td>
-      <td><span class="font-bold">From:</span> <span class="syear">2021</span>/<span class="smonth">05</span>/<span class="sdate">12</span> @ <span class="stime">0500</span><br>
-        <span class="font-bold">To:</span> <span class="eyear">2021</span>/<span class="emonth">05</span>/<span class="edate">12</span> @ <span class="etime">0700</span><br>
-        <span class="font-bold">Location:</span> <span class="address">Taipei City</span></td>
-      <td><%= link_to "票券資料", mockup_path, class: "p-1 border-2 border-grey-500 mx-2 hover:bg-red-100" %></td>
-      <td><%= link_to '聯絡主辦單位', new_contact_path, class: "p-1 border-2 border-grey-500 mx-2 hover:bg-red-100" %></td>
-      <td><a href="" class="block rounded-lg font-bold font-mono text-sm hover:text-blue-700" data-action="click->myorder#import">Google Calendar</a></td>
-    </tr>
-    <% end %>
-  </tbody>
-</table>
+<div class="container">
+  <table id="table_id" class="display table table-striped table-hover">
+    <thead>
+      <tr>
+        <th class="ftext">活動名稱</th>
+        <th class="ftext">活動描述</th>
+        <th class="ftext">活動時間</th>
+        <th class="ftext">活動地點</th>
+        <th class="ftext">票券</th>
+        <th class="ftext">主辦單位</th>
+        <th class="ftext">匯入</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @tickets.each do |ticket| %>
+      <tr>
+        <td class="eventname"><%= ticket.event.title %></td>
+        <td class="mtext"><%= ticket.event.description %></td>
+        <td class="mtext"><span class="font-bold">From:</span> <span class="syear">2021</span>/<span class="smonth">05</span>/<span class="sdate">12</span> @ <span class="stime">0500</span><br>
+          <span class="font-bold">To:</span> <span class="eyear">2021</span>/<span class="emonth">05</span>/<span class="edate">12</span> @ <span class="etime">0700</span></td>
+        <td class="ftext"><span class="address">台北市</span></td>
+        <td class="ftext"><%= link_to "您有#{ticket.amount}張票券資料", mockup_path, class: "linkto" %></td>
+        <td class="ftext"><%= link_to "聯繫#{ticket.event.organization.title}", new_contact_path, class: "linkto" %></td>
+        <td class="ftext"><a href="" class="calendar" data-action="click->myorder#import">Google Calendar</a></td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

@@ -1,15 +1,13 @@
 
 <% @events.each do |event| %>
-<div class="card" id="event<%=event.id%>">
-    <div class="flex w-96">
-        <img src="https://picsum.photos/100/50" class="card-img-top" alt="...">
-        <div class="card-body">
-            <h5 class="card-title"><%= event.title %></h5>
-            <p class="card-text"><%= event.description %></p>
-            <span class="font-bold">Location:</span> <span class="address">Taipei City</span>
-            <a href="" class=" text-green-900 hover:bg-red-100">活動頁面</a>
+        <div class="card revent" id="event<%=event.id%>">
+            <img src="https://picsum.photos/100/50" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title"><%= event.title %></h5>
+                <p class="card-text"><%= event.description %></p>
+                <span class="font-bold">Location:</span> <span class="address">Taipei City</span>
+                <a href="" class=" text-green-900 hover:bg-red-100">活動頁面</a>
+            </div>
         </div>
-    </div>
-</div>
 <% end %>
 

@@ -18,15 +18,15 @@
 
         <div class="content">
             <h2 class="subhead">RTIX精選活動</h2>
-            <!-- FIXME: Should be horizontal scrollbar... -->
-            <div>
-                <!-- FIXME: link_to in Hotwire behaves weirdly. -->
+            <div class="container overflow-y-scroll h-72">
                 <%= turbo_stream_from "events" %>
                 <%= turbo_frame_tag "events" do %>
                     <%= render "events/event" %>
                 <% end %>
             </div>
         </div>
+
+        <div style="clear:both;"></div>
     </div>
 </div>
 

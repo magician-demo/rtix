@@ -13,7 +13,7 @@ export default class extends Controller{
     }else{
       localStorage.setItem('currentTime', new Date())
     }
-    const timeInMinutes = 1;
+    const timeInMinutes = 10;
     const deadline = new Date( Date.parse(currentTime) + timeInMinutes*60*1000);
 
     function getTimeRemaining(endTime){

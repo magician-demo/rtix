@@ -1,0 +1,17 @@
+<div class="flex justify-between bg-red-500 py-1">
+  <span class="px-2 py-2 text-white cursor-pointer">
+    <span
+        data-controller="clean-cart"
+        data-action="click->clean-cart#emptyCart"
+    >
+    取消購票 ｜
+    </span>
+    <%= link_to '上一頁', path%>
+  </span>
+  <span class="count_down px-2 py-2 text-white border border-white rounded"
+        data-controller="timer"
+  ></span>
+  <span class="px-2 py-2 text-white cursor-pointer" data-controller="cart" data-action="click->cart#showCart" >
+    購票清單(<span id="ticket_count"><%= ticket_count%></span>)
+  </span>
+</div>

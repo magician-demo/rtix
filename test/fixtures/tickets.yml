@@ -2,12 +2,14 @@
 
 one:
   name: MyString
-  amount: 1
   price: 1
+  amount: 1
+  status: MyString
   event: one
 
 two:
   name: MyString
-  amount: 1
   price: 1
+  amount: 1
+  status: MyString
   event: two

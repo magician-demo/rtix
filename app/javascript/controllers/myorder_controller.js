@@ -52,15 +52,30 @@ export default class extends Controller {
   }
 
 
-  import(){
-    let event = $('.event').text();
-    let tMark = 'T'
-    let stime = $('.syear').text() + $('.smonth').text() + $('.sdate').text() + tMark + $('.stime').text();
-    let etime = $('.eyear').text() + $('.emonth').text() + $('.edate').text() + tMark + $('.etime').text();
-    let location = $('.address').text();
+  import(e){
+    // let row = e.target.parentNode.parentNode.children[3].textContent;
+    let row = e.target.parentNode.parentNode.children;
+    console.log(row);
+    console.log(typeof row);
 
-    window.open(`https://www.google.com/calendar/render?action=TEMPLATE&sf=true&output=xml&text=${event}&location=${location}&dates=${stime}/${etime}`, '_blank').focus();
+    let event = row[0].textContent;
+    console.log(event);
+
+    let time = row[2].children;
+    console.log(time);
+
+
+
+    // let tMark = 'T'
+    // let stime = $('.syear').text() + $('.smonth').text() + $('.sdate').text() + tMark + $('.stime').text();
+    // let etime = $('.eyear').text() + $('.emonth').text() + $('.edate').text() + tMark + $('.etime').text();
+    // let location = $('.address').text();
+
+
+
+    // window.open(`https://www.google.com/calendar/render?action=TEMPLATE&sf=true&output=xml&text=${event}&location=${location}&dates=${stime}/${etime}`, '_blank').focus();
   }
+
 
 
 }

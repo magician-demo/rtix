@@ -7,7 +7,8 @@
          data-controller="list"
          data-action="click->list#cancelled"
          data-item-id="<%= s.line_item.id%>"
-         >Ｘ</div>
+         data-booking-id="<%= s.ticket.id%>"
+         >&times;</div>
   </div>
 <% end %>
   <div class="cart_total_price">

@@ -1,58 +1,41 @@
 import { Controller } from "stimulus"
 import axios from 'axios'
-import consumer from "../channels/consumer"
 
 export default class extends Controller {
-  
   addLineItem(){
     let count = document.getElementById('ticket_count')
     const cart = document.querySelector('.cart')
+    const booking_id = this.element.dataset['bookingId']
     let total_price = document.querySelector('.cart_total_price')
     let ax = axios.create()
     let token = document.querySelector('meta[name=csrf-token]').content
     const id = this.element.dataset['seatId']
     ax.defaults.headers.common['X-CSRF-Token'] = token
-    ax.post('/line_items',{seat_id: id})
+    // 將資料 post 到後端新增訂單資訊
+    ax.post('/line_items',{seat_id: id, booking_id: booking_id})
       .then(res =>{
         count.innerHTML = Number(count.textContent) + 1
-        cart.prepend(addList(res.data['area'], res.data['id'], res.data['price'], res.data['itemId']))
+        // 即時在 cart 中新增欄位，函式在下方，資料都從後端傳遞過來再進行拆解
+        cart.prepend(addList(res.data['area'], res.data['id'], res.data['price'], res.data['itemId'], res.data['bookingId']))
         total_price.innerHTML = `票券總價：$${res.data['total_price']}`
       })
       .catch(err =>{
-        console.log(err.response.data);
+        console.log(err);
       })
   }
-  connect(){
-    this.channel = consumer.subscriptions.create({channel: 'SeatStatusChannel', seat_id: this.element.dataset['seatId']},{
-      connected: this._cableConnected.bind(this),
-      disconnected: this._cableDisconnected.bind(this),
-      received: this._cableReceived.bind(this)
-    })
-  }
-  _cableConnected(){
-  }
-  _cableDisconnected(){
-  }
-  _cableReceived(data){
-    const seat = document.querySelector(`[data-seat-id='${data.id}']`)
-    if(data.message === 'changed!'){
-      seat.classList.toggle('selected')
-    }
-  }
 }
-
-
-function addList(area, id, price, itemId) {
+function addList(area, id, price, itemId, bookingId) {
   let div = document.createElement('div')
   div.innerHTML = `
     <div class="cart_list">
     <span class="px-2">${area}${id}號位</span><br>
     <span class="px-2">$${price}</span>
     <div class="remove_btn" 
-         data-controller="cart"
-         data-action="click->cart#cancelled"
+         data-controller="list"
+         data-action="click->list#cancelled"
          data-item-id="${itemId}"
-         >Ｘ</div>
+         data-booking-id="${bookingId}"
+         >&times;</div>
     </div>`
   return div
 }

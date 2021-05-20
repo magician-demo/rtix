@@ -1,6 +1,6 @@
-<%= render 'navbar', ticket_count: @ticket_count, path: event_path(params[:event_id])%>
+<%= render 'navbar', ticket_count: @seats_count, path: event_path(params[:event_id])%>
 <%= render 'cart', seat: @seat, price: @total_price%>
-
+<%= render 'popup', seat: @seat%>
 <% @tickets.each do |ticket|%>
   <div class="block bg-red-400 w-1/4 my-2">
     <%=link_to (ticket.name), event_booking_path(params[:event_id], ticket.id), class:'block'%>

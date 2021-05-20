@@ -12,6 +12,11 @@ Rails.application.routes.draw do
   end
   
   devise_for :users
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+  resources :events do
+    resources :booking, only: [:index, :show]
+  end
+  resources :line_items, only: [:create, :destroy]
+    post '/line_items/random_create', to: 'line_items#random_create'
+  resource :carts, only: [:destroy]
   root "events#index"
 end

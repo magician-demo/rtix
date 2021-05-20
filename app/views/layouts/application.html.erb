@@ -12,7 +12,6 @@
   </head>
 
   <body>
-
   <div class="fixed z-10 bg-red-500 w-full">
     <% if current_user %>
       <%= current_user.email %>
@@ -23,9 +22,6 @@
       <%= link_to('登入', new_session_path(:user)) %>
     <% end %>
   </div>
-
-
-
     <%= yield %>
   </body>
 </html>

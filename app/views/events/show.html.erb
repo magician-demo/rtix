@@ -1,0 +1,38 @@
+<div class="w-2/4 text-black m-auto rounded border border-black bg-red-500">
+  <div class="border border-black flex flex-nowrap py-2 m-2 rounded bg-white">
+    <span class="inline-block w-3/12 pl-2">票券名稱</span>
+    <span class="inline-block w-3/12">票價</span>
+    <span class="inline-block w-3/12">剩餘數量</span>
+    <span class="inline-block w-3/12">選擇張數</span>
+  </div>
+  <% @tickets.each do |ticket|%>
+  <div class="border border-black flex flex-nowrap py-2 m-2 rounded bg-white">
+    <span class="inline-block w-3/12 pl-2"><%=ticket.name%></span>
+    <span class="inline-block w-3/12"><%=ticket.price%></span>
+    <span class="inline-block w-3/12"><%=ticket.amount%></span>
+    <span class="inline-block w-3/12">
+      <span class="w-4/12 pr-1 cursor-pointer font-bold mr-1"
+            data-controller="count"
+            data-action="click->count#less"
+      >－</span>
+
+      <input type="number" 
+              class="w-4/12 border rounded text-center border-black" value="0" max="4" min="0" data-ticket-id="<%= ticket.id%>">
+
+      <span class="w-4/12 pl-1 cursor-pointer font-bold"
+            data-controller="count"
+            data-action="click->count#plus"
+      >＋</span>
+
+    </span>
+  </div>
+  <%end%>
+  <div class="text-center py-2 bg-white w-3/12 m-auto rounded my-2 text-2xl border border-black"
+       data-controller="count" 
+       data-action="click->count#buyTicket"
+  >
+    <%= link_to '下一步', event_booking_index_path(params[:id]), class: 'block'%>
+  </div>
+</div>
+
+

@@ -17,15 +17,15 @@
         </div>
           <br>
         <div>
-          <div class="show-title">擁有者(暫時顯示):</div>
-          <%= @organization.user_id %>
-        </div>
-        <div>
           <div class="show-title">網址:</div>
           <%= @organization.domain_name %>
         </div>
 
         <%= link_to '編輯', edit_organization_path(@organization), class: "org-button" %>
+        <%= link_to '刪除', organization_path(@organization),
+                            method: :delete,
+                            data: { confirm: '確定要刪除組織嗎？' },
+                            class: "org-button" %>
         
       </div>
     </div>

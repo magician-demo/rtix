@@ -1,6 +1,6 @@
 class OrganizationsController < ApplicationController
   before_action :find_organization, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate_user!
+  before_action :authenticate_user!, except: [:index, :show] 
 
   def index
     @organizations = current_user.organizations.all
@@ -36,7 +36,7 @@ class OrganizationsController < ApplicationController
 
   def destroy
     @organization.destroy
-    redirect_to organizations_path, notice: "刪除成功！" 
+    redirect_to root_path, notice: "組織刪除成功！" 
   end
 
   private

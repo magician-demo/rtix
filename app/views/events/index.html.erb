@@ -1,3 +1,25 @@
 <h1 class="bg-red-700">Hello</h1>
 
-<%= link_to '我的組織', organizations_path %>
+<p id="notice"><%= notice %></p>
+
+<% if user_signed_in? %>
+<table>
+  <thead>
+    <tr>
+      <th>組織名稱</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @organizations.each do |organization| %>
+      <tr>
+        <td><%= link_to organization.title, organization %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to '建立組織', new_organization_path %>
+<% end %>

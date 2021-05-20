@@ -17,5 +17,10 @@ Rails.application.routes.draw do
 
   delete "/carts/empty", to: 'carts#empty_cart'
 
-  resources :orders, only: [:show, :create]
+  resources :orders, only: [:show, :create] do
+    collection do
+      post :return_url
+    end
+  end
+  
 end

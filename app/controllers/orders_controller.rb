@@ -2,6 +2,8 @@ require 'digest'
 
 class OrdersController < ApplicationController
   before_action :authenticate_user!
+  skip_before_action :verify_authenticity_token, only: :return_url
+  skip_before_action :authenticate_user!, only: :return_url
   # include  Cart
 
   def show
@@ -14,6 +16,11 @@ class OrdersController < ApplicationController
     current_order.totalAmount
     current_order.checkMacValue
     @current_id = current_order.id
+  end
+
+  #抓綠界付款成功回傳值
+  def return_url
+    Order.find_by(serial: params[:MerchantTradeNo]).pay!
   end
 
 
@@ -43,7 +50,7 @@ class OrdersController < ApplicationController
     #回傳的網址
     # returnUrl = order_path(@order)
     
-    beforeURLEncode = "HashKey=5294y06JbISpM5x9&ChoosePayment=Credit&EncryptType=1&ItemName=#{@order.serial}&MerchantID=2000132&MerchantTradeDate=#{Time.now.strftime('%Y/%m/%d %H:%M:%S')}&MerchantTradeNo=#{@order.serial}&PaymentType=aio&ReturnURL=https://949c2e887532.ngrok.io/&TotalAmount=#{@order.totalAmount}&TradeDesc=Des&HashIV=v77hoKGq4kWxNNIS"
+    beforeURLEncode = "HashKey=5294y06JbISpM5x9&ChoosePayment=Credit&EncryptType=1&ItemName=#{@order.serial}&MerchantID=2000132&MerchantTradeDate=#{Time.now.strftime('%Y/%m/%d %H:%M:%S')}&MerchantTradeNo=#{@order.serial}&PaymentType=aio&ReturnURL=https://949c2e887532.ngrok.io/orders/return_url/&TotalAmount=#{@order.totalAmount}&TradeDesc=Des&HashIV=v77hoKGq4kWxNNIS"
 
     query = URI.encode_www_form_component(beforeURLEncode).downcase
     dha = Digest::SHA256.hexdigest(query).upcase
@@ -62,8 +69,6 @@ class OrdersController < ApplicationController
   end
   
   def update
-    #付款
-    @order.pay!
 
     #使用
     @order.use

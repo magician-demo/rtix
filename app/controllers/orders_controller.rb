@@ -24,7 +24,13 @@ class OrdersController < ApplicationController
   end
 
 
-  
+  # 訂單成立清空購物車並將座位狀態改為sold
+  def empty_cart
+    current_user.cart.seats.each do |seat|
+      seat.update(status: 'sold')
+      seat.line_item.delete
+    end
+  end
   
 
   def create
@@ -32,20 +38,16 @@ class OrdersController < ApplicationController
     # @order = current_user.Orders.new(order_params)
     @ticket_number = current_user.cart.seats.count
     @event = current_user.cart.seats.first.ticket.event.title
-    # current_user.cart.seats.each do |s|
-    #   @order.order_items.new(
-    #     seat_id: current_user.cart.seats[s].id, 
-    #     quantity: current_user.cart.seats.count
-    #   )
-    #   price = current_user.cart.seats[s].ticket.price
-    # end
+    
     @order.item_list = [current_user.cart.seats]
     @order.totalAmount = total_price
     @order.serial
     @order.save
-    # p '==============serial'
-    # p @order.serial
-    # p '==============serial'
+
+    # byebug
+    #清空購物車
+    empty_cart
+    
     #檢查碼
     #回傳的網址
     # returnUrl = order_path(@order)

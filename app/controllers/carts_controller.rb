@@ -15,16 +15,12 @@ class CartsController < ApplicationController
 
 
 
-  # 購物完清空購物車
+  # 訂單成立清空購物車
   # def empty_cart
-  #   redirect_to event_path(user_cart.seats.first.ticket.id)
-  #   seats = user_cart.seats
-  #   seats.update(statuㄈs: 'for_sale')
-  #   seats.each do |s|
-  #     s.ticket.amount += 1
-  #     s.ticket.save
+  #   current_user.cart.seats.each do |seat|
+  #     seat.update(status: 'sold')
+  #     seat.line_item.delete
   #   end
-  #   user_cart.line_items.destroy_all
   # end
 
 

@@ -1,6 +1,6 @@
 class ApplicationController < ActionController::Base
   helper_method :seat_status
-  
+  #找出使用者的 Cart 沒有就建立一個
   def user_cart
     if current_user.cart
       current_user.cart
@@ -26,6 +26,7 @@ class ApplicationController < ActionController::Base
     @event = Event.find(params[:event_id])
   end
 
+  #主要幫助前端渲染使用
   def seat_status(id)
     Seat.find(id).status
   end
@@ -36,5 +37,13 @@ class ApplicationController < ActionController::Base
       sum += s.ticket.price
     end
     sum
+  end
+
+  def user_seats
+    user_cart.seats
+  end
+
+  def event_tickets
+    current_event.tickets
   end
 end

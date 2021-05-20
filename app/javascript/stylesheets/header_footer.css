@@ -1,0 +1,252 @@
+a{
+    text-decoration: none;
+    color: black;
+  }
+  
+  html, body {
+    height: 100%;
+    margin: 0;
+    line-height: 24px;
+    font-size: 15px;
+  }
+  .wrapper {
+    min-height: calc(100% - 50px); /*減去footer高度*/
+  }
+  
+  .header .bg-danger{
+    background: linear-gradient(0deg, #EB0000 0%, #AB0000 56%);
+    background: -moz-linear-gradient(0deg, #EB0000 0%, #AB0000 56%);
+    background: -webkit-linear-gradient(0deg, #EB0000 0%, #AB0000 56%);
+    background: -o-linear-gradient(0deg, #EB0000 0%, #AB0000 56%);
+  }
+  .header .navbar-light .navbar-nav .nav-link.active, .navbar-light .navbar-nav .show>.nav-link,
+  .header .navbar-light .navbar-nav .nav-link,
+  .header .btn-outline-success{
+    color: white;
+  }
+  .header .navbar-nav .dropdown-menu{
+    left: -20px;
+  }
+  
+  .header .nav-link{
+    list-style-type: none;
+    float: left;   
+  }
+  
+  .header .d-flex{
+    position: relative;
+  }
+  .header .form-control{
+    padding: .375rem .75rem .375rem 1.5rem;
+  }
+  .header .magnifier{
+    position: absolute;
+    top: .8rem;
+    left: .3rem;
+  }
+  
+  
+  .header .nav-link::after{
+    content: "";/*讓after顯示出來*/
+    border-bottom: 2px solid #ffffff;
+    margin: auto;/*使線段從中間展開*/
+    position: relative/*調整位置*/;
+    width: 0%;
+    display: block;/*變成一個區塊才hover的到*/
+    transition: all .3s;
+    top:5px;
+  }
+  
+  .header .nav-link:hover::after{/*hover要先寫*/
+    width: 100%;/*讓線段長出*/
+  }
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  .slide .carousel-indicators [data-bs-target]{
+    width: 16px;
+    height: 16px;
+    margin: 5px;
+    border-width: 2px;
+    border-radius: 50%;
+  }
+  
+  .slide .carousel-control-next-icon, 
+  .carousel-control-prev-icon{
+    width: 3rem;
+    height: 3rem;
+  }
+  
+  
+  
+  
+  
+  /* category */
+  /* 刪除預設欄位空白 */
+  .category .g-lg-3, .gx-lg-3 {
+    --bs-gutter-x: 0rem;
+  }
+  .category .row {
+    --bs-gutter-x: 0rem;
+    --bs-gutter-y: 0;
+  }  
+  .category .p-3 {
+    padding: 1rem;
+    text-align: center;
+  }
+  .category .fa, 
+  .category .fas {
+    display: block;
+    line-height: 4rem;
+  }
+  .category a{
+    color:rgb(54, 54, 54);
+    transition: .3s;
+  }
+  .category .learn a:hover{
+    color:rgb(121, 34, 13) ;
+  }
+  .category .music a:hover{
+    color:rgb(235, 157, 14) ;
+  }
+  .category .museum a:hover{
+    color:rgb(141, 0, 177) ;
+  }
+  .category .heart a:hover{
+    color:rgb(253, 29, 96) ;
+  }
+  .category .food a:hover{
+    color:rgb(35, 153, 199) ;
+  }
+  .category .outdoor a:hover{
+    color:rgb(83, 167, 27) ;
+  }
+  
+  .category .container{
+    padding-right: var(--bs-gutter-x, 0rem);
+    padding-left: var(--bs-gutter-x, 0rem);
+  }
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  .news .title .accordion-button:not(.collapsed)::after {
+    background-image: none;
+  }
+  
+  .news .accordion-button:not(.collapsed)::after {
+    border-color: none;
+  }
+  
+  .news .accordion-button:not(.collapsed) {
+    color: #b10000;
+    background-color: #ffffff;
+  } 
+  
+  .news .accordion-button:focus {
+    z-index: 3;
+    border-color: none;
+    outline: 0;
+    box-shadow: none;
+    background-color: #f8f9fa;
+  }
+  
+  
+  
+  
+  
+  
+  .footer {
+    /* height: 120px; 設定footer本身高度 */
+    background-color: rgb(54, 54, 54);
+    padding-bottom: 20px;
+  }
+  .footer .container{
+    width: 90%;
+    display: flex;
+    padding: 30px 0 10px 0;
+  }
+  .footer .container .language{
+    margin: auto;
+  }
+  .footer .container .language p{
+    padding: 5px;
+    display: inline;
+    color:rgb(151, 151, 151);
+  } 
+  .footer .container .language a{
+    padding: 5px;
+    display: inline;
+    color: rgb(151, 151, 151);
+  }
+  .footer .container .language a:hover{
+    color: white;
+  }
+  
+  .footer .container .language a:nth-child(2){
+    border-bottom: 2px solid #EB0000;
+    color: #d8d8d8;
+  }
+  .footer .container ul{
+    margin: auto;
+  }
+  .footer .container ul li{
+    display: inline;
+    position: relative;
+  }
+  .footer .container ul li+li:after{
+    content: "";
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    -ms-border-radius: 2px;
+    -o-border-radius: 2px;
+    border-radius: 2px;
+    width: 4px;
+    height: 4px;
+    background: #202020;
+    position: absolute;
+    top: 40%;
+    left: -5px;
+  }
+  .footer .container ul li:after li:nth-child(1){
+    background: #d8d8d8;
+  }
+  .footer .container ul li a{
+    color: rgb(151, 151, 151);
+    padding: 5px;
+  }
+  .footer .container ul li a:hover{
+    color: white;
+  }
+  
+  
+  
+  
+  
+  
+  
+  .footer .copyright{
+    display: flex;
+  }
+  .footer .copyright p{
+    margin: auto;
+    color: rgb(151, 151, 151);
+    padding: 0 10%;
+  }
+  .logo{
+    font-family: bungee,sans-serif;
+    font-weight: 400;
+    font-style: normal;
+  }

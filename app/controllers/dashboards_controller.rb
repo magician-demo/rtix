@@ -8,6 +8,6 @@ class DashboardsController < ApplicationController
          
     end
 
-    def mockup
+    def show
     end
 end

@@ -1,0 +1,37 @@
+<div class="wrapper">
+    <%= render "layouts/header" %>
+    
+    <h1>活動名稱</h1>
+    <%= link_to '返回上一頁', dashboards_path, class: "w-24 my-5 border-2 border-grey-500 mx-2 hover:bg-gray-100 block text-center font-mono" %>
+    
+    <div class="orderinfo">
+        <h3>訂單資訊</h3>
+        <div>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio reiciendis qui atque excepturi animi quibusdam magni ea a facere deserunt inventore, saepe accusamus sequi dolor repudiandae dolorem corrupti labore. Rem?Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus praesentium, eaque cumque sint quod molestias, vero itaque culpa quis laboriosam et corrupti inventore voluptas error dignissimos aperiam amet eius atque?
+        </div>
+    </div>
+
+    <div class="contactinfo">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum maiores tempora et sint ab rerum, animi laborum optio cupiditate exercitationem dolores vel non, voluptate, cum earum itaque adipisci veritatis saepe.
+    </div>
+
+    <div class="ticketinfo">
+        <div>
+            <button>取消訂單</button>
+        </div>
+        <div>
+            <h3>聯絡人資料</h3>
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Neque similique repellendus eum odit illo rerum aut quisquam, accusamus explicabo, pariatur natus, alias laboriosam excepturi rem sequi modi quos reprehenderit architecto!
+        </div>
+        <div>
+            <h3>票券資訊（含QRcode)</h3>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia, debitis odio aliquid officiis nam repellat qui impedit cupiditate obcaecati reprehenderit deserunt non saepe perspiciatis, minima sapiente ducimus consequuntur, nostrum cumque laudantium earum at atque consectetur fugit. Similique quos nam mollitia repudiandae nihil voluptatibus modi pariatur quae excepturi, distinctio ducimus architecto.</p>
+            <div class="qrcode"><%= qr_gen("DemoDay", "Jack", "2") %></div>
+        </div>
+    </div>
+    
+    
+    
+    <%= render "layouts/footer" %>
+
+</div>

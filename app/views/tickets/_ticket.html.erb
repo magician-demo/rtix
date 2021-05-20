@@ -19,8 +19,9 @@
         <td class="mtext"><span class="font-bold">From:</span> <span class="syear">2021</span>/<span class="smonth">05</span>/<span class="sdate">12</span> @ <span class="stime">0500</span><br>
           <span class="font-bold">To:</span> <span class="eyear">2021</span>/<span class="emonth">05</span>/<span class="edate">12</span> @ <span class="etime">0700</span></td>
         <td class="ftext"><span class="address">台北市</span></td>
-        <td class="ftext"><%= link_to "您有#{ticket.amount}張票券資料", mockup_path, class: "linkto" %></td>
+        <td class="ftext"><%= link_to "您有#{ticket.amount}張票券資料", dashboard_path(ticket.id), class: "linkto" %></td>
         <td class="ftext"><%= link_to "聯繫#{ticket.event.organization.title}", new_contact_path, class: "linkto" %></td>
+        <!-- FIXME: 點擊後抓取的URL跑掉了； 並且點擊後整個表格的尺寸會做變動(讓字變得很亂) -->
         <td class="ftext"><a href="" class="calendar" data-action="click->myorder#import">Google Calendar</a></td>
       </tr>
       <% end %>

@@ -1,9 +1,10 @@
-<%= turbo_frame_tag "seats" do%>
-<div class="row">
+<div class="row"
+     data-controller="booking-channel"
+>
   <% seats.each do |s| %>
       <div 
           class="seat
-          <%= 'selected' if seat_status(s.id) === 'selected' %>" 
+          <%= 'selected' if seat_status(s.id) === 'selected' %>"
           data-seat-id="<%= s.id%>" 
           data-booking-id="<%= s.ticket.id%>"
           data-controller="seat"
@@ -11,4 +12,3 @@
       ></div>
   <% end %>
 </div>
-<% end %>

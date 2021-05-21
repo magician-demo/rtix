@@ -23,7 +23,7 @@ export default class extends Controller {
       total_price.innerHTML = `票券總價：$${res.data['total_price']}`
       // 判斷若購物車內沒有物品，自動關閉購物車
       if(cart.innerHTML.length <= 180){
-        cart.classList.remove('showcart')
+        cart.classList.remove('show_cart')
       }
     })
     .catch(err=>{

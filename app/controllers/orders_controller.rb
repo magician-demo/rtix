@@ -4,17 +4,14 @@ class OrdersController < ApplicationController
   before_action :authenticate_user!
   skip_before_action :verify_authenticity_token, only: :return_url
   skip_before_action :authenticate_user!, only: :return_url
-  # include  Cart
+
 
   def show
     @order =current_order
     @price = @order.totalAmount
-    # @seats = user_cart.seats
-    # current_order_id = Order.find(params[:id]).id
+    
     @seats = @order.seats
-    # @seats = OrderItem.find_by(order_id: current_order_id).seat
-    # byebug
-    # @serial = current_order.serial
+    
     current_order.serial
     current_order.totalAmount
     current_order.checkMacValue
@@ -81,22 +78,17 @@ class OrdersController < ApplicationController
     
     #檢查碼
     #回傳的網址
-    # returnUrl = order_path(@order)
+    # ClientBackURL
     
     beforeURLEncode = "HashKey=5294y06JbISpM5x9&ChoosePayment=Credit&EncryptType=1&ItemName=#{@order.serial}&MerchantID=2000132&MerchantTradeDate=#{Time.now.strftime('%Y/%m/%d %H:%M:%S')}&MerchantTradeNo=#{@order.serial}&PaymentType=aio&ReturnURL=https://949c2e887532.ngrok.io/orders/return_url/&TotalAmount=#{@order.totalAmount}&TradeDesc=Des&HashIV=v77hoKGq4kWxNNIS"
 
     query = URI.encode_www_form_component(beforeURLEncode).downcase
     dha = Digest::SHA256.hexdigest(query).upcase
     @order.checkMacValue = dha
-    # p '==============dha'
-    # p @order.checkMacValue
-    # p '==============dha'
     
     #把檢查碼存進資料庫中
     @order.save
-    
-    # empty_cart!
-    # @order.pay!
+
     
     redirect_to order_path(@order), notice: "謝謝"
   end

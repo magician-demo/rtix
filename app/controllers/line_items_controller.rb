@@ -17,7 +17,6 @@ class LineItemsController < ApplicationController
     end
   end
 
-
   def destroy
     # 刪除一個line_item 並恢復座位狀態及票券數量調整
     line_item = LineItem.find(params[:id])
@@ -33,7 +32,6 @@ class LineItemsController < ApplicationController
       render json: {status: 'error'}
     end
   end
-
 
   def random_create
     # params[:ticketCount] 為前端表格回傳的資料結構為一個 hash 內有陣列 (根據票種數量而定)

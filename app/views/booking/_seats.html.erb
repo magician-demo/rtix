@@ -7,8 +7,8 @@
           <%= 'selected' if seat_status(s.id) === 'selected' %>"
           data-seat-id="<%= s.id%>" 
           data-booking-id="<%= s.ticket.id%>"
-          data-controller="seat"
-          data-action ="click->seat#addLineItem"
+          data-controller="booking-seat"
+          data-action ="click->booking-seat#addLineItem"
       ></div>
   <% end %>
 </div>

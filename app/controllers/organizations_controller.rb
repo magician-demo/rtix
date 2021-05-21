@@ -40,11 +40,11 @@ class OrganizationsController < ApplicationController
   end
 
   private
-    def find_organization
-      @organization = current_user.organizations.find(params[:id])
-    end
+  def find_organization
+    @organization = current_user.organizations.find(params[:id])
+  end
 
-    def organization_params
-      params.require(:organization).permit(:title, :description)
-    end
+  def organization_params
+    params.require(:organization).permit(:title, :description)
+  end
 end

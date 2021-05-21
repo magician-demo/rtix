@@ -17,11 +17,6 @@ class ApplicationController < ActionController::Base
   end
 
 
-  # def checkout
-  #   @order = Order.new
-  # end
-
-
   def current_event
     @event = Event.find(params[:event_id])
   end

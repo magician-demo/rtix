@@ -10,7 +10,7 @@ export default class extends Controller {
   };
 
 
-
+  // 確認票種明細購物車的渲染
   list_cancelled(){
     let total_price = document.querySelector('.list_cart_total_price')
     // let count = document.getElementById('list_ticket_count')
@@ -20,18 +20,9 @@ export default class extends Controller {
     const id = this.element.dataset['itemIds']
     ax.delete(`/line_items/${id}`)
     .then(res => {
-      // console.log(res.data.total_price)
       total_price.textContent = res.data.total_price
-      // console.log(total_price.textContent)
-      // console.log(this)
       this.element.parentElement.parentElement.remove()
-      // count.textContent = Number(count.textContent) - 1
-      // console.log(count.textContent)
       total_price.textContent = `${res.data['total_price']}`
-      // if(cart.textContent.length <= 180){
-      //   cart.classList.toggle('showcart')
-      // }
-      
       if(res.data.total_price == 0){
         document.querySelector('.showCart').classList.add('hidden')
         document.querySelector('.empty').classList.remove('hidden')

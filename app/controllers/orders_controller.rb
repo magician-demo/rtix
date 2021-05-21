@@ -20,12 +20,12 @@ class OrdersController < ApplicationController
 
   #抓綠界付款成功回傳值
   def return_url
-    if params.require(:RtnCode)==1
-      Order.find_by(serial: params[:MerchantTradeNo]).pay!
+    ecpay_order = Order.find_by(serial: params[:MerchantTradeNo])
+    if params[:RtnCode] == '1'
+      ecpay_order.pay!
     else
-      Order.find_by(serial: params[:MerchantTradeNo]).cancel!
-      current_orders = Order.find_by(serial: params[:MerchantTradeNo])
-      current_orders.seats.each do |seat|
+      ecpay_order.cancel!
+      ecpay_order.seats.each do |seat|
         seat.update(status: 'for_sale')
       end
     end
@@ -43,7 +43,6 @@ class OrdersController < ApplicationController
     current_user.cart.seats.each do |seat|
       seat.update(status: 'sold')
       OrderItem.create(order_id: current_user.id)
-      # seat.order_item.save
       seat.line_item.delete
     end
   end
@@ -52,7 +51,7 @@ class OrdersController < ApplicationController
   def create
     @order = Order.new(user_id: current_user.id)
     @order.receiver = params.require(:order).permit(:receiver)
-    @order.receiver = params.require(:order).permit(:tel)
+    @order.tel = params.require(:order).permit(:tel)
   
     @ticket_number = current_user.cart.seats.count
     @event = current_user.cart.seats.first.ticket.event.title
@@ -67,20 +66,17 @@ class OrdersController < ApplicationController
         seat_id: seat.id
       )
     end
-
-
+    #訂單成立、先產生訂單序號跟總金額到欄位中，讓下面的檢查碼抓取
     @order.save
-    # OrderItem.create(params: params)
 
-    # byebug
     #清空購物車
     empty_cart
     
     #檢查碼
-    #回傳的網址
-    # ClientBackURL
+    #回傳的網址:導回首頁
+    # ClientBackURL=https://949c2e887532.ngrok.io/&
     
-    beforeURLEncode = "HashKey=5294y06JbISpM5x9&ChoosePayment=Credit&EncryptType=1&ItemName=#{@order.serial}&MerchantID=2000132&MerchantTradeDate=#{Time.now.strftime('%Y/%m/%d %H:%M:%S')}&MerchantTradeNo=#{@order.serial}&PaymentType=aio&ReturnURL=https://949c2e887532.ngrok.io/orders/return_url/&TotalAmount=#{@order.totalAmount}&TradeDesc=Des&HashIV=v77hoKGq4kWxNNIS"
+    beforeURLEncode = "HashKey=5294y06JbISpM5x9&ChoosePayment=Credit&ClientBackURL=https://949c2e887532.ngrok.io/&EncryptType=1&ItemName=#{@order.serial}&MerchantID=2000132&MerchantTradeDate=#{Time.now.strftime('%Y/%m/%d %H:%M:%S')}&MerchantTradeNo=#{@order.serial}&PaymentType=aio&ReturnURL=https://949c2e887532.ngrok.io/orders/return_url/&TotalAmount=#{@order.totalAmount}&TradeDesc=Des&HashIV=v77hoKGq4kWxNNIS"
 
     query = URI.encode_www_form_component(beforeURLEncode).downcase
     dha = Digest::SHA256.hexdigest(query).upcase

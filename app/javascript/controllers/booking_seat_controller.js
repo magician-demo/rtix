@@ -31,10 +31,9 @@ function addList(area, id, price, itemId, bookingId) {
     <span class="px-2">${area}${id}號位</span><br>
     <span class="px-2">$${price}</span>
     <div class="remove_btn" 
-         data-controller="list"
-         data-action="click->list#cancelled"
+         data-controller="booking-cart-list"
+         data-action="click->booking-cart-list#cancelled"
          data-item-id="${itemId}"
-         data-booking-id="${bookingId}"
          >&times;</div>
     </div>`
   return div

@@ -9,6 +9,7 @@ export default class extends Controller{
     if(confirm('目前的訂單將先行取消，座位亦不保留，您確定要重新選票嗎？')){
       ax.delete('/carts')
       .then(res=>{
+        localStorage.removeItem('popstate')
         window.location.href = '/events'
       })
       .catch(err=>{

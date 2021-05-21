@@ -1,15 +1,35 @@
-<div class="ticket_information">
+<div class="ticket_information active">
   <div class="ticket_information_header">
-    <div>系統選位通知</div>
-    <div>&times;</div>
-  </div>
-  <div>
+    <div class="title">系統選位通知</div>
+    <button class="close-button"
+            data-controller="booking-ticket-information"
+            data-action="click->booking-ticket-information#close">&times;
+    </button>
+    </div>
+  <div class="ticket_information_body">
+    <div class="ticket_information_body_title">
     系統已經幫您選好了相臨座位，您有10分鐘可以修改您想要的位置：
+    </div>
+    <div class="ticket_information_body_content">
+      <span>票券名稱</span>
+      <span>座位</span>
+      <span>座位號碼</span>
+    </div>
+    <% seats.each do |seat|%>
+    <div class="ticket_information_body_content">
+      <span><%=seat.ticket.name%></span>
+      <span><%=seat.area%></span>
+      <span><%=seat.id%></span>
+    </div>
+    <% end %>
+  </div> 
+  <div class="timer_button" 
+       data-controller="booking-ticket-information"              
+       data-action="click->booking-ticket-information#close">
+    <div  data-controller="booking-timer-button"></div>
   </div>
-  <div>
-    <span>票券</span><span>座位</span>
-  </div>
-  <div>
-    <span></span><span></span>
-  </div>
+</div>
+<div id="overlay" class="active" 
+     data-controller="booking-ticket-information"
+     data-action="click->booking-ticket-information#close">
 </div>

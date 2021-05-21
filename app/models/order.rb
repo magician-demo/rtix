@@ -2,9 +2,12 @@ class Order < ApplicationRecord
   belongs_to :user
   include AASM
   has_many :order_items
+  has_many :seats, through: :order_items
 
   validates :serial, uniqueness: true
   before_create :create_serial
+
+  
 
   aasm column: 'status', no_direct_assignment: true do 
     state :pending, initial: true

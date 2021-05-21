@@ -7,9 +7,12 @@ class OrdersController < ApplicationController
   # include  Cart
 
   def show
-    # @order = Order.find(params[:id])
-    @price = total_price
-    @seats = user_cart.seats
+    @order =current_order
+    @price = @order.totalAmount
+    # @seats = user_cart.seats
+    # current_order_id = Order.find(params[:id]).id
+    @seats = @order.seats
+    # @seats = OrderItem.find_by(order_id: current_order_id).seat
     # byebug
     # @serial = current_order.serial
     current_order.serial
@@ -20,7 +23,21 @@ class OrdersController < ApplicationController
 
   #抓綠界付款成功回傳值
   def return_url
-    Order.find_by(serial: params[:MerchantTradeNo]).pay!
+    if params.require(:RtnCode)==1
+      Order.find_by(serial: params[:MerchantTradeNo]).pay!
+    else
+      Order.find_by(serial: params[:MerchantTradeNo]).cancel!
+      current_orders = Order.find_by(serial: params[:MerchantTradeNo])
+      current_orders.seats.each do |seat|
+        seat.update(status: 'for_sale')
+      end
+    end
+
+  end
+
+  #從綠界回網站
+  def client_url
+    
   end
 
 
@@ -28,6 +45,8 @@ class OrdersController < ApplicationController
   def empty_cart
     current_user.cart.seats.each do |seat|
       seat.update(status: 'sold')
+      OrderItem.create(order_id: current_user.id)
+      # seat.order_item.save
       seat.line_item.delete
     end
   end
@@ -35,14 +54,26 @@ class OrdersController < ApplicationController
 
   def create
     @order = Order.new(user_id: current_user.id)
-    # @order = current_user.Orders.new(order_params)
+    @order.receiver = params.require(:order).permit(:receiver)
+    @order.receiver = params.require(:order).permit(:tel)
+  
     @ticket_number = current_user.cart.seats.count
     @event = current_user.cart.seats.first.ticket.event.title
     
     @order.item_list = [current_user.cart.seats]
     @order.totalAmount = total_price
     @order.serial
+
+    #訂單與座位的第三方表格
+    current_user.cart.seats.each do |seat|
+      @order.order_items.new(
+        seat_id: seat.id
+      )
+    end
+
+
     @order.save
+    # OrderItem.create(params: params)
 
     # byebug
     #清空購物車
@@ -69,26 +100,20 @@ class OrdersController < ApplicationController
     
     redirect_to order_path(@order), notice: "謝謝"
   end
+
+  
   
   def update
-
     #使用
     @order.use
 
     #過期
     @order.expire if Time.now > @event.date
 
-    #取消
-    @order.cancel
-
     #退費
     @order.refund
-
   end
   
-  private 
-    def order_params
-      params.require(:order).permit(:receiver, :tel)
-    end
+  
 end
 

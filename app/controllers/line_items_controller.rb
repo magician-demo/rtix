@@ -31,8 +31,6 @@ class LineItemsController < ApplicationController
       render json: {total_price: total_price}
     else
       render json: {status: 'error'}
-      p "123456"
-      p "==============================="
     end
   end
 

@@ -37,7 +37,7 @@ export default class extends Controller{
         if(t.total <= 0){
           clearInterval(timeInterval)
           localStorage.removeItem('currentTime')
-          localStorage.removeItem('popstate')
+          localStorage.removeItem('comeBefore')
           if(confirm('選位時間已到，將您返回至活動頁面')){
             ax.delete('/carts')
             .then(res=>{

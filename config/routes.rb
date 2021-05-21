@@ -8,4 +8,20 @@ Rails.application.routes.draw do
     post '/line_items/random_create', to: 'line_items#random_create'
   resource :carts, only: [:destroy]
   root "events#index"
+
+  
+  resource :cart, only: [:show, :destroy] do
+    collection do
+      get :checkout
+    end
+  end
+
+  delete "/carts/empty", to: 'carts#empty_cart'
+
+  resources :orders, only: [:show, :create] do
+    collection do
+      post :return_url
+    end
+  end
+  
 end

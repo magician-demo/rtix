@@ -1,0 +1,94 @@
+<div class="orderd_not_pay text-white bg-yellow-500 py-2 w-4/5 m-auto mb-2 text-center">你的訂單已保留，請在24小時內完成繳費。逾期將取消訂單</div>
+
+<div class="body m-auto bg-grey border-t">
+  <div class="content w-4/5 m-auto">
+    <h1 class="text-3xl font-medium mt-3">Event 票卷</h1>
+    <div class="detail text-green-500 text-sm mt-1 mb-2">顯示詳細活動資料▾</div>
+    <div class="step flex justify-center mb-3">
+      <div class="step-each rounded-3xl w-4/12 opacity-40 text-center bg-green-600 m-1 py-2 text-xs text-white ">
+        1 選擇票種
+      </div>
+      <div class="step-each rounded-3xl w-4/12 opacity-40 text-center bg-green-600 m-1 py-2 text-xs text-white ">
+        2 填寫表單
+      </div>
+      <div class="step-each rounded-3xl w-4/12 text-center bg-green-600 m-1 py-2 text-xs text-white ">
+        3 取票繳費
+      </div>
+    </div>
+    <div class="order-info border">
+      <div class="order-no tracking-wide bg-gray-500 text-white p-1 px-2  ">訂單編號：<%# @order.serial %></div>
+        <% @seats.each do |s|%>
+      <div class="order-detail px-3 flex space-x-1 border-b-2 border-black p-2">
+        <div class="item-name w-2/12">票卷</div>
+        <div class="item-area w-2/12"><%= s.area %></div>
+        <div class="item-seat w-3/12"><%= s.id %>號座位</div>
+        <div class="item-price w-2/12"><%= s.ticket.price%></div>
+        <div class="item-qty w-2/12">x 1</div>
+        <div class="item-calc w-1/12"><%= s.ticket.price%></div>  
+      </div>
+      <% end %> 
+      <div class="order-total_price px-3 flex justify-end space-x-1 border-b-2 border-black p-2 bg-green-50">
+        <div class="w-1/13">
+        總計
+        </div>
+        <div class="total_price w-1/12">
+        <%= @price %>
+        </div>
+      </div>
+      <div class="order-checkin px-3 flex space-x-1 border-b-2 border-black p-2">
+        <div class="checkin-way w-2/12">*取票方式</div>
+        <div class="e-ticket">電子票卷</div>        
+      </div>
+      <div class="order-pay px-3 flex space-x-1 border-b-2 border-black p-2">
+        <div class="pay-way w-2/12">*付款方式</div>
+        <div class="payment">
+        <input type="radio" id="ecpay" name="payw"> 信用卡
+        <%# <input type="radio" id="line" name="payw"> LinePay    %>
+        </div>    
+      </div>
+      <div class="order-total px-3 flex space-x-1 bg-yellow-50 p-1">
+        <div class="order-total-amount w-6/12">總金額</div>
+        <div class="order-total-amount-num text-right  w-9/12"><%# @order.totalAmount %></div>   
+      </div>
+    
+    </div>
+    
+    <div class="pay-button m-auto mt-8 max-w-max "><input id="pay" type="submit" value="確認訂單並繳費" class="bg-green-500 p-2.5 text-white rounded-sm opacity-40"></div>
+  </div>
+</div>
+
+
+
+
+
+ 
+
+<form class="new_order" style="display: none" id="new_order" action="https://payment-stage.ecpay.com.tw/Cashier/AioCheckOut/V5" method="post">
+
+  <input name="MerchantID" value="2000132">
+  <input name="MerchantTradeNo" value="<%= @order.serial %>">
+  <input name="MerchantTradeDate" value="<%= Time.now.strftime('%Y/%m/%d %H:%M:%S') %>">
+  <input name="PaymentType" value="aio">
+  <input type=integer name="TotalAmount" value=<%= @order.totalAmount %>>
+  <input name="TradeDesc" value="Des">
+  <input name="ItemName" value="<%= @order.serial %>">
+  <input name="ReturnURL" value="https://949c2e887532.ngrok.io/orders/return_url/">
+  <input name="ChoosePayment" value="Credit">
+  <input name="CheckMacValue" value=<%= @order.checkMacValue %>>
+  <input name="EncryptType" value=1>
+  <input name="ClientBackURL" value="https://949c2e887532.ngrok.io/">
+  
+
+</form>
+
+<script>
+
+
+  document.querySelector('#ecpay').addEventListener('click', ()=>{
+    document.querySelector('#pay').classList.add('opacity-100')
+  document.querySelector('#pay').addEventListener('click', ()=>{
+    document.querySelector('#new_order').submit()
+  })
+})
+</script>
+

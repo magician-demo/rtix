@@ -14,7 +14,6 @@ export default class extends Controller{
     this.element.previousElementSibling.value = Number(this.element.previousElementSibling.value) + 1
     }
   }
-  
   buyTicket(){
     const allValue = document.querySelectorAll('input')
     let ticketCount = {}

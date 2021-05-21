@@ -6,6 +6,4 @@ class DashboardsController < ApplicationController
         @events = Event.all.order(id: :desc)
     end
 
-    def show
-    end
 end

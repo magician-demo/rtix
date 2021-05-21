@@ -4,10 +4,9 @@
     <span class="px-2"><%= s.area%><%= s.id%>號位</span><br>
     <span class="px-2 price">$<%= s.ticket.price%></span>
     <div class="remove_btn" 
-         data-controller="list"
-         data-action="click->list#cancelled"
+         data-controller="booking-cart-list"
+         data-action="click->booking-cart-list#cancelled"
          data-item-id="<%= s.line_item.id%>"
-         data-booking-id="<%= s.ticket.id%>"
          >&times;</div>
   </div>
 <% end %>

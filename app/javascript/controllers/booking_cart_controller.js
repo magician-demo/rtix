@@ -24,7 +24,7 @@ export default class extends Controller {
       this.element.parentElement.parentElement.remove()
       total_price.textContent = `${res.data['total_price']}`
       if(res.data.total_price == 0){
-        document.querySelector('.showCart').classList.add('hidden')
+        document.querySelector('.showcart').classList.add('hidden')
         document.querySelector('.empty').classList.remove('hidden')
         document.querySelector('.nextone').classList.add('hidden')
 

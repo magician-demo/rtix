@@ -1,11 +1,10 @@
-
 <% @events.each do |event| %>
         <div class="card revent" id="event<%=event.id%>">
             <img src="https://picsum.photos/100/50" class="card-img-top" alt="...">
             <div class="card-body">
                 <h5 class="card-title eventname"><%= event.title %></h5>
                 <p class="card-text mtext"><%= event.description %></p>
-                <span class="address">台北市</span><br>
+                <span class="city"><%= event.city %></span><br>
                 <a href="" class="linkto">活動頁面</a>
             </div>
         </div>

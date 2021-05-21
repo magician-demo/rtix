@@ -9,6 +9,14 @@ class ApplicationController < ActionController::Base
     end
   end
 
+
+  
+
+  def current_order
+    @order = Order.find(params[:id])
+  end
+
+
   def current_event
     @event = Event.find(params[:event_id])
   end

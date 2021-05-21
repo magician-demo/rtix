@@ -5,7 +5,7 @@ class DashboardsController < ApplicationController
 
         @hosts = @user.organizations
 
-        @best_events = Event.all.order(id: :desc)
+        @best_events = Event.all.sample(12)
     end
 
 end

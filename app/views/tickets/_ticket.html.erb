@@ -1,5 +1,5 @@
 <div class="container">
-  <table id="table_id" class="display table table-striped table-hover">
+  <table id="table_id" class="display">
     <thead>
       <tr>
         <th class="thead">活動年份</th>
@@ -8,8 +8,8 @@
         <th class="thead">活動描述</th>
         <th class="thead">城市</th>
         <th class="thead">地點</th>
-        <th class="thead">活動開始日期/時間</th>
-        <th class="thead">活動結束日期/時間</th>
+        <th class="thead">活動開始 日期/時間</th>
+        <th class="thead">活動結束 日期/時間</th>
         <th class="thead">票券資訊</th>
         <th class="thead">聯繫主辦</th>
         <th class="thead">匯入</th>
@@ -24,11 +24,11 @@
         <td class="mtext descrp"><%= user_event.description %></td>
         <td class="mtext city"><%= user_event.city %></td>
         <td class="mtext"><%= user_event.location %></td>
-        <td class="mtext"><span class="smonth"><%= user_event.s_month%></span>/<span class="sdate"><%= user_event.s_date%></span> @ <span class="stime"><%= user_event.s_time%></span></td>
-        <td class="mtext"><span class="emonth"><%= user_event.e_month%></span>/<span class="edate"><%= user_event.e_date%></span> @ <span class="etime"><%= user_event.e_time%></span></td>
+        <td class="mtext"><span class="smonth"><%= user_event.s_month%></span>/<span class="sdate"><%= user_event.s_date%></span> <br> @ <br> <span class="stime"><%= user_event.s_time%></span></td>
+        <td class="mtext"><span class="emonth"><%= user_event.e_month%></span>/<span class="edate"><%= user_event.e_date%></span> <br> @ <br> <span class="etime"><%= user_event.e_time%></span></td>
         <td><%= link_to "#{user_event.tickets.count}張", dashboard_path(user_event.id), class: "linkto" %></td>
-        <td><%= link_to "#{user_event.organization.title}", new_contact_path, class: "linkto" %></td>
-        <td><a href="" class="calendar" data-action="click->myorder#import">Google Calendar</a></td>
+        <td class="text-center text-xs"><%= link_to "#{user_event.organization.title}", new_contact_path, class: "linkto" %></td>
+        <td class="text-center text-xs"><a href="" class="calendar" data-action="click->myorder#import">Google Calendar</a></td>
       </tr>
       <% end %>
     </tbody>

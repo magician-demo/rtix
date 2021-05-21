@@ -12,13 +12,13 @@ export default class extends Controller {
     let ticketview = ticketTemplate.content.cloneNode(true);
     this.contentTarget.appendChild(ticketview);
     $('#table_id').DataTable({
-      "scrollY":        "150px",
+      "scrollY":        "200px",
       "scrollCollapse": true,
       "paging":         false,
       "info":           false,
       responsive: true,
       "columnDefs": [
-        { "width": "20%", "targets": 3 }
+        { "width": "30%", "targets": 3 }
       ]
   });
   }
@@ -32,13 +32,14 @@ export default class extends Controller {
     let hostview = hostTemplate.content.cloneNode(true);
     this.contentTarget.appendChild(hostview);
     $('#table_id').DataTable({
-      "scrollY":        "150px",
+      "scrollY":        "200px",
       "scrollCollapse": true,
       "paging":         false,
       "info":           false,
       responsive: true,
       "columnDefs": [
-        { "width": "20%", "targets": 1 }
+        { "width": "10%", "targets": 1 },
+        { "width": "20%", "targets": 3 }
       ]
   });
   }
@@ -72,11 +73,9 @@ export default class extends Controller {
     let stime = s_year + s_month + s_date + tMark + s_time;
     let etime = e_year + e_month + e_date + tMark + e_time;
     
-
     window.open(`https://www.google.com/calendar/render?action=TEMPLATE&sf=true&output=xml&text=${event}&location=${location}&dates=${stime}/${etime}`, '_blank').focus();
-
+    
+    window.location.reload();
   }
-
-
 
 }

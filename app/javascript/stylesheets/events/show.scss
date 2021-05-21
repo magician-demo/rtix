@@ -1,0 +1,27 @@
+.table {
+  @apply w-2/4 text-black m-auto rounded border border-black bg-red-500;
+
+  .table-row {
+    @apply border border-black flex flex-nowrap py-2 m-2 rounded bg-white;
+
+    .table-row-header {
+      @apply inline-block w-3/12 pl-2;
+    }
+
+    .table-row-column {
+      @apply inline-block w-3/12;
+
+      .table-row-add-sub {
+        @apply w-4/12 pr-1 cursor-pointer font-bold;
+      }
+
+      .table-row-input {
+        @apply w-4/12 border rounded text-center border-black;
+      }
+    }
+  }
+
+  .table-submit {
+    @apply text-center py-2 bg-white w-3/12 m-auto rounded my-2 text-2xl border border-black;
+  }
+}

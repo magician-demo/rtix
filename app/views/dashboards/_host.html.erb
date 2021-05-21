@@ -13,17 +13,19 @@
       </tr>
     </thead>
     <tbody>
-      <% @tickets.each do |ticket| %>
+      <% @hosts.each do |host| %>
+        <% host.events.each do |event| %>
       <tr>
-        <td class="ftext year"><%= ticket.event.s_year %></td>
-        <td class="ftext month"><%= ticket.event.s_month %></td>        
-        <td class="eventname event"><%= ticket.event.title %></td>
-        <td class="mtext descrp"><%= ticket.event.description %></td>
-        <td class="mtext city"><%= ticket.event.city %></td>
-        <td class="mtext"><%= ticket.event.location %></td>
-        <td class="mtext"><span class="smonth"><%= ticket.event.s_month%></span>/<span class="sdate"><%= ticket.event.s_date%></span> @ <span class="stime"><%= ticket.event.s_time%></span></td>
-        <td class="mtext"><span class="emonth"><%= ticket.event.e_month%></span>/<span class="edate"><%= ticket.event.e_date%></span> @ <span class="etime"><%= ticket.event.e_time%></span></td>
+        <td class="ftext year"><%= event.s_year %></td>
+        <td class="ftext month"><%= event.s_month %></td>        
+        <td class="eventname event"><%= event.title %></td>
+        <td class="mtext descrp"><%= event.description %></td>
+        <td class="mtext city"><%= event.city %></td>
+        <td class="mtext"><%= event.location %></td>
+        <td class="mtext"><span class="smonth"><%= event.s_month%></span>/<span class="sdate"><%= event.s_date%></span> @ <span class="stime"><%= event.s_time%></span></td>
+        <td class="mtext"><span class="emonth"><%= event.e_month%></span>/<span class="edate"><%= event.e_date%></span> @ <span class="etime"><%= event.e_time%></span></td>
       </tr>
+        <% end %>
       <% end %>
     </tbody>
   </table>

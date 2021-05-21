@@ -1,11 +1,11 @@
 class DashboardsController < ApplicationController
     def index
         @user = User.find(2)
-        @tickets = @user.tickets
+        @user_events = @user.events
+
         @hosts = @user.organizations
-        @events = Event.all.order(id: :desc)
+
+        @best_events = Event.all.order(id: :desc)
     end
 
-    def show
-    end
 end

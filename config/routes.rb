@@ -4,8 +4,7 @@ Rails.application.routes.draw do
   devise_for :users
 
   
-  resources :dashboards, path: 'dashboard'
-
+  resources :dashboards, path: 'dashboard' 
 
   resources :organizations
 
@@ -23,9 +22,7 @@ Rails.application.routes.draw do
   resources :admins, path: 'admin'  # Not used yet 
   
   resources :checkins
-  root "events#index"
 
-  
   resource :cart, only: [:show, :destroy] do
     collection do
       get :checkout

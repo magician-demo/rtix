@@ -4,11 +4,13 @@ Rails.application.routes.draw do
   devise_for :users
 
   
-  resources :dashboards, path: 'dashboard', only: [:index, :show, :create] do 
+  resources :dashboards, path: 'dashboard', only: [:index, :show] do 
     member do 
       get :contact, controller: :dashboards, action: 'new'
       post :contact, controller: :dashboards, action: 'create'
     end
+
+
   end
 
   resources :organizations

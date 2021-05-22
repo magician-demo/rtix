@@ -8,6 +8,11 @@ class DashboardsController < ApplicationController
         @best_events = Event.all.sample(12)
     end
 
+    def show
+      @user = User.find(2)
+      @user_event = @user.events.find_by(id: params[:id])
+    end
+
     def new
         @user = User.find(2)
         @contact = Contact.new

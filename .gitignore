@@ -24,6 +24,8 @@
 
 /public/assets
 .byebug_history
+# 之後會上傳到 S3
+/public/uploads
 
 # Ignore master key for decrypting credentials and more.
 /config/master.key

@@ -1,6 +1,6 @@
 <div class="h-screen pt-6">
   
-  <div class="h-9/10 flex">
+  <div class="h-11/12 flex">
     <%= render 'sidebar' %>
     
     <div class="w-full">
@@ -19,6 +19,10 @@
         <div>
           <div class="show-title">網址:</div>
           <%= @organization.domain_name %>
+        </div>
+        <div>
+          <div class="show-title">圖片:</div>
+          <%= image_tag(@organization.image_url) if @organization.image? %>
         </div>
 
         <%= link_to '編輯', edit_organization_path(@organization), class: "org-button" %>

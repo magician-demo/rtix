@@ -18,7 +18,7 @@
             <%= form_for(@contact, url: contact_dashboard_path(@event.id))  do |form| %>
                 <%= form.hidden_field :user_id, value: @user.id %>
             <div class="mt-5 w-9/12 m-auto">
-                <%= form.label :name, "姓名:" ,class: 'font-mono font-bold text-lg' %> 
+                <%= form.label :name, "您的大名:" ,class: 'font-mono font-bold text-lg' %> 
                 <%= form.text_field :name, value: @user.name, :readonly => true, class: 'w-full italic mt-3 bg-gray-50' %>
             </div>
             <div class="mt-5 w-9/12 m-auto">
@@ -26,7 +26,7 @@
                 <%= form.text_field :email, value: @user.email, :readonly => true, class: 'w-full italic mt-3 bg-gray-50' %>
             </div>
             <div class="mt-5 w-9/12 m-auto">
-                <%= form.label :tel, "電話:" ,class: 'font-mono font-bold text-lg' %>
+                <%= form.label :tel, "您的電話:" ,class: 'font-mono font-bold text-lg' %>
                 <%= form.text_field :tel, value: @user.tel, :readonly => true, class: 'w-full italic mt-3 bg-gray-50' %>
             </div>
             <div class="mt-5 w-9/12 m-auto">

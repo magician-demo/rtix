@@ -1,3 +1,36 @@
-<%=render 'ticket_table', tickets: @tickets%>
+<div class="event_img">
+  <img src="https://t.kfs.io/upload_images/127057/__2021____-kktix-1930-___-1200X630.jpg" alt="">
+</div>
+<div class="divide"></div>
+<div class="event_information">
+  <h1 class="event_information_title">《趙傳2021人生大夢演唱會》</h1>
+  <div class="event_information_column">
+    <span class="event_column_title">開始時間</span>
+    <span class="event_column_information">2021/07/31 19:30 (+0800)</span>
+  <div class="event_information_column">
+    <span class="event_column_title">活動地點</span>
+    <span class="event_column_information">台北流行音樂中心 / 台北市南港區市民大道八段99號</span>
+  </div>
+  <div class="event_information_column">
+    <span class="event_column_title">主辦單位</span>
+    <span class="event_column_information">開麗娛樂經紀有限公司</span>
+  </div>
+  <div class="event_information_column"></div>
+    <span class="event_column_title">票券種類</span>
+    <span class="event_column_information">台灣全家 FamiPort 取票</span>
+  </div>
+  <div class="event_information_column">
+    <span class="event_column_title">付款方式</span>
+    <span class="event_column_information">ATM 虛擬帳號、信用卡</span>
+  </div>
+  </div>
+</div>
+<%= render 'booking_status'%>
+<section class="event_information">
+  <div class="event_booking_area">
+    <img src="https://t.kfs.io/upload_images/arena_images/1492/__-__.jpg" alt="" class="area_setting">
+  </div>
+  <%=render 'ticket_table', tickets: @tickets%>
+</section>
 
 

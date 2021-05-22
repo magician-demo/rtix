@@ -19,7 +19,7 @@ Rails.start()
 ActiveStorage.start()
 
 import "controllers"
-
+import "datatable"
 
 
 

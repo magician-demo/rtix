@@ -20,10 +20,7 @@
         <div class="content">
             <h2 class="subhead">RTIX精選活動</h2>
             <div class="container overflow-y-scroll h-72">
-                <%= turbo_stream_from "events" %>
-                <%= turbo_frame_tag "events" do %>
-                    <%= render "events/event" %>
-                <% end %>
+                <%= render "events/event" %>
             </div>
         </div>
 

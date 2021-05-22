@@ -1,8 +1,8 @@
 <div class="my-10">
 
-    <%= link_to '返回上一頁', dashboards_path, class: "w-24 my-5 border-2 border-grey-500 mx-2 hover:bg-gray-100 block text-center font-mono" %> 
+    <%= link_to '返回上一頁', dashboards_path, class: "w-24 my-5 border-2 border-grey-500 mx-2 block text-center font-mono hover:bg-pink-200 hover:text-white rounded" %> 
 
-    <div class="my-10 m-auto">
+    <div class="errors my-10 m-auto">
         <ul>
             <% if @contact.errors %>
             <% @contact.errors.full_messages.each do |message| %>
@@ -11,43 +11,40 @@
         </ul>
             <% end %> 
     </div>
+    <h1 class="text-4xl font-bold text-center">聯繫主辦單位<br><%=@event.organization.title %></h1>
 
-    <div class="my-10">
-        <h1 class="text-4xl font-bold text-center">聯絡主辦單位：<%=@event.organization.title %></h1>
-        <div class="w-3/6 m-auto">
+    <div class="contactform mt-10 mb-16">
+        <div class="w-4/6 m-auto border-2 border-gray-100 rounded-lg bg-gray-50">
             <%= form_for(@contact, url: contact_dashboard_path(@event.id))  do |form| %>
-            <div>
-                <%= form.label :name, "姓名" ,class: 'font-mono' %>
-                <br>
-                <%= form.text_field :name, class: 'rounded border-2 border-gray-100 w-full' %>
+                <%= form.hidden_field :user_id, value: @user.id %>
+            <div class="mt-5 w-9/12 m-auto">
+                <%= form.label :name, "姓名:" ,class: 'font-mono font-bold text-lg' %> 
+                <%= form.text_field :name, value: @user.name, :readonly => true, class: 'w-full italic mt-3 bg-gray-50' %>
             </div>
-            <div>
-                <%= form.label :email, "電子信箱" ,class: 'font-mono' %>
-                <br>
-                <%= form.text_field :email, class: 'rounded border-2 border-gray-100 w-full' %>
+            <div class="mt-5 w-9/12 m-auto">
+                <%= form.label :email, "您的電子信箱:" ,class: 'font-mono font-bold text-lg' %>
+                <%= form.text_field :email, value: @user.email, :readonly => true, class: 'w-full italic mt-3 bg-gray-50' %>
             </div>
-            <div>
-                <%= form.label :tel, "電話" ,class: 'font-mono' %>
-                <br>
-                <%= form.text_field :tel, class: 'rounded border-2 border-gray-100 w-full' %>
+            <div class="mt-5 w-9/12 m-auto">
+                <%= form.label :tel, "電話:" ,class: 'font-mono font-bold text-lg' %>
+                <%= form.text_field :tel, value: @user.tel, :readonly => true, class: 'w-full italic mt-3 bg-gray-50' %>
             </div>
-            <div>
-                <%= form.label :event, "活動名稱" ,class: 'font-mono' %>
-                <br>
-                <%= form.text_field :event, class: 'rounded border-2 border-gray-100 w-full' %>
+            <div class="mt-5 w-9/12 m-auto">
+                <%= form.label :event, "活動名稱:", class: 'font-mono font-bold text-lg' %>
+                <%= form.text_field :event, value: @event.title, :readonly => true, class: 'w-full italic mt-3 bg-gray-50' %>
             </div>
-            <div>
-                <%= form.label :title, "主旨" ,class: 'font-mono' %>
-                <br>
-                <%= form.text_field :title, class: 'rounded border-2 border-gray-100 w-full' %>
+            <div class="mt-5 w-9/12 m-auto">
+                <%= form.label :title, "主旨:" ,class: 'font-mono font-bold text-lg' %>
+                <%= form.text_field :title, class: 'rounded border-2 border-gray-100 w-full mt-3' %>
             </div>
-            <div>
-                <%= form.label :feedback, "意見反饋" ,class: 'font-mono' %>
+            <div class="mt-5 w-9/12 m-auto">
+                <%= form.label :feedback, "意見反饋:" ,class: 'font-mono font-bold text-lg ' %>
                 <br>
                 <%= form.text_area :feedback, class: 'rounded border-2 border-gray-100 w-full h-48' %>
+                <%= form.submit "送出", class: "px-2 py-1 bg-gray-200 hover:bg-pink-200 my-3" %>
+                <% end %>
             </div>
-                <%= form.submit "送出", class: "px-2 py-1 bg-gray-200 hover:bg-gray-300" %>
-            <% end %>
+
         </div>
     </div>
 

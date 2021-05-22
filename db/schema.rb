@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_05_21_065515) do
+ActiveRecord::Schema.define(version: 2021_05_22_011353) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -31,6 +31,8 @@ ActiveRecord::Schema.define(version: 2021_05_21_065515) do
     t.text "feedback"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "user_id", null: false
+    t.index ["user_id"], name: "index_contacts_on_user_id"
   end
 
   create_table "events", force: :cascade do |t|
@@ -135,6 +137,7 @@ ActiveRecord::Schema.define(version: 2021_05_21_065515) do
   end
 
   add_foreign_key "carts", "users"
+  add_foreign_key "contacts", "users"
   add_foreign_key "events", "organizations"
   add_foreign_key "line_items", "carts"
   add_foreign_key "line_items", "seats"

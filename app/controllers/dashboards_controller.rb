@@ -9,6 +9,7 @@ class DashboardsController < ApplicationController
     end
 
     def new
+        @user = User.find(2)
         @contact = Contact.new
         @event = Event.find_by(id: params[:id])
     end
@@ -24,7 +25,7 @@ class DashboardsController < ApplicationController
 
     private 
     def contact_params
-      params.require(:contact).permit(:name, :email, :tel, :event, :title, :feedback)
+      params.require(:contact).permit(:name, :email, :tel, :event, :title, :feedback, :user_id)
     end
 
 end

@@ -2,7 +2,7 @@
 
 
 
-      <div class="showCart" id="list_cart">
+      <div class="showcart" id="list_cart">
         <% seat.each do |s|%>
           <div class="cart_list cart_lists text-black">
             <div class="order-detail px-3 flex space-x-1 border-b-2 border-black p-2">
@@ -10,10 +10,10 @@
             <div class="item-price w-2/12">$<%= s.ticket.price%></div>
             <div class="item-id w-2/12"><%= s.id%>號位</div>
 
-            
+            <div class="w-6/12"></div>
             <div class="remove_btn text-black" 
-                data-controller="cart"
-                data-action="click->cart#list_cancelled"
+                data-controller="booking-cart"
+                data-action="click->booking-cart#list_cancelled"
                 data-item-ids="<%= s.line_item.id%>"
                 >Ｘ</div>
             

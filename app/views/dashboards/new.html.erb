@@ -1,33 +1,21 @@
-<div class="wrapper border-5 border-black">
-    <div class="header bg-gradient-to-r from-red-500 via-red-600 to-red-700 text-base font-mono flex justify-between text-white">
-        <div class="left flex justify-between ml-40">
-            <div class="logo p-3"><a href="">RTIX</a></div>
-            <div class="myticket"><a href="" class="block font-mono p-3 hover:text-red-100">我的票券</a></div>
-            <div class="explore"><a href="" class="block font-mono p-3 hover:text-red-100">探索活動</a></div>
-            <div class="search"><a href="" class="block font-mono p-3 hover:text-red-100">搜尋活動</a></div>
-        </div>
-        <div class="right flex justify-between mr-40">
-            <div class="create"><a href="" class="block font-mono p-3 hover:text-red-100">建立活動</a></div>
-            <div class="org"><a href="" class="block font-mono p-3 hover:text-red-100">選擇組織</a></div>
-            <div class="account"><a href="" class="block font-mono p-3 hover:text-red-100">建立帳號</a></div>
-        </div>
-    </div>
+<div class="my-10">
+
     <%= link_to '返回上一頁', dashboards_path, class: "w-24 my-5 border-2 border-grey-500 mx-2 hover:bg-gray-100 block text-center font-mono" %> 
 
-    <div class="errormsg m-auto">
+    <div class="my-10 m-auto">
         <ul>
             <% if @contact.errors %>
-              <% @contact.errors.full_messages.each do |message| %>
+            <% @contact.errors.full_messages.each do |message| %>
             <li><%= message %></li>
-              <% end %>
+            <% end %>
         </ul>
             <% end %> 
     </div>
 
-    <div class="mt-24">
-        <h1 class="text-4xl font-bold text-center">聯絡主辦單位：XXXXXX</h1>
+    <div class="my-10">
+        <h1 class="text-4xl font-bold text-center">聯絡主辦單位：<%=@event.organization.title %></h1>
         <div class="w-3/6 m-auto">
-            <%= form_for(@contact) do |form| %>
+            <%= form_for(@contact, url: contact_dashboard_path(@event.id))  do |form| %>
             <div>
                 <%= form.label :name, "姓名" ,class: 'font-mono' %>
                 <br>
@@ -63,7 +51,4 @@
         </div>
     </div>
 
-    <div class="footer mt-20 m-auto font-mono bg-gray-600 p-8">
-        <p class="text-white">Lorem ipsum dolor sit amet consectetur adipisicing elit. Est ex assumenda optio itaque nobis earum dolor, debitis non odio atque voluptates dolorum, maxime perferendis cum dolore quibusdam ratione tempore impedit!</p>
-    </div>
 </div>

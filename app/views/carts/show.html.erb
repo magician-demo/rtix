@@ -1,0 +1,53 @@
+
+
+<div class="body m-auto bg-grey border-t">
+  <div class="content w-4/5 m-auto">
+    <h1 class="text-3xl font-medium mt-3">Event 票卷</h1>
+    <div class="detail text-green-500 text-sm mt-1 mb-2">顯示詳細活動資料▾</div>
+    <div class="step flex justify-center mb-3">
+      <div class="step-each rounded-3xl w-4/12  text-center bg-green-600 m-1 py-2 text-xs text-white ">
+        1 確認票種
+      </div>
+      <div class="step-each rounded-3xl w-4/12 text-center opacity-40 bg-green-600 m-1 py-2 text-xs text-white ">
+        2 填寫表單
+      </div>
+      <div class="step-each rounded-3xl w-4/12 opacity-40 text-center bg-green-600 m-1 py-2 text-xs text-white ">
+        3 取票繳費
+      </div>
+    </div>
+
+  <div class="cart-list border" data-controller="cart" id="show-list">
+    <% if @current_cart.empty? %>
+      <p class="text-lg my-4 no-item">
+        購物車目前沒有商品，請回<%= link_to "上一頁", events_path, class: "font-bold px-2 text-sm text-pink-500" %> 選購
+      </p>
+    <% else %>
+
+      <%= render "cart", seat: @seats, price: @total_price %>
+    <% end %>
+  </div>
+
+  <div class="tel px-3 flex space-x-1 border-b-2 border-black p-3" data-action="click->booking-clean-cart#emptyCart">
+    <section class="flex mt-4">
+      <%= link_to "商品列表", events_path, class: "bg-blue-500 px-4 mr-2 py-2 text-white text-lg rounded-lg opacity-50" %>
+      <span class="bg-green-500 px-4 py-2 text-white text-lg mr-2 rounded-lg opacity-50"
+        data-controller="booking-clean-cart"
+        data-action="click->booking-clean-cart#emptyCart"
+      >
+      <%= link_to "清空購物車", cart_path, method: :delete %>
+      </span>
+      <%= link_to "下一步：填寫資料", checkout_cart_path, class: "bg-red-500 px-4 py-2 text-white text-lg rounded-lg nextone" unless @current_cart.empty?%>
+    </section>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+
+

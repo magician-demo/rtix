@@ -3,6 +3,7 @@ import axios from 'axios'
 
 export default class extends Controller{
   connect(){
+    initializeClock()
     const element = this.element
     let ax = axios.create()
     let token = document.querySelector('meta[name=csrf-token]').content
@@ -36,6 +37,7 @@ export default class extends Controller{
         if(t.total <= 0){
           clearInterval(timeInterval)
           localStorage.removeItem('currentTime')
+          localStorage.removeItem('comeBefore')
           if(confirm('選位時間已到，將您返回至活動頁面')){
             ax.delete('/carts')
             .then(res=>{
@@ -48,6 +50,5 @@ export default class extends Controller{
         }
       },1000)
     }
-    initializeClock()
   }
 }

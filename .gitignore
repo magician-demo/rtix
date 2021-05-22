@@ -23,6 +23,7 @@
 !/storage/.keep
 
 /public/assets
+/public/uploads
 .byebug_history
 # 之後會上傳到 S3
 /public/uploads

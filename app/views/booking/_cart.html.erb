@@ -1,0 +1,19 @@
+<div class="cart" id="cart">
+<% seat.each do |s|%>
+  <div class="cart_list">
+    <span class="px-2"><%= s.area%><%= s.id%>號位</span><br>
+    <span class="px-2 price">$<%= s.ticket.price%></span>
+    <div class="remove_btn" 
+         data-controller="booking-cart-list"
+         data-action="click->booking-cart-list#cancelled"
+         data-item-id="<%= s.line_item.id%>"
+         >&times;</div>
+  </div>
+<% end %>
+  <div class="cart_total_price">
+    票券總價：$<%= price%>
+  </div>
+  <div class="cart_submit_btn">
+    <%= link_to "結帳！", cart_path, class: "cart_submit_btn" %>
+  </div>
+</div>

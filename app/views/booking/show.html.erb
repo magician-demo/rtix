@@ -1,0 +1,3 @@
+<%= render 'navbar', ticket_count: @seats_count, previous_path: event_booking_index_path(params[:event_id])%>
+<%= render 'cart', seat: @seat, price: @total_price%>
+<%= render 'seats', seats: @seats%>

@@ -1,0 +1,38 @@
+
+
+
+
+      <div class="showcart" id="list_cart">
+        <% seat.each do |s|%>
+          <div class="cart_list cart_lists text-black">
+            <div class="order-detail px-3 flex space-x-1 border-b-2 border-black p-2">
+            <div class="item-all w-2/12"><%= s.area%><%= s.id%>號位</div>
+            <div class="item-price w-2/12">$<%= s.ticket.price%></div>
+            <div class="item-id w-2/12"><%= s.id%>號位</div>
+
+            <div class="w-6/12"></div>
+            <div class="remove_btn text-black" 
+                data-controller="booking-cart"
+                data-action="click->booking-cart#list_cancelled"
+                data-item-ids="<%= s.line_item.id%>"
+                >Ｘ</div>
+            
+            </div>
+          </div>
+        <% end %>
+        <div class="calc flex justify-end" >
+          <div class="max-w-max p-3">票券總價：$ </div>
+          <div class="list_cart_total_price max-w-max p-3">
+            <%= @total_price %>
+          </div>
+        </div>
+      </div> 
+
+
+<div class="empty hidden">
+  <p class="text-lg my-4 no-item">
+        購物車目前沒有商品，請回<%= link_to "上一頁", events_path, class: "font-bold px-2 text-sm text-pink-500" %> 選購
+  </p>
+</div>
+  
+

@@ -9,30 +9,30 @@ class Order < ApplicationRecord
 
   
 
-  aasm column: 'status', no_direct_assignment: true do 
-    state :pending, initial: true
-    state :paid, :used, :expired, :cancelled, :refunded
+  # aasm column: 'status', no_direct_assignment: true do 
+  #   state :pending, initial: true
+  #   state :paid, :used, :expired, :cancelled, :refunded
 
-    event :pay do
-      transitions from: :pending, to: :paid
-    end
+  #   event :pay do
+  #     transitions from: :pending, to: :paid
+  #   end
 
-    event :use do
-      transitions from: :paid, to: :used
-    end
+  #   event :use do
+  #     transitions from: :paid, to: :used
+  #   end
 
-    event :expire do
-      transitions from: :paid, to: :expired
-    end
+  #   event :expire do
+  #     transitions from: :paid, to: :expired
+  #   end
 
-    event :cancel do
-      transitions from: [:pending, :paid], to: :cancelled
-    end
+  #   event :cancel do
+  #     transitions from: [:pending, :paid], to: :cancelled
+  #   end
 
-    event :refund do
-      transitions from: [:cancelled], to: :refunded
-    end
-  end
+  #   event :refund do
+  #     transitions from: [:cancelled], to: :refunded
+  #   end
+  # end
 
   private
 

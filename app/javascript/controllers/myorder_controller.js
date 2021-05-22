@@ -3,6 +3,22 @@ import { Controller } from "stimulus"
 export default class extends Controller {
   static targets = ["content", "ticket", "host", "calendar"]
 
+
+
+  connect(){
+    $('#table_id').DataTable({
+      "scrollY":        "200px",
+      "scrollCollapse": true,
+      "paging":         false,
+      "info":           false,
+      responsive: true,
+      "columnDefs": [
+        { "width": "20%", "targets": 3}
+      ]
+    });
+  }
+
+
   showticket(){
     this.hostTarget.classList.remove('addhostab');  
     this.ticketTarget.classList.add('addticketab');

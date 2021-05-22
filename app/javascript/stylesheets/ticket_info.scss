@@ -2,3 +2,12 @@
     @apply w-full m-auto
 }
 
+
+.qrcode {
+    @apply w-1/2 mb-10
+}
+
+.enlarge {
+    @apply w-screen h-screen relative
+}
+

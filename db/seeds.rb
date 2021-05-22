@@ -1,7 +1,6 @@
 require 'faker'
 
-
-100.times do 
+10.times do 
   User.create(
     name: Faker::FunnyName.unique.name, 
     email: Faker::Internet.unique.email,
@@ -13,7 +12,19 @@ require 'faker'
 end 
 
 
-100.times do 
+10.times do 
+  Order.create(
+    serial: (1..10).to_a.shuffle.sample(6), 
+    receiver: Faker::FunnyName.unique.name,
+    tel: Faker::PhoneNumber.cell_phone,
+    user_id: (1..10).to_a.shuffle.sample,
+    totalAmount: 100,
+    checkMacValue: "xxxxxxxxxx" 
+  )
+end 
+
+
+10.times do 
   Organization.create(
     title: Faker::Company.name, 
     description: Faker::Quote.matz,
@@ -22,7 +33,8 @@ end
 end
 
 
-100.times do 
+
+10.times do 
   Event.create(
     title: Faker::Book.unique.title, 
     description: Faker::Quote.matz,
@@ -37,27 +49,26 @@ end
     e_month: "08",
     e_date: "21",
     e_time: "1300",
-    organization_id: rand(1..100)
+    organization_id: rand(1..10)
   )
 end 
 
 
-250.times do
+
+10.times do
   Ticket.create(
     name: Faker::Games::Pokemon.name,
     price: rand(0..2000),
-    amount: %w(50 100 150 200).sample,
-    event_id: rand(1..100),
-    user_id: rand(1..100)
+    amount: %w(50 100 150).sample,
+    event_id: rand(1..10),
   )
 end 
 
 
-250.times do
+10.times do
   Seat.create(
     area: %w(A區 B區 C區).sample,
-    ticket_id: rand(1..250),
+    ticket_id: rand(1..10),
     status: 'for_sale'
   )
 end
-

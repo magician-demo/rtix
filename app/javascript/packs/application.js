@@ -20,7 +20,6 @@ ActiveStorage.start()
 
 import "controllers"
 
-import "datatables"
 
 
 

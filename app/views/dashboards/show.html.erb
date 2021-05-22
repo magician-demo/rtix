@@ -1,33 +1,28 @@
 <div class="wrapper">
 
-    
-    <h1  class="my-20 text-center">活動名稱</h1>
+    <h1  class="my-20 text-center align-middle text-6xl p-44 bg-gradient-to-r from-yellow-400 via-red-500 to-pink-500 text-white"><%= @event.title %></h1>
     <%= link_to '返回上一頁', dashboards_path, class: "w-24 my-5 border-2 border-grey-500 mx-2 hover:bg-gray-100 block text-center font-mono" %>
-    
-    <div class="orderinfo">
-        <h3>訂單資訊</h3>
+
+
+    <h1 class="text-4xl font-bold my-5 text-center">訂單資訊</h3>
+    <div class="w-3/4 m-auto orderinfo my-10  border-2 border-gray-100">
         <div>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio reiciendis qui atque excepturi animi quibusdam magni ea a facere deserunt inventore, saepe accusamus sequi dolor repudiandae dolorem corrupti labore. Rem?Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus praesentium, eaque cumque sint quod molestias, vero itaque culpa quis laboriosam et corrupti inventore voluptas error dignissimos aperiam amet eius atque?
+            <h5 class="my-3">訂票人姓名: <%= @user.name %></h5>
+            <h5 class="my-3">訂票人電子郵件: <%= @user.email %></h5>
+            <h5 class="my-3">訂票人聯繫電話: <%= @user.tel %></h5>
+            <h5 class="my-3">票券總張數: <%= @event.tickets.count %>張票</h5>
+            <h5 class="my-3">票券總價: $<%= @event.tickets.sum(:price)%> NTD</h5>
         </div>
     </div>
+    <h1 class="text-4xl font-bold my-5 text-center">票券資訊</h3>
 
-    <div class="contactinfo">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum maiores tempora et sint ab rerum, animi laborum optio cupiditate exercitationem dolores vel non, voluptate, cum earum itaque adipisci veritatis saepe.
-    </div>
-
-    <div class="ticketinfo">
-        <div>
-            <button>取消訂單</button>
+    <div class="ticketinfo w-3/4 m-auto border-2 border-gray-100">
+        <% @event.tickets.each do |ticket| %>
+        <div class="mx-14 flex my-5">
+            <h5 class="mr-10 w-1/2 align-middle text-center">票券所屬：<%= ticket.name %> <br><br><br> 票價：$<%= ticket.price %></h5>
+            <div class="qrcode w-1/2"><%= qr_gen(ticket.event, ticket.name) %></div>
         </div>
-        <div>
-            <h3>聯絡人資料</h3>
-            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Neque similique repellendus eum odit illo rerum aut quisquam, accusamus explicabo, pariatur natus, alias laboriosam excepturi rem sequi modi quos reprehenderit architecto!
-        </div>
-        <div>
-            <h3>票券資訊（含QRcode)</h3>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia, debitis odio aliquid officiis nam repellat qui impedit cupiditate obcaecati reprehenderit deserunt non saepe perspiciatis, minima sapiente ducimus consequuntur, nostrum cumque laudantium earum at atque consectetur fugit. Similique quos nam mollitia repudiandae nihil voluptatibus modi pariatur quae excepturi, distinctio ducimus architecto.</p>
-            <div class="qrcode"><%= qr_gen("DemoDay", "Jack", "2") %></div>
-        </div>
+        <% end %>
     </div>
     
     

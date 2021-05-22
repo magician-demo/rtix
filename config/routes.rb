@@ -4,11 +4,13 @@ Rails.application.routes.draw do
   devise_for :users
 
   
-  resources :dashboards, path: 'dashboard', only: [:index, :show, :create] do 
+  resources :dashboards, path: 'dashboard', only: [:index, :show] do 
     member do 
       get :contact, controller: :dashboards, action: 'new'
       post :contact, controller: :dashboards, action: 'create'
     end
+
+
   end
 
   resources :organizations
@@ -20,11 +22,6 @@ Rails.application.routes.draw do
   resources :line_items, only: [:create, :destroy]
     post '/line_items/random_create', to: 'line_items#random_create'
   resource :carts, only: [:destroy]
-
-
-  resources :admins, path: 'admin'  # Not used yet 
-  
-  resources :checkins
 
   resource :cart, only: [:show, :destroy] do
     collection do

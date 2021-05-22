@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container ">
   <table id="table_id" class="display">
     <thead>
       <tr>
@@ -16,18 +16,18 @@
       </tr>
     </thead>
     <tbody>
-      <% @user_events.each do |user_event| %>
+      <% @sorted_events.each do |event| %>
       <tr>
-        <td class="ftext year"><%= user_event.s_year %></td>
-        <td class="ftext month"><%= user_event.s_month %></td>        
-        <td class="eventname event"><%= user_event.title %></td>
-        <td class="mtext descrp"><%= user_event.description %></td>
-        <td class="mtext city"><%= user_event.city %></td>
-        <td class="mtext"><%= user_event.location %></td>
-        <td class="mtext"><span class="smonth"><%= user_event.s_month%></span>/<span class="sdate"><%= user_event.s_date%></span> <br> @ <br> <span class="stime"><%= user_event.s_time%></span></td>
-        <td class="mtext"><span class="emonth"><%= user_event.e_month%></span>/<span class="edate"><%= user_event.e_date%></span> <br> @ <br> <span class="etime"><%= user_event.e_time%></span></td>
-        <td><%= link_to "#{user_event.tickets.count}張", dashboard_path(user_event.id), class: "linkto" %></td>
-        <td class="text-center text-xs"><%= link_to "#{user_event.organization.title}", contact_dashboard_path(user_event.id), class: "linkto" %></td>
+        <td class="ftext year"><%= event.s_year %></td>
+        <td class="ftext month"><%= event.s_month %></td>        
+        <td class="eventname event"><%= event.title %></td>
+        <td class="mtext descrp"><%= event.description %></td>
+        <td class="mtext city"><%= event.city %></td>
+        <td class="mtext"><%= event.location %></td>
+        <td class="mtext"><span class="smonth"><%= event.s_month%></span>/<span class="sdate"><%= event.s_date%></span> <br> @ <br> <span class="stime"><%= event.s_time%></span></td>
+        <td class="mtext"><span class="emonth"><%= event.e_month%></span>/<span class="edate"><%= event.e_date%></span> <br> @ <br> <span class="etime"><%= event.e_time%></span></td>
+        <td><%= link_to "#{event.tickets.count}張", dashboard_path(event.id), class: "linkto" %></td>
+        <td class="text-center text-xs"><%= link_to "#{event.organization.title}", contact_dashboard_path(event.id), class: "linkto" %></td>
         <td class="text-center text-xs"><a href="" class="calendar" data-action="click->myorder#import">Google Calendar</a></td>
       </tr>
       <% end %>

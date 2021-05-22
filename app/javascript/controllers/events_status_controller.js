@@ -10,6 +10,10 @@ export default class extends Controller{
       const finder = findCurrentSpan(2)
       addStatus(finder)
     }
+    if(url.split('/')[url.split('/').length - 2] === 'booking'){
+      const finder = findCurrentSpan(2)
+      addStatus(finder)
+    }
   }
 }
 

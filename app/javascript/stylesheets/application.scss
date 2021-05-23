@@ -1,9 +1,9 @@
-
 @import "~bootstrap/scss/bootstrap.scss";
 
 @import "tailwindcss/base";
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
+
 
 @import './booking/seats.scss';
 @import './booking/popup.scss';
@@ -12,3 +12,4 @@
 @import './events/show_table.scss';
 @import './events/show.scss';
 @import './booking_status.scss';
+

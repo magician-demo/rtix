@@ -13,13 +13,17 @@ import "icon"
 
 
 import "bootstrap"
-import "jquery"
+import "datatable"
+
+
+
+
 
 Rails.start()
 ActiveStorage.start()
 
 import "controllers"
-import "datatable"
+
 
 
 

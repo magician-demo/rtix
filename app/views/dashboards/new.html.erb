@@ -1,49 +1,40 @@
-<div class="my-10">
+<div class="contact_wrapper">
 
-    <div class="w-4/6 m-auto"><%= link_to '返回上一頁', dashboards_path, class: "font-mono shadow-md font-bold p-4 rounded-xl bg-gradient-to-r from-gray-50 to-gray-100 hover:from-pink-500 hover:to-yellow-500 hover:from-pink-500 hover:to-yellow-500 hover:text-white cursor-pointer" %></div> 
+    <div class="w-4/6 m-auto"><%= link_to '返回上一頁', dashboards_path, class: "contact_backlink" %></div> 
 
-        <ul class="errors my-10 m-auto">
-            <% if @contact.errors %>
-                <% @contact.errors.full_messages.each do |message| %>
-                <li><%= message %></li>
-                <% end %>
-            <% end %> 
-        </ul>
-            
-    <h1 class="text-4xl font-bold text-center">聯繫主辦單位<br><%=@event.organization.title %></h1>
 
-    <div class="contactform mt-10 mb-16">
-        <div class="w-4/6 m-auto border-2 border-gray-100 rounded-lg bg-gray-50 shadow-xl">
+    <h1 class="contact_heading">聯繫主辦單位<br><%=@event.organization.title %></h1>
+    <div class="contact_form">
             <%= form_for(@contact, url: contact_dashboard_path(@event.id))  do |form| %>
-                <%= form.hidden_field :user_id, value: @user.id %>
-            <div class="mt-5 w-9/12 m-auto shadow-md">
-                <%= form.label :name, "您的大名:" ,class: 'font-mono font-bold text-lg' %> 
-                <%= form.text_field :name, value: @user.name, :readonly => true, class: 'w-full italic mt-3 bg-gray-50' %>
+            <%= form.hidden_field :user_id, value: @user.id %>
+        <div class="pl-20 md:pl-0">
+            <div class="contact_field">
+                <%= form.label :name, "您的大名:" ,class: 'font-mono font-bold text-lg' %>
+                <%= form.text_field :name, value: @user.name, :readonly => true, class: 'contact_textfield'%>
             </div>
-            <div class="mt-5 w-9/12 m-auto shadow-md">
+            <div class="contact_field">
                 <%= form.label :email, "您的電子信箱:" ,class: 'font-mono font-bold text-lg' %>
-                <%= form.text_field :email, value: @user.email, :readonly => true, class: 'w-full italic mt-3 bg-gray-50' %>
+                <%= form.text_field :email, value: @user.email, :readonly => true, class: 'contact_textfield' %>
             </div>
-            <div class="mt-5 w-9/12 m-auto shadow-md">
+            <div class="contact_field">
                 <%= form.label :tel, "您的電話:" ,class: 'font-mono font-bold text-lg' %>
-                <%= form.text_field :tel, value: @user.tel, :readonly => true, class: 'w-full italic mt-3 bg-gray-50' %>
+                <%= form.text_field :tel, value: @user.tel, :readonly => true, class: 'contact_textfield' %>
             </div>
-            <div class="mt-5 w-9/12 m-auto shadow-md">
+            <div class="contact_field">
                 <%= form.label :event, "活動名稱:", class: 'font-mono font-bold text-lg' %>
-                <%= form.text_field :event, value: @event.title, :readonly => true, class: 'w-full italic mt-3 bg-gray-50' %>
-            </div>
-            <div class="mt-5 w-9/12 m-auto shadow-md">
-                <%= form.label :title, "主旨:" ,class: 'font-mono font-bold text-lg' %>
-                <%= form.text_field :title, class: 'rounded border-2 border-gray-100 w-full mt-3' %>
-            </div>
-            <div class="mt-5 w-9/12 m-auto shadow-md">
-                <%= form.label :feedback, "意見反饋:" ,class: 'font-mono font-bold text-lg ' %>
-                <br>
-                <%= form.text_area :feedback, class: 'rounded border-2 border-gray-100 w-full h-48' %>
-                <%= form.submit "送出", class: "font-mono shadow-md font-bold p-4 rounded-xl bg-gradient-to-r from-gray-50 to-gray-100 hover:from-pink-500 hover:to-yellow-500 hover:from-pink-500 hover:to-yellow-500 hover:text-white cursor-pointer my-3" %>
-                <% end %>
+                <%= form.text_field :event, value: @event.title, :readonly => true, class: 'contact_textfield'%>
             </div>
         </div>
+        <div class="contact_title">
+            <%= form.label :title, "主旨:" ,class: 'font-mono font-bold text-lg' %>
+            <%= form.text_field :title, class: 'contact_title_textfield' %>
+        </div>
+        <div class="contact_feedback">
+            <%= form.label :feedback, "意見反饋:" ,class: 'font-mono font-bold text-lg'%>
+            <br>
+            <%= form.text_area :feedback, class: 'rounded border-2 border-gray-100 w-full h-48  shadow-md' %>
+            <%= form.submit "送出", class: "contact_submit_btn" %>
+            <% end %>
+        </div>
     </div>
-
 </div>

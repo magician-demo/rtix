@@ -1,3 +1,6 @@
+require 'sidekiq/web'
+require 'sidekiq-scheduler/web'
+
 Rails.application.routes.draw do
 
   root "events#index"
@@ -33,5 +36,6 @@ Rails.application.routes.draw do
       post :return_url
     end
   end
+  mount Sidekiq::Web => '/sidekiq'
   
 end

@@ -9,36 +9,41 @@
     </div>
   <% end %>
 
-  <div class="org-field-group">
-    <%= form.label :組織名稱： %>
-    <%= form.text_field :title, placeholder: '請輸入名稱', class: "org-field" %>
+  <div class="org-image-group">
+    <div class="image-box">
+      <img id="preview" class="image" src="https://fakeimg.pl/320x320/">
+    </div>
+    <div class="mt-4 flex justify-center">
+      <label class="org-image-button">
+        上傳圖片
+        <%= form.file_field :image, id: :org_image, class: "org-image-input" %>
+      </label>
+    </div>
+    
+  </div>
+  
+  <div class="org-info-group">
+    <div class="org-field-group">
+      <%= form.label :組織名稱 %>
+      <%= form.text_field :title, class: "org-field" %>
+    </div>
+    <div class="org-field-group">
+      <%= form.label :網址 %>
+      <%= form.text_field :domain_name, class: "org-field" %>
+      <p class="domin-name-help">3 到 16 個小寫英文或數字。</p>
+    </div>
+    <div class="org-field-group flex-grow">
+      <%= form.label :描述 %>
+      <br>
+      <%= form.text_area :description, class: "org-field", placeholder: '請介紹一下這個組織' %>
+    </div>
+
+    <div class="org-btn">
+      <%= form.submit "送出", class:"org-button" %>
+    </div>
   </div>
 
-  <div class="org-field-group">
-    <%= form.label :組織網址： %>
-    <%= form.text_field :domain_name, class: "org-field" %>
-  </div>
-
-  <div class="org-field-group">
-    <%= form.label :組織簡介： %>
-    <br>
-    <%= form.text_area :description, placeholder: '介紹一下組織' %>
-  </div>
-
-  <div class="img h-80 w-80">
-    <img id="preview" class="h-80 m-auto" src="https://fakeimg.pl/320x320/">
-  </div>
-
-  <div class="org-field-group">
-    <%= form.label :上傳圖片 %>
-    <br>
-    <%= form.file_field :image, id: :org_image, class: "org-field" %>
-</div> 
-
-
-  <div class="button">
-    <%= form.submit %>
-  </div>
+  
 <% end %>
 
 

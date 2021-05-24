@@ -29,6 +29,6 @@ Rails.application.routes.draw do
   
 end
 
-resources :user, only: [:show, :create] do 
-  post :redirect_to
-end 
+# resources :user, only: [:show, :create] do 
+#   post :redirect_to
+# end 

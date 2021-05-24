@@ -52,8 +52,11 @@
       </div>
     
     </div>
-    
-    <div class="pay-button m-auto mt-8 max-w-max "><input id="pay" type="submit" value="確認訂單並繳費" class="bg-green-500 p-2.5 text-white rounded-sm opacity-40"></div>
+    <% if @order.cancel_not_allow_pay? %>
+      <div>超過時間，訂單已取消</div>
+    <% else %>
+      <div class="pay-button m-auto mt-8 max-w-max "><input id="pay" type="submit" value="確認訂單並繳費" class="bg-green-500 p-2.5 text-white rounded-sm opacity-40"></div>
+    <% end %>
   </div>
 </div>
 

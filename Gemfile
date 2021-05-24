@@ -63,3 +63,4 @@ gem 'devise', '~> 4.8'
 gem "aasm", "~> 5.2"
 gem 'whenever', require: false
 gem 'sidekiq', '~> 6.1', '>= 6.1.2'
+gem 'sidekiq-scheduler', '~> 3.0', '>= 3.0.1'

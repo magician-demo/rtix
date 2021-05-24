@@ -18,5 +18,6 @@ module Rtix
     #
     # config.time_zone = "Central Time (US & Canada)"
     # config.eager_load_paths << Rails.root.join("extras")
+    Redis.exists_returns_integer = true
   end
 end

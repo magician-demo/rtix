@@ -1,0 +1,16 @@
+
+
+# :schedule:
+#   CheckPaid:
+#     cron: '1 * * * * *'   # Runs once per hour
+#     class: CheckPaid
+#     quene: schedule
+#     enabled: true
+
+:concurrency: 1
+:queues:
+  - default
+:schedule:
+  CheckEveryPaidJob:
+    every: '20s'
+

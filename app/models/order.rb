@@ -34,6 +34,10 @@ class Order < ApplicationRecord
     end
   end
 
+  def cancel_not_allow_pay?
+    # @order.find[params${id}].status == "cancelled"
+  end
+
   private
 
   def random_serials(n)

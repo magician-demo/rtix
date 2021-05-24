@@ -7,10 +7,14 @@
 #     quene: schedule
 #     enabled: true
 
-:concurrency: 1
-:queues:
-  - default
-:schedule:
-  CheckEveryPaidJob:
-    every: '20s'
+# clear_leaderboards_contributors:
+#   cron: '1 * * * * *'
+#   class: CheckEveryPaidJob
+#   queue: low
+#   args: contributors
+#   description: 'This job resets the weekly leaderboard for contributions'
 
+clear_leaderboards_contributors:
+  class: CheckEveryPaidJob
+  queue: low
+  every: '30m'

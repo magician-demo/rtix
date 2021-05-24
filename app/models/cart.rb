@@ -6,7 +6,4 @@ class Cart < ApplicationRecord
   def empty?
     line_items.count == 0
   end
-
-  
-  
 end

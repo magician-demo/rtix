@@ -1,6 +1,7 @@
 class ApplicationController < ActionController::Base
   helper_method :seat_status
   #找出使用者的 Cart 沒有就建立一個
+
   def user_cart
     if current_user.cart
       current_user.cart
@@ -9,13 +10,9 @@ class ApplicationController < ActionController::Base
     end
   end
 
-
-  
-
   def current_order
     @order = Order.find(params[:id])
   end
-
 
   def current_event
     @event = Event.find(params[:event_id])

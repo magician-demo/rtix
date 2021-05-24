@@ -40,8 +40,8 @@ Ticket.create(
 )
 250.times do
   Seat.create(
-    area: 'A區',
-    ticket_id: 1,
+    area: %w(A區 B區 C區).sample,
+    ticket_id: rand(1..10),
     status: 'for_sale'
   )
 end

@@ -10,8 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-
-ActiveRecord::Schema.define(version: 2021_05_20_115927) do
+ActiveRecord::Schema.define(version: 2021_05_22_075817) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,11 +22,37 @@ ActiveRecord::Schema.define(version: 2021_05_20_115927) do
     t.index ["user_id"], name: "index_carts_on_user_id"
   end
 
+  create_table "contacts", force: :cascade do |t|
+    t.string "name"
+    t.string "email"
+    t.string "tel"
+    t.string "event"
+    t.string "title"
+    t.text "feedback"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.bigint "user_id", null: false
+    t.index ["user_id"], name: "index_contacts_on_user_id"
+  end
+
   create_table "events", force: :cascade do |t|
     t.string "title"
     t.text "description"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "location"
+    t.string "address"
+    t.string "s_year"
+    t.string "s_month"
+    t.string "s_date"
+    t.string "s_time"
+    t.string "e_year"
+    t.string "e_month"
+    t.string "e_date"
+    t.string "e_time"
+    t.string "city"
+    t.bigint "organization_id", null: false
+    t.index ["organization_id"], name: "index_events_on_organization_id"
   end
 
   create_table "line_items", force: :cascade do |t|
@@ -101,11 +126,17 @@ ActiveRecord::Schema.define(version: 2021_05_20_115927) do
     t.datetime "remember_created_at"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "role"
+    t.string "name"
+    t.string "tel"
+    t.string "status"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
   add_foreign_key "carts", "users"
+  add_foreign_key "contacts", "users"
+  add_foreign_key "events", "organizations"
   add_foreign_key "line_items", "carts"
   add_foreign_key "line_items", "seats"
   add_foreign_key "order_items", "orders"

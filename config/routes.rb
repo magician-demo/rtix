@@ -13,19 +13,6 @@ Rails.application.routes.draw do
   root "events#index"
 
   
-
-
-
-
-
-
-
-
-
-
-
-
-  
   resource :cart, only: [:show, :destroy] do
     collection do
       get :checkout
@@ -41,3 +28,7 @@ Rails.application.routes.draw do
   end
   
 end
+
+resources :user, only: [:show, :create] do 
+  post :redirect_to
+end 

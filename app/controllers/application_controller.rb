@@ -1,4 +1,6 @@
 class ApplicationController < ActionController::Base
+  before_action :configure_permitted_parameters, if: :devise_controller?
+
   helper_method :seat_status
   #找出使用者的 Cart 沒有就建立一個
   def user_cart
@@ -41,4 +43,16 @@ class ApplicationController < ActionController::Base
   def event_tickets
     current_event.tickets
   end
+
+  protected
+
+  def configure_permitted_parameters
+    devise_parameter_sanitizer.permit(:sign_up, keys: [:name])
+  end
+
 end
+
+
+
+
+

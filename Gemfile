@@ -64,3 +64,5 @@ gem "aasm", "~> 5.2"
 gem 'omniauth'
 gem 'omniauth-google-oauth2'
 gem 'figaro'
+
+# gem "omniauth-rails_csrf_protection"

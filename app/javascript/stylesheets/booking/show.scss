@@ -1,11 +1,11 @@
 .sample_status {
-  @apply absolute top-0 right-1 flex mt-4 border border-gray-600 rounded-2xl p-2;
+  @apply absolute top-20 right-1 flex mt-5 py-2 border border-gray-600 rounded-2xl px-1 md:p-2 lg:right-16 xl:top-0 xl:right-2 xl:mt-4;
 }
 
 .sample_seat {
   height: 15px;
   width: 20px;
-  margin: 5px 7px;
+  margin: 5px;
   background-color: #444451;
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
@@ -25,7 +25,5 @@
 }
 
 .back_area {
-  @apply absolute top-0 left-2 mt-4 border border-gray-600 rounded-2xl px-4 py-2;
+  @apply absolute top-20 left-2 mt-5 border border-red-500 text-red-500 rounded-2xl px-1 md:px-2 md:py-2 lg:left-16 xl:top-0 xl:left-2 xl:mt-4 hover:text-white hover:bg-red-500;
 }
-
-

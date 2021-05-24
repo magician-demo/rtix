@@ -3,14 +3,11 @@ Rails.application.routes.draw do
   root "events#index"
   devise_for :users
 
-  
   resources :dashboards, path: 'dashboard', only: [:index, :show] do 
     member do 
       get :contact, controller: :dashboards, action: 'new'
       post :contact, controller: :dashboards, action: 'create'
     end
-
-
   end
 
   resources :organizations

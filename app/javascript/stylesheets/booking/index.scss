@@ -11,5 +11,9 @@
 
   .area {
     @apply bg-red-500 h-40 text-center text-3xl flex justify-center items-center text-white rounded-2xl;
+
+    .price_hidden {
+      @apply hidden;
+    }
   }
 }

@@ -24,7 +24,7 @@ export default class extends Controller{
           console.log(err);
         })
         }else{
-          history.pushState('', '', '')
+          history.pushState('', '', `${document.URL}`)
         }
       }
     }

@@ -16,12 +16,23 @@
 
   <body>
 
+  <div class="wrapper">
+
   <%= render 'layouts/header' %>
 
+    <div class="content">
+      
+      <%= yield %>
 
-    <%= yield %>
+    </div>
 
-    </body>
+  </div>
+
+  
+  <%= render 'layouts/footer' %>
+  
+  </body>
+  
 </html>
 
  

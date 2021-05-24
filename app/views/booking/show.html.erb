@@ -1,4 +1,18 @@
 <%= render 'navbar', ticket_count: @seats_count, previous_path: event_booking_index_path(params[:event_id])%>
 <%= render 'cart', seat: @seat, price: @total_price%>
 <%= render 'events/booking_status'%>
+<div class="cutting_line">
+  <%= link_to event_booking_index_path do%>
+    <div class="back_area">回到票區圖</div>
+  <% end %>
+  <div class="sample_status">
+    <div class="sample_seat"></div>
+    <span>可選擇</span>
+    <div class="sample_seat selected"></div>
+    <span>被選擇</span>
+    <div class="sample_seat sold"></div>
+    <span>已售出</span>
+  </div>
+</div>
+<div class="stage">STAGE</div>
 <%= render 'seats', seats: @seats %>

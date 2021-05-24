@@ -1,0 +1,31 @@
+.sample_status {
+  @apply absolute top-0 right-1 flex mt-4 border border-gray-600 rounded-2xl p-2;
+}
+
+.sample_seat {
+  height: 15px;
+  width: 20px;
+  margin: 5px 7px;
+  background-color: #444451;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  cursor: pointer;
+  pointer-events: none;
+}
+
+.sample_seat.selected {
+  background-color: #6feaf6;
+  pointer-events: none;
+}
+
+.sample_seat.sold {
+  background-color: #444451;
+  opacity: 0.3;
+  pointer-events: none;
+}
+
+.back_area {
+  @apply absolute top-0 left-2 mt-4 border border-gray-600 rounded-2xl px-4 py-2;
+}
+
+

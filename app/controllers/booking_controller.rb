@@ -1,5 +1,6 @@
 class BookingController < ApplicationController
   before_action :authenticate_user!
+  
 
   def index
     @tickets = event_tickets.sort

@@ -1,74 +1,82 @@
-require 'faker'
-
-10.times do 
-  User.create(
-    name: Faker::FunnyName.unique.name, 
-    email: Faker::Internet.unique.email,
-    tel: Faker::PhoneNumber.cell_phone,
-    password: '123456',
-    role: 'user',
-    status: 'not checked' 
-  )
-end 
-
-
-10.times do 
-  Order.create(
-    serial: (1..10).to_a.shuffle.sample(6), 
-    receiver: Faker::FunnyName.unique.name,
-    tel: Faker::PhoneNumber.cell_phone,
-    user_id: (1..10).to_a.shuffle.sample,
-    totalAmount: 100,
-    checkMacValue: "xxxxxxxxxx" 
-  )
-end 
-
-
-10.times do 
-  Organization.create(
-    title: Faker::Company.name, 
-    description: Faker::Quote.matz,
-    user_id: rand(1..100)
-  )
-end
-
-
-
-10.times do 
-  Event.create(
-    title: Faker::Book.unique.title, 
-    description: Faker::Quote.matz,
-    address: Faker::Address.full_address,
-    location: Faker::Space.agency,
-    city: Faker::Address.city,
-    s_year: "2021",
-    s_month: "08",
-    s_date: "12",
-    s_time: "0800",
-    e_year: "2021",
-    e_month: "08",
-    e_date: "21",
-    e_time: "1300",
-    organization_id: rand(1..10)
-  )
-end 
-
-
-
-10.times do
-  Ticket.create(
-    name: Faker::Games::Pokemon.name,
-    price: rand(0..2000),
-    amount: %w(50 100 150).sample,
-    event_id: rand(1..10),
-  )
-end 
-
-
-10.times do
+Event.create(
+  title: '演唱會',
+  description: '好棒'
+)
+Ticket.create(
+  name: 'A區',
+  price: '1900',
+  amount: '250',
+  event_id: 1
+)
+Ticket.create(
+  name: 'B區',
+  price: '1900',
+  amount: '250',
+  event_id: 1
+)
+Ticket.create(
+  name: 'C區',
+  price: '1900',
+  amount: '250',
+  event_id: 1
+)
+Ticket.create(
+  name: 'D區',
+  price: '1900',
+  amount: '250',
+  event_id: 1
+)
+Ticket.create(
+  name: 'E區',
+  price: '1900',
+  amount: '250',
+  event_id: 1
+)
+Ticket.create(
+  name: 'F區',
+  price: '1900',
+  amount: '250',
+  event_id: 1
+)
+250.times do
   Seat.create(
     area: %w(A區 B區 C區).sample,
     ticket_id: rand(1..10),
+    status: 'for_sale'
+  )
+end
+250.times do
+  Seat.create(
+    area: 'B區',
+    ticket_id: 2,
+    status: 'for_sale'
+  )
+end
+250.times do
+  Seat.create(
+    area: 'C區',
+    ticket_id: 3,
+    status: 'for_sale'
+  )
+end
+250.times do
+  Seat.create(
+    area: 'D區',
+    ticket_id: 4,
+    status: 'for_sale'
+  )
+end
+250.times do
+  Seat.create(
+    area: 'E區',
+    ticket_id: 5,
+    status: 'for_sale'
+  )
+end
+250.times do
+  Seat.create(
+    area: 'F區',
+    ticket_id: 6,
     status: 'for_sale'
   )
 end

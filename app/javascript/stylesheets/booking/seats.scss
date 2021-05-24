@@ -1,9 +1,10 @@
 .row {
   display: flex;
-  width: 910px;
   margin: auto;
   flex-wrap: wrap;
   margin-top: 3rem;
+
+  @apply max-w-4xl w-full;
 
   .seat {
     height: 15px;

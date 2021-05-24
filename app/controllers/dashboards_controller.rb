@@ -1,6 +1,6 @@
 class DashboardsController < ApplicationController
     def index
-        @user = current_user
+        @user = User.find(2)
         @user_seats = @user.orders.map {|order| order.seats }.flatten
         @user_events = @user_seats.map {|seat| seat.ticket.event }.uniq
         @sorted_events = @user_events.sort{ 
@@ -18,7 +18,7 @@ class DashboardsController < ApplicationController
     end
 
     def show
-      @user = current_user
+      @user = User.find(2)
       @user_seats = @user.orders.map {|order| order.seats }.flatten
       @user_events = @user_seats.map {|seat| seat.ticket.event }.uniq
       @this_event = @user_events.select {|event| (event.id) == (params[:id].to_i)}[0]
@@ -26,13 +26,13 @@ class DashboardsController < ApplicationController
     end
 
     def new
-        @user = current_user
+        @user = User.find(2)
         @contact = Contact.new
         @event = Event.find(params[:id])
     end
 
     def create
-        @user = current_user
+        @user = User.find(2)
         @event = Event.find(params[:id])
         @contact = Contact.new(contact_params)
         if @contact.save 

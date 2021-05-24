@@ -6,10 +6,10 @@
   }
 
   .cancel-ticket {
-    @apply px-2 py-2 text-white cursor-pointer;
+    @apply px-2 py-2 text-white cursor-pointer border border-white rounded-xl ml-2;
   }
 
   .ticket-list {
-    @apply px-2 py-2 text-white cursor-pointer;
+    @apply px-2 py-2 text-white cursor-pointer border border-white rounded-xl mr-2;
   }
 }

@@ -1,3 +1,5 @@
+require 'sidekiq/web'
+
 Rails.application.routes.draw do
   resources :organizations
   devise_for :users
@@ -23,5 +25,6 @@ Rails.application.routes.draw do
       post :return_url
     end
   end
+  mount Sidekiq::Web => '/sidekiq'
   
 end

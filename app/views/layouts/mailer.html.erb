@@ -9,5 +9,10 @@
 
   <body>
     <%= yield %>
+
+    <%= image_tag attachments['rtix_logo.png'].url, alt: 'LOGO', class: 'logo', width: 200 %>
+    <br>
+    <span class="font-black">RTIX</span> | 您活動參與最佳的入口
+
   </body>
 </html>

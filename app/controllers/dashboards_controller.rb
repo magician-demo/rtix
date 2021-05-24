@@ -35,7 +35,11 @@ class DashboardsController < ApplicationController
         @user = User.find(2)
         @event = Event.find(params[:id])
         @contact = Contact.new(contact_params)
-        if @contact.save 
+        
+        if @contact.save
+
+          ContactMailer.with(user: current_user, event: @event, contact: @contact).contact_created.deliver_later  
+
           redirect_to dashboards_path, notice: "感謝您的意見反饋!活動舉辦方將會盡快回應您!"
         else
           render :new 

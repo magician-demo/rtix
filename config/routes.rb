@@ -2,17 +2,27 @@ require 'sidekiq/web'
 require 'sidekiq-scheduler/web'
 
 Rails.application.routes.draw do
-  resources :organizations
+
+  root "events#index"
   devise_for :users
+
+  resources :dashboards, path: 'dashboard', only: [:index, :show] do 
+    member do 
+      get :contact, controller: :dashboards, action: 'new'
+      post :contact, controller: :dashboards, action: 'create'
+    end
+  end
+
+  resources :organizations
+
   resources :events do
     resources :booking, only: [:index, :show]
   end
+
   resources :line_items, only: [:create, :destroy]
     post '/line_items/random_create', to: 'line_items#random_create'
   resource :carts, only: [:destroy]
-  root "events#index"
 
-  
   resource :cart, only: [:show, :destroy] do
     collection do
       get :checkout

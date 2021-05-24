@@ -9,14 +9,18 @@
     }
 
     .table-row-column {
-      @apply inline-block w-3/12;
+      @apply md:w-3/12 md:inline-block;
 
       .table-row-add-sub {
-        @apply w-4/12 pr-1 cursor-pointer font-bold;
+        @apply w-4/12 pr-1 cursor-pointer font-bold border-none mr-2;
+      }
+
+      .table-row-add-sub-right {
+        @apply w-4/12 cursor-pointer font-bold border-none;
       }
 
       .table-row-input {
-        @apply w-4/12 border rounded text-center border-black;
+        @apply w-4/12 border rounded text-center border-black h-2;
       }
     }
   }

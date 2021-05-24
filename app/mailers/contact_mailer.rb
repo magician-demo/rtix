@@ -10,14 +10,12 @@ class ContactMailer < ApplicationMailer
     @contact = params[:contact]
     @event = params[:event]
 
-    # TODO: start here -> The below code is how you add an attachment, like QRCode PDF to the email
     attachments['rtix_logo.png'] = File.read('app/assets/images/rtix_logo.png')
-    # TODO: end here
     
     mail(
        from: "rickchiuuniverse@gmail.com",
        to: email_address_with_name(User.first.email, User.first.name),   
-       subject: "[RTIX]報名人留言給您囉, 再請記得盡快抽空回覆!",
+       subject: "[RTIX]參加人留言給您囉, 再請記得盡快抽空回覆!",
        cc: "friedrichchiu@gmail.com",
        bcc: "friedrichchiu@gmail.com"
     )

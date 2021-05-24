@@ -1,12 +1,19 @@
-<p><%= @user.name %>針對您所創建的活動: <%= @event.title %>傳送下面訊息給您: </p>
+<p>Hi <%=@event.organization.title%>,</p>
+<p>RTIX用戶 <%=@user.name %> 針對您所舉辦的活動 <%= @event.title %> 傳送下面訊息給您: </p>
+<br>
+<br>
 
-<h2><%= @contact.title %></h2>
-<p><%= @contact.feedback %></p>
+
+<div>
+    <%= @contact.title %>
+    <%= @contact.feedback %>
+</div>
+
 
 
 <br>
 <br>
-<p>建議您於三日內, 盡快回覆. 您可透過以下email聯繫：<%= @contact.email %></p>
+<h5>P.S. RTIX建議您, 於三日內盡快回覆, 您可透過以下email與該名參加人聯繫: <%= @contact.email %></h5>
 
 
 

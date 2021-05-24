@@ -7,10 +7,7 @@
 <div class="area_column">
 <% @tickets.each do |ticket|%>
   <%= link_to event_booking_path(params[:event_id], ticket.id) do%>
-    <div class="area">
-    <%=ticket.name%>
-      <div class="price_hidden"><%= ticket.price%></div>
-    </div>
+    <div class="area"><%=ticket.name%>| $<%= ticket.price%></div>
   <% end %>
 <% end %>
 </div>

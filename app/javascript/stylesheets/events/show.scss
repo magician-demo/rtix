@@ -1,5 +1,5 @@
 .event_img {
-  @apply m-auto max-w-4xl my-2;
+  @apply w-full my-2 lg:m-auto lg:max-w-4xl;
 }
 
 .divide {
@@ -7,7 +7,7 @@
 }
 
 .event_information {
-  @apply m-auto max-w-4xl;
+  @apply w-full mx-1 lg:m-auto lg:max-w-4xl;
 
   .event_information_title {
     @apply text-2xl my-3;
@@ -27,7 +27,7 @@
 }
 
 .event_booking_area {
-  @apply border border-gray-500 my-4;
+  @apply w-full border border-gray-500 my-4;
 
   .area_setting {
     @apply w-8/12 m-auto;

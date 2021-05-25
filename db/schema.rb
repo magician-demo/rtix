@@ -51,8 +51,19 @@ ActiveRecord::Schema.define(version: 2021_05_22_075817) do
     t.string "e_date"
     t.string "e_time"
     t.string "city"
-    t.bigint "organization_id", null: false
+    t.bigint "organization_id"
     t.index ["organization_id"], name: "index_events_on_organization_id"
+  end
+
+  create_table "friendly_id_slugs", force: :cascade do |t|
+    t.string "slug", null: false
+    t.integer "sluggable_id", null: false
+    t.string "sluggable_type", limit: 50
+    t.string "scope"
+    t.datetime "created_at"
+    t.index ["slug", "sluggable_type", "scope"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type_and_scope", unique: true
+    t.index ["slug", "sluggable_type"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type"
+    t.index ["sluggable_type", "sluggable_id"], name: "index_friendly_id_slugs_on_sluggable_type_and_sluggable_id"
   end
 
   create_table "line_items", force: :cascade do |t|
@@ -95,7 +106,11 @@ ActiveRecord::Schema.define(version: 2021_05_22_075817) do
     t.integer "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "domain_name"
+    t.string "slug"
+    t.string "image"
     t.index ["deleted_at"], name: "index_organizations_on_deleted_at"
+    t.index ["slug"], name: "index_organizations_on_slug", unique: true
   end
 
   create_table "seats", force: :cascade do |t|

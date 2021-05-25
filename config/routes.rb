@@ -26,9 +26,9 @@ Rails.application.routes.draw do
       post :return_url
     end
   end
+
+  get 'invoice/webhooks'
+  post 'invoice/webhooks' =>'invoice#webhooks'
   
 end
 
-# resources :user, only: [:show, :create] do 
-#   post :redirect_to
-# end 

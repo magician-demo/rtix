@@ -6,6 +6,8 @@ class CheckPaidJob < ApplicationJob
       order.cancel!
       order.seats.each do |seat|
         seat.update(status: "for_sale")
+        seat.ticket.amount += 1
+        seat.ticket.save
       end
     end
     order.save

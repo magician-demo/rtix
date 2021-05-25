@@ -11,12 +11,8 @@ import "channels"
 import "stylesheets" 
 import "icon"
 
-
 import "bootstrap"
 import "datatable"
-
-
-
 
 
 Rails.start()

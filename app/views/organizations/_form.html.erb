@@ -38,8 +38,9 @@
       <%= form.text_area :description, class: "org-field", placeholder: '請介紹一下這個組織' %>
     </div>
 
-    <div class="org-btn">
+    <div class="org-button-group">
       <%= form.submit "送出", class:"org-button" %>
+      <%= link_to '取消', @organization, class: "org-button org-cancel-button" %>
     </div>
   </div>
 

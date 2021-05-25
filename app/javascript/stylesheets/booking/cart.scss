@@ -2,7 +2,7 @@
   @apply hidden;
 
   .cart_list {
-    @apply bg-red-500 my-2 mx-2 rounded relative py-2 text-white;
+    @apply bg-red-500 my-2 mx-2 rounded relative py-2 text-white z-10;
   }
 
   .remove_btn {
@@ -19,5 +19,5 @@
 }
 
 .show_cart {
-  @apply absolute w-60 bg-gray-200 right-0 transition-all rounded block;
+  @apply absolute w-60 bg-gray-200 right-0 transition-all rounded block z-10;
 }

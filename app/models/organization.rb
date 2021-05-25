@@ -17,4 +17,5 @@ class Organization < ApplicationRecord
                           length: { in: 3..16 },
                           format: { with: /\A[a-z0-9]+\z/ }
   belongs_to :user
+  has_many :events
 end

@@ -1,9 +1,13 @@
-<div class="orderd_not_pay text-white bg-yellow-500 py-2 w-4/5 m-auto mb-2 text-center">你的訂單已保留，請在24小時內完成繳費。逾期將取消訂單</div>
+<% if @order.status =="cancelled" %>
+<%# <div class="orderd_not_pay text-white bg-yellow-500 py-2 w-4/5 m-auto mb-2 text-center">訂單已取消</div> %>
+<% else %>
+<div class="orderd_not_pay text-white bg-yellow-500 py-2 w-4/5 m-auto mb-2 text-center">你的訂單已保留，請在10分鐘內完成繳費。逾期將取消訂單</div>
+<% end %>
 
 <div class="body m-auto bg-grey border-t">
   <div class="content w-4/5 m-auto">
     <h1 class="text-3xl font-medium mt-3">Event 票卷</h1>
-    <div class="detail text-green-500 text-sm mt-1 mb-2">顯示詳細活動資料▾</div>
+    <%# <div class="detail text-green-500 text-sm mt-1 mb-2">顯示詳細活動資料▾</div> %>
     <div class="step flex justify-center mb-3">
       <div class="step-each rounded-3xl w-4/12 opacity-40 text-center bg-green-600 m-1 py-2 text-xs text-white ">
         1 選擇票種
@@ -52,8 +56,11 @@
       </div>
     
     </div>
-    
-    <div class="pay-button m-auto mt-8 max-w-max "><input id="pay" type="submit" value="確認訂單並繳費" class="bg-green-500 p-2.5 text-white rounded-sm opacity-40"></div>
+    <% if @order.status =="cancelled" %>
+      <div class="pay-cancel m-auto mt-8 max-w-max bg-red-500 p-2.5 text-white rounded-sm">超過時間，訂單已取消</div>
+    <% else %>
+      <div class="pay-button m-auto mt-8 max-w-max "><input id="pay" type="submit" value="確認訂單並繳費" class="bg-green-500 p-2.5 text-white rounded-sm opacity-40"></div>
+    <% end %>
   </div>
 </div>
 

@@ -85,6 +85,9 @@ class OrdersController < ApplicationController
     #把檢查碼存進資料庫中
     @order.save
 
+    #10分鐘後檢查是否付款
+    CheckPaidJob.set(wait: 10.minutes).perform_later(@order)
+
     
     redirect_to order_path(@order), notice: "謝謝"
   end

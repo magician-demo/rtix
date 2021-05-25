@@ -1,0 +1,31 @@
+.table {
+  @apply w-full text-black m-auto rounded border border-black bg-red-500;
+
+  .table-row {
+    @apply border border-black flex flex-nowrap py-2 m-2 rounded bg-white;
+
+    .table-row-header {
+      @apply inline-block w-3/12 pl-2;
+    }
+
+    .table-row-column {
+      @apply md:w-3/12 md:inline-block;
+
+      .table-row-add-sub {
+        @apply w-4/12 pr-1 cursor-pointer font-bold border-none mr-2;
+      }
+
+      .table-row-add-sub-right {
+        @apply w-4/12 cursor-pointer font-bold border-none;
+      }
+
+      .table-row-input {
+        @apply w-4/12 border rounded text-center border-black h-2;
+      }
+    }
+  }
+
+  .table-submit {
+    @apply text-center py-2 bg-white w-3/12 m-auto rounded my-2 text-2xl border border-black;
+  }
+}

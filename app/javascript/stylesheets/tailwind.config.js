@@ -1,3 +1,5 @@
+const colors = require('tailwindcss/colors')
+
 module.exports = {
   purge: [
     "./app/**/*.html.erb",
@@ -12,5 +14,5 @@ module.exports = {
   variants: {
     extend: {},
   },
-  plugins: [],
+  plugins: []
 }

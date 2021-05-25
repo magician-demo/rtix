@@ -1,0 +1,48 @@
+<div class="wrapper">
+
+    <%= notice %>
+    <div class="myorder" data-controller="myorder">
+        <div class="subtab">
+            <div class="ticketab" data-action="click->myorder#showticket mouseover->myorder#tickethover" data-myorder-target="ticket">票券總覽</div>
+            <div class="hostab" data-action="click->myorder#showhost mouseover->myorder#hosthover" data-myorder-target="host">舉辦活動總覽</div>
+        </div>
+
+        
+        <div class="content" data-myorder-target="content">
+            <h2 class="subhead">我的票券</h2>
+            <div><%= render "tickets/ticket" %></div>
+        </div>
+
+
+        <div style="clear:both;"></div>
+
+
+        <div class="content">
+            <h2 class="subhead">RTIX精選活動</h2>
+            <div class="container overflow-y-scroll h-72">
+                <%= render "events/event" %>
+            </div>
+        </div>
+
+        <div style="clear:both;"></div>
+    </div>
+
+</div>
+
+
+
+
+
+<template id="ticketview">
+        <h2 class="subhead">我的票券</h2>
+        <div><%= render "tickets/ticket" %></div>
+</template>
+
+
+<template id="hostview">
+    <h2 class="subhead">舉辦的活動</h2>
+    <div><%= render "dashboards/host" %></div>
+</template>
+
+<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>
+<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/responsive/2.2.7/js/dataTables.responsive.min.js"></script>

@@ -38,15 +38,14 @@ export default class extends Controller{
           clearInterval(timeInterval)
           localStorage.removeItem('currentTime')
           localStorage.removeItem('comeBefore')
-          if(confirm('選位時間已到，將您返回至活動頁面')){
-            ax.delete('/carts')
-            .then(res=>{
-              window.location.href = '/events'
-            })
-            .catch(err=>{
-              console.log(err);
-            })
-          }
+          alert('選位時間已到，將您返回至活動頁面')
+          ax.delete('/carts')
+          .then(res=>{
+            window.location.href = '/events'
+          })
+          .catch(err=>{
+            console.log(err);
+          })
         }
       },1000)
     }

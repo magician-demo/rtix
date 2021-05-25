@@ -16,6 +16,7 @@ export default class extends Controller{
   }
   buyTicket(){
     const allValue = document.querySelectorAll('input')
+    history.pushState('', '', '')
     let ticketCount = {}
     // 這邊將表單的 ticket_id 和 input 的 value 組合成一個 array 放入 空的 hash 中，要傳到後端讓後端拆解
     allValue.forEach((e)=>{

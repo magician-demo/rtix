@@ -34,6 +34,8 @@ class Order < ApplicationRecord
     end
   end
 
+ 
+
   private
 
   def random_serials(n)

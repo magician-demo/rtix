@@ -65,4 +65,5 @@ gem 'omniauth'
 gem 'omniauth-google-oauth2'
 gem 'figaro'
 
-# gem "omniauth-rails_csrf_protection"
+gem "omniauth-rails_csrf_protection"
+

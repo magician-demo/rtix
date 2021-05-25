@@ -3,7 +3,9 @@
   <% seats.each do |s| %>
       <div 
           class="seat
-          <%= 'selected' if seat_status(s.id) === 'selected' %>"
+          <%= 'selected' if seat_status(s.id) === 'selected' %>
+          <%= 'sold' if seat_status(s.id) === 'sold'%>
+          "
           data-seat-id="<%= s.id%>" 
           data-booking-id="<%= s.ticket.id%>"
           data-controller="booking-seat"

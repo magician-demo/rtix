@@ -27,6 +27,8 @@ class OrdersController < ApplicationController
       ecpay_order.cancel!
       ecpay_order.seats.each do |seat|
         seat.update(status: 'for_sale')
+        seat.ticket.amount += 1
+        seat.ticket.save
       end
     end
 
@@ -44,6 +46,7 @@ class OrdersController < ApplicationController
       seat.update(status: 'sold')
       OrderItem.create(order_id: current_user.id)
       seat.line_item.delete
+      ActionCable.server.broadcast "BookingStatusChannel_#{seat.ticket.id}",{message: 'sold!', id: seat.id}
     end
   end
   
@@ -76,7 +79,7 @@ class OrdersController < ApplicationController
     #回傳的網址:導回首頁
     # ClientBackURL=https://949c2e887532.ngrok.io/&
     
-    beforeURLEncode = "HashKey=5294y06JbISpM5x9&ChoosePayment=Credit&ClientBackURL=https://949c2e887532.ngrok.io/&EncryptType=1&ItemName=#{@order.serial}&MerchantID=2000132&MerchantTradeDate=#{Time.now.strftime('%Y/%m/%d %H:%M:%S')}&MerchantTradeNo=#{@order.serial}&PaymentType=aio&ReturnURL=https://949c2e887532.ngrok.io/orders/return_url/&TotalAmount=#{@order.totalAmount}&TradeDesc=Des&HashIV=v77hoKGq4kWxNNIS"
+    beforeURLEncode = "HashKey=5294y06JbISpM5x9&ChoosePayment=Credit&ClientBackURL=https://7cf136ff2ee3.ngrok.io/&EncryptType=1&ItemName=#{@order.serial}&MerchantID=2000132&MerchantTradeDate=#{Time.now.strftime('%Y/%m/%d %H:%M:%S')}&MerchantTradeNo=#{@order.serial}&PaymentType=aio&ReturnURL=https://7cf136ff2ee3.ngrok.io/orders/return_url/&TotalAmount=#{@order.totalAmount}&TradeDesc=Des&HashIV=v77hoKGq4kWxNNIS"
 
     query = URI.encode_www_form_component(beforeURLEncode).downcase
     dha = Digest::SHA256.hexdigest(query).upcase
@@ -104,7 +107,5 @@ class OrdersController < ApplicationController
     #退費
     @order.refund
   end
-  
-  
 end
 

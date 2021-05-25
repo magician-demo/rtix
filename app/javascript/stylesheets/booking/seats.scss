@@ -22,6 +22,12 @@
     pointer-events: none;
   }
 
+  .seat.sold {
+    background-color: #444451;
+    opacity: 0.3;
+    pointer-events: none;
+  }
+
   .seat:nth-of-type(25n + 5) {
     margin-right: 30px;
   }

@@ -10,9 +10,12 @@ export default class extends Controller{
       received(data) {
         const seat = document.querySelector(`[data-seat-id='${data.id}']`)
         if(!seat){return}
-        if(data.message === 'changed!'){
+        if(data.message === 'selected!'){
         seat.classList.toggle('selected')
           }
+        if(data.message === 'sold!'){
+          seat.classList.toggle('sold')
+        }
         }
       });
     }

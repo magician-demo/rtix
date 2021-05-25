@@ -25,12 +25,12 @@
 
 # Member
 
-- Hoga
-- Robert.C
-- Skye
-- SunWei Chou
-- Weij28
-- FriedrichChiu
+- [Hoga](https://github.com/hogaga)
+- [Robert.C](https://github.com/Robeeerto)
+- [Skye](https://github.com/skyee2021)
+- [SunWei Chou](https://github.com/SunWeiChou)
+- [Weij28](https://github.com/Weij28)
+- [FriedrichChiu](https://github.com/FriedrichChiu)
 
 # Pull 後的操作流程！
 
@@ -39,4 +39,4 @@
 - $ bundle install
 - $ rails db:migrate
 - $ rails hotwire:install
-- $ foreman s -> 就可以啟動了唷！
+- $ foreman s -f Procfile.dev-> 就可以啟動了唷！

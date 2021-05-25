@@ -6,14 +6,8 @@ class OrdersController < ApplicationController
   skip_before_action :authenticate_user!, only: :return_url
 
   def show
-    @order = current_order
-    @price = @order.totalAmount
-
-    @seats = @order.seats
-
-    current_order.serial
-    current_order.totalAmount
-    current_order.checkMacValue
+    @price = current_order.totalAmount
+    @seats = current_order.seats
     @current_id = current_order.id
   end
 
@@ -24,41 +18,23 @@ class OrdersController < ApplicationController
       ecpay_order.pay!
     else
       ecpay_order.cancel!
-      ecpay_order.seats.each do |seat|
-        seat.update(status: 'for_sale')
-        seat.ticket.amount += 1
-        seat.ticket.save
-      end
     end
   end
 
   #從綠界回網站
   def client_url; end
 
-  # 訂單成立清空購物車並將座位狀態改為sold
-  def empty_cart
-    current_user
-      .cart
-      .seats
-      .each do |seat|
-        seat.update(status: 'sold')
-        OrderItem.create(order_id: current_user.id)
-        seat.line_item.delete
-        ActionCable.server.broadcast "BookingStatusChannel_#{seat.ticket.id}",
-                                     { message: 'sold!', id: seat.id }
-      end
-  end
 
   def create
     @order = Order.new(user_id: current_user.id)
     @order.receiver = params.require(:order).permit(:receiver)
     @order.tel = params.require(:order).permit(:tel)
 
-    @ticket_number = current_user.cart.seats.count
-    @event = current_user.cart.seats.first.ticket.event.title
+    @ticket_number = current_cart.seats.count
+    @event = current_cart.seats.first.ticket.event.title
 
-    @order.item_list = [current_user.cart.seats]
-    @order.totalAmount = total_price
+    @order.item_list = [current_cart.seats]
+    @order.totalAmount = current_cart.total_price
     @order.serial
 
     #訂單與座位的第三方表格
@@ -81,8 +57,7 @@ class OrdersController < ApplicationController
       "HashKey=5294y06JbISpM5x9&ChoosePayment=Credit&ClientBackURL=https://7cf136ff2ee3.ngrok.io/&EncryptType=1&ItemName=#{@order.serial}&MerchantID=2000132&MerchantTradeDate=#{Time.now.strftime('%Y/%m/%d %H:%M:%S')}&MerchantTradeNo=#{@order.serial}&PaymentType=aio&ReturnURL=https://7cf136ff2ee3.ngrok.io/orders/return_url/&TotalAmount=#{@order.totalAmount}&TradeDesc=Des&HashIV=v77hoKGq4kWxNNIS"
 
     query = URI.encode_www_form_component(beforeURLEncode).downcase
-    dha = Digest::SHA256.hexdigest(query).upcase
-    @order.checkMacValue = dha
+    @order.checkMacValue = Digest::SHA256.hexdigest(query).upcase
 
     #把檢查碼存進資料庫中
     @order.save
@@ -103,4 +78,19 @@ class OrdersController < ApplicationController
     #退費
     @order.refund
   end
+  private
+
+  def empty_cart
+    current_cart
+      .seats
+      .each do |seat|
+        seat.update(status: 'sold')
+        OrderItem.create(order_id: current_user.id)
+        seat.line_item.destroy
+        ActionCable.server.broadcast "BookingStatusChannel_#{seat.ticket.id}",
+                                     { message: 'sold!', id: seat.id }
+      end
+  end
+
 end
+

@@ -21,15 +21,19 @@ Rails
       resources :booking, only: %i[index show]
     end
 
-    resources :line_items, only: %i[create destroy]
-    post '/line_items/random_create', to: 'line_items#random_create'
+    resources :line_items, only: %i[create destroy] do
+      collection { post :random_create }
+    end
+
     resource :carts, only: [:destroy]
+
+    delete '/carts/empty', to: 'carts#empty_cart'
 
     resource :cart, only: %i[show destroy] do
       collection { get :checkout }
     end
 
-    delete '/carts/empty', to: 'carts#empty_cart'
+    
 
     resources :orders, only: %i[show create] do
       collection { post :return_url }

@@ -24,7 +24,7 @@ class Order < ApplicationRecord
     end
 
     event :cancel do
-      transitions from: %i[pending paid], to: :cancelled
+      transitions from: %i[pending paid], to: :cancelled , after: :reorg
     end
 
     event :refund do
@@ -45,4 +45,13 @@ class Order < ApplicationRecord
   def serial_generator(n)
     Time.now.strftime("%Y%m%d#{n}")
   end
+
+  def reorg
+    self.seats.each do |seat|
+      seat.update(status: 'for_sale')
+      seat.ticket.amount += 1
+      seat.ticket.save
+    end
+  end
+
 end

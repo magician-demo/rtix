@@ -1,42 +1,41 @@
 .contact_wrapper {
-    @apply w-full m-auto my-10;
+  @apply w-full m-auto my-10;
 }
 
 .contact_backlink {
-    @apply font-mono shadow-md font-bold p-4 rounded-xl bg-gradient-to-r from-gray-50 to-gray-100 hover:from-pink-500 hover:to-yellow-500 hover:text-white cursor-pointer;
+  @apply font-mono shadow-md font-bold p-4 rounded-xl bg-gradient-to-r from-gray-50 to-gray-100 hover:from-pink-500 hover:to-yellow-500 hover:text-white cursor-pointer;
 }
 
 .contact_heading {
-    @apply text-4xl font-bold text-center mt-10;
+  @apply text-4xl font-bold text-center mt-10;
 }
 
 .contact_form {
-    @apply mt-10 mb-16 w-11/12 m-auto border-2 border-gray-100 rounded-lg bg-gray-50 shadow-xl;
-    @apply lg:mt-10 lg:mb-16 lg:w-4/6 lg:m-auto lg:border-2 lg:border-gray-100 lg:rounded-lg lg:bg-gray-50 lg:shadow-xl; 
+  @apply mt-10 mb-16 w-11/12 m-auto border-2 border-gray-100 rounded-lg bg-gray-50 shadow-xl;
+  @apply lg:mt-10 lg:mb-16 lg:w-4/6 lg:m-auto lg:border-2 lg:border-gray-100 lg:rounded-lg lg:bg-gray-50 lg:shadow-xl;
 }
 
 .contact_field {
-    @apply mt-5 w-5/12 inline-block sm:w-5/12 sm:inline-block md:w-9/12 md:block m-auto ;
+  @apply mt-5 w-5/12 inline-block sm:w-5/12 sm:inline-block md:w-9/12 md:block m-auto;
 }
 
 .contact_title {
-    @apply mt-5 w-9/12 m-auto;
+  @apply mt-5 w-9/12 m-auto;
 }
 
 .contact_feedback {
-    @apply mt-5 w-9/12 m-auto;
+  @apply mt-5 w-9/12 m-auto;
 }
 
 .contact_textfield {
-    @apply w-full italic mt-3 bg-gray-50 shadow-md;
-    @apply text-xs sm:text-base
+  @apply w-full italic mt-3 bg-gray-50 shadow-md;
+  @apply text-xs sm:text-base;
 }
 
 .contact_title_textfield {
-    @apply rounded border-2 border-gray-100 w-full mt-3 shadow-md;
+  @apply rounded border-2 border-gray-100 w-full mt-3 shadow-md;
 }
 
 .contact_submit_btn {
-    @apply font-mono shadow-md font-bold p-4 rounded-xl bg-gradient-to-r from-gray-50 to-gray-100 hover:from-pink-500 hover:to-yellow-500 hover:text-white cursor-pointer;
+  @apply font-mono shadow-md font-bold p-4 rounded-xl bg-gradient-to-r from-gray-50 to-gray-100 hover:from-pink-500 hover:to-yellow-500 hover:text-white cursor-pointer;
 }
-

@@ -1,5 +1,4 @@
 class Contact < ApplicationRecord
-    validates :title, presence: true
-    validates :feedback, presence: true
-  end
-  
+  validates :title, presence: true
+  validates :feedback, presence: true
+end

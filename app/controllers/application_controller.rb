@@ -1,13 +1,10 @@
 class ApplicationController < ActionController::Base
   helper_method :seat_status
+
   #找出使用者的 Cart 沒有就建立一個
 
   def user_cart
-    if current_user.cart
-      current_user.cart
-    else
-      Cart.new(user_id: current_user.id)
-    end
+    current_user.cart ? current_user.cart : Cart.new(user_id: current_user.id)
   end
 
   def current_order
@@ -25,9 +22,7 @@ class ApplicationController < ActionController::Base
 
   def total_price
     sum = 0
-    user_cart.seats.each do |s|
-      sum += s.ticket.price
-    end
+    user_cart.seats.each { |s| sum += s.ticket.price }
     sum
   end
 

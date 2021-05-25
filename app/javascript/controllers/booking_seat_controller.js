@@ -1,8 +1,8 @@
-import { Controller } from "stimulus"
+import { Controller } from 'stimulus'
 import axios from 'axios'
 
 export default class extends Controller {
-  addLineItem(){
+  addLineItem() {
     let count = document.getElementById('ticket_count')
     const cart = document.querySelector('.cart')
     const booking_id = this.element.dataset['bookingId']
@@ -12,15 +12,23 @@ export default class extends Controller {
     const id = this.element.dataset['seatId']
     ax.defaults.headers.common['X-CSRF-Token'] = token
     // 將資料 post 到後端新增訂單資訊
-    ax.post('/line_items',{seat_id: id, booking_id: booking_id})
-      .then(res =>{
+    ax.post('/line_items', { seat_id: id, booking_id: booking_id })
+      .then((res) => {
         count.innerHTML = Number(count.textContent) + 1
         // 即時在 cart 中新增欄位，函式在下方，資料都從後端傳遞過來再進行拆解
-        cart.prepend(addList(res.data['area'], res.data['id'], res.data['price'], res.data['itemId'], res.data['bookingId']))
+        cart.prepend(
+          addList(
+            res.data['area'],
+            res.data['id'],
+            res.data['price'],
+            res.data['itemId'],
+            res.data['bookingId']
+          )
+        )
         total_price.innerHTML = `票券總價：$${res.data['total_price']}`
       })
-      .catch(err =>{
-        console.log(err);
+      .catch((err) => {
+        console.log(err)
       })
   }
 }

@@ -1,5 +1,3 @@
-
-
 # :schedule:
 #   CheckPaid:
 #     cron: '1 * * * * *'   # Runs once per hour

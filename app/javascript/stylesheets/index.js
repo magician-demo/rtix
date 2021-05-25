@@ -1,8 +1,4 @@
-import "./application"
-import "./my_order"
-import "./booking"
-import "./events"
-
-
-
-
+import './application'
+import './my_order'
+import './booking'
+import './events'

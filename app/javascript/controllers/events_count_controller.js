@@ -1,5 +1,5 @@
 import { Controller } from 'stimulus'
-import axios from 'axios'
+import ax from '../lib/ax'
 
 export default class extends Controller {
   // 針對表單操控按鈕加減 input 中的 value
@@ -24,9 +24,6 @@ export default class extends Controller {
     allValue.forEach((e) => {
       ticketCount[e.dataset['ticketId']] = e.value
     })
-    let ax = axios.create()
-    let token = document.querySelector('meta[name=csrf-token]').content
-    ax.defaults.headers.common['X-CSRF-Token'] = token
     ax.post('/line_items/random_create', { ticketCount: ticketCount })
       .then((res) => {
         // 此處待解決！ 若是不 reload 購物清單的數字不會即時更新

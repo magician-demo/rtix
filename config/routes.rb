@@ -21,7 +21,7 @@ Rails
       resources :booking, only: %i[index show]
     end
 
-    resources :line_items, only: %i[create destroy] do
+    resources :line_items, only: %i[create destroy show] do
       collection { post :random_create }
     end
 

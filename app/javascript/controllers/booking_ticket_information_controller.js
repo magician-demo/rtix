@@ -1,5 +1,5 @@
 import { Controller } from 'stimulus'
-import axios from 'axios'
+import ax from '../lib/ax'
 export default class extends Controller {
   connect() {
     const overlay = document.getElementById('overlay')
@@ -10,9 +10,6 @@ export default class extends Controller {
     }
     if (window.history && window.history.pushState) {
       window.onpopstate = () => {
-        let ax = axios.create()
-        let token = document.querySelector('meta[name=csrf-token]').content
-        ax.defaults.headers.common['X-CSRF-Token'] = token
         if (
           confirm(
             '脫離訂位畫面，訂單將先行取消，座位亦不保留，您確定要離開嗎？'

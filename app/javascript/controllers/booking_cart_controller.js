@@ -1,5 +1,5 @@
 import { Controller } from 'stimulus'
-import axios from 'axios'
+import ax from '../lib/ax'
 
 export default class extends Controller {
   // 讓購物車彈出來的動作
@@ -11,10 +11,6 @@ export default class extends Controller {
   // 確認票種明細購物車的渲染
   list_cancelled() {
     let total_price = document.querySelector('.list_cart_total_price')
-    // let count = document.getElementById('list_ticket_count')
-    let ax = axios.create()
-    let token = document.querySelector('meta[name=csrf-token]').content
-    ax.defaults.headers.common['X-CSRF-Token'] = token
     const id = this.element.dataset['itemIds']
     ax.delete(`/line_items/${id}`)
       .then((res) => {
@@ -28,7 +24,7 @@ export default class extends Controller {
         }
       })
       .catch((err) => {
-        console.log(err)
+        alert(err)
       })
   }
 }

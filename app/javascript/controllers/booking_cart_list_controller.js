@@ -1,16 +1,16 @@
 import { Controller } from 'stimulus'
-import axios from 'axios'
+import ax from '../lib/ax'
 
 export default class extends Controller {
+  static targets = [ "results" ]
+  connect(){
+    console.log()
+  }
   cancelled() {
     let total_price = document.querySelector('.cart_total_price')
     let count = document.getElementById('ticket_count')
     const cart = document.querySelector('.cart')
     const id = this.element.dataset['itemId']
-
-    let ax = axios.create()
-    let token = document.querySelector('meta[name=csrf-token]').content
-    ax.defaults.headers.common['X-CSRF-Token'] = token
     // 發送 delete 至 line_items 的 destroy 刪除該筆訂單
     ax.delete(`/line_items/${id}`)
       .then((res) => {

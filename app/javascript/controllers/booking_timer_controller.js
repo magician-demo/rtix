@@ -1,13 +1,10 @@
 import { Controller } from 'stimulus'
-import axios from 'axios'
+import ax from '../lib/ax'
 
 export default class extends Controller {
   connect() {
     initializeClock()
     const element = this.element
-    let ax = axios.create()
-    let token = document.querySelector('meta[name=csrf-token]').content
-    ax.defaults.headers.common['X-CSRF-Token'] = token
     // 判斷 localStorage 中是否已經有存放進入的時間，以利於重整後倒數計時功能還是存在
     if (localStorage.getItem('currentTime')) {
       var currentTime = localStorage.getItem('currentTime')

@@ -1,5 +1,5 @@
 Organization.create(title: '娛樂公司', description: '快樂宗旨', user_id: '1')
-Event.create(title: '演唱會', description: '好棒')
+Event.create(title: '演唱會', description: '好棒', organization_id: '1')
 Ticket.create(name: 'A區', price: '3600', amount: '250', event_id: 1)
 Ticket.create(name: 'B區', price: '3400', amount: '250', event_id: 1)
 Ticket.create(name: 'C區', price: '3200', amount: '250', event_id: 1)

@@ -33,8 +33,6 @@ Rails
       collection { get :checkout }
     end
 
-    
-
     resources :orders, only: %i[show create] do
       collection { post :return_url }
     end

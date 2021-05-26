@@ -11,7 +11,8 @@ class BookingController < ApplicationController
   def show
     @ticket = booking_event.tickets.find(params[:id])
     @seats =
-        booking_event.tickets
+      booking_event
+        .tickets
         .find(params[:id])
         .seats
         .includes(:ticket)

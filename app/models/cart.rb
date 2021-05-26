@@ -12,9 +12,6 @@ class Cart < ApplicationRecord
   end
 
   def seat_return!
-    seats.each do |seat|
-      seat.line_item.destroy
-      end
+    seats.each { |seat| seat.line_item.destroy }
   end
-
 end

@@ -14,16 +14,11 @@ class OrdersController < ApplicationController
   #抓綠界付款成功回傳值
   def return_url
     ecpay_order = Order.find_by(serial: params[:MerchantTradeNo])
-    if params[:RtnCode] == '1'
-      ecpay_order.pay!
-    else
-      ecpay_order.cancel!
-    end
+    params[:RtnCode] == '1' ? ecpay_order.pay! : ecpay_order.cancel!
   end
 
   #從綠界回網站
   def client_url; end
-
 
   def create
     @order = current_user.orders.new(order_params)
@@ -52,7 +47,7 @@ class OrdersController < ApplicationController
     # ClientBackURL=https://949c2e887532.ngrok.io/&
 
     beforeURLEncode =
-      "HashKey=#{ENV["hash_key"]}&ChoosePayment=Credit&ClientBackURL=#{ENV["server"]}/&EncryptType=1&ItemName=#{@order.serial}&MerchantID=#{ENV["merchant_id"]}&MerchantTradeDate=#{Time.now.strftime('%Y/%m/%d %H:%M:%S')}&MerchantTradeNo=#{@order.serial}&PaymentType=aio&ReturnURL=#{ENV["server"]}/orders/return_url/&TotalAmount=#{@order.totalAmount}&TradeDesc=Des&HashIV=#{ENV["hash_iv"]}"
+      "HashKey=#{ENV['hash_key']}&ChoosePayment=Credit&ClientBackURL=#{ENV['server']}/&EncryptType=1&ItemName=#{@order.serial}&MerchantID=#{ENV['merchant_id']}&MerchantTradeDate=#{Time.now.strftime('%Y/%m/%d %H:%M:%S')}&MerchantTradeNo=#{@order.serial}&PaymentType=aio&ReturnURL=#{ENV['server']}/orders/return_url/&TotalAmount=#{@order.totalAmount}&TradeDesc=Des&HashIV=#{ENV['hash_iv']}"
 
     query = URI.encode_www_form_component(beforeURLEncode).downcase
     @order.checkMacValue = Digest::SHA256.hexdigest(query).upcase
@@ -80,20 +75,16 @@ class OrdersController < ApplicationController
   private
 
   def empty_cart!
-    current_cart
-      .seats
-      .each do |seat|
-        seat.sold!
-        seat.line_item.destroy
-        OrderItem.create(order_id: current_user.id)
-        ActionCable.server.broadcast "BookingStatusChannel_#{seat.ticket.id}",
-                                     { message: 'sold!', id: seat.id }
-      end
+    current_cart.seats.each do |seat|
+      seat.sold!
+      seat.line_item.destroy
+      OrderItem.create(order_id: current_user.id)
+      ActionCable.server.broadcast "BookingStatusChannel_#{seat.ticket.id}",
+                                   { message: 'sold!', id: seat.id }
+    end
   end
 
   def order_params
     params.require(:order).permit(:receiver, :tel)
   end
-
 end
-

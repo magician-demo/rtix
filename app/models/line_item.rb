@@ -5,6 +5,7 @@ class LineItem < ApplicationRecord
   after_destroy_commit :variation_decrease
 
   private
+
   def variation_increase
     seat.ticket.amount -= 1
     seat.ticket.save

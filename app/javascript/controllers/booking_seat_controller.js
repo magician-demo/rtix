@@ -11,7 +11,7 @@ export default class extends Controller {
     // 將資料 post 到後端新增訂單資訊
     ax.post('/line_items', { seat_id: id, booking_id: booking_id })
       .then((res) => {
-        console.log(res.data);
+        console.log(res.data)
         count.innerHTML = Number(count.textContent) + 1
         // 即時在 cart 中新增欄位，函式在下方，資料都從後端傳遞過來再進行拆解
         cart.prepend(addList(res.data))

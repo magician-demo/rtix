@@ -20,5 +20,4 @@ class Seat < ApplicationRecord
       transitions from: %i[selected sold], to: :for_sale
     end
   end
-
 end

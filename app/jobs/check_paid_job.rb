@@ -6,5 +6,4 @@ class CheckPaidJob < ApplicationJob
       order.cancel!
     end
   end
-
 end

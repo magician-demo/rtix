@@ -2,8 +2,8 @@ import { Controller } from 'stimulus'
 import ax from '../lib/ax'
 
 export default class extends Controller {
-  static targets = [ "results" ]
-  connect(){
+  static targets = ['results']
+  connect() {
     console.log()
   }
   cancelled() {

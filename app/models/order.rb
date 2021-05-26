@@ -24,7 +24,7 @@ class Order < ApplicationRecord
     end
 
     event :cancel do
-      transitions from: %i[pending paid], to: :cancelled , after: :reorg
+      transitions from: %i[pending paid], to: :cancelled, after: :reorg
     end
 
     event :refund do
@@ -53,5 +53,4 @@ class Order < ApplicationRecord
       seat.ticket.save
     end
   end
-
 end

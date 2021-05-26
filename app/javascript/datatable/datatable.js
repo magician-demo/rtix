@@ -4,9 +4,6 @@ document.addEventListener('turbolinks:load', function () {
         "scrollCollapse": true,
         "paging":         false,
         "info":           false,
-        responsive: true,
-        "columnDefs": [
-          { "width": "30%", "targets": 3 }
-        ]
+        responsive: true
     });
 } );

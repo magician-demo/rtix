@@ -5,12 +5,12 @@ Rails.application.routes.draw do
 
   
   resources :dashboards, path: 'dashboard', only: [:index, :show] do 
-    member do 
+    member do     
       get :contact, controller: :dashboards, action: 'new'
       post :contact, controller: :dashboards, action: 'create'
     end
-
-
+    
+    resources :mailings, path: 'mailing', only: [:show, :create]
   end
 
   resources :organizations

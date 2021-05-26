@@ -1,49 +1,49 @@
 class DashboardsController < ApplicationController
     def index
-        @user = User.find(2)
-        @user_seats = @user.orders.map {|order| order.seats }.flatten
-        @user_events = @user_seats.map {|seat| seat.ticket.event }.uniq
-        @sorted_events = @user_events.sort{ 
-          |a, b| [a[:s_year], a[:s_month], a[:s_date], a[:s_time]] <=> [b[:s_year], b[:s_month], b[:s_date], b[:s_time]] 
-        }
-        
+      # TODO: Remeebr to change to "current_user"
+      @orders = User.find(2).orders
 
-        @hosts = @user.organizations
-        @host_events = @hosts.map{|host| host.events }.flatten
-        @sorted_hosts = @host_events.sort{ 
-          |a, b| [a[:s_year], a[:s_month], a[:s_date], a[:s_time]] <=> [b[:s_year], b[:s_month], b[:s_date], b[:s_time]] 
-        }
+      
+      # TODO: Remeber to change to current_user
+      @hosts = User.find(2).organizations
+      @host_events = @hosts.map{|host| host.events }.flatten
+      @sorted_hosts = @host_events.sort{ 
+        |a, b| [a[:s_year], a[:s_month], a[:s_date], a[:s_time]] <=> [b[:s_year], b[:s_month], b[:s_date], b[:s_time]] 
+      }
 
-        @best_events = Event.all.sample(12)
+      @best_events = Event.all.sample(12)
     end
 
     def show
+      # TODO: Remeber to change to current_user
       @user = User.find(2)
-      @user_seats = @user.orders.map {|order| order.seats }.flatten
-      @user_events = @user_seats.map {|seat| seat.ticket.event }.uniq
-      @this_event = @user_events.select {|event| (event.id) == (params[:id].to_i)}[0]
-      
+
+      @order = Order.find(params[:id])
+      @seats = @order.seats
+      @event = @seats.map{|seat| seat.ticket.event }.uniq[0]
     end
 
     def new
+        # TODO: Remeber to change to current_user
         @user = User.find(2)
         @contact = Contact.new
         @event = Event.find(params[:id])
     end
 
     def create
-        @user = User.find(2)
-        @event = Event.find(params[:id])
-        @contact = Contact.new(contact_params)
-        
-        if @contact.save
+      # TODO: Remeber to change to current_user
+      @user = User.find(2)
+      @event = Event.find(params[:id])
+      @contact = Contact.new(contact_params)
+      
+      if @contact.save
 
-          ContactMailer.with(user: current_user, event: @event, contact: @contact).contact_created.deliver_later  
+        ContactMailer.with(user: current_user, event: @event, contact: @contact).contact_created.deliver_later  
 
-          redirect_to dashboards_path, notice: "感謝您的意見反饋!活動舉辦方將會盡快回應您!"
-        else
-          render :new 
-        end
+        redirect_to dashboards_path, notice: "感謝您的意見反饋!活動舉辦方將會盡快回應您!"
+      else
+        render :new 
+      end
     end
 
     private 

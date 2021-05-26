@@ -1,26 +1,33 @@
 <div class="ticket_wrapper">
-    <h1  class="ticket_event"><%= @this_event.title %></h1>
+    <h1  class="ticket_event"><%= @event.title %></h1>
     <div class="ticket_backlink_container"><%= link_to '返回上一頁', dashboards_path, class: "ticket_backlink" %></div>
 
 
     <div class="ticket_order_container">
         <h2 class="ticket_subhead">訂單資訊</h2>
         <div class="w-full md:w-1/2 m-auto my-3">
-            <h5 class="sm:my-3"><span class="font-bold">訂票人姓名:</span> <%= @user.name %></h5>
-            <h5 class="sm:my-3"><span class="font-bold">訂票人電子郵件:</span> <%= @user.email %></h5>
-            <h5 class="sm:my-3"><span class="font-bold">訂票人聯繫電話:</span> <%= @user.tel %></h5>
-            <h5 class="sm:my-3"><span class="font-bold">票券總張數:</span> <%= @this_event.tickets.count %>張票</h5>
-            <h5 class="sm:my-3"><span class="font-bold">票券總價:</span> $<%= @this_event.tickets.sum(:price)%> NTD</h5>
+            <h5 class="sm:my-3"><span class="font-bold">訂單編號:</span> <%= @order.serial %></h5>
+            <h5 class="sm:my-3"><span class="font-bold">訂票人姓名:</span> <%= @order.user.name %></h5>
+            <h5 class="sm:my-3"><span class="font-bold">訂票人電子郵件:</span> <%= @order.user.email %></h5>
+            <h5 class="sm:my-3"><span class="font-bold">訂票人聯繫電話:</span> <%= @order.user.tel %></h5>
+            <h5 class="sm:my-3"><span class="font-bold">票券總張數:</span> <%= @order.seats.count %>張票</h5>
+            <h5 class="sm:my-3"><span class="font-bold">票券總價:</span> $<%= @order.seats.includes(:ticket).sum(:price)%> NTD</h5>
         </div>
     </div>
 
     <div class="ticket_info_container">
         <h2 class="ticket_subhead">票券資訊</h2>
         <div class="ticket_section">
-            <% @this_event.tickets.each do |ticket| %>
+            <% @seats.each do |seat| %>
             <div class="ticket_name">
-                <h5 class="ticket_belongs_to"><span class="font-bold">票券所屬</span>：<%= ticket.name %> <br><span class="font-bold">票價：</span>$<%= ticket.price %></h5>
-                <div class="qrcode"><%= qr_gen(ticket.event, ticket.name) %></div>
+                <div>
+                    <h5><span class="font-bold">票價：</span>$<%= seat.ticket.price %></h5><br>
+                    <h5><span class="font-bold">座位區域：</span>$<%= seat.area %></h5><br>
+                    <h5><span class="font-bold">座位編號：</span>$<%= seat.id %></h5>
+                </div>
+                <div class="qrcode"><%= qr_gen(@event, seat.ticket.name) %></div>
+               
+                <%= link_to "寄送票券", dashboard_mailing_path(seat.id) %> 
             </div>
             <% end %>
         </div>

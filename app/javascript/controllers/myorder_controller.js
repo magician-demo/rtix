@@ -11,10 +11,7 @@ export default class extends Controller {
       "scrollCollapse": true,
       "paging":         false,
       "info":           false,
-      responsive: true,
-      "columnDefs": [
-        { "width": "20%", "targets": 3}
-      ]
+      responsive: true
     });
   }
 
@@ -32,11 +29,8 @@ export default class extends Controller {
       "scrollCollapse": true,
       "paging":         false,
       "info":           false,
-      responsive: true,
-      "columnDefs": [
-        { "width": "30%", "targets": 3 }
-      ]
-  });
+      responsive: true
+    });
   }
 
   showhost(){

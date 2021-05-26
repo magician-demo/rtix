@@ -2,32 +2,37 @@
   <table id="table_id" class="display">
     <thead>
       <tr>
-        <th class="thead">活動年份</th>
-        <th class="thead">活動月份</th>
-        <th class="thead">活動名稱</th>
-        <th class="thead">活動描述</th>
+        <th class="thead">訂單</th>
+        <th class="head">付款</th>
+        <th class="thead">年份</th>
+        <th class="thead">月份</th>
+        <th class="thead">活動</th>
         <th class="thead">城市</th>
         <th class="thead">地點</th>
-        <th class="thead">活動開始</th>
-        <th class="thead">活動結束</th>
-        <th class="thead">票券資訊</th>
+        <th class="thead">開始</th>
+        <th class="thead">結束</th>
         <th class="thead">聯繫主辦</th>
+        <th class="thead">票券</th>
         <th class="thead">匯入</th>
       </tr>
     </thead>
     <tbody>
-      <% @sorted_events.each do |event| %>
+      <% @orders.each do |order| %>
+        <% seats = order.seats %>
+        <% events= seats.map{|seat| seat.ticket.event }.uniq %>
+        <% event = events[0] %>
       <tr>
+        <td class="ftext numbers"><%= link_to order.serial, dashboard_path(order.id), class: "linkto" %></td>
+        <td class="ftext pay"><%= order.status %></td>
         <td class="ftext year"><%= event.s_year %></td>
         <td class="ftext month"><%= event.s_month %></td>        
         <td class="eventname event"><%= event.title %></td>
-        <td class="mtext descrp"><%= event.description %></td>
         <td class="mtext city"><%= event.city %></td>
         <td class="mtext"><%= event.location %></td>
         <td class="mtext"><span class="smonth"><%= event.s_month%></span>/<span class="sdate"><%= event.s_date%></span> <br> @ <br> <span class="stime"><%= event.s_time%></span></td>
         <td class="mtext"><span class="emonth"><%= event.e_month%></span>/<span class="edate"><%= event.e_date%></span> <br> @ <br> <span class="etime"><%= event.e_time%></span></td>
-        <td><%= link_to "#{event.tickets.count}張", dashboard_path(event.id), class: "linkto" %></td>
         <td class="text-center text-xs"><%= link_to "#{event.organization.title}", contact_dashboard_path(event.id), class: "linkto" %></td>
+        <td><%= "#{order.seats.count}張" %></td>
         <td class="text-center text-xs"><a href="" class="calendar" data-action="click->myorder#import">Google Calendar</a></td>
       </tr>
       <% end %>

@@ -1,2 +1,2 @@
-import './show_table.scss'
-import './show.scss'
+import './table'
+import './show'

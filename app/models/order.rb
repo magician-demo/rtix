@@ -7,9 +7,7 @@ class Order < ApplicationRecord
   validates :serial, uniqueness: true
   before_create :create_serial
 
-  
-
-  aasm column: 'status', no_direct_assignment: true do 
+  aasm column: 'status', no_direct_assignment: true do
     state :pending, initial: true
     state :paid, :used, :expired, :cancelled, :refunded
 
@@ -26,15 +24,13 @@ class Order < ApplicationRecord
     end
 
     event :cancel do
-      transitions from: [:pending, :paid], to: :cancelled
+      transitions from: %i[pending paid], to: :cancelled, after: :reorg
     end
 
     event :refund do
       transitions from: [:cancelled], to: :refunded
     end
   end
-
- 
 
   private
 
@@ -50,4 +46,11 @@ class Order < ApplicationRecord
     Time.now.strftime("%Y%m%d#{n}")
   end
 
+  def reorg
+    self.seats.each do |seat|
+      seat.return!
+      seat.ticket.amount += 1
+      seat.ticket.save
+    end
+  end
 end

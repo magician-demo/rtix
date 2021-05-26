@@ -1,41 +1,40 @@
 require 'sidekiq/web'
 require 'sidekiq-scheduler/web'
 
-Rails.application.routes.draw do
+Rails
+  .application
+  .routes
+  .draw do
+    root 'events#index'
+    devise_for :users
 
-  root "events#index"
-  devise_for :users
-
-  resources :dashboards, path: 'dashboard', only: [:index, :show] do 
-    member do 
-      get :contact, controller: :dashboards, action: 'new'
-      post :contact, controller: :dashboards, action: 'create'
+    resources :dashboards, path: 'dashboard', only: %i[index show] do
+      member do
+        get :contact, controller: :dashboards, action: 'new'
+        post :contact, controller: :dashboards, action: 'create'
+      end
     end
-  end
 
-  resources :organizations
+    resources :organizations
 
-  resources :events do
-    resources :booking, only: [:index, :show]
-  end
-
-  resources :line_items, only: [:create, :destroy]
-    post '/line_items/random_create', to: 'line_items#random_create'
-  resource :carts, only: [:destroy]
-
-  resource :cart, only: [:show, :destroy] do
-    collection do
-      get :checkout
+    resources :events do
+      resources :booking, only: %i[index show]
     end
-  end
 
-  delete "/carts/empty", to: 'carts#empty_cart'
-
-  resources :orders, only: [:show, :create] do
-    collection do
-      post :return_url
+    resources :line_items, only: %i[create destroy show] do
+      collection { post :random_create }
     end
+
+    resource :carts, only: [:destroy]
+
+    delete '/carts/empty', to: 'carts#empty_cart'
+
+    resource :cart, only: %i[show destroy] do
+      collection { get :checkout }
+    end
+
+    resources :orders, only: %i[show create] do
+      collection { post :return_url }
+    end
+    mount Sidekiq::Web => '/sidekiq'
   end
-  mount Sidekiq::Web => '/sidekiq'
-  
-end

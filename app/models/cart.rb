@@ -6,4 +6,12 @@ class Cart < ApplicationRecord
   def empty?
     line_items.count == 0
   end
+
+  def total_price
+    seats.reduce(0) { |sum, seat| sum + seat.ticket.price }
+  end
+
+  def seat_return!
+    seats.each { |seat| seat.line_item.destroy }
+  end
 end

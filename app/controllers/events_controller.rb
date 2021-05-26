@@ -3,7 +3,7 @@ class EventsController < ApplicationController
 
   def show
     event = Event.find(params[:id])
-    @tickets = event.tickets.sort_by { |ticket| ticket.id }
+    @tickets = event.tickets.order(:id)
   end
 
   def new

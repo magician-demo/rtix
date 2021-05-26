@@ -38,6 +38,7 @@ gem 'aasm', '~> 5.2'
 gem 'sidekiq', '~> 6.1', '>= 6.1.2'
 gem 'sidekiq-scheduler', '~> 3.0', '>= 3.0.1'
 gem 'devise', '~> 4.8'
+gem "figaro"
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: %i[mri mingw x64_mingw]

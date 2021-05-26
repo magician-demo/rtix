@@ -48,7 +48,7 @@ class Order < ApplicationRecord
 
   def reorg
     self.seats.each do |seat|
-      seat.update(status: 'for_sale')
+      seat.return!
       seat.ticket.amount += 1
       seat.ticket.save
     end

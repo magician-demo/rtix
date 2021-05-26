@@ -15,6 +15,10 @@ class Seat < ApplicationRecord
     event :sold do
       transitions from: :selected, to: :sold
     end
+
+    event :return do
+      transitions from: %i[selected sold], to: :for_sale
+    end
   end
 
 end

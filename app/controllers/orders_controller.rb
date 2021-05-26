@@ -26,9 +26,7 @@ class OrdersController < ApplicationController
 
 
   def create
-    @order = Order.new(user_id: current_user.id)
-    @order.receiver = params.require(:order).permit(:receiver)
-    @order.tel = params.require(:order).permit(:tel)
+    @order = current_user.orders.new(order_params)
 
     @ticket_number = current_cart.seats.count
     @event = current_cart.seats.first.ticket.event.title
@@ -47,14 +45,14 @@ class OrdersController < ApplicationController
     @order.save
 
     #清空購物車
-    empty_cart
+    empty_cart!
 
     #檢查碼
     #回傳的網址:導回首頁
     # ClientBackURL=https://949c2e887532.ngrok.io/&
 
     beforeURLEncode =
-      "HashKey=5294y06JbISpM5x9&ChoosePayment=Credit&ClientBackURL=https://7cf136ff2ee3.ngrok.io/&EncryptType=1&ItemName=#{@order.serial}&MerchantID=2000132&MerchantTradeDate=#{Time.now.strftime('%Y/%m/%d %H:%M:%S')}&MerchantTradeNo=#{@order.serial}&PaymentType=aio&ReturnURL=https://7cf136ff2ee3.ngrok.io/orders/return_url/&TotalAmount=#{@order.totalAmount}&TradeDesc=Des&HashIV=v77hoKGq4kWxNNIS"
+      "HashKey=#{ENV["hash_key"]}&ChoosePayment=Credit&ClientBackURL=#{ENV["server"]}/&EncryptType=1&ItemName=#{@order.serial}&MerchantID=#{ENV["merchant_id"]}&MerchantTradeDate=#{Time.now.strftime('%Y/%m/%d %H:%M:%S')}&MerchantTradeNo=#{@order.serial}&PaymentType=aio&ReturnURL=#{ENV["server"]}/orders/return_url/&TotalAmount=#{@order.totalAmount}&TradeDesc=Des&HashIV=#{ENV["hash_iv"]}"
 
     query = URI.encode_www_form_component(beforeURLEncode).downcase
     @order.checkMacValue = Digest::SHA256.hexdigest(query).upcase
@@ -78,18 +76,23 @@ class OrdersController < ApplicationController
     #退費
     @order.refund
   end
+
   private
 
-  def empty_cart
+  def empty_cart!
     current_cart
       .seats
       .each do |seat|
-        seat.update(status: 'sold')
-        OrderItem.create(order_id: current_user.id)
+        seat.sold!
         seat.line_item.destroy
+        OrderItem.create(order_id: current_user.id)
         ActionCable.server.broadcast "BookingStatusChannel_#{seat.ticket.id}",
                                      { message: 'sold!', id: seat.id }
       end
+  end
+
+  def order_params
+    params.require(:order).permit(:receiver, :tel)
   end
 
 end

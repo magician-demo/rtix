@@ -35,5 +35,5 @@
 * $ bundle install
 * $ rails db:migrate
 * $ rails hotwire:install
-* $ foreman s -> 就可以啟動了唷！!
+* $ foreman s -> 就可以啟動了唷！!!
 * 

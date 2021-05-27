@@ -9,8 +9,9 @@ Rails.application.routes.draw do
       get :contact, controller: :dashboards, action: 'new'
       post :contact, controller: :dashboards, action: 'create'
     end
-    
-    resources :mailings, path: 'mailing', only: [:show, :create]
+
+    get "mailing/:id", controller: :mailings, action: 'write_email', as: "mailing"
+    post "mailing/:id", controller: :mailings, action: 'send_email'
   end
 
   resources :organizations

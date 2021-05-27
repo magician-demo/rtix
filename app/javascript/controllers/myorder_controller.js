@@ -66,17 +66,16 @@ export default class extends Controller {
   import(e){
 
     let row = e.target.parentNode.parentNode.children;
-
-    let event = row[2].textContent;
-    let s_year = row[0].textContent;
-    let s_month = row[6].children[0].textContent;
-    let s_date = row[6].children[1].textContent;
-    let s_time = row[6].children[4].textContent;
-    let e_year = row[0].textContent;
-    let e_month = row[7].children[0].textContent;
-    let e_date = row[7].children[1].textContent;
-    let e_time = row[7].children[4].textContent;
-    let location = row[4].textContent;
+    let event = row[4].textContent;
+    let s_year = row[2].textContent;
+    let s_month = row[3].textContent;
+    let s_date = row[7].children[1].textContent;
+    let s_time = row[7].children[4].textContent;
+    let e_year = row[2].textContent;
+    let e_month = row[3].textContent;
+    let e_date = row[8].children[1].textContent;
+    let e_time = row[8].children[4].textContent;
+    let location = row[6].textContent;
 
     let tMark = 'T'
 
@@ -87,5 +86,4 @@ export default class extends Controller {
     
     window.location.reload();
   }
-
 }

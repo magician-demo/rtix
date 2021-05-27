@@ -3,13 +3,13 @@
 }
 
 .ticket_event {
-    @apply my-5 text-center align-middle text-3xl p-12 bg-gradient-to-r from-yellow-400 via-red-500 to-pink-500 text-white;
+    @apply my-5 text-center align-middle text-3xl p-12 bg-gradient-to-r from-yellow-400 via-red-500 to-pink-500 text-white rounded-lg;
 
-    @apply sm:my-5 sm:text-center sm:align-middle sm:text-3xl sm:p-12 sm:bg-gradient-to-r from-yellow-400 via-red-500 to-pink-500 sm:text-white;
+    @apply sm:my-5 sm:text-center sm:align-middle sm:text-3xl sm:p-12 sm:bg-gradient-to-r from-yellow-400 via-red-500 to-pink-500 sm:text-white rounded-lg;
 
-    @apply md:my-10 md:text-center md:align-middle md:text-5xl md:p-28 md:bg-gradient-to-r from-yellow-400 via-red-500 to-pink-500 md:text-white;
+    @apply md:my-10 md:text-center md:align-middle md:text-5xl md:p-28 md:bg-gradient-to-r from-yellow-400 via-red-500 to-pink-500 md:text-white rounded-lg;
 
-    @apply lg:my-20 lg:text-center lg:align-middle lg:text-6xl lg:p-44 lg:bg-gradient-to-r from-yellow-400 via-red-500 to-pink-500 lg:text-white;
+    @apply lg:my-20 lg:text-center lg:align-middle lg:text-6xl lg:p-44 lg:bg-gradient-to-r from-yellow-400 via-red-500 to-pink-500 lg:text-white rounded-lg;
 }
 
 
@@ -29,7 +29,7 @@
 
 
 .ticket_order_container {
-    @apply w-3/4 m-auto border-2 sm:my-10 shadow-md;
+    @apply w-3/4 m-auto border-2 sm:my-10 shadow-md rounded-lg;
 }
 
 
@@ -43,11 +43,11 @@
 }
 
 .ticket_section {
-    @apply w-full sm:my-10 shadow-xl border-2 text-center;
+    @apply w-full sm:my-10 shadow-xl border-2 text-center rounded-lg;
 }
 
 .ticket_name {
-    @apply mx-14 sm:flex my-5 align-middle;
+    @apply md:mx-10 lg:m-auto lg:w-3/4 md:flex md:justify-between my-5;
 }
 
 .ticket_belongs_to {

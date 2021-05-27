@@ -13,11 +13,9 @@ class ContactMailer < ApplicationMailer
     attachments['rtix_logo.png'] = File.read('app/assets/images/rtix_logo.png')
     
     mail(
-       from: "rickchiuuniverse@gmail.com",
-       to: email_address_with_name(User.first.email, User.first.name),   
-       subject: "[RTIX]參加人留言給您囉, 再請記得盡快抽空回覆!",
-       cc: "friedrichchiu@gmail.com",
-       bcc: "friedrichchiu@gmail.com"
+       from: "friedrichchiu@gmail.com",
+       to: "rickchiuuniverse@gmail.com",   
+       subject: "[RTIX]參加人留言給您囉, 再請記得盡快抽空回覆!"
     )
   end
 end

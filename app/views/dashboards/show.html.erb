@@ -1,3 +1,4 @@
+<%= notice %>
 <div class="ticket_wrapper">
     <h1  class="ticket_event"><%= @event.title %></h1>
     <div class="ticket_backlink_container"><%= link_to '返回上一頁', dashboards_path, class: "ticket_backlink" %></div>
@@ -5,7 +6,7 @@
 
     <div class="ticket_order_container">
         <h2 class="ticket_subhead">訂單資訊</h2>
-        <div class="w-full md:w-1/2 m-auto my-3">
+        <div class="w-2/4 lg:w-1/4 m-auto my-5 text-left">
             <h5 class="sm:my-3"><span class="font-bold">訂單編號:</span> <%= @order.serial %></h5>
             <h5 class="sm:my-3"><span class="font-bold">訂票人姓名:</span> <%= @order.user.name %></h5>
             <h5 class="sm:my-3"><span class="font-bold">訂票人電子郵件:</span> <%= @order.user.email %></h5>
@@ -19,15 +20,15 @@
         <h2 class="ticket_subhead">票券資訊</h2>
         <div class="ticket_section">
             <% @seats.each do |seat| %>
-            <div class="ticket_name">
-                <div>
+            <div class="ticket_name items-center">
+                <div class="flex flex-col justify-center my-5 text-left bg-gray-50 p-7 text-sm md:text-sm lg:text-base md:h-2/5 lg:h-3/5 rounded-lg shadow-md">
                     <h5><span class="font-bold">票價：</span>$<%= seat.ticket.price %></h5><br>
-                    <h5><span class="font-bold">座位區域：</span>$<%= seat.area %></h5><br>
-                    <h5><span class="font-bold">座位編號：</span>$<%= seat.id %></h5>
+                    <h5><span class="font-bold">票種：</span><%= seat.ticket.name %></h5><br>
+                    <h5><span class="font-bold">座位區域：</span><%= seat.area %></h5><br>
+                    <h5><span class="font-bold">座位編號：</span><%= seat.id %></h5>
                 </div>
-                <div class="qrcode"><%= qr_gen(@event, seat.ticket.name) %></div>
-               
-                <%= link_to "寄送票券", dashboard_mailing_path(seat.id) %> 
+                <div><%= image_tag "https://chart.googleapis.com/chart?chs=200x200&cht=qr&chl=#{u(@event.title)}%20#{u(seat.ticket.name)}%20#{u(seat.area)}%20#{u(seat.id)}&choe=UTF-8", class:"shadow-md rounded-lg"%></div>
+                <div class="mt-5 mb-10"><%= link_to "寄送票券", dashboard_mailing_path(@order.id, seat.id), class:"font-mono font-bold p-5 rounded-xl bg-gradient-to-r from-gray-50 to-gray-100 hover:from-pink-500 hover:to-yellow-500 hover:text-white cursor-pointer shadow-md text-sm md:text-sm lg:text-base" %> </div>
             </div>
             <% end %>
         </div>

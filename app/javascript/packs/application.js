@@ -12,21 +12,13 @@ import "stylesheets"
 import "icon"
 
 
-import "bootstrap"
 import "datatable"
-
-
-
 
 
 Rails.start()
 ActiveStorage.start()
 
 import "controllers"
-
-
-
-
 
 require("trix")
 require("@rails/actiontext")

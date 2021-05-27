@@ -17,7 +17,6 @@ class DashboardsController < ApplicationController
     def show
       # TODO: Remeber to change to current_user
       @user = User.find(2)
-
       @order = Order.find(params[:id])
       @seats = @order.seats
       @event = @seats.map{|seat| seat.ticket.event }.uniq[0]
@@ -37,9 +36,7 @@ class DashboardsController < ApplicationController
       @contact = Contact.new(contact_params)
       
       if @contact.save
-
-        ContactMailer.with(user: current_user, event: @event, contact: @contact).contact_created.deliver_later  
-
+        ContactMailer.with(user: current_user, event: @event, contact: @contact).contact_created.deliver_later 
         redirect_to dashboards_path, notice: "感謝您的意見反饋!活動舉辦方將會盡快回應您!"
       else
         render :new 

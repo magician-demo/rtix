@@ -1,5 +1,16 @@
-<h1>Ticket#ticket_created</h1>
 
-<p>
-  <%= @greeting %>, find me in app/views/ticket_mailer/ticket_created.html.erb
-</p>
+<p>您好, 這是<%= @user.name %>從RTIX發送給您的票券, 以下是<%= @user.name %>給您的信息</p>
+
+<div><%= @content.to_plain_text %></div>
+
+<br>
+
+<%= image_tag "https://chart.googleapis.com/chart?chs=400x400&cht=qr&chl=#{@user.name}%20#{@title}&choe=UTF-8" %>
+
+<br>
+
+
+
+
+
+

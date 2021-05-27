@@ -31,10 +31,10 @@ class OrdersController < ApplicationController
     @order.serial
 
     #訂單與座位的第三方表格
-    current_user
-      .cart
-      .seats
-      .each { |seat| @order.order_items.new(seat_id: seat.id) }
+    current_user.cart.seats.each do |seat| 
+      @order.order_items.new(seat_id: seat.id) 
+      seat.check_in.create
+    end
 
     #訂單成立、先產生訂單序號跟總金額到欄位中，讓下面的檢查碼抓取
     @order.save
@@ -53,7 +53,7 @@ class OrdersController < ApplicationController
 
     query = URI.encode_www_form_component(beforeURLEncode).downcase
     @order.checkMacValue = Digest::SHA256.hexdigest(query).upcase
-
+    
     #把檢查碼存進資料庫中
     @order.save
 

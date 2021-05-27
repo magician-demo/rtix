@@ -24,7 +24,7 @@
                   <span class="font-bold">票券位置</span>：<%=seat.ticket.name%><%= seat.area %><%=seat.id%>號 <br>
                   <span class="font-bold">票價</span>：$<%= seat.ticket.price %>
                 </h5>
-                <div class="qrcode" data-myorder-qrcode-target="qrcode"></div>
+                <div class="qrcode" data-myorder-qrcode-target="qrcode" data-checkin-id="<%=seat.check_in.first.id%>"></div>
             </div>
                 <% end %>
             <% end %>

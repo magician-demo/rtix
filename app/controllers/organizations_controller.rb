@@ -1,12 +1,20 @@
 class OrganizationsController < ApplicationController
-  before_action :find_organization, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate_user!, except: [:index, :show] 
-
-  def index
-    @organizations = current_user.organizations.all
+  before_action :find_organization, only: [:appropriations, :info, :events, :edit, :update, :destroy]
+  before_action :authenticate_user!, except: [:show] 
+  
+  def show
+    @organization = Organization.friendly.find(params[:id])
   end
 
-  def show
+  def info
+  end
+
+  def events
+    
+  end
+
+  def appropriations
+
   end
 
   def new
@@ -17,21 +25,21 @@ class OrganizationsController < ApplicationController
     @organization = current_user.organizations.new(organization_params)
 
     if @organization.save
-      redirect_to @organization, notice: "創建成功！"
+      redirect_to info_organization_path(@organization), notice: "創建成功！"
     else
       render :new
     end
   end
 
+  def edit
+  end
+
   def update
     if @organization.update(organization_params)
-      redirect_to @organization, notice: "資料更新成功！" 
+      redirect_to info_organization_path(@organization), notice: "資料更新成功！" 
     else
       render :edit
     end
-  end
-
-  def edit
   end
 
   def destroy

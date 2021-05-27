@@ -2,29 +2,31 @@ require 'sidekiq/web'
 require 'sidekiq-scheduler/web'
 
 Rails.application.routes.draw do
-
-  
-  scope '/dashboard' do
-    resources :organizations, except: [:index] do
-      member do
-        get :events
-        get :appropriations
-        get :orders
-      end
-      resources :business_infos, only: [:new, :create]
-    end
-  end
   
   root "events#index"
 
   devise_for :users
 
-  resources :dashboards, path: 'dashboard', only: [:index, :show] do 
+  resources :dashboards, path: 'dashboard', only: [:index, :show] do
+    collection do
+      resources :organizations, except: [:show, :index] do
+        member do
+          get :info
+          get :events
+          get :appropriations
+          get :orders
+        end
+        resources :business_infos, only: [:new, :create]
+      end
+    end
+    
     member do 
       get :contact, controller: :dashboards, action: 'new'
       post :contact, controller: :dashboards, action: 'create'
     end
   end
+
+  resources :organizations, only: [:show]
 
   resources :events do
     resources :booking, only: [:index, :show]

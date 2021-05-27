@@ -1,9 +1,0 @@
-.org_sidebar{
-  @apply hidden w-40 fixed bg-gray-700 md:relative md:block ;
-
-  ul{
-    li{
-      @apply text-xl text-center px-2 py-3 text-gray-300 hover:bg-yellow-600 hover:text-white 
-    }
-  }
-}

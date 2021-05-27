@@ -11,7 +11,12 @@
 
   <div class="org-image-group">
     <div class="image-box">
-      <img id="preview" class="image" src="https://fakeimg.pl/320x320/">
+      <% if @organization.image? %>
+        <%= image_tag(@organization.image_url) %>
+      <% else %>
+        <img id="preview" class="image" src="https://fakeimg.pl/320x320/">
+      <% end %>
+      
     </div>
     <div class="mt-4 flex justify-center">
       <label class="org-image-button">
@@ -40,7 +45,7 @@
 
     <div class="org-button-group">
       <%= form.submit "送出", class:"org-button" %>
-      <%= link_to '取消', @organization, class: "org-button org-cancel-button" %>
+      <%= link_to '取消', info_organization_path(@organization), class: "org-button org-cancel-button" %>
     </div>
   </div>
 
@@ -49,19 +54,29 @@
 
 
 <script>
-  // 監聽圖片是否傳上來
-  const imageUpload = document.querySelector('#org_image')
-  imageUpload.addEventListener('change', (e) => {
-    const image = e.target.files[0]
-    readUrl(image)
-  })
-  // 取得圖片資訊
-  function readUrl(input){
-    const reader = new FileReader()
-    reader.readAsDataURL(input)
-    reader.onload = (e) => {
-      // 將圖片塞到 <img> 
-      document.querySelector('#preview').src = e.target.result
+  // 監聽圖片是否上傳
+  document.addEventListener('turbolinks:load',() => {
+    const imageUpload = document.querySelector('#org_image')
+    // test
+    imageUpload.addEventListener('click', (e) => {
+      console.log(e.target);
+    })
+
+    imageUpload.addEventListener('change', (e) => {
+      console.log(e.target);
+      const image = e.target.files[0]
+      console.log(image);
+      readUrl(image)
+    })
+    // 取得圖片資訊
+    function readUrl(input){
+      const reader = new FileReader()
+      reader.readAsDataURL(input)
+      reader.onload = (e) => {
+        // 將圖片塞到 <img> 
+        document.querySelector('.image').src = e.target.result
+      }
     }
-  }
+  })
+
 </script>

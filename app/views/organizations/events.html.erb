@@ -1,0 +1,14 @@
+<div class="h-screen pt-6">
+  
+  <div class="h-11/12 flex">
+    <%= render 'sidebar' %>
+    
+    <div class="w-full">
+      <div class="w-full text-xl text-center mt-5 text-gray-500 border-b border-gray-400 px-4 md:text-left">
+        組織名稱 <span class="text-3xl text-red-600"><%= @organization.title %></span>
+      </div>
+      <h1 class="pt-10 pl-4 text-2xl text-red-500">活動列表</h1>
+    </div>
+  </div>
+  <%= render 'footer' %>
+</div>

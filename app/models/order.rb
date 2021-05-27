@@ -53,4 +53,5 @@ class Order < ApplicationRecord
       seat.ticket.save
     end
   end
+
 end

@@ -1,13 +1,13 @@
 .event_img {
-  @apply w-full my-2 lg:m-auto lg:max-w-4xl;
+  @apply w-full lg:m-auto lg:max-w-4xl;
 }
 
 .divide {
-  @apply border-b border-gray-600;
+  @apply border-b border-gray-600 my-2;
 }
 
 .event_information {
-  @apply w-full mx-1 lg:m-auto lg:max-w-4xl;
+  @apply w-full px-2 lg:m-auto lg:max-w-4xl;
 
   .event_information_title {
     @apply text-2xl my-3;

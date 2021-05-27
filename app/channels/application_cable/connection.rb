@@ -6,6 +6,7 @@ module ApplicationCable
     end
 
     private
+
     def find_verified_user
       if current_user = env['warden'].user
         current_user

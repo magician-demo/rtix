@@ -70,20 +70,20 @@
 
  
 
-<form class="new_order" style="display: none" id="new_order" action="https://payment-stage.ecpay.com.tw/Cashier/AioCheckOut/V5" method="post">
+<form class="new_order" style="display: none" id="new_order" action="<%= ENV["payment_url"]%>" method="post">
 
-  <input name="MerchantID" value="2000132">
+  <input name="MerchantID" value="<%= ENV["merchant_id"]%>">
   <input name="MerchantTradeNo" value="<%= @order.serial %>">
   <input name="MerchantTradeDate" value="<%= Time.now.strftime('%Y/%m/%d %H:%M:%S') %>">
   <input name="PaymentType" value="aio">
   <input type=integer name="TotalAmount" value=<%= @order.totalAmount %>>
   <input name="TradeDesc" value="Des">
   <input name="ItemName" value="<%= @order.serial %>">
-  <input name="ReturnURL" value="https://949c2e887532.ngrok.io/orders/return_url/">
+  <input name="ReturnURL" value="<%= ENV["server"]%>/orders/return_url/">
   <input name="ChoosePayment" value="Credit">
   <input name="CheckMacValue" value=<%= @order.checkMacValue %>>
-  <input name="EncryptType" value=1>
-  <input name="ClientBackURL" value="https://949c2e887532.ngrok.io/">
+  <input name="EncryptType" value="1">
+  <input name="ClientBackURL" value="<%= ENV["server"]%>">
   
 
 </form>

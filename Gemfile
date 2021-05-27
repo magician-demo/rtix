@@ -21,7 +21,6 @@ gem 'jbuilder', '~> 2.7'
 gem 'redis', '~> 4.0'
 # Use Active Model has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
-gem 'foreman'
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
@@ -30,47 +29,46 @@ gem 'mini_magick', '~> 4.11'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.4', require: false
-#Soft Delete
 gem 'paranoia', '~> 2.4', '>= 2.4.3'
-
 gem 'friendly_id', '~> 5.4', '>= 5.4.2'
-
 gem 'rqrcode', '~> 2.0'
 # QRcode generator according to the data-inputs given
-
+gem 'hotwire-rails'
+gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
+gem 'aasm', '~> 5.2'
+gem 'sidekiq', '~> 6.1', '>= 6.1.2'
+gem 'sidekiq-scheduler', '~> 3.0', '>= 3.0.1'
 gem 'devise', '~> 4.8'
-
+gem 'figaro'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
-  gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  gem 'byebug', platforms: %i[mri mingw x64_mingw]
+  gem 'foreman'
 end
 
 group :development do
   # Access an interactive console on exception pages or by calling 'console' anywhere in the code.
   gem 'web-console', '>= 4.1.0'
+
   # Display performance information such as SQL time and flame graphs for each request in your browser.
   # Can be configured to work on production as well see: https://github.com/MiniProfiler/rack-mini-profiler/blob/master/README.md
   # gem 'rack-mini-profiler', '~> 2.0'
   gem 'listen', '~> 3.3'
+
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
 
   gem 'hirb-unicode', '~> 0.0.5'
-  gem 'faker', :git => 'https://github.com/faker-ruby/faker.git', :branch => 'master'
+  gem 'faker', git: 'https://github.com/faker-ruby/faker.git', branch: 'master'
 end
 
 group :test do
   # Adds support for Capybara system testing and selenium driver
   gem 'capybara', '>= 3.26'
   gem 'selenium-webdriver'
+
   # Easy installation and use of web drivers to run system tests with browsers
   gem 'webdrivers'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
-gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
-gem 'turbolinks', '~> 5'
-gem "aasm", "~> 5.2"
-gem 'whenever', require: false
-gem 'sidekiq', '~> 6.1', '>= 6.1.2'
-gem 'sidekiq-scheduler', '~> 3.0', '>= 3.0.1'

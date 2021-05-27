@@ -5,7 +5,6 @@ class CreateOrderItems < ActiveRecord::Migration[6.1]
       t.belongs_to :order, null: false, foreign_key: true
       t.integer :quantity, default: 1
 
-      
       t.timestamps
     end
   end

@@ -1,14 +1,10 @@
 class Organization < ApplicationRecord
-  acts_as_paranoid # Soft Delete
+  acts_as_paranoid
   
-  extend FriendlyId # friendly_id
+  extend FriendlyId
   friendly_id :domain_name, use: :slugged
 
-  def should_generate_new_friendly_id?
-    domain_name_changed?
-  end
-
-  mount_uploader :image, ImageUploader # 圖片上傳
+  mount_uploader :image, ImageUploader
 
   validates :title, presence: true, 
                     uniqueness: true
@@ -18,4 +14,8 @@ class Organization < ApplicationRecord
                           format: { with: /\A[a-z0-9]+\z/ }
   belongs_to :user
   has_many :events
+
+  def should_generate_new_friendly_id?
+    domain_name_changed?
+  end
 end

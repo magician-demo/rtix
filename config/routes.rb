@@ -5,6 +5,7 @@ Rails
   .application
   .routes
   .draw do
+
     root 'events#index'
     devise_for :users
 
@@ -32,6 +33,8 @@ Rails
     resource :cart, only: %i[show destroy] do
       collection { get :checkout }
     end
+
+    resources :checkin, only: %i[index show]
 
     resources :orders, only: %i[show create] do
       collection { post :return_url }

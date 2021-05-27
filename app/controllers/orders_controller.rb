@@ -46,8 +46,10 @@ class OrdersController < ApplicationController
     #回傳的網址:導回首頁
     # ClientBackURL=https://949c2e887532.ngrok.io/&
 
-    beforeURLEncode =
-      "HashKey=#{ENV['hash_key']}&ChoosePayment=Credit&ClientBackURL=#{ENV['server']}/&EncryptType=1&ItemName=#{@order.serial}&MerchantID=#{ENV['merchant_id']}&MerchantTradeDate=#{Time.now.strftime('%Y/%m/%d %H:%M:%S')}&MerchantTradeNo=#{@order.serial}&PaymentType=aio&ReturnURL=#{ENV['server']}/orders/return_url/&TotalAmount=#{@order.totalAmount}&TradeDesc=Des&HashIV=#{ENV['hash_iv']}"
+    # beforeURLEncode =
+    #   "HashKey=#{ENV['hash_key']}&ChoosePayment=Credit&ClientBackURL=#{ENV['server']}/&EncryptType=1&ItemName=#{@order.serial}&MerchantID=#{ENV['merchant_id']}&MerchantTradeDate=#{Time.now.strftime('%Y/%m/%d %H:%M:%S')}&MerchantTradeNo=#{@order.serial}&PaymentType=aio&ReturnURL=#{ENV['server']}/orders/return_url/&TotalAmount=#{@order.totalAmount}&TradeDesc=Des&HashIV=#{ENV['hash_iv']}"
+
+    beforeURLEncode = "HashKey=#{ENV["hash_key"]}&ChoosePayment=Credit&ClientBackURL=#{ENV["server"]}/&EncryptType=1&ItemName=#{@order.serial}&MerchantID=#{ENV["merchant_id"]}&MerchantTradeDate=#{Time.now.strftime('%Y/%m/%d %H:%M:%S')}&MerchantTradeNo=#{@order.serial}&PaymentType=aio&ReturnURL=#{ENV["server"]}/orders/return_url/&TotalAmount=#{@order.totalAmount}&TradeDesc=Des&HashIV=#{ENV["hash_iv"]}"
 
     query = URI.encode_www_form_component(beforeURLEncode).downcase
     @order.checkMacValue = Digest::SHA256.hexdigest(query).upcase

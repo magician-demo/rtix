@@ -26,7 +26,7 @@
         <td class="mtext"><%= event.location %></td>
         <td class="mtext"><span class="smonth"><%= event.s_month%></span>/<span class="sdate"><%= event.s_date%></span> <br> @ <br> <span class="stime"><%= event.s_time%></span></td>
         <td class="mtext"><span class="emonth"><%= event.e_month%></span>/<span class="edate"><%= event.e_date%></span> <br> @ <br> <span class="etime"><%= event.e_time%></span></td>
-        <td><%= link_to "#{event.tickets.count}張", dashboard_path(event.id), class: "linkto" %></td>
+        <td><%= link_to "#{@user_seats_count}張", dashboard_path(event.id), class: "linkto" %></td>
         <td class="text-center text-xs"><%= link_to "#{event.organization.title}", contact_dashboard_path(event.id), class: "linkto" %></td>
         <td class="text-center text-xs"><a href="" class="calendar" data-action="click->myorder#import">Google Calendar</a></td>
       </tr>

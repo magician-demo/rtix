@@ -2,6 +2,9 @@ class Seat < ApplicationRecord
   include AASM
   belongs_to :ticket
   has_one :line_item
+  has_many :check_in
+  has_many :order_items
+  has_many :orders, through: :order_items
   after_update_commit { BookingStatusJob.perform_later(self) }
 
   aasm column: :status do

@@ -51,6 +51,7 @@ class Order < ApplicationRecord
       seat.return!
       seat.ticket.amount += 1
       seat.ticket.save
+      CheckIn.find_by(seat_id: seat.id).destroy
     end
   end
 

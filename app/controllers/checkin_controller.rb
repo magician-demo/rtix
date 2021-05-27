@@ -3,10 +3,9 @@ class CheckinController < ApplicationController
   before_action :check_admin
 
   def index
-    @events = Event.all
   end
 
-  def per_ticket
-    
+  def show
+    @seat = CheckIn.find(params[:id]).seat
   end
 end

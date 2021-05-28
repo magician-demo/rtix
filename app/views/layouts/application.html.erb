@@ -14,6 +14,7 @@
   </head>
 
   <body>
+<<<<<<< HEAD
   <div class="fixed z-10 bg-red-500 w-full">
     <% if current_user %>
       <%= current_user.email %>
@@ -24,6 +25,21 @@
       <%= link_to('登入', new_session_path(:user)) %>
     <% end %>
   </div>
+=======
+
+  <% if current_user %>
+    <%= current_user.email %>
+    <%= link_to '登出', destroy_user_session_path, data:{method: 'delete'} %> |
+    <%= link_to('修改密碼', edit_registration_path(:user)) %>
+  <% else %>
+    <%= link_to('註冊', new_registration_path(:user)) %> |
+    <%= link_to('登入', new_session_path(:user)) %>
+  <% end %>
+  
+  <div><%= notice%></div>
+
+
+>>>>>>> 07443aa75a4c8c6f718ed89665492d86bd326f38
     <%= yield %>
 
     </body>

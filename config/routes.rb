@@ -30,6 +30,9 @@ Rails
       resources :booking, only: %i[index show]
     end
 
+    resources :tickets, only: [:new, :create, :edit, :update]
+    
+
     resources :organizations, only: [:show]
 
       resources :line_items, only: %i[create destroy show] do

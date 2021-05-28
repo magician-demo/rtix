@@ -1,5 +1,10 @@
 class EventsController < ApplicationController
-  def index; end
+
+  def index
+    if user_signed_in?
+      @organizations = current_user.organizations.all
+    end
+  end
 
   def show
     event = Event.find(params[:id])
@@ -10,3 +15,4 @@ class EventsController < ApplicationController
     @event = Event.new
   end
 end
+

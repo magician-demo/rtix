@@ -9,21 +9,32 @@ Rails
     devise_for :users
 
     resources :dashboards, path: 'dashboard', only: %i[index show] do
+      collection do
+        resources :organizations, except: [:show, :index] do
+          member do
+            get :info
+            get :events
+            get :appropriations
+            get :orders
+          end
+          resources :business_infos, only: [:new, :create]
+        end
+      end
       member do
         get :contact, controller: :dashboards, action: 'new'
         post :contact, controller: :dashboards, action: 'create'
       end
     end
 
-    resources :organizations
-
     resources :events do
       resources :booking, only: %i[index show]
     end
 
-    resources :line_items, only: %i[create destroy show] do
-      collection { post :random_create }
-    end
+    resources :organizations, only: [:show]
+
+      resources :line_items, only: %i[create destroy show] do
+        collection { post :random_create }
+      end
 
     resource :carts, only: [:destroy]
 

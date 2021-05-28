@@ -1,0 +1,24 @@
+.org-sidebar{
+  @apply hidden w-60 fixed  bg-gray-700 md:relative md:block;
+
+  .delete-button{
+    @apply block text-center mt-10 mx-10 px-2 py-1 ring-opacity-30 rounded text-black bg-red-500 hover:bg-red-400 ;
+  }  
+}
+
+.toggle{
+  @apply block;
+}
+
+.sidebar-button{
+  @apply py-3 px-3 absolute top-6  z-10 text-xl text-white bg-gray-700 md:hidden;
+}
+
+
+
+.org-list{
+  @apply flex flex-col items-center;
+  a{
+    @apply w-full text-xl text-center px-2 py-3 text-gray-300 hover:bg-yellow-600 hover:text-white;
+  }
+}

@@ -26,6 +26,8 @@ class DashboardsController < ApplicationController
       end
 
     @best_events = Event.all.sample(12)
+    # 張凱強加上去的根據 order 做正確的查詢
+    @user_seats_count = current_user.orders.where(status: 'paid').reduce(0) { |sum, order| sum + order.order_items.count}
   end
 
   def show
@@ -34,6 +36,11 @@ class DashboardsController < ApplicationController
     @user_events = @user_seats.map { |seat| seat.ticket.event }.uniq
     @this_event =
       @user_events.select { |event| (event.id) == (params[:id].to_i) }[0]
+    
+    # 張凱強加上去的根據 order 做正確的查詢
+    @user_seats_count = current_user.orders.where(status: 'paid').reduce(0) { |sum, order| sum + order.order_items.count}
+    @user_orders_total_amount = current_user.orders.where(status: 'paid').reduce(0) { |sum, order| sum + order.totalAmount}
+    @user_ticket = current_user.orders.where(status: 'paid')
   end
 
   def new

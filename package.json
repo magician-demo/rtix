@@ -17,7 +17,9 @@
     "datatables.net-dt": "^1.10.24",
     "jquery": "^3.6.0",
     "postcss": "^7",
+    "qrcode-js-package": "^1.0.4",
     "stimulus": "^2.0.0",
+    "sweetalert2": "^11.0.12",
     "tailwindcss": "npm:@tailwindcss/postcss7-compat",
     "webpack": "^4.46.0",
     "webpack-cli": "^3.3.12"

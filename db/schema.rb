@@ -59,8 +59,7 @@ ActiveRecord::Schema.define(version: 2021_05_28_090408) do
     t.string "e_date"
     t.string "e_time"
     t.string "city"
-<<<<<<< HEAD
-    t.bigint "organization_id"
+    t.bigint "organization_id", null: false
     t.index ["organization_id"], name: "index_events_on_organization_id"
   end
 
@@ -75,12 +74,6 @@ ActiveRecord::Schema.define(version: 2021_05_28_090408) do
     t.index ["sluggable_type", "sluggable_id"], name: "index_friendly_id_slugs_on_sluggable_type_and_sluggable_id"
   end
 
-=======
-    t.bigint "organization_id", null: false
-    t.index ["organization_id"], name: "index_events_on_organization_id"
-  end
-
->>>>>>> b4d5fa2 (qrcode能到正確路徑，還剩下報到功能)
   create_table "line_items", force: :cascade do |t|
     t.bigint "cart_id", null: false
     t.bigint "seat_id", null: false
@@ -121,15 +114,11 @@ ActiveRecord::Schema.define(version: 2021_05_28_090408) do
     t.integer "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-<<<<<<< HEAD
     t.string "domain_name"
     t.string "slug"
     t.string "image"
     t.index ["deleted_at"], name: "index_organizations_on_deleted_at"
     t.index ["slug"], name: "index_organizations_on_slug", unique: true
-=======
-    t.index ["deleted_at"], name: "index_organizations_on_deleted_at"
->>>>>>> b4d5fa2 (qrcode能到正確路徑，還剩下報到功能)
   end
 
   create_table "seats", force: :cascade do |t|

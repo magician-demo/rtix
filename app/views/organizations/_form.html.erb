@@ -1,82 +1,56 @@
-<%= form_for(@organization) do |form| %>
-  <% if organization.errors.any? %>
-    <div id="error_explanation">
-      <ul>
-        <% organization.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div class="org-image-group">
-    <div class="image-box">
-      <% if @organization.image? %>
-        <%= image_tag(@organization.image_url) %>
-      <% else %>
-        <img id="preview" class="image" src="https://fakeimg.pl/320x320/">
-      <% end %>
-      
-    </div>
-    <div class="mt-4 flex justify-center">
-      <label class="org-image-button">
-        上傳圖片
-        <%= form.file_field :image, id: :org_image, class: "org-image-input" %>
-      </label>
-    </div>
-    
-  </div>
-  
-  <div class="org-info-group">
-    <div class="org-field-group">
-      <%= form.label :組織名稱 %>
-      <%= form.text_field :title, class: "org-field" %>
-    </div>
-    <div class="org-field-group">
-      <%= form.label :網址 %>
-      <%= form.text_field :domain_name, class: "org-field" %>
-      <p class="domin-name-help">3 到 16 個小寫英文或數字。</p>
-    </div>
-    <div class="org-field-group flex-grow">
-      <%= form.label :描述 %>
-      <br>
-      <%= form.text_area :description, class: "org-field", placeholder: '請介紹一下這個組織' %>
-    </div>
-
-    <div class="org-button-group">
-      <%= form.submit "送出", class:"org-button" %>
-      <%= link_to '取消', info_organization_path(@organization), class: "org-button org-cancel-button" %>
-    </div>
-  </div>
-
-  
+<%= form_for(@organization) do |form| %> <% if organization.errors.any? %>
+<div id="error_explanation">
+  <ul>
+    <% organization.errors.each do |error| %>
+    <li><%= error.full_message %></li>
+    <% end %>
+  </ul>
+</div>
 <% end %>
 
+<div class="org-image-group" data-controller="organizations-image">
+  <div class="image-box">
+    <% if @organization.image? %> <%= image_tag(@organization.image_url) %> <%
+    else %>
+    <img
+      data-organizations-image-target="imagebox"
+      id="preview"
+      class="image m-auto"
+      src="https://fakeimg.pl/320x320/"
+    />
+    <% end %>
+  </div>
+  <div class="mt-4 flex justify-center">
+    <label class="org-image-button">
+      上傳圖片 <%= form.file_field :image, id: :org_image, class:
+      "org-image-input", data: { action: "change->organizations-image#update" }
+      %>
+    </label>
+  </div>
+</div>
 
-<script>
-  // 監聽圖片是否上傳
-  document.addEventListener('turbolinks:load',() => {
-    const imageUpload = document.querySelector('#org_image')
-    // test
-    imageUpload.addEventListener('click', (e) => {
-      console.log(e.target);
-    })
+<div class="org-info-group">
+  <div class="org-field-group">
+    <%= form.label :組織名稱 %> <%= form.text_field :title, class: "org-field"
+    %>
+  </div>
+  <div class="org-field-group">
+    <%= form.label :網址 %> <%= form.text_field :domain_name, class: "org-field"
+    %>
+    <p class="domin-name-help">3 到 16 個小寫英文或數字。</p>
+  </div>
+  <div class="org-field-group flex-grow">
+    <%= form.label :描述 %>
+    <br />
+    <%= form.text_area :description, class: "org-field", placeholder:
+    '請介紹一下這個組織' %>
+  </div>
 
-    imageUpload.addEventListener('change', (e) => {
-      console.log(e.target);
-      const image = e.target.files[0]
-      console.log(image);
-      readUrl(image)
-    })
-    // 取得圖片資訊
-    function readUrl(input){
-      const reader = new FileReader()
-      reader.readAsDataURL(input)
-      reader.onload = (e) => {
-        // 將圖片塞到 <img> 
-        document.querySelector('.image').src = e.target.result
-      }
-    }
-  })
+  <div class="org-button-group">
+    <%= form.submit "送出", class:"org-button" %> <% if @organization.id %> <%=
+    link_to '取消',info_organization_path(@organization), class: "org-button
+    org-cancel-button" %> <% end %>
+  </div>
+</div>
 
-</script>
+<% end %>

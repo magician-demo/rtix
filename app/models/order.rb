@@ -12,7 +12,7 @@ class Order < ApplicationRecord
     state :paid, :used, :expired, :cancelled, :refunded
 
     event :pay do
-      transitions from: :pending, to: :paid
+      transitions from: %i[pending used], to: :paid
     end
 
     event :use do

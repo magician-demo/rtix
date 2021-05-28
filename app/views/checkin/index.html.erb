@@ -1,0 +1,26 @@
+<table class="table-auto m-auto border border-black">
+  <thead>
+    <tr class="border-b border-black">
+      <th>活動名稱</th>
+      <th class="py-2 px-2">購票者姓名</th>
+      <th class="px-2">購票者電話</th>
+      <th class="px-2">票券區域</th>
+      <th class="px-2">座位區域</th>
+      <th class="px-2">座位號碼</th>
+      <th class="px-2">票券使用狀態</th>
+    </tr>
+  </thead>
+  <tbody>
+  <% @check_in.each do |check|%>
+    <tr class="border-b border-black">
+      <th class="p-2"><%= check.seat.ticket.event.title%></th>
+      <th><%= check.seat.orders.last.receiver%></th>
+      <th><%= check.seat.orders.last.tel%></th>
+      <th><%= check.seat.ticket.name%></th>
+      <th><%= check.seat.area%></th>
+      <th><%= check.seat.id%></th>
+      <th><i class="fas fa-check <%= 'hidden' if check.pending?%>"></i><i class="fas fa-times <%= 'hidden' if check.used?%>"></i></th>
+    </tr>
+  <% end %>
+  </tbody>
+</table>

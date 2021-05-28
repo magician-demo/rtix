@@ -34,9 +34,9 @@ Rails
       collection { get :checkout }
     end
 
-    resources :checkin, only: %i[index show]
+    resources :checkin, only: %i[index show update]
 
-    resources :orders, only: %i[show create] do
+    resources :orders, only: %i[show create update] do
       collection { post :return_url }
     end
     mount Sidekiq::Web => '/sidekiq'

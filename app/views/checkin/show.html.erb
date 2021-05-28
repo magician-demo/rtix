@@ -1,10 +1,5 @@
-<%=@seat.id%>
-<%=@seat.area%>
-<%=@seat.ticket.price%>
-<%=@seat.ticket.name%>
-<%=@seat.ticket.event.title%>
-<%=@seat.orders.last.receiver%>
-<%=@seat.orders.last.tel%>
-<%= link_to checkin_index_path do%>
-  <div>報到</div>
-<% end %>
+<div 
+  data-controller="check-in-redirect"
+  data-checkin-id="<%=@seat.check_in.first.id%>"
+>
+</div>

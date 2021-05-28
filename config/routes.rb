@@ -45,10 +45,8 @@ Rails
       collection { get :checkout }
     end
 
-    scope module: 'admin' do
-      resources :checkin, only: %i[show update] do
-          collection { get 'checkin_list/:id', to: 'checkin#checkin_list', as: :list }
-      end
+    resources :checkin, only: %i[show update] do
+        collection { get 'checkin_list/:id', to: 'checkin#checkin_list', as: :list }
     end
 
     resources :orders, only: %i[show create update] do

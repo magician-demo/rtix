@@ -1,4 +1,4 @@
-class Admin::CheckinController < ApplicationController
+class CheckinController < ApplicationController
   before_action :authenticate_user!
   before_action :check_admin
 

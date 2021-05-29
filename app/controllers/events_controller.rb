@@ -1,5 +1,5 @@
 class EventsController < ApplicationController
-  before_action :find_event, only: [:edit, :update, :destroy]
+  before_action :find_event, only: [:show, :edit, :update, :destroy]
   before_action :find_organization, only: [:edit, :update, :destroy]
 
   def index
@@ -49,14 +49,14 @@ class EventsController < ApplicationController
   end
 
   def destroy
+    # @tickets.tickets.destroy_all
     @event.destroy
-    @event.tickets.destroy
     redirect_to events_organization_path(@organization), notice: "活動刪除成功！" 
   end
 
   private
   def event_params
-    params.require(:event).permit(:title, :description, :location, :s_time, :e_time, :address)
+    params.require(:event).permit(:title, :description, :location, :start_time, :end_time, :address)
   end
 
   def find_event

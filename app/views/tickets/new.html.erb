@@ -1,1 +1,51 @@
-票卷
+
+<%= render 'nav', user: @user%>
+
+
+<div class="p-4 border ">
+組織名稱 
+<span class="text-red-600 font-bold"><%= @organization.title%></span>
+活動名稱
+<span class="text-blue-600 font-bold"><%= @event.title%></span>
+</div>
+
+
+
+<div class="container m-auto w-4/5 ">
+  <div class="bg-gray-100 flex py-1">
+    <div class="step-1 ">設定活動資料</div>
+    <div class="step-2 ml-2 text-red-600">設定票種</div>
+    
+  </div>
+  
+
+<%= form_for(@ticket, url: event_tickets_path) do |ticket| %>
+<%# <div class="add_ticket border bg-pink-100 w-20 text-center my-1 p-1">新增票卷</div> %>
+  
+
+  <div class="ticket_list">
+    <div class="ticket_info">
+    <%= ticket.label :name, "票種"%>
+    <%= ticket.text_field :name, placeholder: "請輸入票卷名稱", class: "input" %>
+    </div>
+    <div class="ticket_info">
+    <%= ticket.label :price, "售價"%>
+    <%= ticket.number_field :price, placeholder: "請輸入票卷售價", class: "input" %>
+    </div>
+    <div class="ticket_info">
+    <%= ticket.label :amount, "數量"%>
+    <%= ticket.number_field :amount, placeholder: "請輸入票卷數量", class: "input" %>
+    </div>
+  </div>
+
+
+  <div class="button-area mt-5 mx-auto py-3 px-2 border-top flex">
+    <div class="event-pre  max-w-max mr-3 border px-3 py-2 text-black rounded-sm opacity-40">
+    <%= link_to "上一步", events_path, class: "" %>
+    </div>
+    <div class="event-next  max-w-max bg-red-500 px-3 py-2 text-black rounded-sm"><%= ticket.submit "完成設定票種", class: "event-next"%>
+  </div>
+
+  <% end %>
+  
+

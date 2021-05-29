@@ -14,13 +14,16 @@
     <% @organizations.each do |organization| %>
       <tr>
         <td><%= link_to organization.title, info_organization_path(organization) %></td>
+        <td><%= link_to '建立活動', events_organization_path(organization) %></td>
       </tr>
-    <%= link_to '建立活動', events_organization_path(organization) %>
     <% end %>
   </tbody>
 </table>
 
 <br>
+<% if current_user.organizations == [] %>
+  <%= link_to '建立活動', new_organization_path, data: { confirm: '請先建立組織，才能創辦活動' } %>
+<% end %>
 
 <%= link_to '建立組織', new_organization_path %>
 <% end %>

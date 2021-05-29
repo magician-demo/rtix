@@ -9,7 +9,7 @@
   <div class="bg-gray-100 flex py-1">
     <div class="step-1 text-red-600">設定活動資料</div>
     <div class="step-2 ml-2">設定票種</div>
-    <div class="step-3 ml-2">設定表單</div>
+    <%# <div class="step-3 ml-2">設定表單</div> %>
   </div>
 
 <%# 第一頁 %>
@@ -41,18 +41,18 @@
           <div class="datetime-wrapper py-1">
           <label class="control-label required col-12 my-1">
           <abbr title="required">*</abbr>
-            <%= event.label :s_time, "活動開始名稱"%>
+            <%= event.label :start_time, "活動開始名稱"%>
           </label>
-          <div class="timearea"><%#= event.text_field.to_datetime.strftime :s_time %></div>
+          <div class="timearea"><%= event.datetime_field(:start_time) %></div>
           
           
         
 
           <label class="control-label required col-12 my-1">
           <abbr title="required">*</abbr>
-            <%= event.label :e_time, "活動結束名稱"%>
+            <%= event.label :end_time, "活動結束名稱"%>
           </label>
-          <div class="timearea"><%#= event.datetime_local_field(:e_time).to_s %></div>
+          <div class="timearea"><%= event.datetime_field(:end_time) %></div>
           </div>
         </div>
       </div>

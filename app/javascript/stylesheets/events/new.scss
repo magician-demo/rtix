@@ -26,6 +26,10 @@ form{
     width: 250px;
   }
 
+  .ticket_info{
+    @apply my-3;
+  }
+
 }
 
 .event-detail{
@@ -41,4 +45,21 @@ form{
 .card-text{
   width: 400px;
   height: 250px;
+}
+
+footer{
+  width: 100%;
+  position: absolute;
+  bottom: 0
+}
+
+table{
+  @apply border w-full;
+  tr{
+    @apply border;
+    
+    td{
+      @apply border p-2 text-center;
+    }
+  }
 }

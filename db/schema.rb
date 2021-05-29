@@ -61,7 +61,7 @@ ActiveRecord::Schema.define(version: 2021_05_28_155711) do
     t.string "e_date"
     t.string "e_time"
     t.string "city"
-    t.bigint "organization_id", null: false
+    t.bigint "organization_id"
     t.index ["organization_id"], name: "index_events_on_organization_id"
   end
 

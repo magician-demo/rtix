@@ -1,15 +1,15 @@
 .booking-navbar {
-  @apply flex justify-between bg-red-500 py-1;
+  @apply flex justify-between bg-red-500 py-1 text-center;
 
   .timer {
-    @apply px-2 py-2 text-white border border-white rounded;
+    @apply p-2 text-white border border-white rounded-xl;
   }
 
   .cancel-ticket {
-    @apply px-2 py-2 text-white cursor-pointer border border-white rounded-xl ml-2;
+    @apply px-2 py-2 text-white cursor-pointer border border-white rounded-xl mx-2;
   }
 
   .ticket-list {
-    @apply px-2 py-2 text-white cursor-pointer border border-white rounded-xl mr-2;
+    @apply px-2 py-2 text-white cursor-pointer border border-white rounded-xl mx-2;
   }
 }

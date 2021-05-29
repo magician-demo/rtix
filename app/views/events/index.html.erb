@@ -1,5 +1,5 @@
-<h1 class="bg-red-700">Hello</h1>
-
+<header>
+<%= render 'nav', user: @user%>
 <p id="notice"><%= notice %></p>
 
 <% if user_signed_in? %>
@@ -15,6 +15,7 @@
       <tr>
         <td><%= link_to organization.title, info_organization_path(organization) %></td>
       </tr>
+    <%= link_to '建立活動', events_organization_path(organization) %>
     <% end %>
   </tbody>
 </table>
@@ -23,3 +24,32 @@
 
 <%= link_to '建立組織', new_organization_path %>
 <% end %>
+</header>
+
+<body>
+  <div class="container mx-auto">
+    <div class="flex w-8/12 mx-2">
+      <% @events.each do |event| %>
+      <% if event.tickets.count > 0 %>
+
+        <div class="card revent border" id="event<%=event.id%>">
+                <img src="https://picsum.photos/100/50" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title eventname"><%= event.title %></h5>
+                    <p class="card-text mtext my-3"><%= event.description %></p>
+                    <span class="city"><%= event.city %></span><br>
+                    <%= link_to "活動頁面", event_path(event.id) %>
+                </div>
+            </div>
+      <% end%>
+      <% end %>
+    </div>
+  </div>
+
+</body>
+
+<footer>
+  <div>
+  <%= render 'foot', user: @user%>
+  </div>
+</footer>

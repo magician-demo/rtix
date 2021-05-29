@@ -18,4 +18,8 @@ class ApplicationController < ActionController::Base
   def current_event
     @event = Event.find(params[:id])
   end
+
+  def check_admin
+    redirect_to root_path, notice: "你沒有權限進入" if current_user.role != 'admin'
+  end
 end

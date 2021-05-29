@@ -48,6 +48,12 @@ class EventsController < ApplicationController
     redirect_to events_organization_path(@organization), notice: "更新成功"
   end
 
+  def destroy
+    @event.destroy
+    @event.tickets.destroy
+    redirect_to events_organization_path(@organization), notice: "活動刪除成功！" 
+  end
+
   private
   def event_params
     params.require(:event).permit(:title, :description, :location, :s_time, :e_time, :address)

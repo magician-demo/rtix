@@ -3,7 +3,9 @@
 }
 
 .event-page{
-  @apply bg-red-100 p-1 mr-2;
+  @apply bg-red-100 p-2 my-2 text-center;
+  display: block;
+  width: 100px;
 }
 
 form{
@@ -30,4 +32,13 @@ form{
   display: block;
 
   
+}
+
+.button-area{
+  border-top: grey 1px solid;
+}
+
+.card-text{
+  width: 400px;
+  height: 250px;
 }

@@ -11,11 +11,11 @@
   </div>
 
 <%# 第一頁 %>
+    <%= form_for(@event) do |event| %>
   <div class="firstpage flex border-red-100">
   
 
     <div class="apply_table w-3/5 border-red-300">
-    <%= form_for(@event) do |event| %>
 
       <div class="event_name my-2">
         <label class="control-label required">
@@ -103,9 +103,8 @@
 
 
 
-</div>
 
-  <div class="w-4/5 mt-5 mx-auto py-3 px-2 border-top flex">
+  <div class="button-area mt-5 mx-auto py-3 px-2 border-top flex">
     <div class="event-pre  max-w-max mr-3 border px-3 py-2 text-black rounded-sm opacity-40">
     <%= link_to "上一步", events_path, class: "" %>
     </div>

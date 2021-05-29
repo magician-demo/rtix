@@ -5,6 +5,7 @@ Rails
   .application
   .routes
   .draw do
+
     root 'events#index'
     devise_for :users
 
@@ -47,7 +48,9 @@ Rails
       collection { get :checkout }
     end
 
-    resources :orders, only: %i[show create] do
+    resources :checkin, only: %i[index show update]
+
+    resources :orders, only: %i[show create update] do
       collection { post :return_url }
     end
     mount Sidekiq::Web => '/sidekiq'

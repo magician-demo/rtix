@@ -35,6 +35,7 @@
 # Pull 後的操作流程！
 
 - 切換到自己的分支把拉下來的分支 rebase (若有衝突請到 discord 公頻發問)
+- $ sidekiq (如果你想要玩玩看排程工作的話可以啟動喔！)
 - $ yarn
 - $ bundle install
 - $ rails db:migrate

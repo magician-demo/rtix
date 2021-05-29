@@ -31,7 +31,7 @@ gem 'mini_magick', '~> 4.11'
 gem 'bootsnap', '>= 1.4.4', require: false
 gem 'paranoia', '~> 2.4', '>= 2.4.3'
 gem 'friendly_id', '~> 5.4', '>= 5.4.2'
-gem 'rqrcode', '~> 2.0'
+
 # QRcode generator according to the data-inputs given
 gem 'hotwire-rails'
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]

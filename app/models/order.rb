@@ -12,7 +12,7 @@ class Order < ApplicationRecord
     state :paid, :used, :expired, :cancelled, :refunded
 
     event :pay do
-      transitions from: :pending, to: :paid
+      transitions from: %i[pending used], to: :paid
     end
 
     event :use do
@@ -51,6 +51,8 @@ class Order < ApplicationRecord
       seat.return!
       seat.ticket.amount += 1
       seat.ticket.save
+      CheckIn.find_by(seat_id: seat.id).destroy
     end
   end
+
 end

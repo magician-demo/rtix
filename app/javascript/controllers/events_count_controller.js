@@ -25,12 +25,12 @@ export default class extends Controller {
       ticketCount[e.dataset['ticketId']] = e.value
     })
     ax.post('/line_items/random_create', { ticketCount: ticketCount })
-      .then((res) => {
+      .then(() => {
         // 此處待解決！ 若是不 reload 購物清單的數字不會即時更新
         location.reload()
       })
       .catch((err) => {
-        console.log(err)
+        alert(err)
       })
   }
 }

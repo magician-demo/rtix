@@ -13,7 +13,7 @@ export default class extends Controller{
           text: '票券已經使用過'
         })
         setInterval(()=>{
-          window.location.href = '/checkin'
+          window.location.href = '/events'
         },2000)
       } else {
         Swal.fire(
@@ -22,7 +22,7 @@ export default class extends Controller{
           'success'
         )
         setInterval(()=>{
-          window.location.href = '/checkin'
+          window.location.href = `/checkin/checkin_list/${res.data['event_id']}`
         },2000)
       }
       console.log(res);

@@ -48,7 +48,9 @@ Rails
       collection { get :checkout }
     end
 
-    resources :checkin, only: %i[index show update]
+    resources :checkin, only: %i[show update] do
+        collection { get 'checkin_list/:id', to: 'checkin#checkin_list', as: :list }
+    end
 
     resources :orders, only: %i[show create update] do
       collection { post :return_url }

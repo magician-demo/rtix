@@ -3,21 +3,37 @@
 </div>
 <div class="divide"></div>
 <div class="event_information">
-  <h1 class="event_information_title">《趙傳2021人生大夢演唱會》</h1>
+  <h1 class="event_information_title"><%= @event.title %></h1>
   <div class="event_information_column">
     <span class="event_column_title">開始時間</span>
-    <span class="event_column_information">2021/07/31 19:30 (+0800)</span>
+    <span class="event_column_information">
+    <% if @event.s_time != nil %>
+    <%= @event.s_time.tr('T', ' ') %>
+    <% else %>
+    時間未定
+    <% end %>
+    </span>
+  <div class="event_information_column">
+  <div class="event_information_column">
+    <span class="event_column_title">結束時間</span>
+    <span class="event_column_information">
+    <% if @event.e_time != nil %>
+    <%= @event.e_time.tr('TO', ' ') %>
+    <% else %>
+    時間未定
+    <% end %>
+    </span>
   <div class="event_information_column">
     <span class="event_column_title">活動地點</span>
-    <span class="event_column_information">台北流行音樂中心 / 台北市南港區市民大道八段99號</span>
+    <span class="event_column_information"><%= @event.location %> / <%= @event.address %></span>
   </div>
   <div class="event_information_column">
     <span class="event_column_title">主辦單位</span>
-    <span class="event_column_information">開麗娛樂經紀有限公司</span>
+    <span class="event_column_information"> <%= @event.organization.title %></span>
   </div>
   <div class="event_information_column"></div>
     <span class="event_column_title">票券種類</span>
-    <span class="event_column_information">台灣全家 FamiPort 取票</span>
+    <span class="event_column_information">電子票卷</span>
   </div>
   <div class="event_information_column">
     <span class="event_column_title">付款方式</span>

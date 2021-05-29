@@ -8,7 +8,36 @@
         組織名稱 <span class="text-3xl text-red-600"><%= @organization.title %></span>
       </div>
       <h1 class="pt-10 pl-4 text-2xl text-red-500">活動列表</h1>
+      <div class="border w-24 bg-red-200 my-4  mx-2 p-3 text-center font-bold">
+        <%= link_to '建立活動', new_event_path %>
+      </div>
+      <div class="event-list">
+        <div class="w-3/4 mx-2">
+          <% @events.each do |event| %>
+            
+
+              <div class="card w-2/3 border my-2" id="event<%=event.id%>">
+                <%# <img src="https://picsum.photos/100/50" class="card-img-top" alt="..."> %>
+                <div class="card-bodys flex">
+                <div class="flex-col">
+                    <h5 class="text-2xl"><%= event.title %></h5>
+                    <span class="city"><%= event.city %></span><br>
+                    <%= link_to "活動頁面", event_path(event.id), class: "event-page" %>
+                    <%= link_to '編輯活動', edit_event_path(event.id), class: "event-page"%>
+                    <%= link_to "設定票卷", new_ticket_path, class: "event-page" %>
+                    <%# <%= link_to "發布活動", event_path(event.id), class: "event-page" %>
+                    <%= link_to '刪除活動', event_path(event.id), method: :delete, data: { confirm: '確定要刪除活動嗎？' }, class: "event-page" %>
+                 </div>
+                  <p class="card-text h-20 border my-3 ml-auto"><%= event.description %></p>
+                  
+                </div>
+              </div>
+            
+          <% end %>
+        </div>
+      </div>
     </div>
   </div>
+  
   <%= render 'footer' %>
 </div>

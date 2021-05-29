@@ -1,0 +1,44 @@
+.event-next{
+  @apply bg-red-500 block cursor-pointer;
+}
+
+.event-page{
+  @apply bg-red-100 p-2 my-2 text-center;
+  display: block;
+  width: 100px;
+}
+
+form{
+  .input{
+    border: 1px solid rgb(184, 174, 174);
+  }
+  .text{
+    border: 1px solid rgb(184, 174, 174);
+    width: 300px;
+  }
+  .textarea{
+    border: 1px solid rgb(184, 174, 174);
+    width: 300px;
+    height: 200px;
+  }
+  .timearea{
+    border: 1px solid rgb(184, 174, 174);
+    width: 250px;
+  }
+
+}
+
+.event-detail{
+  display: block;
+
+  
+}
+
+.button-area{
+  border-top: grey 1px solid;
+}
+
+.card-text{
+  width: 400px;
+  height: 250px;
+}

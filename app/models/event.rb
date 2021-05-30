@@ -1,6 +1,7 @@
 class Event < ApplicationRecord
   has_many :tickets
   belongs_to :organization
+  mount_uploader :image, ImageUploader
 
 
   # aasm column: 'status', no_direct_assignment: true do

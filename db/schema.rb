@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_05_28_155711) do
+ActiveRecord::Schema.define(version: 2021_05_30_074205) do
   # These are extensions that must be enabled in order to support this database
   enable_extension 'plpgsql'
 
@@ -44,24 +44,25 @@ ActiveRecord::Schema.define(version: 2021_05_28_155711) do
     t.index ['user_id'], name: 'index_contacts_on_user_id'
   end
 
-  create_table 'events', force: :cascade do |t|
-    t.string 'title'
-    t.text 'description'
-    t.datetime 'created_at', precision: 6, null: false
-    t.datetime 'updated_at', precision: 6, null: false
-    t.string 'location'
-    t.string 'address'
-    t.string 's_year'
-    t.string 's_month'
-    t.string 's_date'
-    t.string 's_time'
-    t.string 'e_year'
-    t.string 'e_month'
-    t.string 'e_date'
-    t.string 'e_time'
-    t.string 'city'
-    t.bigint 'organization_id'
-    t.index ['organization_id'], name: 'index_events_on_organization_id'
+  create_table "events", force: :cascade do |t|
+    t.string "title"
+    t.text "description"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.string "location"
+    t.string "address"
+    t.string "s_year"
+    t.string "s_month"
+    t.string "s_date"
+    t.string "s_time"
+    t.string "e_year"
+    t.string "e_month"
+    t.string "e_date"
+    t.string "e_time"
+    t.string "city"
+    t.bigint "organization_id"
+    t.string "image"
+    t.index ["organization_id"], name: "index_events_on_organization_id"
   end
 
   create_table 'friendly_id_slugs', force: :cascade do |t|

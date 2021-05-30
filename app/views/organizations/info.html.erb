@@ -7,7 +7,9 @@
 
     <!-- TODO: FLEX2 -->
     <div class="org-info w-full">
-      <h1 class="text-4xl font-bold p-3 border-b-2 border-gray-100">組織名稱: <span class="font-light italic"><%= @organization.title %></span></h1>
+      <div class="w-full text-xl mb-4 text-center md:text-left mt-5 text-gray-500 border-b border-gray-400 px-4">
+          組織名稱 <span class="inline-block ml-3 text-3xl text-red-600"><%= @organization.title %></span>
+      </div>
       <div class="p-3">
         <div class="flex">
           <!-- <div id="notice"><%= notice %></div>  不確定這個是要放哪裡 可之後再自行調整出現位置 先comment掉 -->
@@ -48,7 +50,7 @@
           </div>
 
           <div class="orgpic w-1/2 text-center">
-            <h5 class="font-bold mb-5">組織圖像</h5>
+            <h5 class="show-title font-bold mb-5">組織圖像</h5>
             <%= image_tag(@organization.image.org.url, class:"image") if @organization.image? %> 
             <h5 class="font-bold mb-3 w-2/3 m-auto py-3 border-b-2 border-gray-400">進階設定</h5>
             <p class="font-mono"><span class="font-bold">預設時區:</span> Taipei GMT +08:00 </p>

@@ -19,6 +19,8 @@
 
     <nav>
       <ul class="lg:flex items-center justify-between text-base text-white pt-4 lg:pt-0">
+        <li>我的組織</li>
+
         <% if current_user %>
         <%= current_user.email %>
         <%= link_to '登出', destroy_user_session_path, data:{method: 'delete'} %> |

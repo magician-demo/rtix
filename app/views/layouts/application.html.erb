@@ -14,14 +14,14 @@
   </head>
 
   <body>
-  <div class="fixed z-10 bg-red-500 w-full">
+  <div class="z-10 bg-red-500 w-full">
     <% if current_user %>
-      <%= current_user.email %>
-      <%= link_to('登出', destroy_user_session_path, :method => :delete) %> |
-      <%= link_to('修改密碼', edit_registration_path(:user)) %>
+      <% current_user.email %>
+      <% link_to('登出', destroy_user_session_path, :method => :delete) %> |
+      <% link_to('修改密碼', edit_registration_path(:user)) %>
     <% else %>
-      <%= link_to('註冊', new_registration_path(:user)) %> |
-      <%= link_to('登入', new_session_path(:user)) %>
+      <% link_to('註冊', new_registration_path(:user)) %> |
+      <% link_to('登入', new_session_path(:user)) %>
     <% end %>
   </div>
     <%= yield %>

@@ -98,7 +98,28 @@
     
     
     <div class="upload_pic w-2/5 border">圖片上傳</div>
-  </div>
+      <div class="org-image-group" data-controller="organizations-image">
+        <div class="image-box">
+          <% if @event.image? %> <%= image_tag(@event.image_url) %> 
+          <% else %>
+          <img
+            data-organizations-image-target="imagebox"
+            id="preview"
+            class="image m-auto"
+            src="../../../public/image/RTIX.jpg"
+          >
+          <% end %>
+        </div>
+        <div class="mt-4 flex justify-center">
+          <label class="org-image-button">
+            上傳圖片 <%= event.file_field :image,
+                                        id: :org_image,
+                                        class:"org-image-input",
+                                        data: { action: "change->organizations-image#update" } %>
+          </label>
+        </div>
+      </div>
+    </div>
 
 
 

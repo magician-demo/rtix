@@ -10,12 +10,13 @@
 
 <div class="org-image-group" data-controller="organizations-image">
   <div class="image-box">
-    <% if @organization.image? %> <%= image_tag(@organization.image_url) %> <%
+    
+    
+    <% if @organization.image? %> <%= image_tag(@organization.image_url, class: "image") %> <%
     else %>
     <img
-      data-organizations-image-target="imagebox"
       id="preview"
-      class="image m-auto"
+      class="image"
       src="https://fakeimg.pl/320x320/"
     />
     <% end %>

@@ -11,7 +11,7 @@ class EventsController < ApplicationController
 
   def show
     event = Event.find(params[:id])
-    @tickets = Event.find(params[:id]).tickets.sort_by{ |ticket| ticket.id}
+    @tickets = Event.find(params[:id]).tickets.sample(5).sort
     @event = Event.find(params[:id])
   end
 

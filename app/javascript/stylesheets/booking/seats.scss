@@ -1,8 +1,8 @@
 .row {
-  @apply flex m-auto flex-wrap mt-12 w-row;
+  @apply flex m-auto flex-wrap mt-16 w-row;
 
   .seat {
-    @apply w-20 m-1.5 h-ssm bg-seat rounded-tl-xl rounded-tr-xl cursor-pointer;
+    @apply  w-seats m-1.5 h-ssm bg-seat rounded-tl-xl rounded-tr-xl cursor-pointer;
   }
 
   .seat.selected {

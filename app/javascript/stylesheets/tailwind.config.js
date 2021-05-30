@@ -11,7 +11,7 @@ module.exports = {
   theme: {
     extend: {
       spacing:{
-        '20': '1.25rem',
+        'seats': '1.25rem',
         'row': '53.625rem'
       },
       height:{

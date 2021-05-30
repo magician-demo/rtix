@@ -11,7 +11,6 @@
 # It's strongly recommended that you check this file into your version control system.
 
 ActiveRecord::Schema.define(version: 2021_05_30_074205) do
-
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -62,9 +61,12 @@ ActiveRecord::Schema.define(version: 2021_05_30_074205) do
     t.string "e_time"
     t.string "city"
     t.bigint "organization_id"
+<<<<<<< HEAD
     t.datetime "start_time"
     t.datetime "end_time"
     t.string "image"
+=======
+>>>>>>> 868d398 (add seed & area map)
     t.index ["organization_id"], name: "index_events_on_organization_id"
   end
 

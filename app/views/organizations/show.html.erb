@@ -6,7 +6,7 @@
       
       <div class="w-full flex flex-col items-center md:items-baseline">
         <div class="px-4">
-            <%= image_tag(@organization.image.org.url) if @organization.image? %>
+            <%= image_tag(@organization.image_url, class: "image") if @organization.image? %>
           </div>
           <div>
             <div class="show-title">描述：</div>

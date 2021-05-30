@@ -1,3 +1,9 @@
 .org-edit-button{
   @apply inline-block mt-4 px-2 py-1 ring-opacity-30 rounded text-black bg-yellow-300 hover:bg-yellow-600 hover:text-black;
 }
+
+.org-info{
+  .url{
+    @apply text-red-500 border-b border-white hover:text-red-700  hover:border-red-700; 
+  }
+}

@@ -1,6 +1,15 @@
 <%= render 'nav', user: @user%>
 <div class="event_img">
-  <img src="https://t.kfs.io/upload_images/127057/__2021____-kktix-1930-___-1200X630.jpg" alt="">
+  <% if @event.image? %> 
+    <%= image_tag(@event.image.url) %> 
+  <% else %>
+    <img
+      data-organizations-image-target="imagebox"
+      id="preview"
+      class="image m-auto"
+      src="https://fakeimg.pl/320x320/"
+    >
+  <% end %>
 </div>
 <div class="divide"></div>
 <div class="event_information">

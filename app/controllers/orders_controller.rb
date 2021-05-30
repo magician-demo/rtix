@@ -33,7 +33,7 @@ class OrdersController < ApplicationController
     #訂單與座位的第三方表格
     current_user.cart.seats.each do |seat| 
       @order.order_items.new(seat_id: seat.id) 
-      seat.check_in.create(status: 'pending')
+      seat.check_in.create(status: 'pending', event_id: seat.ticket.event.id)
     end
 
     #訂單成立、先產生訂單序號跟總金額到欄位中，讓下面的檢查碼抓取

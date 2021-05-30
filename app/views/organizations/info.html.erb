@@ -13,7 +13,7 @@
           <div id="notice"><%= notice %></div>
           <br>
           <div>
-            <%= image_tag(@organization.image_url) if @organization.image? %>
+            <%= image_tag(@organization.image.org.url) if @organization.image? %>
           </div>
           <div>
             <div class="show-title">描述：</div>
@@ -29,5 +29,4 @@
       </div>
     </div>
   </div>
-  <%= render 'footer' %>
 </div>

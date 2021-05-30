@@ -1,5 +1,5 @@
 class Event < ApplicationRecord
-  has_many :tickets
+  has_many :tickets, :dependent => :destroy
   belongs_to :organization
   mount_uploader :image, ImageUploader
 

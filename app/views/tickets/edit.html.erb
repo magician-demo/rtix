@@ -19,7 +19,7 @@
   </div>
   
 
-<%= form_for(@ticket, url: event_tickets_path) do |ticket| %>
+<%= form_for(@ticket, url: event_ticket_path(@ticket.id)) do |ticket| %>
 <%# <div class="add_ticket border bg-pink-100 w-20 text-center my-1 p-1">新增票卷</div> %>
   
 
@@ -43,7 +43,7 @@
     <div class="event-pre  max-w-max mr-3 border px-3 py-2 text-black rounded-sm opacity-40">
     <%= link_to "上一步", events_path, class: "" %>
     </div>
-    <div class="event-next  max-w-max bg-red-500 px-3 py-2 text-black rounded-sm"><%= ticket.submit "完成設定票種", class: "event-next"%>
+    <div class="event-next  max-w-max bg-red-500 px-3 py-2 text-black rounded-sm"><%= ticket.submit "修改票種", class: "event-next"%>
   </div>
 
   <% end %>

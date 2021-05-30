@@ -8,10 +8,11 @@ class TicketsController < ApplicationController
 
   def create
     @ticket = @event.tickets.new(ticket_params)
+    @organization = current_user.organizations.find_by(user_id: current_user.id)
 
     if @ticket.save
       (@ticket.amount).times { Seat.create(area: (@ticket.name).to_s, ticket_id: @ticket.id, status: 'for_sale') }
-      redirect_to events_organization_path(@event.id), notice: "創建成功！"
+      redirect_to event_path(@event.id), notice: "創建成功！"
     else
       redirect_to events_organization_path(@event.id)
     end

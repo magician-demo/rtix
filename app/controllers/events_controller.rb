@@ -30,7 +30,7 @@ class EventsController < ApplicationController
     @event = current_user.organizations.find_by(user_id: current_user.id).events.new(event_params)
 
     if @event.save
-      redirect_to new_ticket_path, notice: "創建成功！"
+      redirect_to new_event_ticket_path(@event.id), notice: "創建成功！"
     else
       render :new
     end

@@ -1,6 +1,6 @@
 class TicketsController < ApplicationController
   before_action :find_event
-  before_action :find_organization
+  before_action :find_organization, except: [:update]
 
   def new
     @ticket = Ticket.new
@@ -16,6 +16,19 @@ class TicketsController < ApplicationController
     else
       redirect_to events_organization_path(@event.id)
     end
+  end
+
+  def edit
+    @ticket = Ticket.find_by(id: params[:id])
+    # @event = @ticket.event(id: @ticket.event_id)
+  end
+
+  def update
+    @ticket = Ticket.find_by(id: params[:id])
+    
+    @ticket.update(ticket_params)
+    
+    redirect_to events_organization_path(@ticket.event.organization, @ticket.event.id), notice: "更新成功"
   end
 
   private

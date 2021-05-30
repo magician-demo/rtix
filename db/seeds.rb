@@ -1,14 +1,211 @@
-Organization.create(title: '娛樂公司', description: '快樂宗旨', user_id: '1')
-Event.create(title: '演唱會', description: '好棒', organization_id: '1')
-Ticket.create(name: 'A區', price: '3600', amount: '250', event_id: 1)
-Ticket.create(name: 'B區', price: '3400', amount: '250', event_id: 1)
-Ticket.create(name: 'C區', price: '3200', amount: '250', event_id: 1)
-Ticket.create(name: 'D區', price: '2800', amount: '250', event_id: 1)
-Ticket.create(name: 'E區', price: '2400', amount: '250', event_id: 1)
-Ticket.create(name: 'F區', price: '1800', amount: '250', event_id: 1)
-250.times { Seat.create(area: 'A區', ticket_id: 1, status: 'for_sale') }
-250.times { Seat.create(area: 'B區', ticket_id: 2, status: 'for_sale') }
-250.times { Seat.create(area: 'C區', ticket_id: 3, status: 'for_sale') }
-250.times { Seat.create(area: 'D區', ticket_id: 4, status: 'for_sale') }
-250.times { Seat.create(area: 'E區', ticket_id: 5, status: 'for_sale') }
-250.times { Seat.create(area: 'F區', ticket_id: 6, status: 'for_sale') }
+Organization.create(title: '壞孩子娛樂公司', description: 'bad bad bad', user_id: '1', domain_name: 'badboy777', slug: 'badboy777')
+Event.create(title: '超好聽演唱會', description: 'Good Song Good Singer', organization_id: '1')
+Ticket.create(name: '1A區', price:'3200', amount: '250', event_id: '1')
+Ticket.create(name: '1B區', price:'3800', amount: '250', event_id: '1')
+Ticket.create(name: '1C區', price:'3800', amount: '250', event_id: '1')
+Ticket.create(name: '1D區', price:'3800', amount: '250', event_id: '1')
+Ticket.create(name: '1E區', price:'3200', amount: '250', event_id: '1')
+Ticket.create(name: '2A區', price:'3200', amount: '250', event_id: '1')
+Ticket.create(name: '2B區', price:'3200', amount: '250', event_id: '1')
+Ticket.create(name: '2C區', price:'3200', amount: '250', event_id: '1')
+Ticket.create(name: '2D區', price:'3200', amount: '250', event_id: '1')
+Ticket.create(name: '2E區', price:'3200', amount: '250', event_id: '1')
+Ticket.create(name: '2F區', price:'3200', amount: '250', event_id: '1')
+Ticket.create(name: '2G區', price:'3200', amount: '250', event_id: '1')
+Ticket.create(name: '3A區', price:'2400', amount: '250', event_id: '1')
+Ticket.create(name: '3B區', price:'2400', amount: '250', event_id: '1')
+Ticket.create(name: '3C區', price:'2400', amount: '250', event_id: '1')
+Ticket.create(name: '3D區', price:'2400', amount: '250', event_id: '1')
+Ticket.create(name: '3E區', price:'2400', amount: '250', event_id: '1')
+Ticket.create(name: '3F區', price:'2400', amount: '250', event_id: '1')
+Ticket.create(name: '3G區', price:'2400', amount: '250', event_id: '1')
+25.times do Seat.create(area: 'A排', status: 'for_sale', ticket_id: '1') end
+25.times do Seat.create(area: 'B排', status: 'for_sale', ticket_id: '1') end
+25.times do Seat.create(area: 'C排', status: 'for_sale', ticket_id: '1') end
+25.times do Seat.create(area: 'D排', status: 'for_sale', ticket_id: '1') end
+25.times do Seat.create(area: 'E排', status: 'for_sale', ticket_id: '1') end
+25.times do Seat.create(area: 'F排', status: 'for_sale', ticket_id: '1') end
+25.times do Seat.create(area: 'G排', status: 'for_sale', ticket_id: '1') end
+25.times do Seat.create(area: 'H排', status: 'for_sale', ticket_id: '1') end
+25.times do Seat.create(area: 'I排', status: 'for_sale', ticket_id: '1') end
+25.times do Seat.create(area: 'J排', status: 'for_sale', ticket_id: '1') end
+25.times do Seat.create(area: 'A排', status: 'for_sale', ticket_id: '2') end
+25.times do Seat.create(area: 'B排', status: 'for_sale', ticket_id: '2') end
+25.times do Seat.create(area: 'C排', status: 'for_sale', ticket_id: '2') end
+25.times do Seat.create(area: 'D排', status: 'for_sale', ticket_id: '2') end
+25.times do Seat.create(area: 'E排', status: 'for_sale', ticket_id: '2') end
+25.times do Seat.create(area: 'F排', status: 'for_sale', ticket_id: '2') end
+25.times do Seat.create(area: 'G排', status: 'for_sale', ticket_id: '2') end
+25.times do Seat.create(area: 'H排', status: 'for_sale', ticket_id: '2') end
+25.times do Seat.create(area: 'I排', status: 'for_sale', ticket_id: '2') end
+25.times do Seat.create(area: 'J排', status: 'for_sale', ticket_id: '2') end
+25.times do Seat.create(area: 'A排', status: 'for_sale', ticket_id: '3') end
+25.times do Seat.create(area: 'B排', status: 'for_sale', ticket_id: '3') end
+25.times do Seat.create(area: 'C排', status: 'for_sale', ticket_id: '3') end
+25.times do Seat.create(area: 'D排', status: 'for_sale', ticket_id: '3') end
+25.times do Seat.create(area: 'E排', status: 'for_sale', ticket_id: '3') end
+25.times do Seat.create(area: 'F排', status: 'for_sale', ticket_id: '3') end
+25.times do Seat.create(area: 'G排', status: 'for_sale', ticket_id: '3') end
+25.times do Seat.create(area: 'H排', status: 'for_sale', ticket_id: '3') end
+25.times do Seat.create(area: 'I排', status: 'for_sale', ticket_id: '3') end
+25.times do Seat.create(area: 'J排', status: 'for_sale', ticket_id: '3') end
+25.times do Seat.create(area: 'A排', status: 'for_sale', ticket_id: '4') end
+25.times do Seat.create(area: 'B排', status: 'for_sale', ticket_id: '4') end
+25.times do Seat.create(area: 'C排', status: 'for_sale', ticket_id: '4') end
+25.times do Seat.create(area: 'D排', status: 'for_sale', ticket_id: '4') end
+25.times do Seat.create(area: 'E排', status: 'for_sale', ticket_id: '4') end
+25.times do Seat.create(area: 'F排', status: 'for_sale', ticket_id: '4') end
+25.times do Seat.create(area: 'G排', status: 'for_sale', ticket_id: '4') end
+25.times do Seat.create(area: 'H排', status: 'for_sale', ticket_id: '4') end
+25.times do Seat.create(area: 'I排', status: 'for_sale', ticket_id: '4') end
+25.times do Seat.create(area: 'J排', status: 'for_sale', ticket_id: '4') end
+25.times do Seat.create(area: 'A排', status: 'for_sale', ticket_id: '5') end
+25.times do Seat.create(area: 'B排', status: 'for_sale', ticket_id: '5') end
+25.times do Seat.create(area: 'C排', status: 'for_sale', ticket_id: '5') end
+25.times do Seat.create(area: 'D排', status: 'for_sale', ticket_id: '5') end
+25.times do Seat.create(area: 'E排', status: 'for_sale', ticket_id: '5') end
+25.times do Seat.create(area: 'F排', status: 'for_sale', ticket_id: '5') end
+25.times do Seat.create(area: 'G排', status: 'for_sale', ticket_id: '5') end
+25.times do Seat.create(area: 'H排', status: 'for_sale', ticket_id: '5') end
+25.times do Seat.create(area: 'I排', status: 'for_sale', ticket_id: '5') end
+25.times do Seat.create(area: 'J排', status: 'for_sale', ticket_id: '5') end
+25.times do Seat.create(area: 'A排', status: 'for_sale', ticket_id: '6') end
+25.times do Seat.create(area: 'B排', status: 'for_sale', ticket_id: '6') end
+25.times do Seat.create(area: 'C排', status: 'for_sale', ticket_id: '6') end
+25.times do Seat.create(area: 'D排', status: 'for_sale', ticket_id: '6') end
+25.times do Seat.create(area: 'E排', status: 'for_sale', ticket_id: '6') end
+25.times do Seat.create(area: 'F排', status: 'for_sale', ticket_id: '6') end
+25.times do Seat.create(area: 'G排', status: 'for_sale', ticket_id: '6') end
+25.times do Seat.create(area: 'H排', status: 'for_sale', ticket_id: '6') end
+25.times do Seat.create(area: 'I排', status: 'for_sale', ticket_id: '6') end
+25.times do Seat.create(area: 'J排', status: 'for_sale', ticket_id: '6') end
+25.times do Seat.create(area: 'A排', status: 'for_sale', ticket_id: '7') end
+25.times do Seat.create(area: 'B排', status: 'for_sale', ticket_id: '7') end
+25.times do Seat.create(area: 'C排', status: 'for_sale', ticket_id: '7') end
+25.times do Seat.create(area: 'D排', status: 'for_sale', ticket_id: '7') end
+25.times do Seat.create(area: 'E排', status: 'for_sale', ticket_id: '7') end
+25.times do Seat.create(area: 'F排', status: 'for_sale', ticket_id: '7') end
+25.times do Seat.create(area: 'G排', status: 'for_sale', ticket_id: '7') end
+25.times do Seat.create(area: 'H排', status: 'for_sale', ticket_id: '7') end
+25.times do Seat.create(area: 'I排', status: 'for_sale', ticket_id: '7') end
+25.times do Seat.create(area: 'J排', status: 'for_sale', ticket_id: '7') end
+25.times do Seat.create(area: 'A排', status: 'for_sale', ticket_id: '8') end
+25.times do Seat.create(area: 'B排', status: 'for_sale', ticket_id: '8') end
+25.times do Seat.create(area: 'C排', status: 'for_sale', ticket_id: '8') end
+25.times do Seat.create(area: 'D排', status: 'for_sale', ticket_id: '8') end
+25.times do Seat.create(area: 'E排', status: 'for_sale', ticket_id: '8') end
+25.times do Seat.create(area: 'F排', status: 'for_sale', ticket_id: '8') end
+25.times do Seat.create(area: 'G排', status: 'for_sale', ticket_id: '8') end
+25.times do Seat.create(area: 'H排', status: 'for_sale', ticket_id: '8') end
+25.times do Seat.create(area: 'I排', status: 'for_sale', ticket_id: '8') end
+25.times do Seat.create(area: 'J排', status: 'for_sale', ticket_id: '8') end
+25.times do Seat.create(area: 'A排', status: 'for_sale', ticket_id: '9') end
+25.times do Seat.create(area: 'B排', status: 'for_sale', ticket_id: '9') end
+25.times do Seat.create(area: 'C排', status: 'for_sale', ticket_id: '9') end
+25.times do Seat.create(area: 'D排', status: 'for_sale', ticket_id: '9') end
+25.times do Seat.create(area: 'E排', status: 'for_sale', ticket_id: '9') end
+25.times do Seat.create(area: 'F排', status: 'for_sale', ticket_id: '9') end
+25.times do Seat.create(area: 'G排', status: 'for_sale', ticket_id: '9') end
+25.times do Seat.create(area: 'H排', status: 'for_sale', ticket_id: '9') end
+25.times do Seat.create(area: 'I排', status: 'for_sale', ticket_id: '9') end
+25.times do Seat.create(area: 'J排', status: 'for_sale', ticket_id: '9') end
+25.times do Seat.create(area: 'A排', status: 'for_sale', ticket_id: '10') end
+25.times do Seat.create(area: 'B排', status: 'for_sale', ticket_id: '10') end
+25.times do Seat.create(area: 'C排', status: 'for_sale', ticket_id: '10') end
+25.times do Seat.create(area: 'D排', status: 'for_sale', ticket_id: '10') end
+25.times do Seat.create(area: 'E排', status: 'for_sale', ticket_id: '10') end
+25.times do Seat.create(area: 'F排', status: 'for_sale', ticket_id: '10') end
+25.times do Seat.create(area: 'G排', status: 'for_sale', ticket_id: '10') end
+25.times do Seat.create(area: 'H排', status: 'for_sale', ticket_id: '10') end
+25.times do Seat.create(area: 'I排', status: 'for_sale', ticket_id: '10') end
+25.times do Seat.create(area: 'J排', status: 'for_sale', ticket_id: '10') end
+25.times do Seat.create(area: 'A排', status: 'for_sale', ticket_id: '11') end
+25.times do Seat.create(area: 'B排', status: 'for_sale', ticket_id: '11') end
+25.times do Seat.create(area: 'C排', status: 'for_sale', ticket_id: '11') end
+25.times do Seat.create(area: 'D排', status: 'for_sale', ticket_id: '11') end
+25.times do Seat.create(area: 'E排', status: 'for_sale', ticket_id: '11') end
+25.times do Seat.create(area: 'F排', status: 'for_sale', ticket_id: '11') end
+25.times do Seat.create(area: 'G排', status: 'for_sale', ticket_id: '11') end
+25.times do Seat.create(area: 'H排', status: 'for_sale', ticket_id: '11') end
+25.times do Seat.create(area: 'I排', status: 'for_sale', ticket_id: '11') end
+25.times do Seat.create(area: 'J排', status: 'for_sale', ticket_id: '11') end
+25.times do Seat.create(area: 'A排', status: 'for_sale', ticket_id: '12') end
+25.times do Seat.create(area: 'B排', status: 'for_sale', ticket_id: '12') end
+25.times do Seat.create(area: 'C排', status: 'for_sale', ticket_id: '12') end
+25.times do Seat.create(area: 'D排', status: 'for_sale', ticket_id: '12') end
+25.times do Seat.create(area: 'E排', status: 'for_sale', ticket_id: '12') end
+25.times do Seat.create(area: 'F排', status: 'for_sale', ticket_id: '12') end
+25.times do Seat.create(area: 'G排', status: 'for_sale', ticket_id: '12') end
+25.times do Seat.create(area: 'H排', status: 'for_sale', ticket_id: '12') end
+25.times do Seat.create(area: 'I排', status: 'for_sale', ticket_id: '12') end
+25.times do Seat.create(area: 'J排', status: 'for_sale', ticket_id: '12') end
+25.times do Seat.create(area: 'A排', status: 'for_sale', ticket_id: '13') end
+25.times do Seat.create(area: 'B排', status: 'for_sale', ticket_id: '13') end
+25.times do Seat.create(area: 'C排', status: 'for_sale', ticket_id: '13') end
+25.times do Seat.create(area: 'D排', status: 'for_sale', ticket_id: '13') end
+25.times do Seat.create(area: 'E排', status: 'for_sale', ticket_id: '13') end
+25.times do Seat.create(area: 'F排', status: 'for_sale', ticket_id: '13') end
+25.times do Seat.create(area: 'G排', status: 'for_sale', ticket_id: '13') end
+25.times do Seat.create(area: 'H排', status: 'for_sale', ticket_id: '13') end
+25.times do Seat.create(area: 'I排', status: 'for_sale', ticket_id: '13') end
+25.times do Seat.create(area: 'J排', status: 'for_sale', ticket_id: '13') end
+25.times do Seat.create(area: 'A排', status: 'for_sale', ticket_id: '14') end
+25.times do Seat.create(area: 'B排', status: 'for_sale', ticket_id: '14') end
+25.times do Seat.create(area: 'C排', status: 'for_sale', ticket_id: '14') end
+25.times do Seat.create(area: 'D排', status: 'for_sale', ticket_id: '14') end
+25.times do Seat.create(area: 'E排', status: 'for_sale', ticket_id: '14') end
+25.times do Seat.create(area: 'F排', status: 'for_sale', ticket_id: '14') end
+25.times do Seat.create(area: 'G排', status: 'for_sale', ticket_id: '14') end
+25.times do Seat.create(area: 'H排', status: 'for_sale', ticket_id: '14') end
+25.times do Seat.create(area: 'I排', status: 'for_sale', ticket_id: '14') end
+25.times do Seat.create(area: 'J排', status: 'for_sale', ticket_id: '14') end
+25.times do Seat.create(area: 'A排', status: 'for_sale', ticket_id: '15') end
+25.times do Seat.create(area: 'B排', status: 'for_sale', ticket_id: '15') end
+25.times do Seat.create(area: 'C排', status: 'for_sale', ticket_id: '15') end
+25.times do Seat.create(area: 'D排', status: 'for_sale', ticket_id: '15') end
+25.times do Seat.create(area: 'E排', status: 'for_sale', ticket_id: '15') end
+25.times do Seat.create(area: 'F排', status: 'for_sale', ticket_id: '15') end
+25.times do Seat.create(area: 'G排', status: 'for_sale', ticket_id: '15') end
+25.times do Seat.create(area: 'H排', status: 'for_sale', ticket_id: '15') end
+25.times do Seat.create(area: 'I排', status: 'for_sale', ticket_id: '15') end
+25.times do Seat.create(area: 'J排', status: 'for_sale', ticket_id: '15') end
+25.times do Seat.create(area: 'A排', status: 'for_sale', ticket_id: '16') end
+25.times do Seat.create(area: 'B排', status: 'for_sale', ticket_id: '16') end
+25.times do Seat.create(area: 'C排', status: 'for_sale', ticket_id: '16') end
+25.times do Seat.create(area: 'D排', status: 'for_sale', ticket_id: '16') end
+25.times do Seat.create(area: 'E排', status: 'for_sale', ticket_id: '16') end
+25.times do Seat.create(area: 'F排', status: 'for_sale', ticket_id: '16') end
+25.times do Seat.create(area: 'G排', status: 'for_sale', ticket_id: '16') end
+25.times do Seat.create(area: 'H排', status: 'for_sale', ticket_id: '16') end
+25.times do Seat.create(area: 'I排', status: 'for_sale', ticket_id: '16') end
+25.times do Seat.create(area: 'J排', status: 'for_sale', ticket_id: '16') end
+25.times do Seat.create(area: 'A排', status: 'for_sale', ticket_id: '17') end
+25.times do Seat.create(area: 'B排', status: 'for_sale', ticket_id: '17') end
+25.times do Seat.create(area: 'C排', status: 'for_sale', ticket_id: '17') end
+25.times do Seat.create(area: 'D排', status: 'for_sale', ticket_id: '17') end
+25.times do Seat.create(area: 'E排', status: 'for_sale', ticket_id: '17') end
+25.times do Seat.create(area: 'F排', status: 'for_sale', ticket_id: '17') end
+25.times do Seat.create(area: 'G排', status: 'for_sale', ticket_id: '17') end
+25.times do Seat.create(area: 'H排', status: 'for_sale', ticket_id: '17') end
+25.times do Seat.create(area: 'I排', status: 'for_sale', ticket_id: '17') end
+25.times do Seat.create(area: 'J排', status: 'for_sale', ticket_id: '17') end
+25.times do Seat.create(area: 'A排', status: 'for_sale', ticket_id: '18') end
+25.times do Seat.create(area: 'B排', status: 'for_sale', ticket_id: '18') end
+25.times do Seat.create(area: 'C排', status: 'for_sale', ticket_id: '18') end
+25.times do Seat.create(area: 'D排', status: 'for_sale', ticket_id: '18') end
+25.times do Seat.create(area: 'E排', status: 'for_sale', ticket_id: '18') end
+25.times do Seat.create(area: 'F排', status: 'for_sale', ticket_id: '18') end
+25.times do Seat.create(area: 'G排', status: 'for_sale', ticket_id: '18') end
+25.times do Seat.create(area: 'H排', status: 'for_sale', ticket_id: '18') end
+25.times do Seat.create(area: 'I排', status: 'for_sale', ticket_id: '18') end
+25.times do Seat.create(area: 'J排', status: 'for_sale', ticket_id: '18') end
+25.times do Seat.create(area: 'A排', status: 'for_sale', ticket_id: '19') end
+25.times do Seat.create(area: 'B排', status: 'for_sale', ticket_id: '19') end
+25.times do Seat.create(area: 'C排', status: 'for_sale', ticket_id: '19') end
+25.times do Seat.create(area: 'D排', status: 'for_sale', ticket_id: '19') end
+25.times do Seat.create(area: 'E排', status: 'for_sale', ticket_id: '19') end
+25.times do Seat.create(area: 'F排', status: 'for_sale', ticket_id: '19') end
+25.times do Seat.create(area: 'G排', status: 'for_sale', ticket_id: '19') end
+25.times do Seat.create(area: 'H排', status: 'for_sale', ticket_id: '19') end
+25.times do Seat.create(area: 'I排', status: 'for_sale', ticket_id: '19') end
+25.times do Seat.create(area: 'J排', status: 'for_sale', ticket_id: '19') end

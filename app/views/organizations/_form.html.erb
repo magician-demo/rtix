@@ -8,7 +8,7 @@
 </div>
 <% end %>
 
-<div class="org-image-group" data-controller="organizations-image">
+<div class="org-image-group" data-controller="image">
   <div class="image-box">
     
     
@@ -17,14 +17,14 @@
     <img
       id="preview"
       class="image"
-      src="https://fakeimg.pl/320x320/"
+      src="/image/RTIX.jpg"
     />
     <% end %>
   </div>
   <div class="mt-4 flex justify-center">
     <label class="org-image-button">
       上傳圖片 <%= form.file_field :image, id: :org_image, class:
-      "org-image-input", data: { action: "change->organizations-image#update" }
+      "org-image-input", data: { action: "change->image#update" }
       %>
     </label>
   </div>

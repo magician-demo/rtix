@@ -14,20 +14,8 @@
   </head>
 
   <body>
-
-  <div class="wrapper">
-
-  <%= render 'layouts/header' %>
-
-    <div class="content">
-      
-      <%= yield %>
-
-    </div>
-
-  </div>
-
-  <%= render 'layouts/footer' %>
-  
+      <%= render 'layouts/header' %>
+         <%= yield %>
   </body>
+  <%= render 'layouts/footer' %>
 </html>

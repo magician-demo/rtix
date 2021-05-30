@@ -1,1 +1,1 @@
-import './body.css'
+import './body.scss'

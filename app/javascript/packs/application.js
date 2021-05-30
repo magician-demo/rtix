@@ -23,3 +23,5 @@ ActiveStorage.start()
 
 import 'controllers'
 
+
+import "controllers"

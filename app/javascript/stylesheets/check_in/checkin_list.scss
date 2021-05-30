@@ -1,0 +1,35 @@
+.checkin_area {
+  @apply md:flex py-10 max-w-4xl m-auto;
+
+  .left_side_bar {
+    @apply md:w-3/12 overflow-scroll;
+
+    .button_column {
+      @apply flex-col flex max-w-4xl mx-2 md:ml-3 text-center;
+
+      .button_column_button {
+        @apply py-2 mb-1 border rounded bg-red-500 text-white rounded-xl hover:bg-white hover:text-red-500 hover:border-red-500 shadow;
+      }
+    }
+  }
+
+  .right_side_bar {
+    @apply px-2 md:w-9/12 overflow-scroll mt-3 md:mt-0;
+
+    .right_side_table {
+      @apply table-auto text-white rounded-2xl bg-red-500 w-full shadow text-white;
+
+      .right_side_table_tr {
+        @apply border-b border-white;
+      }
+    }
+  }
+}
+
+.table_th_py {
+  @apply py-2;
+}
+
+.table_th_px {
+  @apply px-2;
+}

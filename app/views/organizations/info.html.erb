@@ -1,0 +1,57 @@
+<div class="wrapper w-full">
+  <div class="h-11/12 flex">
+    <!-- TODO: FLEX1 -->
+    <%= render 'sidebar' %>    
+    <!-- TODO: FLEX1 end -->
+
+
+    <!-- TODO: FLEX2 -->
+    <div class="w-full">
+      <h1 class="text-4xl font-bold p-3 border-b-2 border-gray-100">組織名稱: <span class="font-light italic"><%= @organization.title %></span></h1>
+      <div class="p-3">
+        <div class="flex">
+          <!-- <div id="notice"><%= notice %></div>  不確定這個是要放哪裡 可之後再自行調整出現位置 先comment掉 -->
+          <div class="orginfo w-1/2 p-8 border-gray-100 border-2 shadow-lg">
+            <div class="mb-3">
+              <h5 class="show-title font-bold mb-3">描述</h5>
+              <p><%= @organization.description %> 這是我的組織 我的的組織 我的的組織 我的的組織</p>
+            </div>
+            <div class="mb-3">
+              <h5 class="show-title font-bold mb-3">網址</h5>
+              <p><%= @organization.domain_name %> www.google.com.tw</p>
+            </div>
+            <div class="mb-3">
+              <h5 class="show-title font-bold mb-3">Facebook粉專網址</h5>
+              <p>www.google.com.tw</p>
+            </div>
+            <div class="mb-3">
+              <h5 class="show-title font-bold mb-3">Twitter帳號</h5>
+              <p>www.google.com.tw</p>
+            </div>
+            <div class="mb-3">
+              <h5 class="show-title font-bold mb-3">Flicker相簿網址</h5>
+              <p>www.google.com.tw</p>
+            </div>
+            <div class="mb-3">
+              <h5 class="show-title font-bold">回覆Email地址</h5>
+              <p>www.google.com.tw</p>
+            </div>
+            <div>
+              <%= link_to '編輯', edit_organization_path(@organization), class: "org-edit-button" %>
+            </div>
+          </div>
+
+          <div class="orgpic w-1/2 text-center">
+            <h5 class="font-bold mb-5">組織圖像</h5>
+            <!-- <%= image_tag(@organization.image_url) if @organization.image? %>  先使用假圖模擬 先comment掉此行 後續可再自行加回 -->
+            <img src="https://picsum.photos/400/400" class="m-auto shadow-2xl rounded-lg mb-10", style="max-width: 100%; height: auto; ">
+            <h5 class="font-bold mb-3 w-2/3 m-auto py-3 border-b-2 border-gray-400">進階設定</h5>
+            <p class="font-mono"><span class="font-bold">預設時區:</span> Taipei GMT +08:00 </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- TODO: FLEX2 end -->
+
+  </div>
+</div>

@@ -2,10 +2,6 @@ import { Controller } from 'stimulus'
 import ax from '../lib/ax'
 
 export default class extends Controller {
-  static targets = ['results']
-  connect() {
-    console.log()
-  }
   cancelled() {
     let total_price = document.querySelector('.cart_total_price')
     let count = document.getElementById('ticket_count')

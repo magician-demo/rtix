@@ -9,19 +9,24 @@
             <h5 class="sm:my-3"><span class="font-bold">訂票人姓名:</span> <%= @user.name %></h5>
             <h5 class="sm:my-3"><span class="font-bold">訂票人電子郵件:</span> <%= @user.email %></h5>
             <h5 class="sm:my-3"><span class="font-bold">訂票人聯繫電話:</span> <%= @user.tel %></h5>
-            <h5 class="sm:my-3"><span class="font-bold">票券總張數:</span> <%= @this_event.tickets.count %>張票</h5>
-            <h5 class="sm:my-3"><span class="font-bold">票券總價:</span> $<%= @this_event.tickets.sum(:price)%> NTD</h5>
+            <h5 class="sm:my-3"><span class="font-bold">票券總張數:</span> <%= @user_seats_count %>張票</h5>
+            <h5 class="sm:my-3"><span class="font-bold">票券總價:</span> $<%= @user_orders_total_amount %> NTD</h5>
         </div>
     </div>
 
     <div class="ticket_info_container">
         <h2 class="ticket_subhead">票券資訊</h2>
         <div class="ticket_section">
-            <% @this_event.tickets.each do |ticket| %>
-            <div class="ticket_name">
-                <h5 class="ticket_belongs_to"><span class="font-bold">票券所屬</span>：<%= ticket.name %> <br><span class="font-bold">票價：</span>$<%= ticket.price %></h5>
-                <div class="qrcode"><%= qr_gen(ticket.event, ticket.name) %></div>
+            <% @user_ticket.each do |order| %>
+                <% order.seats.each do |seat|%>
+            <div class="ticket_name" data-controller="myorder-qrcode">
+                <h5 class="ticket_belongs_to">
+                  <span class="font-bold">票券位置</span>：<%=seat.ticket.name%><%= seat.area %><%=seat.id%>號 <br>
+                  <span class="font-bold">票價</span>：$<%= seat.ticket.price %>
+                </h5>
+                <div class="qrcode" data-myorder-qrcode-target="qrcode" data-checkin-id="<%=seat.check_in.first.id%>"></div>
             </div>
+                <% end %>
             <% end %>
         </div>
     </div>

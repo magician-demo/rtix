@@ -3,6 +3,5 @@ import "./my_order"
 import "./booking"
 import "./events"
 import "./body"
-
-
-
+import "./organization"
+import "./check_in"

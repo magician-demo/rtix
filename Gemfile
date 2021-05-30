@@ -24,13 +24,14 @@ gem 'redis', '~> 4.0'
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
+gem 'carrierwave', '~> 2.0'
+gem 'mini_magick', '~> 4.11'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.4', require: false
-#Soft Delete
 gem 'paranoia', '~> 2.4', '>= 2.4.3'
+gem 'friendly_id', '~> 5.4', '>= 5.4.2'
 
-gem 'rqrcode', '~> 2.0'
 # QRcode generator according to the data-inputs given
 gem 'hotwire-rails'
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]

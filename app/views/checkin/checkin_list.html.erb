@@ -1,0 +1,51 @@
+<section class="checkin_area">
+  <div class="left_side_bar">
+    <div class="button_column">
+      <% @events.each do |event|%>
+        <%= link_to list_checkin_index_path(event.id) do %>
+          <div class="button_column_button"><%=event.title%></div>
+        <% end %>
+      <% end %> 
+    </div>
+  </div>
+  <div class="right_side_bar">
+    <table class="right_side_table">
+      <thead>
+        <tr class="right_side_table_tr">
+          <th class="table_th_py">活動名稱</th>
+          <th class="table_th_px">購票者姓名</th>
+          <th class="table_th_px">購票者電話</th>
+          <th class="table_th_px">票券區域</th>
+          <th class="table_th_px">座位區域</th>
+          <th class="table_th_px">座位號碼</th>
+          <th class="table_th_px">票券使用狀態</th>
+        </tr>
+      </thead>
+      <tbody>
+      <% @check_in.each do |check|%>
+        <tr class="right_side_table_tr">
+          <th class="table_th_py"><%= check.seat.ticket.event.title%></th>
+          <th><%= check.seat.orders.last.receiver%></th>
+          <th><%= check.seat.orders.last.tel%></th>
+          <th><%= check.seat.ticket.name%></th>
+          <th><%= check.seat.area%></th>
+          <th><%= check.seat.id%></th>
+          <th>
+            <i class="fas fa-check <%= 'hidden' if check.pending?%>"></i>
+            <i class="fas fa-times <%= 'hidden' if check.used?%>"></i>
+          </th>
+        </tr>
+      <% end %>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+
+
+
+
+
+
+
+

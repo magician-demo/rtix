@@ -12,6 +12,7 @@ class Organization < ApplicationRecord
                           uniqueness: true,
                           length: { in: 3..16 },
                           format: { with: /\A[a-z0-9]+\z/ }
+  validates :e_mail, presence: true
   belongs_to :user
   has_many :events
 

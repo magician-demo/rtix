@@ -40,11 +40,31 @@
     %>
     <p class="domin-name-help">3 到 16 個小寫英文或數字。</p>
   </div>
+  <div class="org-field-group">
+    <%= form.label :網站 %> <%= form.text_field :web, class: "org-field"
+    %>
+  </div>
   <div class="org-field-group flex-grow">
     <%= form.label :描述 %>
     <br />
     <%= form.text_area :description, class: "org-field", placeholder:
     '請介紹一下這個組織' %>
+  </div>
+  <div class="org-field-group">
+    <%= form.label :"Facebook 粉絲專頁網址" %> <%= form.text_field :facebook, class: "org-field"
+    %>
+  </div>
+  <div class="org-field-group">
+    <%= form.label :"Twitter 帳號" %> <%= form.text_field :twitter, class: "org-field"
+    %>
+  </div>
+  <div class="org-field-group">
+    <%= form.label :"Flickr 相簿網址" %> <%= form.text_field :flickr, class: "org-field"
+    %>
+  </div>
+  <div class="org-field-group">
+    <%= form.label :"回覆 E-mail 地址" %> <%= form.email_field :e_mail, class: "org-field"
+    %>
   </div>
 
   <div class="org-button-group">

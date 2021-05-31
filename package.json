@@ -2,6 +2,7 @@
   "name": "rtix",
   "private": true,
   "dependencies": {
+    "@babel/plugin-proposal-private-methods": "^7.13.0",
     "@fortawesome/fontawesome-svg-core": "^1.2.35",
     "@fortawesome/free-regular-svg-icons": "^5.15.3",
     "@fortawesome/free-solid-svg-icons": "^5.15.3",
@@ -17,7 +18,9 @@
     "datatables.net-dt": "^1.10.24",
     "jquery": "^3.6.0",
     "postcss": "^7",
+    "qrcode-js-package": "^1.0.4",
     "stimulus": "^2.0.0",
+    "sweetalert2": "^11.0.12",
     "tailwindcss": "npm:@tailwindcss/postcss7-compat",
     "trix": "^1.2.0",
     "webpack": "^4.46.0",
@@ -25,6 +28,8 @@
   },
   "version": "0.1.0",
   "devDependencies": {
+    "@prettier/plugin-ruby": "^1.5.5",
+    "prettier": "^2.3.0",
     "stylelint": "^13.13.1",
     "stylelint-config-standard": "^22.0.0",
     "webpack-dev-server": "^3.11.2"

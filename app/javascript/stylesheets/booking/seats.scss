@@ -3,13 +3,14 @@
   margin: auto;
   flex-wrap: wrap;
   margin-top: 3rem;
+  width: 810px;
 
-  @apply max-w-4xl w-full;
+  @apply md:mt-16;
 
   .seat {
-    height: 15px;
+    height: 17px;
     width: 20px;
-    margin: 7px;
+    margin: 5px;
     background-color: #444451;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
@@ -18,6 +19,12 @@
 
   .seat.selected {
     background-color: #6feaf6;
+    pointer-events: none;
+  }
+
+  .seat.sold {
+    background-color: #444451;
+    opacity: 0.3;
     pointer-events: none;
   }
 
@@ -34,6 +41,10 @@
   }
 
   .seat:nth-of-type(n + 251):nth-of-type(-n + 275) {
+    margin-top: 30px;
+  }
+
+  .seat:nth-of-type(n + 376):nth-of-type(-n + 400) {
     margin-top: 30px;
   }
 }

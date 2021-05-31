@@ -1,26 +1,57 @@
-<%= form_for(@organization) do |form| %>
-  <% if organization.errors.any? %>
-    <div id="error_explanation">
-      <ul>
-        <% organization.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
+<%= form_for(@organization) do |form| %> <% if organization.errors.any? %>
+<div id="error_explanation">
+  <ul>
+    <% organization.errors.each do |error| %>
+    <li><%= error.full_message %></li>
+    <% end %>
+  </ul>
+</div>
+<% end %>
 
-  <div class="field">
-    <%= form.label :組織名稱 %>
-    <%= form.text_field :title, placeholder: '請輸入名稱' %>
+<div class="org-image-group" data-controller="image">
+  <div class="image-box">
+    
+    
+    <% if @organization.image? %> <%= image_tag(@organization.image_url, class: "image") %> <%
+    else %>
+    <img
+      id="preview"
+      class="image"
+      src="/image/RTIX.jpg"
+    />
+    <% end %>
+  </div>
+  <div class="mt-4 flex justify-center">
+    <label class="org-image-button">
+      上傳圖片 <%= form.file_field :image, id: :org_image, class:
+      "org-image-input", data: { action: "change->image#update" }
+      %>
+    </label>
+  </div>
+</div>
+
+<div class="org-info-group">
+  <div class="org-field-group">
+    <%= form.label :組織名稱 %> <%= form.text_field :title, class: "org-field"
+    %>
+  </div>
+  <div class="org-field-group">
+    <%= form.label :網址 %> <%= form.text_field :domain_name, class: "org-field"
+    %>
+    <p class="domin-name-help">3 到 16 個小寫英文或數字。</p>
+  </div>
+  <div class="org-field-group flex-grow">
+    <%= form.label :描述 %>
+    <br />
+    <%= form.text_area :description, class: "org-field", placeholder:
+    '請介紹一下這個組織' %>
   </div>
 
-  <div class="field">
-    <%= form.label :組織簡介 %>
-    <br>
-    <%= form.text_area :description, placeholder: '介紹一下組織' %>
+  <div class="org-button-group">
+    <%= form.submit "送出", class:"org-button" %> <% if @organization.id %> <%=
+    link_to '取消',info_organization_path(@organization), class: "org-button
+    org-cancel-button" %> <% end %>
   </div>
+</div>
 
-  <div class="actions">
-    <%= form.submit %>
-  </div>
 <% end %>

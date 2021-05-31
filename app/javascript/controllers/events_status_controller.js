@@ -1,16 +1,16 @@
-import { Controller } from "stimulus"
-export default class extends Controller{
-  connect(){
+import { Controller } from 'stimulus'
+export default class extends Controller {
+  connect() {
     const url = window.location.href
-    if(url.split('/')[url.split('/').length - 2] === 'events'){
+    if (url.split('/')[url.split('/').length - 2] === 'events') {
       const finder = findCurrentSpan(1)
       addStatus(finder)
     }
-    if(url.split('/')[url.split('/').length - 1] === 'booking'){
+    if (url.split('/')[url.split('/').length - 1] === 'booking') {
       const finder = findCurrentSpan(2)
       addStatus(finder)
     }
-    if(url.split('/')[url.split('/').length - 2] === 'booking'){
+    if (url.split('/')[url.split('/').length - 2] === 'booking') {
       const finder = findCurrentSpan(2)
       addStatus(finder)
     }
@@ -20,7 +20,7 @@ export default class extends Controller{
 function findCurrentSpan(id) {
   const main = document.getElementById(`${id}`)
   const little = document.getElementById(`n${id}`)
-  return {main, little}
+  return { main, little }
 }
 
 function addStatus(finder) {

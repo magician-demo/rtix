@@ -1,0 +1,62 @@
+<div class="h-screen pt-6">
+  
+  <div class="h-11/12 flex">
+    <%= render 'sidebar' %>
+    
+    <div class="w-full">
+      <div class="w-full text-xl text-center mt-5 text-gray-500 border-b border-gray-400 px-4 md:text-left">
+        組織名稱 <span class="text-3xl text-red-600"><%= @organization.title %></span>
+      </div>
+      <h1 class="pt-10 pl-4 text-2xl text-red-500">活動列表</h1>
+      <div class="border w-24 bg-red-200 my-4  mx-2 p-3 text-center font-bold">
+        <%= link_to '建立活動', new_event_path %>
+      </div>
+      <div class="event-list">
+        <div class="w-full mx-2">
+          <% @events.each do |event| %>
+            
+
+              <div class="card border my-2" id="event<%=event.id%>">
+                <%# <img src="https://picsum.photos/100/50" class="card-img-top" alt="..."> %>
+                <div class="card-bodys flex">
+                <div class="flex-col my-3">
+                    <h5 class="text-2xl"><%= event.title %></h5>
+                    <span class="city"><%= event.city %></span><br>
+                    <%= link_to "活動頁面", event_path(event.id), class: "event-page" %>
+                    <%= link_to '編輯活動', edit_event_path(event.id), class: "event-page"%>
+                    <%= link_to "新增票卷", new_event_ticket_path(event.id), class: "event-page" %>
+                    <%# <%= link_to "發布活動", event_path(event.id), class: "event-page" %>
+                    <%= link_to '刪除活動', event_path(event.id), method: :delete, data: { confirm: '確定要刪除活動嗎？' }, class: "event-page" %>
+                </div>
+                <div class="card-text  my-4 mx-4  ml-auto ">
+                <%# 票卷種類數量<%= event.tickets.count%> 
+                <table>
+                  <tr>
+                  <td>票種名稱</td>
+                  <td>售價</td>
+                  <td>數量</td>
+                  <td>修改</td>
+                  </tr>
+                <% event.tickets.each do |t| %>
+                  <tr>
+                  <td><%= t.name %></td>
+                  <td><%= t.price %></td>
+                  <td><%= t.amount %></td>
+                  <td><%= link_to '編輯', edit_event_ticket_path(t.event.id, t.id) %> </td>
+                  </tr>
+                  
+                <% end%>
+                </table>
+                </div>
+                <div>
+                  <p class="card-text h-20 border my-3 ml-auto"><%= event.description %></p>
+                </div>
+                </div>
+              </div>
+            
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

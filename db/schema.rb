@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_05_27_081220) do
+ActiveRecord::Schema.define(version: 2021_05_30_074205) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -60,6 +60,16 @@ ActiveRecord::Schema.define(version: 2021_05_27_081220) do
     t.index ["user_id"], name: "index_carts_on_user_id"
   end
 
+  create_table "check_ins", force: :cascade do |t|
+    t.bigint "seat_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.string "status"
+    t.integer "event_id"
+    t.index ["event_id"], name: "index_check_ins_on_event_id"
+    t.index ["seat_id"], name: "index_check_ins_on_seat_id"
+  end
+
   create_table "contacts", force: :cascade do |t|
     t.string "name"
     t.string "email"
@@ -89,8 +99,22 @@ ActiveRecord::Schema.define(version: 2021_05_27_081220) do
     t.string "e_date"
     t.string "e_time"
     t.string "city"
-    t.bigint "organization_id", null: false
+    t.bigint "organization_id"
+    t.datetime "start_time"
+    t.datetime "end_time"
+    t.string "image"
     t.index ["organization_id"], name: "index_events_on_organization_id"
+  end
+
+  create_table "friendly_id_slugs", force: :cascade do |t|
+    t.string "slug", null: false
+    t.integer "sluggable_id", null: false
+    t.string "sluggable_type", limit: 50
+    t.string "scope"
+    t.datetime "created_at"
+    t.index ["slug", "sluggable_type", "scope"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type_and_scope", unique: true
+    t.index ["slug", "sluggable_type"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type"
+    t.index ["sluggable_type", "sluggable_id"], name: "index_friendly_id_slugs_on_sluggable_type_and_sluggable_id"
   end
 
   create_table "line_items", force: :cascade do |t|
@@ -142,7 +166,11 @@ ActiveRecord::Schema.define(version: 2021_05_27_081220) do
     t.integer "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "domain_name"
+    t.string "slug"
+    t.string "image"
     t.index ["deleted_at"], name: "index_organizations_on_deleted_at"
+    t.index ["slug"], name: "index_organizations_on_slug", unique: true
   end
 
   create_table "seats", force: :cascade do |t|
@@ -184,6 +212,7 @@ ActiveRecord::Schema.define(version: 2021_05_27_081220) do
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "carts", "users"
+  add_foreign_key "check_ins", "seats"
   add_foreign_key "contacts", "users"
   add_foreign_key "events", "organizations"
   add_foreign_key "line_items", "carts"

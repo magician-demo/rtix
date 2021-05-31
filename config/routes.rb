@@ -1,41 +1,65 @@
-Rails.application.routes.draw do
+require 'sidekiq/web'
+require 'sidekiq-scheduler/web'
 
-  root "events#index"
-  devise_for :users
+Rails
+  .application
+  .routes
+  .draw do
 
-  
-  resources :dashboards, path: 'dashboard', only: [:index, :show] do 
-    member do     
-      get :contact, controller: :dashboards, action: 'new'
-      post :contact, controller: :dashboards, action: 'create'
+    root 'events#index'
+    devise_for :users
+
+    resources :dashboards, path: 'dashboard', only: %i[index show] do
+      collection do
+        resources :organizations, except: [:show, :index] do
+          member do
+            get :info
+            get :events
+            get :appropriations
+            get :orders
+          end
+          resources :business_infos, only: [:new, :create]
+        end
+      end
+
+      member do
+        get :contact, controller: :dashboards, action: 'new'
+        post :contact, controller: :dashboards, action: 'create'
+      end
+
+      get "mailing/:id", controller: :mailings, action: 'write_email', as: "mailing"
+      post "mailing/:id", controller: :mailings, action: 'send_email'
     end
 
-    get "mailing/:id", controller: :mailings, action: 'write_email', as: "mailing"
-    post "mailing/:id", controller: :mailings, action: 'send_email'
-  end
 
-  resources :organizations
 
   resources :events do
-    resources :booking, only: [:index, :show]
+    resources :booking, only: %i[index show]
+    resources :tickets, only: [:new, :create, :edit, :update]
   end
 
-  resources :line_items, only: [:create, :destroy]
-    post '/line_items/random_create', to: 'line_items#random_create'
-  resource :carts, only: [:destroy]
+    
 
-  resource :cart, only: [:show, :destroy] do
-    collection do
-      get :checkout
+  resources :organizations, only: [:show]
+
+  resources :line_items, only: %i[create destroy show] do
+    collection { post :random_create }
+  end
+
+    resource :carts, only: [:destroy]
+
+    delete '/carts/empty', to: 'carts#empty_cart'
+
+    resource :cart, only: %i[show destroy] do
+      collection { get :checkout }
     end
-  end
 
-  delete "/carts/empty", to: 'carts#empty_cart'
-
-  resources :orders, only: [:show, :create] do
-    collection do
-      post :return_url
+    resources :checkin, only: %i[show update] do
+        collection { get 'checkin_list/:id', to: 'checkin#checkin_list', as: :list }
     end
+
+    resources :orders, only: %i[show create update] do
+      collection { post :return_url }
+    end
+    mount Sidekiq::Web => '/sidekiq'
   end
-  
-end

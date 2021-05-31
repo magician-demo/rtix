@@ -1,11 +1,9 @@
-import { Controller } from "stimulus"
+import { Controller } from 'stimulus'
 
 export default class extends Controller {
-  static targets = ["content", "ticket", "host", "calendar"]
+  static targets = ['content', 'ticket', 'host', 'calendar']
 
-
-
-  connect(){
+  connect() {
     $('#table_id').DataTable({
       "scrollY":        "200px",
       "scrollCollapse": true,
@@ -15,15 +13,14 @@ export default class extends Controller {
     });
   }
 
+  showticket() {
+    this.hostTarget.classList.remove('addhostab')
+    this.ticketTarget.classList.add('addticketab')
 
-  showticket(){
-    this.hostTarget.classList.remove('addhostab');  
-    this.ticketTarget.classList.add('addticketab');
-    
-    this.contentTarget.innerHTML = '';
-    let ticketTemplate = document.querySelector('#ticketview');
-    let ticketview = ticketTemplate.content.cloneNode(true);
-    this.contentTarget.appendChild(ticketview);
+    this.contentTarget.innerHTML = ''
+    let ticketTemplate = document.querySelector('#ticketview')
+    let ticketview = ticketTemplate.content.cloneNode(true)
+    this.contentTarget.appendChild(ticketview)
     $('#table_id').DataTable({
       "scrollY":        "200px",
       "scrollCollapse": true,
@@ -33,35 +30,34 @@ export default class extends Controller {
     });
   }
 
-  showhost(){
-    this.ticketTarget.classList.remove('addticketab');  
-    this.hostTarget.classList.add('addhostab');
+  showhost() {
+    this.ticketTarget.classList.remove('addticketab')
+    this.hostTarget.classList.add('addhostab')
 
-    this.contentTarget.innerHTML = '';
-    let hostTemplate = document.querySelector('#hostview');
-    let hostview = hostTemplate.content.cloneNode(true);
-    this.contentTarget.appendChild(hostview);
+    this.contentTarget.innerHTML = ''
+    let hostTemplate = document.querySelector('#hostview')
+    let hostview = hostTemplate.content.cloneNode(true)
+    this.contentTarget.appendChild(hostview)
     $('#table_id').DataTable({
-      "scrollY":        "200px",
-      "scrollCollapse": true,
-      "paging":         false,
-      "info":           false,
+      scrollY: '200px',
+      scrollCollapse: true,
+      paging: false,
+      info: false,
       responsive: true,
-      "columnDefs": [
-        { "width": "10%", "targets": 1 },
-        { "width": "20%", "targets": 3 }
-      ]
-  });
+      columnDefs: [
+        { width: '10%', targets: 1 },
+        { width: '20%', targets: 3 },
+      ],
+    })
   }
 
-  tickethover(){
-    this.hostTarget.style.background = '';
+  tickethover() {
+    this.hostTarget.style.background = ''
   }
 
-  hosthover(){
-    this.ticketTarget.style.background = '';
+  hosthover() {
+    this.ticketTarget.style.background = ''
   }
-
 
   import(e){
 
@@ -79,8 +75,8 @@ export default class extends Controller {
 
     let tMark = 'T'
 
-    let stime = s_year + s_month + s_date + tMark + s_time;
-    let etime = e_year + e_month + e_date + tMark + e_time;
+    let stime = s_year + s_month + s_date + tMark + s_time
+    let etime = e_year + e_month + e_date + tMark + e_time
 
     window.open(`https://www.google.com/calendar/render?action=TEMPLATE&sf=true&output=xml&text=${event}&location=${location}&dates=${stime}/${etime}`, '_blank').focus();
     

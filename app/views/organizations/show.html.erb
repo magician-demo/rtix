@@ -1,18 +1,19 @@
-<div id="notice"><%= notice %></div>
-
-<div>
-  <div>組織名稱：<%= @organization.title %></div>
+<div class="h-screen pt-6">
+    <div class="w-full">
+      <div class="w-full text-xl text-center mt-5 text-gray-500 border-b border-gray-400 px-4 md:text-left">
+        組織名稱 <span class="text-3xl text-red-600"><%= @organization.title %></span>
+      </div>
+      
+      <div class="w-full flex flex-col items-center md:items-baseline">
+        <div class="px-4">
+            <%= image_tag(@organization.image.org.url) if @organization.image? %>
+          </div>
+          <div>
+            <div class="show-title">描述：</div>
+            <div><%= @organization.description %></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
-<br>
-<div>
-  <div>組織簡介：</div>
-  <div><%= @organization.description %></div>
-</div>
-  <br>
-<div>
-  <div>擁有者(暫時顯示):</div>
-  <%= @organization.user_id %>
-</div>
-
-<%= link_to '編輯', edit_organization_path(@organization) %> |
-<%= link_to '上一頁', organizations_path %>

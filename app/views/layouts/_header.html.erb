@@ -1,0 +1,36 @@
+<header class="lg:px-16 px-6 bg-red-700 flex flex-wrap items-center lg:py-0 py-2">
+    <div class="flex-1 flex justify-between items-center text-3xl hover:text-white transition-colors duration-500">
+      <a href="#">RTIX <i class="fas fa-ticket-alt"></i></a>
+    </div>
+
+   <label for="menu-toggle" class="pointer-cursor lg:hidden block"><svg class="fill-current text-gray-900" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20"><title>menu</title><path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z"></path></svg></label>
+  <input class="hidden" type="checkbox" id="menu-toggle" />
+
+
+  <div class="hidden lg:flex lg:items-center lg:w-auto w-full" id="menu">
+
+     <div class="relative mx-auto text-gray-600 mt-6 lg:mt-0 ">
+        <input class="border-2 border-gray-300 bg-white h-10 px-5 pr-16 rounded-lg text-sm focus:outline-none w-full lg:w-15"
+          type="search" name="search" placeholder="搜尋活動">
+        <button type="submit" class="absolute right-0 top-0 mt-2 mr-4">
+          <i class="fas fa-search"></i>
+        </button>
+      </div>
+
+    <nav>
+      <ul class="lg:flex items-center justify-between text-base text-white pt-4 lg:pt-0">
+        <li>我的組織</li>
+
+        <% if current_user %>
+        <%= current_user.email %>
+        <%= link_to '登出', destroy_user_session_path, data:{method: 'delete'} %> |
+        <%= link_to('修改密碼', edit_registration_path(:user)) %>
+      <% else %>
+        <li><%= link_to('註冊', new_registration_path(:user), class: "lg:p-4 py-3 px-0 block border-b-2 border-transparent hover:border-indigo-400") %></li> 
+        <li><%= link_to('登入', new_session_path(:user), class: "lg:p-4 py-3 px-0 block border-b-2 border-transparent hover:border-indigo-400") %></li> 
+        <% end %>
+        </ul>
+      </nav>
+  </div>
+
+</header>

@@ -4,11 +4,14 @@
 // that code so it'll be compiled.
 //= require jquery
 
-import Rails, { $ } from '@rails/ujs'
-import '@hotwired/turbo-rails'
-import '@hotwired/turbo-rails'
+import Rails, { $ } from "@rails/ujs"
 import "@hotwired/turbo-rails"
-import * as ActiveStorage from '@rails/activestorage'
+import * as ActiveStorage from "@rails/activestorage"
+import "channels"
+import "stylesheets" 
+import "icon"
+import 'datatable'
+
 Rails.start()
 ActiveStorage.start()
 

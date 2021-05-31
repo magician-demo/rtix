@@ -2,7 +2,23 @@
   @apply flex m-auto flex-wrap mt-16 w-row;
 
   .seat {
-    @apply  w-seats m-1.5 h-ssm bg-seat rounded-tl-xl rounded-tr-xl cursor-pointer;
+    @apply w-seats m-1.5 h-ssm bg-seat rounded-tl-xl rounded-tr-xl cursor-pointer relative;
+
+    .seat_information {
+      @apply hidden w-24 absolute bg-red-500 text-white z-20 -right-24 text-center rounded-2xl p-2 -top-24 rounded-2xl;
+
+      .information_triangle {
+        @apply w-6  overflow-hidden inline-block absolute left-0 bottom-0;
+
+        .inner_triangle {
+          @apply h-11  bg-red-500 -rotate-45 transform origin-bottom-right;
+        }
+      }
+    }
+
+    .seat_information.showit {
+      @apply block;
+    }
   }
 
   .seat.selected {

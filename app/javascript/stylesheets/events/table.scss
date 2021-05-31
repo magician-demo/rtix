@@ -1,5 +1,5 @@
 .table {
-  @apply w-full text-black m-auto rounded border border-black bg-red-500;
+  @apply w-full text-black m-auto rounded border border-black bg-red-500 mb-3;
 
   .table-row {
     @apply border border-black flex flex-nowrap py-2 m-2 rounded bg-white justify-evenly;

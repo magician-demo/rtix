@@ -2,6 +2,12 @@ import { Controller } from 'stimulus'
 import ax from '../lib/ax'
 
 export default class extends Controller {
+  showInformation(){
+    this.element.firstElementChild.classList.add('showit')
+  }
+  closeInformation(){
+    this.element.firstElementChild.classList.remove('showit')
+  }
   addLineItem() {
     let count = document.getElementById('ticket_count')
     const cart = document.querySelector('.cart')

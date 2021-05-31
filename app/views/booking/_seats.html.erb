@@ -9,7 +9,15 @@
           data-seat-id="<%= seat.id%>" 
           data-booking-id="<%= seat.ticket.id%>"
           data-controller="booking-seat"
-          data-action ="click->booking-seat#addLineItem"
-      ></div>
+          data-action ="click->booking-seat#addLineItem mouseenter->booking-seat#showInformation mouseleave->booking-seat#closeInformation"
+      >
+        <div class="seat_information">
+            <%= seat.area%><%=seat.id%>號<br>
+            價格：$<%= seat.ticket.price%>
+            <div class="information_triangle">
+                <div class="inner_triangle"></div>
+            </div>
+        </div>
+      </div>
   <% end %>
 </div>

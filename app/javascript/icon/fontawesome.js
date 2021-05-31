@@ -8,7 +8,7 @@ import { faFacebookSquare, faInstagramSquare, faGooglePlusSquare } from '@fortaw
 
 
 
-library.add(farFaCalendarAlt, fasFaCalendarAlt, faFacebookSquare, faInstagramSquare,faGooglePlusSquare, faGuitar, faAtlas, faPalette, faHeart, faUtensils, faMountain, faSearch, faTicketAlt, faCalendarAlt , faCheck, faTimes )
+library.add(fasFaCalendarAlt, faFacebookSquare, faInstagramSquare,faGooglePlusSquare, faGuitar, faAtlas, faPalette, faHeart, faUtensils, faMountain, faSearch, faTicketAlt, faCalendarAlt , faCheck, faTimes )
 
 dom.watch()
 

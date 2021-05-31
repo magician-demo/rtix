@@ -1,17 +1,17 @@
 .row {
-  @apply flex m-auto flex-wrap mt-16 w-row;
+  @apply flex flex-wrap my-36 md:my-20 w-full lg:w-row lg:m-auto lg:mb-16 lg:mt-20;
 
   .seat {
     @apply w-seats m-1.5 h-ssm bg-seat rounded-tl-xl rounded-tr-xl cursor-pointer relative;
 
     .seat_information {
-      @apply hidden w-24 absolute bg-red-500 text-white z-20 -right-24 text-center rounded-2xl p-2 -top-24 rounded-2xl;
+      @apply hidden w-24 absolute bg-red-700 text-white z-20 -right-24 text-center rounded-2xl p-2 -top-24;
 
       .information_triangle {
         @apply w-6  overflow-hidden inline-block absolute left-0 bottom-0;
 
         .inner_triangle {
-          @apply h-11  bg-red-500 -rotate-45 transform origin-bottom-right;
+          @apply h-11  bg-red-700 -rotate-45 transform origin-bottom-right;
         }
       }
     }
@@ -21,31 +21,35 @@
     }
   }
 
+  .seat.owner {
+    @apply border-4 border-black;
+  }
+
   .seat.selected {
-    @apply bg-selected pointer-events-none;
+    @apply bg-red-700 pointer-events-none;
   }
 
   .seat.sold {
-    @apply bg-seat opacity-30 pointer-events-none;
+    @apply bg-seat opacity-20 pointer-events-none;
   }
 
   .seat:nth-of-type(25n + 5) {
-    @apply mr-8;
+    @apply lg:mr-8;
   }
 
   .seat:nth-of-type(25n + 21) {
-    @apply ml-8;
+    @apply lg:ml-8;
   }
 
   .seat:nth-of-type(n + 126):nth-of-type(-n + 150) {
-    @apply mt-8;
+    @apply lg:mt-8;
   }
 
   .seat:nth-of-type(n + 251):nth-of-type(-n + 275) {
-    @apply mt-8;
+    @apply lg:mt-8;
   }
 
   .seat:nth-of-type(n + 376):nth-of-type(-n + 400) {
-    @apply mt-8;
+    @apply lg:mt-8;
   }
 }

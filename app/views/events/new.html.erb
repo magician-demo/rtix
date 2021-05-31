@@ -1,106 +1,58 @@
-<%= render 'nav', user: @user%>
+<h3 class="p-8 mb-5 border-2 border-gray-100 font-bold text-4xl">組織名稱: <span class="text-red-600 font-bold"><%= @organization.title%></span></h3>
+  
+<div class="apply_area w-11/12 px-8 m-auto">
 
-
-<div class="p-4 border mb-5">組織名稱 <span class="text-red-600 font-bold"><%= @organization.title%></span></div>
-
-<div class="container m-auto w-4/5 ">
-  <div class="bg-gray-100 flex py-1">
-    <div class="step-1 text-red-600">設定活動資料</div>
-    <div class="step-2 ml-2">設定票種</div>
-    <%# <div class="step-3 ml-2">設定表單</div> %>
+  <div class="bg-gray-100 flex p-2 rounded-lg mb-5">
+    <div class="text-red-600 font-mono font-bold shadow-2xl">設定活動資料</div>
+    <div class="font-mono text-gray-400 font-bold ml-5 shadow-2xl">設定票種</div>
   </div>
 
-<%# 第一頁 %>
-    <%= form_for(@event) do |event| %>
-  <div class="firstpage flex border-red-100">
-  
-
-    <div class="apply_table w-3/5 border-red-300">
-
-      <div class="event_name my-2">
-        <label class="control-label required">
-          <abbr title="required">*</abbr>
-            <%= event.label :title, "活動名稱"%>
-        </label>
-        <div class="controls">
-          <%= event.text_field :title, class: "input" %>
-          
+  <%= form_for(@event) do |event| %>
+  <div class="firstpage flex mb-8">
+    <div class="apply_table w-1/2 pl-3">
+      <%= event.hidden_field :organization_id, value: @organization.id %>
+      <div class="event_name">
+        <abbr title="required" class="text-red-500 text-lg">*</abbr><%= event.label :title, "活動名稱", class: "font-bold"%>
+        <div class="controls"><%= event.text_field :title, class: "input w-5/6 rounded-lg" %></div>
+      </div>
+      <div class="controls ng-scope" ng-controller="FormDatetimeCtrl">
+        <div class="py-1">
+          <abbr title="required" class="text-red-500 text-lg">*</abbr><%= event.label :start_time, "活動開始時間", class: "font-bold" %>
+          <div><%= event.datetime_field(:start_time, class: "border border-gray-400 rounded-lg w-5/6")%></div>
+        </div>
+        <div>
+          <abbr title="required" class="text-red-500 text-lg">*</abbr><%= event.label :end_time, "活動結束時間", class: "font-bold"%>
+          <div><%= event.datetime_field(:end_time, class: "border border-gray-400 rounded-lg w-5/6") %></div>
         </div>
       </div>
-      <!-- =========== -->
-      <%# <div class="my-2 border">
-      換網址  
-      </div> %>
-      <!-- =========== -->
-      <div class="event_time my-2">
-        
-
-        <div class="controls ng-scope" ng-controller="FormDatetimeCtrl">
-          <div class="datetime-wrapper py-1">
-          <label class="control-label required col-12 my-1">
-          <abbr title="required">*</abbr>
-            <%= event.label :start_time, "活動開始名稱"%>
-          </label>
-          <div class="timearea"><%= event.datetime_field(:start_time) %></div>
-          
-          <label class="control-label required col-12 my-1">
-          <abbr title="required">*</abbr>
-            <%= event.label :end_time, "活動結束名稱"%>
-          </label>
-          <div class="timearea"><%= event.datetime_field(:end_time) %></div>
-          </div>
-        </div>
-      </div>
-      <!-- =========== -->
-      <%# <div class="event_num my-2">
-        <label class="control-label required col-12">
-        活動人數(票卷總數)
-        </label>
-        <input type="text">
-      </div> %>
-
-      <!-- =========== -->
       <div class="event_num my-2">
-        <label class=" event-detail control-label required col-12 ">
-        <%= event.label :location, "活動地點"%>
-        </label>
-        <%= event.text_field :location, class: "input" %>
+        <abbr title="required" class="text-red-500 text-lg">*</abbr><%= event.label :location, "活動地點", class: "font-bold"%>
+        <div><%= event.text_field :location, class: "input rounded-lg w-5/6" %></div>
       </div>
-
-      <!-- =========== -->
       <div class="event_num my-2">
-        
-        <label class="event-detail control-label required col-12">
-        <%= event.label :address, "活動地址"%>
-        </label>
-        <%= event.text_field :address, class: "text" %>
+        <abbr title="required" class="text-red-500 text-lg">*</abbr><%= event.label :address, "活動地址", class: "font-bold"%>
+        <div><%= event.text_field :address, class: "border border-gray-400 rounded-lg w-5/6" %></div>
       </div>
-
-      <!-- =========== -->
       <div class="event_num my-2">
-        
-        <label class="event-detail control-label required col-12">
-        <%= event.label :description, "活動描述"%>
-        </label>
-        <%= event.text_field :description, class: "textarea" %>
+        <abbr title="required" class="text-red-500 text-lg">*</abbr><%= event.label :description, "活動描述", class: "font-bold"%>
+        <div><%= event.text_area :description, class: "border border-gray-400 rounded-lg w-5/6", cols: 30, rows: 8 %></div>
       </div>
 
-   
+      <div class="button_area flex">
+        <div class="p-3 rounded-lg border border-gray-400 hover:bg-red-700 hover:text-white"><%= link_to "上一步", events_organization_path(params[:organization_id]) %></div>
+        <div class="ml-5"><%= event.submit "前往下一頁設定票種", class: "p-3 border border-gray-400 rounded-lg bg-white hover:bg-red-700 hover:text-white cursor-pointer" %></div>
+      </div>
 
-    
-      
-
-    
     </div>
 
-    
-    
-    
-    
-    <div class="upload_pic ">
+    <div class="upload_pic w-1/2">
+      <div class="tip w-2/3 m-auto my-8">
+        <h5 class="font-bold text-red-700">RTIX TIP:</h5>
+        <p>英國研究顯示, 選擇亮眼的活動圖片, 將可提升報名人數達30%喔!信不信由你!</p>
+      </div>
       <div class="org-image-group" data-controller="image">
         <div class="image-box">
-          <% if @event.image? %> <%= image_tag(@event.image_url) %> 
+          <% if @event.image? %> <%= image_tag(@event.image_url) %>
           <% else %>
           <img
             id="preview"
@@ -109,28 +61,14 @@
           >
           <% end %>
         </div>
-        <div class="mt-4 flex justify-center">
+        <div class="mt-8 flex justify-center">
           <label class="org-image-button">
-            上傳圖片 <%= event.file_field :image,
-                                        id: :org_image,
-                                        class:"org-image-input",
-                                        data: { action: "change->image#update" } %>
+            上傳圖片 <%= event.file_field :image, id: :org_image, class:"org-image-input", data: { action: "change->image#update" }%>
           </label>
         </div>
       </div>
     </div>
-    </div>
 
-
-
-
-
-  <div class="button-area mt-5 mx-auto py-3 px-2 border-top flex">
-    <div class="event-pre  max-w-max mr-3 border px-3 py-2 text-black rounded-sm opacity-40">
-    <%= link_to "上一步", events_path, class: "" %>
-    </div>
-    <div class="event-next  max-w-max bg-red-500 px-3 py-2 text-black rounded-sm"><%= event.submit "創立活動，下一頁設定票種", class: "event-next"%>
   </div>
-
   <% end %>
-
+</div>

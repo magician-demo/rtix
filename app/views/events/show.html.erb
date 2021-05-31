@@ -1,5 +1,4 @@
-<%= render 'nav', user: @user%>
-<div class="event_img">
+<div class="event_img my-5">
   <% if @event.image? %> 
     <%= image_tag(@event.image.url) %> 
   <% else %>
@@ -11,7 +10,9 @@
     >
   <% end %>
 </div>
+
 <div class="divide"></div>
+
 <div class="event_information">
   <h1 class="event_information_title"><%= @event.title %></h1>
   <div class="event_information_column">
@@ -51,15 +52,13 @@
   </div>
   </div>
 </div>
-<%= render 'booking_status'%>
-<section class="event_information">
+  <%= render 'booking_status'%>
+
+<section class="event_information my-5">
   <div class="event_booking_area">
     <img src="https://t.kfs.io/upload_images/arena_images/1492/__-__.jpg" alt="" class="area_setting">
   </div>
   <%=render 'ticket_table', tickets: @tickets%>
 </section>
-</div>
 
-<footer>
-  <%= render 'foot', user: @user%>
-</footer>
+</div>

@@ -10,27 +10,21 @@ class EventsController < ApplicationController
   end
 
   def show
+ 
     event = Event.find(params[:id])
     @tickets = Event.find(params[:id]).tickets.sort_by{ |ticket| ticket.id}
     @event = Event.find(params[:id])
   end
 
   def new
-    if current_user.organizations.find_by(user_id: current_user.id)
-      
-      @event = Event.new 
-      @organization = current_user.organizations.find_by(user_id: current_user.id)     
-    else
-      redirect_to new_organization_path
-    end
+    @organization = current_user.organizations.find_by(id: params[:organization_id])
+    @event = @organization.events.new
   end
 
   def create
-    
-    @event = current_user.organizations.find_by(user_id: current_user.id).events.new(event_params)
-
+    @event = Event.new(event_params)
     if @event.save
-      redirect_to new_event_ticket_path(@event.id), notice: "創建成功！"
+      redirect_to new_event_ticket_path(@event.id), notice: "請接著繼續設定此活動的票券"
     else
       render :new
     end
@@ -56,7 +50,7 @@ class EventsController < ApplicationController
 
   private
   def event_params
-    params.require(:event).permit(:title, :description, :location, :start_time, :end_time, :address, :image)
+    params.require(:event).permit(:title, :description, :location, :start_time, :end_time, :address, :image, :organization_id)
     
   end
 

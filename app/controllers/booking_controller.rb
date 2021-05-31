@@ -2,6 +2,7 @@ class BookingController < ApplicationController
   before_action :authenticate_user!
 
   def index
+    @event = booking_event
     @tickets = booking_event.tickets.sort
     @seats_count = current_cart.seats.count
     @seat = current_cart.seats.includes(:ticket).includes(:line_item)

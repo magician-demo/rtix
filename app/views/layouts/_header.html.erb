@@ -19,13 +19,24 @@
 
     <nav>
       <ul class="lg:flex items-center justify-between text-base text-white pt-4 lg:pt-0 mx-3 ">
-        <li>我的組織</li>
+        
+        <li>
         <div class="mx-3">
         <% if current_user %>
         <%= current_user.email %>
         <%= link_to '登出', destroy_user_session_path, data:{method: 'delete'}, class:"user-signout" %> |
         <%= link_to('修改密碼', edit_registration_path(:user)) %>
         </div>
+        </li>
+        
+        <li>
+          <% if current_user.organizations == [] %>
+            <%= link_to '建立活動', new_organization_path, data: { confirm: '請先建立組織，才能創辦活動' } %>
+          <% else %>
+          <%= link_to '建立活動', events_organization_path(current_user.organizations.find_by(user_id: current_user.id)) %>
+          <% end %>
+        </li>
+       
       <% else %>
         <li><%= link_to('註冊', new_registration_path(:user), class: "lg:p-4 py-3 px-0 block border-b-2 border-transparent hover:border-indigo-400") %></li> 
         <li><%= link_to('登入', new_session_path(:user), class: "lg:p-4 py-3 px-0 block border-b-2 border-transparent hover:border-indigo-400") %></li> 

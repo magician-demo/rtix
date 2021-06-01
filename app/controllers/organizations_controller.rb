@@ -43,6 +43,7 @@ class OrganizationsController < ApplicationController
   end
 
   def destroy
+    @organization.domain += ' <- this domin already delete!'
     @organization.destroy
     redirect_to root_path, notice: "組織刪除成功！" 
   end

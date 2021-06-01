@@ -23,6 +23,12 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.permit(:sign_up, keys: [:name, :tel])
   end
 
+  def check_order
+    if current_order.paid?
+      redirect_to dashboards_path
+    end
+
+  end
   def authenticate_admin
     unless current_user.admin?
       flash[:alert] = "你沒有權限進入！"

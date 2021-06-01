@@ -14,7 +14,6 @@ class OrganizationsController < ApplicationController
   end
 
   def appropriations
-
   end
 
   def new
@@ -43,7 +42,8 @@ class OrganizationsController < ApplicationController
   end
 
   def destroy
-    @organization.domain += ' <- this domin already delete!'
+    @organization.slug = @organization.id
+    @organization.save
     @organization.destroy
     redirect_to root_path, notice: "組織刪除成功！" 
   end

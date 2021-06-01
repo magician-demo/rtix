@@ -6,7 +6,7 @@ Rails
   .routes
   .draw do
 
-    root 'events#index'
+    root to: "events#index"
     devise_for :users
 
     resources :dashboards, path: 'dashboard', only: %i[index show] do

@@ -1,4 +1,6 @@
 class ApplicationController < ActionController::Base
+  before_action :configure_permitted_parameters, if: :devise_controller?
+
   def current_cart
     current_user.cart ? current_user.cart : Cart.new(user_id: current_user.id)
   end
@@ -15,8 +17,10 @@ class ApplicationController < ActionController::Base
     @event = Event.find(params[:id])
   end
 
-  def check_admin
-    redirect_to root_path, notice: "你沒有權限進入" if current_user.role != 'admin'
+  protected
+
+  def configure_permitted_parameters
+    devise_parameter_sanitizer.permit(:sign_up, keys: [:name, :tel])
   end
 
   def check_order
@@ -25,4 +29,11 @@ class ApplicationController < ActionController::Base
     end
 
   end
+  def authenticate_admin
+    unless current_user.admin?
+      flash[:alert] = "你沒有權限進入！"
+      redirect_to root_path
+    end
+  end
+
 end

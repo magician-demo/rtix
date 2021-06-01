@@ -1,4 +1,4 @@
-Organization.create(title: '壞孩子娛樂公司', description: 'bad bad bad', user_id: '1', domain_name: 'badboy777', slug: 'badboy777')
+# Organization.create(title: '壞孩子娛樂公司', description: 'bad bad bad', user_id: '1', domain_name: 'badboy777', slug: 'badboy777')
 Event.create(title: '超好聽演唱會', description: 'Good Song Good Singer', organization_id: '1')
 Ticket.create(name: '1A區', price:'3200', amount: '250', event_id: '1')
 Ticket.create(name: '1B區', price:'3800', amount: '250', event_id: '1')

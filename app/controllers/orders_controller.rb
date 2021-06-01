@@ -6,10 +6,13 @@ class OrdersController < ApplicationController
   skip_before_action :authenticate_user!, only: :return_url
 
   def show
+    # check_order
     @price = current_order.totalAmount
     @seats = current_order.seats
     @current_id = current_order.id
   end
+
+
 
   #抓綠界付款成功回傳值
   def return_url

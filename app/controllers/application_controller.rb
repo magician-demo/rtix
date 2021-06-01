@@ -18,4 +18,11 @@ class ApplicationController < ActionController::Base
   def check_admin
     redirect_to root_path, notice: "你沒有權限進入" if current_user.role != 'admin'
   end
+
+  def check_order
+    if current_order.paid?
+      redirect_to dashboards_path
+    end
+
+  end
 end

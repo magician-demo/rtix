@@ -8,6 +8,7 @@ export default class extends Controller {
         .then(() => {
           localStorage.removeItem('comeBefore')
           localStorage.removeItem('currentTime')
+          localStorage.removeItem('justOnce')
           window.location.href = '/events'
         })
         .catch((err) => {

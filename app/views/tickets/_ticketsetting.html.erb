@@ -1,0 +1,96 @@
+<%= form_tag event_tickets_path(@event.id) do %>
+    <div class="flex my-3">
+      <div>
+        <%= label_tag "票種1" %>:
+        <%= text_field_tag "tickets[][name]" %>
+      </div>
+      <div class="ml-3">
+        <%= label_tag "票價" %>:
+        <%= text_field_tag "tickets[][price]" %>
+      </div>
+      <div class="ml-3">
+        <%= label_tag "張數" %>:
+        <%= text_field_tag "tickets[][amount]" %>
+      </div>
+    </div>
+
+    <div class="flex my-3">
+      <div>
+        <%= label_tag "票種2" %>:
+        <%= text_field_tag "tickets[][name]" %>
+      </div>
+      <div class="ml-3">
+        <%= label_tag "票價" %>:
+        <%= text_field_tag "tickets[][price]" %>
+      </div>
+      <div class="ml-3">
+        <%= label_tag "張數" %>:
+        <%= text_field_tag "tickets[][amount]" %>
+      </div>
+    </div>
+
+    <div class="flex my-3">
+      <div>
+        <%= label_tag "票種3" %>:
+        <%= text_field_tag "tickets[][name]" %>
+      </div>
+      <div class="ml-3">
+        <%= label_tag "票價" %>:
+        <%= text_field_tag "tickets[][price]" %>
+      </div>
+      <div class="ml-3">
+        <%= label_tag "張數" %>:
+        <%= text_field_tag "tickets[][amount]" %>
+      </div>
+    </div>
+
+    <div class="flex my-3">
+      <div>
+        <%= label_tag "票種4" %>:
+        <%= text_field_tag "tickets[][name]" %>
+      </div>
+      <div class="ml-3">
+        <%= label_tag "票價" %>:
+        <%= text_field_tag "tickets[][price]" %>
+      </div>
+      <div class="ml-3">
+        <%= label_tag "張數" %>:
+        <%= text_field_tag "tickets[][amount]" %>
+      </div>
+    </div>
+
+    <div class="flex my-3">
+      <div>
+        <%= label_tag "票種5" %>:
+        <%= text_field_tag "tickets[][name]" %>
+      </div>
+      <div class="ml-3">
+        <%= label_tag "票價" %>:
+        <%= text_field_tag "tickets[][price]" %>
+      </div>
+      <div class="ml-3">
+        <%= label_tag "張數" %>:
+        <%= text_field_tag "tickets[][amount]" %>
+      </div>
+    </div>
+
+    <div class="flex my-3">
+      <div>
+        <%= label_tag "票種6" %>:
+        <%= text_field_tag "tickets[][name]" %>
+      </div>
+      <div class="ml-3">
+        <%= label_tag "票價" %>:
+        <%= text_field_tag "tickets[][price]" %>
+      </div>
+      <div class="ml-3">
+        <%= label_tag "張數" %>:
+        <%= text_field_tag "tickets[][amount]" %>
+      </div>
+    </div>
+
+    <div class="button_area flex mt-8">
+      <div class="p-2 rounded-lg border border-gray-400 hover:bg-red-700 hover:text-white"><%= link_to "上一步", new_event_path(:organization_id => @organization.id)%></div>
+      <div class="ml-5"><%= submit_tag "完成設定票種", class: "p-2 border border-gray-400 rounded-lg bg-white hover:bg-red-700 hover:text-white cursor-pointer" %></div>
+    </div>
+    <% end %>

@@ -39,7 +39,7 @@
       </div>
 
       <div class="button_area flex">
-        <div class="p-3 rounded-lg border border-gray-400 hover:bg-red-700 hover:text-white"><%= link_to "上一步", events_organization_path(params[:organization_id]) %></div>
+        <div class="p-3 rounded-lg border border-gray-400 hover:bg-red-700 hover:text-white"><%= link_to "上一步", events_organization_path(@organization.id) %></div>
         <div class="ml-5"><%= event.submit "前往下一頁設定票種", class: "p-3 border border-gray-400 rounded-lg bg-white hover:bg-red-700 hover:text-white cursor-pointer" %></div>
       </div>
 

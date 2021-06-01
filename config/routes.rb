@@ -18,6 +18,8 @@ Rails
             get :events
             get :appropriations
             get :orders
+            get :publish
+            get :pending
           end
           resources :business_infos, only: [:new, :create]
         end

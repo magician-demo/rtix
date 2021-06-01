@@ -20,15 +20,26 @@ class TicketsController < ApplicationController
     redirect_to event_path(params[:event_id]), notice: "活動創建成功!"
   end
 
-  def edit
-    @ticket = Ticket.find_by(id: params[:id])
-    # @event = @ticket.event(id: @ticket.event_id)
+  def edit 
+    @event = Event.find_by(id: params[:event_id])
+    @tickets = @event.tickets 
+    @organization = @event.organization
   end
 
   def update
-    @ticket = Ticket.find_by(id: params[:id])
-    @ticket.update(ticket_params)
-    redirect_to events_organization_path(@ticket.event.organization, @ticket.event.id), notice: "更新成功"
+    @event = Event.find_by(id: params[:event_id])
+    @event.tickets.destroy_all #因:dependent => :destroy in Model, 連帶刪除所有seats
+
+    params.require(:tickets).each do |ticket|
+      @permited_ticket = ticket.permit(:name, :price, :amount).to_h 
+
+      if @permited_ticket[:name].present? && @permited_ticket[:price].present? && @permited_ticket[:amount].present?
+        @ticket_record = @event.tickets.new(@permited_ticket)
+        @ticket_record.save 
+        (@ticket_record[:amount].to_i).times { Seat.create(area: (@ticket_record[:name]), ticket_id: @ticket_record[:id], status: 'for_sale') } 
+      end
+    end
+    redirect_to events_organization_path(params[:id]), notice: "活動資訊更新成功!"
   end
 
 end

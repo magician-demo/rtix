@@ -2,7 +2,8 @@ class EventsController < ApplicationController
   before_action :find_event, only: [:show, :edit, :update, :destroy]
 
   def index
-    @events = Event.all
+    @events = Event.where(status: "published")
+
     if user_signed_in?
       @organizations = current_user.organizations.all
     end
@@ -35,7 +36,7 @@ class EventsController < ApplicationController
 
   def update
     @event.update(event_params)
-    redirect_to events_organization_path(event_params[:organization_id]), notice: "更新成功"
+    redirect_to edit_event_ticket_path(@event.id, @event.organization_id), notice: "請接著看票券是否進行修改"
   end
 
   def destroy
@@ -43,7 +44,7 @@ class EventsController < ApplicationController
     redirect_to events_organization_path(params[:organization_id]), notice: "活動刪除成功！" 
   end
 
-
+  
   private
   def event_params
     params.require(:event).permit(:title, :description, :location, :start_time, :end_time, :address, :image, :organization_id)

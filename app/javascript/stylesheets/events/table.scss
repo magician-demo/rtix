@@ -1,31 +1,31 @@
 .table {
-  @apply w-full text-black m-auto rounded border border-black bg-red-500;
+  @apply w-full text-black m-auto rounded border border-black bg-red-700 mb-3;
 
   .table-row {
     @apply border border-black flex flex-nowrap py-2 m-2 rounded bg-white justify-evenly;
 
     .table-row-header {
-      @apply inline-block w-3/12 pl-2;
+      @apply inline-block w-3/12 pl-2 mt-1;
     }
 
     .table-row-column {
-      @apply md:w-3/12 md:inline-block flex justify-between;
+      @apply md:w-3/12 md:inline-block flex justify-between py-1 items-center;
 
       .table-row-add-sub {
-        @apply w-4/12 pr-1 cursor-pointer font-bold border-none mr-2;
+        @apply w-4/12 cursor-pointer font-bold border-none pr-1;
       }
 
       .table-row-add-sub-right {
-        @apply w-4/12 cursor-pointer font-bold border-none;
+        @apply w-4/12 cursor-pointer font-bold border-none pl-1;
       }
 
       .table-row-input {
-        @apply w-4/12 border rounded text-center border-black h-4 mt-2;
+        @apply w-4/12 border rounded text-center border-black h-4 mt-1 ml-1 p-1;
       }
     }
   }
 
   .table-submit {
-    @apply text-center py-2 bg-white w-3/12 m-auto rounded my-2 text-2xl border border-black;
+    @apply text-center bg-red-700 w-3/12 m-auto rounded my-2 text-2xl border border-white py-2 text-white hover:bg-white hover:text-black hover:border-black;
   }
 }

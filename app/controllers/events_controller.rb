@@ -12,7 +12,7 @@ class EventsController < ApplicationController
   def show
     # FIXME:這裏event似乎是重複寫了? 
     event = Event.find(params[:id])
-    @tickets = Event.find(params[:id]).tickets.sort_by{ |ticket| ticket.id}
+    @tickets = Event.find(params[:id]).tickets.sample(5).sort
     @event = Event.find(params[:id])
   end
 

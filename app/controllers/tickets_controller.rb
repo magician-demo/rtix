@@ -22,7 +22,7 @@ class TicketsController < ApplicationController
 
   def edit 
     @event = Event.find_by(id: params[:event_id])
-    @tickets = @event.tickets 
+    @ticket = @event.tickets.find_by(id: params[:id])
     @organization = @event.organization
   end
 

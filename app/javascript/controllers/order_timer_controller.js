@@ -37,6 +37,7 @@ export default class extends Controller {
           clearInterval(timeInterval)
           localStorage.removeItem('orderTime')
           localStorage.removeItem('comeBefore')
+          localStorage.removeItem('justOnce')
           alert('付款時間已過，請重新訂購，謝謝')
           window.location.href="/events"
         }

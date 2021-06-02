@@ -25,10 +25,8 @@ export default class extends Controller{
           window.location.href = `/checkin/checkin_list/${res.data['event_id']}`
         },2000)
       }
-      console.log(res);
     })
     .catch(err => {
-      console.log(err);
     })
   }
 }

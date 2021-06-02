@@ -31,14 +31,18 @@ gem 'mini_magick', '~> 4.11'
 gem 'bootsnap', '>= 1.4.4', require: false
 gem 'paranoia', '~> 2.4', '>= 2.4.3'
 gem 'friendly_id', '~> 5.4', '>= 5.4.2'
-
-# QRcode generator according to the data-inputs given
-gem 'hotwire-rails'
+gem 'turbolinks', '~> 5.2.0'
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 gem 'aasm', '~> 5.2'
 gem 'sidekiq', '~> 6.1', '>= 6.1.2'
 gem 'sidekiq-scheduler', '~> 3.0', '>= 3.0.1'
 gem 'devise', '~> 4.8'
+gem 'rails-i18n'
+gem 'omniauth'
+gem 'omniauth-google-oauth2'
+gem 'omniauth-github'
+gem 'omniauth-facebook'
+gem "omniauth-rails_csrf_protection"
 gem 'figaro'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -52,7 +56,6 @@ group :development do
 
   # Display performance information such as SQL time and flame graphs for each request in your browser.
   # Can be configured to work on production as well see: https://github.com/MiniProfiler/rack-mini-profiler/blob/master/README.md
-  # gem 'rack-mini-profiler', '~> 2.0'
   gem 'listen', '~> 3.3'
 
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring

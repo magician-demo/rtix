@@ -26,8 +26,6 @@ export default class extends Controller {
     })
     ax.post('/line_items/random_create', { ticketCount: ticketCount })
       .then(() => {
-        // 此處待解決！ 若是不 reload 購物清單的數字不會即時更新
-        location.reload()
       })
       .catch((err) => {
         alert(err)

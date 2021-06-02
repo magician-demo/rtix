@@ -6,13 +6,15 @@
     <div class="back_area">回到票區圖</div>
   <% end %>
   <div class="sample_status">
+    <div class="sample_seat selected owner"></div>
+    <span>你的位置</span>
     <div class="sample_seat"></div>
-    <span>可選擇</span>
+    <span>可以選擇</span>
     <div class="sample_seat selected"></div>
-    <span>被選擇</span>
+    <span>他人選擇</span>
     <div class="sample_seat sold"></div>
-    <span>已售出</span>
+    <span>目前售出</span>
   </div>
 </div>
 <div class="stage">STAGE</div>
-<%= render 'seats', seats: @seats %>
+<%= render 'seats', seats: @seats, owner_seat: @seat %>

@@ -1,29 +1,23 @@
 .sample_status {
-  @apply absolute top-20 right-1 flex mt-5 py-2 border border-gray-600 rounded-2xl px-1 md:p-2 lg:right-16 xl:top-0 xl:right-2 xl:mt-4;
-}
+  @apply absolute right-2 p-2 flex xl:flex-col xl:top-2 top-24 mt-4 items-center z-20 border border-gray-600 rounded-2xl px-1;
 
-.sample_seat {
-  height: 15px;
-  width: 20px;
-  margin: 5px;
-  background-color: #444451;
-  border-top-left-radius: 10px;
-  border-top-right-radius: 10px;
-  cursor: pointer;
-  pointer-events: none;
-}
+  .sample_seat {
+    @apply w-seats m-1.5 h-ssm bg-seat rounded-tl-xl rounded-tr-xl;
+  }
 
-.sample_seat.selected {
-  background-color: #6feaf6;
-  pointer-events: none;
-}
+  .sample_seat.selected {
+    @apply bg-red-700 pointer-events-none;
+  }
 
-.sample_seat.sold {
-  background-color: #444451;
-  opacity: 0.3;
-  pointer-events: none;
+  .sample_seat.sold {
+    @apply bg-seat opacity-30 pointer-events-none;
+  }
+
+  .sample_seat.owner {
+    @apply border-4 border-black;
+  }
 }
 
 .back_area {
-  @apply absolute top-20 left-2 mt-5 border border-red-500 text-red-500 rounded-2xl px-1 md:px-2 md:py-2 lg:left-16 xl:top-0 xl:left-2 xl:mt-4 hover:text-white hover:bg-red-500;
+  @apply absolute top-40 left-2 py-2 px-2 mt-8 border border-red-700 text-red-700 rounded-2xl xl:top-0 xl:mt-4 hover:text-white hover:bg-red-700 md:top-20;
 }

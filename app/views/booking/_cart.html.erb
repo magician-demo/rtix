@@ -1,12 +1,13 @@
 <div class="cart" id="cart">
 <% seat.each do |s|%>
   <div class="cart_list">
-    <span class="px-2"><%= s.area%><%= s.id%>號位</span><br>
+    <span class="px-2"><%=s.ticket.name%>｜<%= s.area%>｜<%= s.id%>號位</span><br>
     <span class="px-2 price">$<%= s.ticket.price%></span>
     <div class="remove_btn" 
          data-action="click->booking-cart-list#cancelled"
          data-controller="booking-cart-list"
-         data-item-id="<%= s.line_item.id%>"
+         data-item-id="<%= s.line_item.id if s.line_item %>"
+         data-seat-id="<%= s.id %>"
          >&times;</div>
   </div>
 <% end %>

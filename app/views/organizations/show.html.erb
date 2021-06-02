@@ -1,4 +1,4 @@
-<div class="h-screen pt-6">
+<div class="h-screen">
     <div class="w-full">
       <div class="w-full text-xl text-center mt-5 text-gray-500 border-b border-gray-400 px-4 md:text-left">
         組織名稱 <span class="text-3xl text-red-600"><%= @organization.title %></span>
@@ -6,7 +6,7 @@
       
       <div class="w-full flex flex-col items-center md:items-baseline">
         <div class="px-4">
-            <%= image_tag(@organization.image.org.url) if @organization.image? %>
+            <%= image_tag(@organization.image_url, class: "image") if @organization.image? %>
           </div>
           <div>
             <div class="show-title">描述：</div>

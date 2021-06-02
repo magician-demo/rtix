@@ -6,10 +6,11 @@ Rails
   .routes
   .draw do
 
-    root 'events#index'
+    root to: "events#index"
     devise_for :users
 
     resources :dashboards, path: 'dashboard', only: %i[index show] do
+
       collection do
         resources :organizations, except: [:show, :index] do
           member do
@@ -17,6 +18,8 @@ Rails
             get :events
             get :appropriations
             get :orders
+            get :publish
+            get :pending
           end
           resources :business_infos, only: [:new, :create]
         end
@@ -29,6 +32,12 @@ Rails
 
       get "mailing/:id", controller: :mailings, action: 'write_email', as: "mailing"
       post "mailing/:id", controller: :mailings, action: 'send_email'
+
+    end
+
+    resources :events do
+      resources :booking, only: %i[index show]
+      resources :tickets, only: [:new, :create, :edit, :update]   
     end
 
 

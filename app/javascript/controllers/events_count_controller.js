@@ -17,7 +17,7 @@ export default class extends Controller {
     }
   }
   buyTicket() {
-    const allValue = document.querySelectorAll('input')
+    const allValue = document.querySelectorAll('.table-row-input')
     history.pushState('', '', '')
     let ticketCount = {}
     // 這邊將表單的 ticket_id 和 input 的 value 組合成一個 array 放入 空的 hash 中，要傳到後端讓後端拆解
@@ -26,8 +26,6 @@ export default class extends Controller {
     })
     ax.post('/line_items/random_create', { ticketCount: ticketCount })
       .then(() => {
-        // 此處待解決！ 若是不 reload 購物清單的數字不會即時更新
-        location.reload()
       })
       .catch((err) => {
         alert(err)

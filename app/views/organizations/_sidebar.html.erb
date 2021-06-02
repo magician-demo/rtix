@@ -1,9 +1,9 @@
 <div data-controller="organizations-sidebar">
   <nav class="org-sidebar" data-organizations-sidebar-target="sidebar">
     <div class="org-list">
-      <%= link_to '組織公開頁面', "/organizations/#{params[:id]}",
-      target:"_blank"%> <%= link_to '活動列表', events_organization_path %> <%=
-      link_to '組織帳務', appropriations_organization_path %>
+      <%= link_to '組織公開頁面', "/organizations/#{params[:id]}", target:"_blank"%> 
+      <%= link_to '活動列表', events_organization_path %> 
+      <%=link_to '組織帳務', appropriations_organization_path %>
       <h2
         class="
           title

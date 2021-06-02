@@ -30,7 +30,6 @@
                 <div><%= image_tag "https://chart.googleapis.com/chart?chs=200x200&cht=qr&chl=#{u(@event.title)}%20#{u(seat.ticket.name)}%20#{u(seat.area)}%20#{u(seat.id)}&choe=UTF-8", class:"shadow-md rounded-lg"%></div>
                 <div class="mt-5 mb-10"><%= link_to "寄送票券", dashboard_mailing_path(@order.id, seat.id), class:"font-mono font-bold p-5 rounded-xl bg-gradient-to-r from-gray-50 to-gray-100 hover:from-pink-500 hover:to-yellow-500 hover:text-white cursor-pointer shadow-md text-sm md:text-sm lg:text-base" %> </div>
             </div>
-                <% end %>
             <% end %>
         </div>
     </div>

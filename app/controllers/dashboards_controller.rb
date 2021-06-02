@@ -1,11 +1,7 @@
 class DashboardsController < ApplicationController
     def index
-      # TODO: Remeebr to change to "current_user"
-      @orders = User.find(1).orders
-
-      
-      # TODO: Remeber to change to current_user
-      @hosts = User.find(1).organizations
+      @orders = current_user.orders
+      @hosts = current_user.organizations
       @host_events = @hosts.map{|host| host.events }.flatten
       @sorted_hosts = @host_events.sort{ 
         |a, b| [a[:s_year], a[:s_month], a[:s_date], a[:s_time]] <=> [b[:s_year], b[:s_month], b[:s_date], b[:s_time]] 
@@ -15,23 +11,20 @@ class DashboardsController < ApplicationController
     end
 
     def show
-      # TODO: Remeber to change to current_user
-      @user = User.find(1)
+      @user = current_user
       @order = Order.find(params[:id])
       @seats = @order.seats
       @event = @seats.map{|seat| seat.ticket.event }.uniq[0]
     end
 
     def new
-        # TODO: Remeber to change to current_user
-        @user = User.find(1)
-        @contact = Contact.new
-        @event = Event.find(params[:id])
+      @user = current_user
+      @contact = Contact.new
+      @event = Event.find(params[:id])
     end
 
     def create
-      # TODO: Remeber to change to current_user
-      @user = User.find(1)
+      @user = current_user
       @event = Event.find(params[:id])
       @contact = Contact.new(contact_params)
       

@@ -11,19 +11,10 @@
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.24/css/jquery.dataTables.min.css">
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/responsive/2.2.7/css/responsive.dataTables.min.css">
   </head>
-
   <body>
-  <div class="z-10 bg-red-500 w-full">
-    <% if current_user %>
-      <% current_user.email %>
-      <% link_to('登出', destroy_user_session_path, :method => :delete) %> |
-      <% link_to('修改密碼', edit_registration_path(:user)) %>
-    <% else %>
-      <% link_to('註冊', new_registration_path(:user)) %> |
-      <% link_to('登入', new_session_path(:user)) %>
-    <% end %>
-  </div>
+    <%= render 'layouts/messages' %>
+    <%= render 'layouts/header' %>
     <%= yield %>
-
-    </body>
+    <%= render 'layouts/footer' %>
+  </body>
 </html>

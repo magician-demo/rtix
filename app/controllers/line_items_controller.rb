@@ -12,7 +12,7 @@ class LineItemsController < ApplicationController
                id: seat.id,
                price: seat.ticket.price,
                itemId: line_item.id,
-               total_price: current_cart.total_price,
+               total_price: current_cart.total_price
              }
     else
       render json: { status: 'error' }

@@ -52,6 +52,10 @@
   }
 
   .sign-up{
-    @apply text-center text-lg bg-red-700 p-2 mr-2 rounded-xl;
+    @apply text-center text-lg bg-red-700 p-1 mr-2 mt-1 rounded-xl;
+  }
+
+  .logn-in{
+    @apply text-center text-lg bg-red-700 p-2 mr-2 mt-1 rounded-xl;
   }
 

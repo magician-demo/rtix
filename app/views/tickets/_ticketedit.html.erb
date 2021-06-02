@@ -1,0 +1,16 @@
+<% @tickets.each do |ticket| %>
+    <div class="flex my-3">
+      <div>
+        <%= label_tag "票種" %>:
+        <%= text_field_tag "tickets[][name]", ticket.name %>
+      </div>
+      <div class="ml-3">
+        <%= label_tag "票價" %>:
+        <%= text_field_tag "tickets[][price]", ticket.price %>
+      </div>
+      <div class="ml-3">
+        <%= label_tag "張數" %>:
+        <%= text_field_tag "tickets[][amount]", ticket.amount %>
+      </div>
+    </div>
+<%end%>

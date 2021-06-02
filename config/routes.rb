@@ -10,6 +10,7 @@ Rails
     devise_for :users
 
     resources :dashboards, path: 'dashboard', only: %i[index show] do
+
       collection do
         resources :organizations, except: [:show, :index] do
           member do
@@ -17,20 +18,23 @@ Rails
             get :events
             get :appropriations
             get :orders
+            get :publish
+            get :pending
           end
           resources :business_infos, only: [:new, :create]
         end
       end
+
       member do
         get :contact, controller: :dashboards, action: 'new'
         post :contact, controller: :dashboards, action: 'create'
       end
+
     end
 
     resources :events do
       resources :booking, only: %i[index show]
-      resources :tickets, only: [:new, :create, :edit, :update]
-        
+      resources :tickets, only: [:new, :create, :edit, :update]   
     end
 
     

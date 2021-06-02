@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_06_01_115722) do
+ActiveRecord::Schema.define(version: 2021_06_02_132239) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -62,9 +62,9 @@ ActiveRecord::Schema.define(version: 2021_06_01_115722) do
     t.string "e_time"
     t.string "city"
     t.bigint "organization_id"
-    t.string "image"
     t.datetime "start_time"
     t.datetime "end_time"
+    t.string "image"
     t.string "status", default: "pending"
     t.index ["organization_id"], name: "index_events_on_organization_id"
   end
@@ -163,6 +163,8 @@ ActiveRecord::Schema.define(version: 2021_06_01_115722) do
     t.string "role", default: "normal"
     t.string "name"
     t.string "tel"
+    t.string "provider"
+    t.string "uid"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

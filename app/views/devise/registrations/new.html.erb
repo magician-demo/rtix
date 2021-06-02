@@ -1,38 +1,45 @@
-<h2>Sign up</h2>
-<%= form_for(resource, as: resource_name, html:{'data-turbo' => "false"}, url: registration_path(resource_name)) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
+<div class="w-2/5 m-auto my-20  border">
+  <%= form_for(resource, as: resource_name, html:{'data-turbo' => "false"}, url: registration_path(resource_name)) do |f| %>
+    <%= render "devise/shared/error_messages", resource: resource %>
 
-  <div class="field">
-    <%= f.label :name %><br />
-    <%= f.text_field :name, autofocus: true, autocomplete: "email" %>
+    <div class="text-3xl font-bold text-center m-8">註冊頁面</div>
+    <div class="field">
+      <%= f.label :用戶名稱 %><br />
+      <%= f.text_field :name, autofocus: true, autocomplete: "email", placeholder: "請輸入英文或數字", class: "input-field" %>
+    </div>
+
+    <div class="field">
+      <%= f.label :電話 %><br />
+      <%= f.text_field :tel, autofocus: true, autocomplete: "email", placeholder: "請輸入電話", class: "input-field" %>
+    </div>
+
+    <div class="field">
+      <%= f.label :email信箱 %><br />
+      <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "請輸入有效email信箱", class: "input-field" %>
+    </div>
+
+    <div class="field">
+      <%= f.label :密碼 %>
+      <% if @minimum_password_length %>
+      <em>(至少<%= @minimum_password_length %> 位數英數字元）</em>
+      <% end %><br />
+      <%= f.password_field :password, autocomplete: "new-password", placeholder: "請輸至少6位數英數字元", class: "input-field" %>
+    </div>
+
+    <div class="field">
+      <%= f.label :再次確認密碼 %><br />
+      <%= f.password_field :password_confirmation, autocomplete: "new-password", placeholder: "再次確認密碼", class: "input-field" %>
+    </div>
+
+    <div class="actions text-center flex w-96 ml-16 mx-auto justify-between" >
+      <%= f.submit "註冊帳號", class: "sign-up" %>
+      <div class="border">Google</div>
+      <div class="border">Facebook</div>
+      <div class="border">github</div>
+    </div>
+    
+  <% end %>
+  <div class="text-center text-xs mt-2 mb-4 text-gray-500"> 
+  已經有帳號了嗎？<%= render "devise/shared/links" %>
   </div>
-
-  <div class="field">
-    <%= f.label :tel %><br />
-    <%= f.text_field :tel, autofocus: true, autocomplete: "email" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "Sign up" %>
-  </div>
-<% end %>
-
-<%= render "devise/shared/links" %>
+</div>

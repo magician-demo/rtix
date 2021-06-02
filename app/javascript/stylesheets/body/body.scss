@@ -43,5 +43,15 @@
     }
   }
 
-  
+  .field{
+    @apply px-16;
+    .input-field {
+      border: 1px solid rgb(184, 174, 174);
+      @apply mt-1 mb-3 w-96;
+    }
+  }
+
+  .sign-up{
+    @apply text-center text-lg bg-red-700 p-2 mr-2 rounded-xl;
+  }
 

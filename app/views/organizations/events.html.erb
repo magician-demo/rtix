@@ -1,5 +1,5 @@
 <div class="w-full m-auto flex">
-  <div><%= render 'sidebar' %></div>
+  <div class="bg-gray-700"><%= render 'sidebar' %></div>
   <div class="w-full p-5">
     <h3 class="w-full text-4xl text-center mt-5 text-gray-500 border-b border-gray-400 px-4 font-bold">
       組織名稱: <span class="text-4xl text-red-600"><%= @organization.title %></span></h3>
@@ -32,12 +32,14 @@
                 <td class="text-sm font-bold">票種名稱</td>
                 <td class="text-sm font-bold">售價</td>
                 <td class="text-sm font-bold">數量</td>
+                <td class="text-sm font-bold">修改</td>
               </tr>
-              <% event.tickets.each do |t| %>
+              <% event.tickets.sort.each do |t| %>
               <tr>
                 <td class="text-sm"><%= t.name %></td>
                 <td class="text-sm"><%= t.price %></td>
                 <td class="text-sm"><%= t.amount %></td>
+                <td class="text-sm"><%= link_to '編輯', edit_event_ticket_path(t.event.id, t.id) %> </td>
               </tr>
               <% end%>
             </table>

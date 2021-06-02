@@ -7,6 +7,7 @@ Rails
   .draw do
 
     root to: "events#index"
+    get "/contacts", to: "events#contacts"
     devise_for :users
 
     resources :dashboards, path: 'dashboard', only: %i[index show] do
@@ -33,8 +34,9 @@ Rails
     end
 
     resources :events do
+      
       resources :booking, only: %i[index show]
-      resources :tickets, only: [:new, :create, :edit, :update]   
+      resources :tickets, only: [:new, :create, :edit, :update]
     end
 
     

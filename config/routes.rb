@@ -34,7 +34,7 @@ Rails
 
     resources :events do
       resources :booking, only: %i[index show]
-      resources :tickets, only: [:new, :create, :edit, :update]   
+      resources :tickets, only: [:new, :create, :edit, :update]
     end
 
     

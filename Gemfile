@@ -38,6 +38,11 @@ gem 'sidekiq', '~> 6.1', '>= 6.1.2'
 gem 'sidekiq-scheduler', '~> 3.0', '>= 3.0.1'
 gem 'devise', '~> 4.8'
 gem 'rails-i18n'
+gem 'omniauth'
+gem 'omniauth-google-oauth2'
+gem 'omniauth-github'
+gem 'omniauth-facebook'
+gem "omniauth-rails_csrf_protection"
 gem 'figaro'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

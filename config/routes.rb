@@ -8,7 +8,7 @@ Rails
 
     root to: "events#index"
     get "/contacts", to: "events#contacts"
-    devise_for :users
+    devise_for :users, controllers: { omniauth_callbacks: "users/omniauth_callbacks" }
 
     resources :dashboards, path: 'dashboard', only: %i[index show] do
 

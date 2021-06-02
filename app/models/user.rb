@@ -9,4 +9,9 @@ class User < ApplicationRecord
   has_many :organizations
   has_one :cart
   has_many :orders
+
+  def admin?
+    self.role === 'admin'
+  end
+ 
 end

@@ -1,6 +1,6 @@
 class CheckinController < ApplicationController
   before_action :authenticate_user!
-  before_action :check_admin
+  before_action :authenticate_admin
 
   def show
     @seat = CheckIn.find(params[:id]).seat

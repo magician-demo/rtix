@@ -1,15 +1,18 @@
 .booking-navbar {
-  @apply flex justify-between bg-red-500 py-1 text-center;
+  @apply flex justify-between bg-red-700 py-2 text-center border-t-4 border-red-900;
 
   .timer {
-    @apply p-2 text-white border border-white rounded-xl;
+    @apply p-2 text-white border border-white rounded-xl shadow-md;
   }
 
   .cancel-ticket {
-    @apply px-2 py-2 text-white cursor-pointer border border-white rounded-xl mx-2;
+    @apply px-2 py-2 text-white cursor-pointer border border-white rounded-xl mx-2 shadow hover:bg-white hover:text-red-700;
   }
 
   .ticket-list {
-    @apply px-2 py-2 text-white cursor-pointer border border-white rounded-xl mx-2;
+    @apply px-2 py-2 cursor-pointer text-white border border-white shadow-md rounded-xl mx-2 hover:bg-white hover:text-red-700;
   }
+}
+.user-signout{
+  @apply opacity-25
 }

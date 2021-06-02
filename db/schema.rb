@@ -62,10 +62,11 @@ ActiveRecord::Schema.define(version: 2021_06_02_132239) do
     t.string "e_time"
     t.string "city"
     t.bigint "organization_id"
+    t.string "image"
     t.datetime "start_time"
     t.datetime "end_time"
-    t.string "image"
     t.string "status", default: "pending"
+    t.string "seats_image"
     t.index ["organization_id"], name: "index_events_on_organization_id"
   end
 

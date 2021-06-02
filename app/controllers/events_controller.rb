@@ -9,6 +9,9 @@ class EventsController < ApplicationController
     end
   end
 
+  def contacts
+  end
+
   def show
     @tickets = Event.find(params[:id]).tickets.sample(5).sort
     @event = Event.find(params[:id])

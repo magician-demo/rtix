@@ -39,7 +39,7 @@ export default class extends Controller {
           localStorage.removeItem('comeBefore')
           alert('選位時間已到，將您返回至活動頁面')
           ax.delete('/carts')
-            .then((res) => {
+            .then(() => {
               window.location.href = '/events'
             })
             .catch((err) => {

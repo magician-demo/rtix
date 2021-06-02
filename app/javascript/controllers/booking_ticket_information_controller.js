@@ -2,6 +2,10 @@ import { Controller } from 'stimulus'
 import ax from '../lib/ax'
 export default class extends Controller {
   connect() {
+    if (localStorage.justOnce != 'true') {
+        localStorage.setItem("justOnce", "true");
+        window.location.reload();
+    }
     const overlay = document.getElementById('overlay')
     const ticketInformation = document.querySelector('.ticket_information')
     if (localStorage.getItem('comeBefore') === 'shown') {
@@ -20,6 +24,7 @@ export default class extends Controller {
             .then((res) => {
               localStorage.removeItem('comeBefore')
               localStorage.removeItem('currentTime')
+              localStorage.removeItem('justOnce')
             })
             .catch((err) => {
               console.log(err)

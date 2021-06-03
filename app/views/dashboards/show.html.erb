@@ -1,8 +1,7 @@
-<%= notice %>
-<div class="ticket_wrapper">
+<div class="ticket_wrapper" data-controller="myticket">
     <h1  class="ticket_event"><%= @event.title %></h1>
+    <div id="flash_message" style="display:none;"><%= notice %></div>
     <div class="ticket_backlink_container"><%= link_to '返回上一頁', dashboards_path, class: "ticket_backlink" %></div>
-
 
     <div class="ticket_order_container">
         <h2 class="ticket_subhead">訂單資訊</h2>

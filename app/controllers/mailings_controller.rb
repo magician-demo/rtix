@@ -1,6 +1,4 @@
 class MailingsController < ApplicationController
-    include ApplicationHelper
-
     def write_email
         @mailing = Mailing.new
 

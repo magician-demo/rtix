@@ -13,8 +13,8 @@ class ContactMailer < ApplicationMailer
     attachments['rtix_logo.png'] = File.read('app/assets/images/rtix_logo.png')
     
     mail(
-       from: "friedrichchiu@gmail.com",
-       to: "rickchiuuniverse@gmail.com",   
+       from: "rickchiuuniverse@gmail.com",
+       to: "friedrichchiu@gmail.com",   
        subject: "[RTIX]參加人留言給您囉, 再請記得盡快抽空回覆!"
     )
   end

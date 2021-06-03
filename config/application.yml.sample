@@ -1,6 +1,6 @@
 
-gmail_username: 
-gmail_password:
+GMAIL_USERNAME: 
+GMAIL_PASSWORD:
 server: 
 server_key: 
 payment_url: 

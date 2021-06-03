@@ -9,13 +9,13 @@ class TicketMailer < ApplicationMailer
     @title = params[:title]
     @recipient = params[:recipient]
     @content = params[:content]
+    @checkin_id = params[:checkin_id]
 
 
     attachments['rtix_logo.png'] = File.read('app/assets/images/rtix_logo.png')
 
     mail(
-       from: "rickchiuuniverse@gmail.com",
-       to: "friedrichchiu@gmail.com",
+       to: "rickchiuuniverse@gmail.com",
        subject: @title
     )
   end

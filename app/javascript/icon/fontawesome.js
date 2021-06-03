@@ -4,9 +4,9 @@ import { faCalendarAlt as fasFaCalendarAlt, faGuitar, faAtlas, faPalette, faHear
 
 import { faCalendarAlt } from '@fortawesome/free-regular-svg-icons'
 
-import { faFacebookSquare, faInstagramSquare, faGooglePlusSquare } from '@fortawesome/free-brands-svg-icons'
+import { faFacebookSquare, faInstagramSquare, faGooglePlusSquare, faGoogle, faFacebook, faGithub } from '@fortawesome/free-brands-svg-icons'
 
-library.add(fasFaCalendarAlt, faFacebookSquare, faInstagramSquare, faGooglePlusSquare, faGuitar, faAtlas, faPalette, faHeart, faUtensils, faMountain, faSearch, faTicketAlt, faCalendarAlt, faCheck, faTimes)
+library.add(fasFaCalendarAlt, faFacebookSquare, faInstagramSquare, faGooglePlusSquare, faGuitar, faAtlas, faPalette, faHeart, faUtensils, faMountain, faSearch, faTicketAlt, faCalendarAlt, faCheck, faTimes, faGoogle, faFacebook, faGithub)
 
 dom.watch()
 

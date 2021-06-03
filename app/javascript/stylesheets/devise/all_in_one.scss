@@ -1,0 +1,43 @@
+.overall {
+  @apply max-w-3xl m-auto rounded-md text-center my-20 border-t-8 border-red-700 text-red-700 shadow-xl;
+
+  .devise_title {
+    @apply text-3xl font-bold m-6;
+  }
+
+  .our_field {
+    @apply w-1/2 m-auto text-left my-3;
+  }
+
+  .devise_label {
+    @apply inline-block mb-2;
+  }
+
+  .devise_input {
+    @apply border rounded-md w-full border-red-700 p-2;
+  }
+
+  .include_submit {
+    @apply w-1/2 m-auto flex justify-between py-2;
+
+    .devise_submit {
+      @apply bg-white border border-red-700 rounded-md p-2 inline-block w-full text-red-700 hover:text-white hover:bg-red-700 cursor-pointer;
+    }
+  }
+
+  .devsie_cutline {
+    @apply w-1/2 m-auto border border-red-700 my-4;
+  }
+
+  .devise_login {
+    @apply border inline-block w-1/2 rounded-md border-red-700 p-2 hover:text-white hover:bg-red-700 my-2;
+  }
+
+  .third_party {
+    @apply flex m-auto w-1/2 justify-between;
+
+    .party_log {
+      @apply border rounded-md p-2 border-red-700 hover:text-white hover:bg-red-700 mt-3 mb-6 cursor-pointer;
+    }
+  }
+}

@@ -10,7 +10,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_06_03_033701) do
+
+ActiveRecord::Schema.define(version: 2021_06_03_105859) do
+  
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -92,10 +94,11 @@ ActiveRecord::Schema.define(version: 2021_06_03_033701) do
     t.string "address"
     t.string "city"
     t.bigint "organization_id"
+    t.string "image"
     t.datetime "start_time"
     t.datetime "end_time"
-    t.string "image"
     t.string "status", default: "pending"
+    t.string "seats_image"
     t.index ["organization_id"], name: "index_events_on_organization_id"
   end
 
@@ -178,6 +181,15 @@ ActiveRecord::Schema.define(version: 2021_06_03_033701) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["ticket_id"], name: "index_seats_on_ticket_id"
+  end
+
+  create_table "sessions", force: :cascade do |t|
+    t.string "session_id", null: false
+    t.text "data"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["session_id"], name: "index_sessions_on_session_id", unique: true
+    t.index ["updated_at"], name: "index_sessions_on_updated_at"
   end
 
   create_table "tickets", force: :cascade do |t|

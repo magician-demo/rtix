@@ -1,44 +1,45 @@
-<h2>Edit <%= resource_name.to_s.humanize %></h2>
+<div class="overall">
 
+ <div class="devise_title">修改密碼</div>
+<% resource_name.to_s.humanize %>
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+  <div class="our_field">
+    <%= f.label :email , class:'devise_label' %><br />
+    <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "devise_input" %>
   </div>
 
   <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
     <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
+  <div class="our_field">
+    <%= f.label :密碼 , class:'devise_label' %>( 若不修改，請留空 )<br />
+    <%= f.password_field :password, autocomplete: "new-password", class: "devise_input" %>
     <% if @minimum_password_length %>
       <br />
-      <em><%= @minimum_password_length %> characters minimum</em>
+      <%= @minimum_password_length %> 個英數字元
     <% end %>
   </div>
 
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+  <div class="our_field">
+    <%= f.label :再次確認密碼 , class:'devise_label' %><br />
+    <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "devise_input" %>
   </div>
 
-  <div class="field">
-    <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
-    <%= f.password_field :current_password, autocomplete: "current-password" %>
+  <div class="our_field">
+    <%= f.label :原密碼 , class:'devise_label' %> ( 請輸入你原本的密碼，確認密碼更改 ) <br />
+    <%= f.password_field :current_password, autocomplete: "current-password", class: "devise_input" %>
   </div>
 
-  <div class="actions">
-    <%= f.submit "Update" %>
+  <div class="include_submit">
+    <%= f.submit "更新密碼", class: "devise_submit" %>
   </div>
-<% end %>
-
-<h3>Cancel my account</h3>
-
-<p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
-
-
-<%= link_to "Back", :back %>
+  <% end %>
+  <div class="devsie_cutline"></div>
+  <div class="flex w-1/2 m-auto justify-between pb-4">
+    <%= button_to '刪除帳號', registration_path(resource_name), data: { confirm: "確定註銷?" }, method: :delete, class: 'cursor-pointer bg-white border border-red-700 rounded-md p-2 hover:text-white hover:bg-red-700'%>
+    <%= link_to "上一頁", :back, class:'cursor-pointer bg-white border border-red-700 rounded-md p-2  hover:text-white hover:bg-red-700' %>
+  </div>
+</div>

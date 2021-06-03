@@ -7,10 +7,10 @@ Rails
   .draw do
 
     root to: "events#index"
-    devise_for :users
+    get "/contacts", to: "events#contacts"
+    devise_for :users, controllers: { omniauth_callbacks: "users/omniauth_callbacks" }
 
     resources :dashboards, path: 'dashboard', only: %i[index show] do
-
       collection do
         resources :organizations, except: [:show, :index] do
           member do
@@ -36,8 +36,9 @@ Rails
     end
 
     resources :events do
+      
       resources :booking, only: %i[index show]
-      resources :tickets, only: [:new, :create, :edit, :update]   
+      resources :tickets, only: [:new, :create, :edit, :update]
     end
 
 

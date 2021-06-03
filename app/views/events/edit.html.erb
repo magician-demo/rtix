@@ -1,3 +1,4 @@
+<div class="container h-full">
 <h3 class="p-8 mb-5 border-2 border-gray-100 font-bold text-4xl">組織名稱: <span class="text-red-600 font-bold"><%= @event.organization.title%></span></h3>
   
 <div class="apply_area w-11/12 px-8 m-auto">
@@ -33,6 +34,7 @@
         <abbr title="required" class="text-red-500 text-lg">*</abbr><%= event.label :address, "活動地址", class: "font-bold"%>
         <div><%= event.text_field :address, class: "border border-gray-400 rounded-lg w-5/6" %></div>
       </div>
+       <div class=" max-h-72" id="map"></div>
       <div class="event_num my-2">
         <abbr title="required" class="text-red-500 text-lg">*</abbr><%= event.label :description, "活動描述", class: "font-bold"%>
         <div><%= event.text_area :description, class: "border border-gray-400 rounded-lg w-5/6", cols: 30, rows: 8 %></div>
@@ -74,22 +76,19 @@
 </div>
 
 
-
 <script>
-  var map;
-    // console.log(this.element)
-    function initMap() {
-      // console.log(this);
-      map = new google.maps.Map(document.getElementById('map'), {
-      center: {lat: 23.5948979, lng: 119.8960512},
-      zoom: 8
-      });
-    }
-    initMap();
+      var map;
+      function initMap() {
+        map = new google.maps.Map(document.getElementById('map'), {
+          center: {lat: 23.5948979, lng: 119.8960512},
+          zoom: 8
+        });
+      }
 </script>
+
 
 
 <script src="https://maps.googleapis.com/maps/api/js?key=<%= ENV["map"] %>&callback=initMap"
     async defer></script>
     
-  <div id="map" ></div>
+ </div>

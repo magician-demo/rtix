@@ -72,3 +72,24 @@
   </div>
   <% end %>
 </div>
+
+
+
+<script>
+  var map;
+    // console.log(this.element)
+    function initMap() {
+      // console.log(this);
+      map = new google.maps.Map(document.getElementById('map'), {
+      center: {lat: 23.5948979, lng: 119.8960512},
+      zoom: 8
+      });
+    }
+    initMap();
+</script>
+
+
+<script src="https://maps.googleapis.com/maps/api/js?key=<%= ENV["map"] %>&callback=initMap"
+    async defer></script>
+    
+  <div id="map" ></div>

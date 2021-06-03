@@ -3,10 +3,6 @@ class DashboardsController < ApplicationController
       @orders = current_user.orders
       @hosts = current_user.organizations
       @host_events = @hosts.map{|host| host.events }.flatten
-      @sorted_hosts = @host_events.sort{ 
-        |a, b| [a[:s_year], a[:s_month], a[:s_date], a[:s_time]] <=> [b[:s_year], b[:s_month], b[:s_date], b[:s_time]] 
-      }
-
       @best_events = Event.all.sample(12)
     end
 

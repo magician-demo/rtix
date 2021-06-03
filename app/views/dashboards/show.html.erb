@@ -1,32 +1,34 @@
-<div class="ticket_wrapper">
-    <h1  class="ticket_event"><%= @this_event.title %></h1>
+<div class="ticket_wrapper" data-controller="myticket">
+    <h1  class="ticket_event"><%= @event.title %></h1>
+    <div id="flash_message" style="display:none;"><%= notice %></div>
     <div class="ticket_backlink_container"><%= link_to '返回上一頁', dashboards_path, class: "ticket_backlink" %></div>
-
 
     <div class="ticket_order_container">
         <h2 class="ticket_subhead">訂單資訊</h2>
-        <div class="w-full md:w-1/2 m-auto my-3">
-            <h5 class="sm:my-3"><span class="font-bold">訂票人姓名:</span> <%= @user.name %></h5>
-            <h5 class="sm:my-3"><span class="font-bold">訂票人電子郵件:</span> <%= @user.email %></h5>
-            <h5 class="sm:my-3"><span class="font-bold">訂票人聯繫電話:</span> <%= @user.tel %></h5>
-            <h5 class="sm:my-3"><span class="font-bold">票券總張數:</span> <%= @user_seats_count %>張票</h5>
-            <h5 class="sm:my-3"><span class="font-bold">票券總價:</span> $<%= @user_orders_total_amount %> NTD</h5>
+        <div class="w-2/4 lg:w-1/4 m-auto my-5 text-left">
+            <h5 class="sm:my-3"><span class="font-bold">訂單編號:</span> <%= @order.serial %></h5>
+            <h5 class="sm:my-3"><span class="font-bold">訂票人姓名:</span> <%= @order.user.name %></h5>
+            <h5 class="sm:my-3"><span class="font-bold">訂票人電子郵件:</span> <%= @order.user.email %></h5>
+            <h5 class="sm:my-3"><span class="font-bold">訂票人聯繫電話:</span> <%= @order.user.tel %></h5>
+            <h5 class="sm:my-3"><span class="font-bold">票券總張數:</span> <%= @order.seats.count %>張票</h5>
+            <h5 class="sm:my-3"><span class="font-bold">票券總價:</span> $<%= @order.seats.includes(:ticket).sum(:price)%> NTD</h5>
         </div>
     </div>
 
     <div class="ticket_info_container">
         <h2 class="ticket_subhead">票券資訊</h2>
         <div class="ticket_section">
-            <% @user_ticket.each do |order| %>
-                <% order.seats.each do |seat|%>
-            <div class="ticket_name" data-controller="myorder-qrcode">
-                <h5 class="ticket_belongs_to">
-                  <span class="font-bold">票券位置</span>：<%=seat.ticket.name%><%= seat.area %><%=seat.id%>號 <br>
-                  <span class="font-bold">票價</span>：$<%= seat.ticket.price %>
-                </h5>
-                <div class="qrcode" data-myorder-qrcode-target="qrcode" data-checkin-id="<%=seat.check_in.first.id%>"></div>
+            <% @seats.each do |seat| %>
+            <div class="ticket_name items-center">
+                <div class="flex flex-col justify-center my-5 text-left bg-gray-50 p-7 text-sm md:text-sm lg:text-base md:h-2/5 lg:h-3/5 rounded-lg shadow-md">
+                    <h5><span class="font-bold">票價：</span>$<%= seat.ticket.price %></h5><br>
+                    <h5><span class="font-bold">票種：</span><%= seat.ticket.name %></h5><br>
+                    <h5><span class="font-bold">座位區域：</span><%= seat.area %></h5><br>
+                    <h5><span class="font-bold">座位編號：</span><%= seat.id %></h5>
+                </div>
+                <div><%= image_tag "https://chart.googleapis.com/chart?chs=200x200&cht=qr&chl=https://rtix.site/checkin/#{u(seat.check_in.first.id)}&choe=UTF-8", class:"shadow-md rounded-lg"%></div>
+                <div class="mt-5 mb-10"><%= link_to "寄送票券", dashboard_mailing_path(@order.id, seat.id), class:"font-mono font-bold p-5 rounded-xl bg-gray-100 hover:bg-red-700 hover:text-white cursor-pointer shadow-md text-sm md:text-sm lg:text-base" %> </div>
             </div>
-                <% end %>
             <% end %>
         </div>
     </div>

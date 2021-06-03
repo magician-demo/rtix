@@ -2,27 +2,21 @@
   <table id="table_id" class="display">
     <thead>
       <tr>
-        <th class="thead">活動年份</th>
-        <th class="thead">活動月份</th>
         <th class="thead">活動名稱</th>
         <th class="thead">活動描述</th>
-        <th class="thead">城市</th>
         <th class="thead">地點</th>
-        <th class="thead">活動開始日期/時間</th>
-        <th class="thead">活動結束日期/時間</th>
+        <th class="thead">活動開始</th>
+        <th class="thead">活動結束</th>
       </tr>
     </thead>
     <tbody>
-      <% @sorted_hosts.each do |host| %>
-      <tr>
-        <td class="ftext year"><%= host.s_year %></td>
-        <td class="ftext month"><%= host.s_month %></td>        
+      <% @host_events.each do |host| %>
+      <tr>  
         <td class="eventname event"><%= host.title %></td>
         <td class="mtext descrp"><%= host.description %></td>
-        <td class="mtext city"><%= host.city %></td>
         <td class="mtext"><%= host.location %></td>
-        <td class="mtext"><span class="smonth"><%= host.s_month%></span>/<span class="sdate"><%= host.s_date%></span> @ <span class="stime"><%= host.s_time%></span></td>
-        <td class="mtext"><span class="emonth"><%= host.e_month%></span>/<span class="edate"><%= host.e_date%></span> @ <span class="etime"><%= host.e_time%></span></td>
+        <td class="mtext"><%= host.start_time %></td>
+        <td class="mtext"><%= host.end_time %></td>
       </tr>
       <% end %>
     </tbody>

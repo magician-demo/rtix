@@ -1,7 +1,7 @@
 <div class="wrapper">
 
-    <%= notice %>
     <div class="myorder" data-controller="myorder">
+        <div id="flash_message" style="display:none;"><%= notice %></div>
         <div class="subtab">
             <div class="ticketab" data-action="click->myorder#showticket mouseover->myorder#tickethover" data-myorder-target="ticket">票券總覽</div>
             <div class="hostab" data-action="click->myorder#showhost mouseover->myorder#hosthover" data-myorder-target="host">舉辦活動總覽</div>
@@ -19,7 +19,7 @@
 
         <div class="content">
             <h2 class="subhead">RTIX精選活動</h2>
-            <div class="container overflow-y-scroll h-72">
+            <div>
                 <%= render "events/event" %>
             </div>
         </div>

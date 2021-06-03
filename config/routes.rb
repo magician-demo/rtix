@@ -11,7 +11,6 @@ Rails
     devise_for :users, controllers: { omniauth_callbacks: "users/omniauth_callbacks" }
 
     resources :dashboards, path: 'dashboard', only: %i[index show] do
-
       collection do
         resources :organizations, except: [:show, :index] do
           member do
@@ -31,6 +30,9 @@ Rails
         post :contact, controller: :dashboards, action: 'create'
       end
 
+      get "mailing/:id", controller: :mailings, action: 'write_email', as: "mailing"
+      post "mailing/:id", controller: :mailings, action: 'send_email'
+
     end
 
     resources :events do
@@ -39,13 +41,20 @@ Rails
       resources :tickets, only: [:new, :create, :edit, :update]
     end
 
+
+
+  resources :events do
+    resources :booking, only: %i[index show]
+    resources :tickets, only: [:new, :create, :edit, :update]
+  end
+
     
 
-    resources :organizations, only: [:show]
+  resources :organizations, only: [:show]
 
-      resources :line_items, only: %i[create destroy show] do
-        collection { post :random_create }
-      end
+  resources :line_items, only: %i[create destroy show] do
+    collection { post :random_create }
+  end
 
     resource :carts, only: [:destroy]
 

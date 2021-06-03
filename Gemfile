@@ -23,7 +23,7 @@ gem 'redis', '~> 4.0'
 # gem 'bcrypt', '~> 3.1.7'
 
 # Use Active Storage variant
-# gem 'image_processing', '~> 1.2'
+gem 'image_processing', '~> 1.2'
 gem 'carrierwave', '~> 2.0'
 gem 'mini_magick', '~> 4.11'
 
@@ -61,7 +61,6 @@ group :development do
 
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
-
   gem 'hirb-unicode', '~> 0.0.5'
   gem 'faker', git: 'https://github.com/faker-ruby/faker.git', branch: 'master'
 end

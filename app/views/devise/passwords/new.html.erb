@@ -1,18 +1,16 @@
 
-<div class="w-2/5 m-auto my-20  border py-6 ">
+<div class="overall">
+  <div class="devise_title">您註冊的信箱</div>
   <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
     <%= render "devise/shared/error_messages", resource: resource %>
 
-    <div class="field">
-      <%= f.label :email %><br />
-      <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "請輸入您註冊的信箱", class: "input-field" %>
+    <div class="our_field">
+      <%= f.label :email, class:'devise_label' %><br />
+      <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "請輸入您註冊的信箱", class: "devise_input" %>
     </div>
 
-    <div class="actions text-center flex w-96 ml-16 mx-auto justify-between">
-      <%= f.submit "重設密碼", class: "sign-up"  %>
+    <div class="include_submit">
+      <%= f.submit "送出", class: "devise_submit"  %>
     </div>
   <% end %>
-  <div class="ml-16 text-xs mt-2 mb-4 text-gray-500"> 
-  <%= render "devise/shared/links" %>
-  </div>
 </div>

@@ -3,13 +3,7 @@
 }
 
 .ticket_event {
-    @apply my-5 text-center align-middle text-3xl p-12 bg-gradient-to-r from-yellow-400 via-red-500 to-pink-500 text-white rounded-lg;
-
-    @apply sm:my-5 sm:text-center sm:align-middle sm:text-3xl sm:p-12 sm:bg-gradient-to-r from-yellow-400 via-red-500 to-pink-500 sm:text-white rounded-lg;
-
-    @apply md:my-10 md:text-center md:align-middle md:text-5xl md:p-28 md:bg-gradient-to-r from-yellow-400 via-red-500 to-pink-500 md:text-white rounded-lg;
-
-    @apply lg:my-20 lg:text-center lg:align-middle lg:text-6xl lg:p-44 lg:bg-gradient-to-r from-yellow-400 via-red-500 to-pink-500 lg:text-white rounded-lg;
+    @apply my-5 sm:my-5 md:my-10 lg:my-20 text-center align-middle text-3xl sm:text-3xl md:text-5xl lg:text-6xl p-12 sm:p-12 md:p-28 lg:p-44 bg-red-700 text-white rounded-lg;
 }
 
 .ticket_backlink_container {
@@ -17,9 +11,7 @@
 }
 
 .ticket_backlink {
-  @apply font-mono shadow-md font-bold p-3 rounded-xl bg-gradient-to-r from-gray-50 to-gray-100 hover:from-pink-500 hover:to-yellow-500 hover:text-white cursor-pointer;
-
-  @apply md:font-mono md:shadow-md md:font-bold md:p-5 md:rounded-xl md:bg-gradient-to-r from-gray-50 to-gray-100 md:hover:from-pink-500 hover:to-yellow-500 md:hover:text-white md:cursor-pointer;
+  @apply font-mono shadow-md font-bold p-3 md:p-5 rounded-xl bg-gray-100 hover:bg-red-700 hover:text-white cursor-pointer;
 }
 
 .ticket_order_container {

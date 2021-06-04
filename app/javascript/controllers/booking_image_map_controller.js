@@ -22,7 +22,7 @@ export default class extends Controller {
 
 function createPositionTips(posX, posY) {
   let div = document.createElement('div')
-  div.className += 'absolute lg:text-5xl text-xl md:text-2xl'
+  div.className = "absolute lg:text-5xl text-xl md:text-2xl"
   div.style.top=`${posY - 1}%`
   div.style.left=`${posX - 2}%`
   div.innerHTML = `<i class="fas fa-street-view"></i>`

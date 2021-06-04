@@ -12,7 +12,7 @@ export default class extends Controller {
       localStorage.setItem('currentTime', new Date())
     }
     // 設置時間，根據現在時間減去進入的時間得到要倒數的 total 毫秒
-    const timeInMinutes = 100
+    const timeInMinutes = 10
     const deadline = new Date(
       Date.parse(currentTime) + timeInMinutes * 60 * 1000
     )

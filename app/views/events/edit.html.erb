@@ -32,12 +32,13 @@
       </div>
       <div class="event_num my-2">
         <abbr title="required" class="text-red-500 text-lg">*</abbr><%= event.label :address, "活動地址", class: "font-bold"%>
-        <div><%= event.text_field :address, class: "googlemap border border-gray-400 rounded-lg w-5/6" %></div>
+        <div><%= event.text_field :address, class: "googlemap border border-gray-400 rounded-lg w-5/6", placeholder: "請務必填寫完整地址，包含市、區、路等" %></div>
+        <span type="button" class="map-button border p-1 my-1 ">觀看地圖</span>
       </div>
 
       <%# 地圖 %>
       
-      <div class=" max-h-72" id="map"></div>
+      <div class=" max-h-72" data-maplat="<%= @event.latitude %>" data-maplon="<%= @event.longitude %>" id="map"></div>
 
       <div class="event_num my-2">
         <abbr title="required" class="text-red-500 text-lg">*</abbr><%= event.label :description, "活動描述", class: "font-bold"%>
@@ -88,25 +89,30 @@
       //     zoom: 8
       //   });
       // }
+      
+
+      const lag = Number(document.getElementById('map').dataset['maplat'])
+      const lon = Number(document.getElementById('map').dataset['maplon'])
 
       var map;
       function initMap() {
 
         var taiwan = {lat: 23.5878365, lng: 121};
         map = new google.maps.Map(document.getElementById('map'), {
-          center:  {lat: 25.0338041 , lng: 121.5623621},
-          zoom: 8
+          center:  {lat: lag , lng: lon},
+          zoom: 15
         });
         var marker = new google.maps.Marker({
-          position: {lat: 25.0338041 , lng: 121.5623621},
+          position: {lat: lag, lng: lon},
           map: map
         });
       }
 
 
-  // document.querySelector('.googlemap').addEventListener('blur', (e)=>{
-  //   console.log(e.target.value)
-  // })
+
+      // document.querySelector('.googlemap').addEventListener('blur', (e)=>{
+      //   console.log(e.target.value.geocode)
+      // })
 
 </script>
 

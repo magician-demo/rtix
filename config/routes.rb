@@ -1,10 +1,7 @@
 require 'sidekiq/web'
 require 'sidekiq-scheduler/web'
 
-Rails
-  .application
-  .routes
-  .draw do
+Rails.application.routes.draw do
 
     root to: "events#index"
     get "/contacts", to: "events#contacts"
@@ -36,28 +33,18 @@ Rails
     end
 
     resources :events do
-      
       resources :booking, only: %i[index show]
       resources :tickets, only: [:new, :create, :edit, :update]
     end
 
+    resources :organizations, only: [:show]
 
-
-  resources :events do
-    resources :booking, only: %i[index show]
-    resources :tickets, only: [:new, :create, :edit, :update]
-  end
-
-    
-
-  resources :organizations, only: [:show]
-
-  resources :line_items, only: %i[create destroy] do
-    collection do 
-      post :random_create 
-      get :ticket_list
+    resources :line_items, only: %i[create destroy] do
+      collection do 
+        post :random_create 
+        get :ticket_list
+      end
     end
-  end
 
     resource :carts, only: [:destroy]
 
@@ -75,4 +62,6 @@ Rails
       collection { post :return_url }
     end
     mount Sidekiq::Web => '/sidekiq'
+
+    get 'overtime', to: 'overtime#index'
   end

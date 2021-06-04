@@ -37,10 +37,9 @@ export default class extends Controller {
           clearInterval(timeInterval)
           localStorage.removeItem('currentTime')
           localStorage.removeItem('comeBefore')
-          alert('選位時間已到，將您返回至活動頁面')
           ax.delete('/carts')
             .then(() => {
-              window.location.href = '/events'
+              window.location.href = '/overtime'
             })
             .catch((err) => {
               console.log(err)

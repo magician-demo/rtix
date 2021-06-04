@@ -52,8 +52,11 @@ Rails
 
   resources :organizations, only: [:show]
 
-  resources :line_items, only: %i[create destroy show] do
-    collection { post :random_create }
+  resources :line_items, only: %i[create destroy] do
+    collection do 
+      post :random_create 
+      get :ticket_list
+    end
   end
 
     resource :carts, only: [:destroy]

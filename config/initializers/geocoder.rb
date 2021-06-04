@@ -24,5 +24,4 @@ Geocoder.configure(
   ip_lookup: :maxmind,       # name of IP address geocoding service (symbol)
   use_https: true,           # use HTTPS for lookup requests? (if supported)
   api_key: ENV["map"], 
-  cache: Redis.new
 )

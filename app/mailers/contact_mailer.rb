@@ -13,8 +13,8 @@ class ContactMailer < ApplicationMailer
     attachments['rtix_logo.png'] = File.read('app/assets/images/rtix_logo.png')
     
     mail(
-       to: @user.email,   
-       subject: "[RTIX]參加人留言給您囉, 再請記得盡快抽空回覆!"
+      to: @event.organization.e_mail, 
+      subject: "[RTIX]參加人留言給您囉, 再請記得盡快抽空回覆!"
     )
   end
 end

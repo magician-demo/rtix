@@ -3,7 +3,14 @@ class DashboardsController < ApplicationController
       @orders = current_user.orders
       @hosts = current_user.organizations
       @host_events = @hosts.map{|host| host.events }.flatten
-      @best_events = Event.all.sample(12)
+
+      new_events = Event.order(:created_at).last(5)
+      hot_events = CheckIn.group(:event_id).count.to_a.sort_by { |event,times| times }.first(5).map do |event_info|
+        Event.find(event_info[0])
+      end
+      
+      @best_events = (new_events + hot_events).uniq
+      
     end
 
     def show

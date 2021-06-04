@@ -37,7 +37,7 @@ class EventsController < ApplicationController
 
   def update
     @event.update(event_params)
-    redirect_to edit_event_ticket_path(@event.id, @event.organization_id), notice: "請接著看票券是否進行修改"
+    redirect_to events_organization_path(@event.organization_id)
   end
 
   def destroy

@@ -15,7 +15,10 @@
 
 <div class="event_information">
   <h1 class="event_information_title"><%= @event.title %></h1>
-  <div class="event_information_column">
+  <div class="event_information_column flex">
+  <div class="w-1/2">
+  
+  
     <span class="event_column_title">開始時間</span>
     <span class="event_column_information">
     <% if @event.start_time != nil %>
@@ -34,10 +37,11 @@
     時間未定
     <% end %>
     </span>
-  <div class="event_information_column">
+  <div class="event_information_column ">
     <span class="event_column_title">活動地點</span>
     <span class="event_column_information"><%= @event.location %> / <%= @event.address %></span>
   </div>
+  
   <div class="event_information_column">
     <span class="event_column_title">主辦單位</span>
     <span class="event_column_information"> <%= @event.organization.title %></span>
@@ -52,7 +56,12 @@
   </div>
   </div>
 </div>
+  <div class="w-1/2">
+  <div class="" id="map"></div>
+  </div>
+</div> 
   <%= render 'booking_status'%>
+  
 
 <section class="event_information my-5">
   <div class="event_booking_area">
@@ -62,3 +71,39 @@
 </section>
 
 </div>
+
+
+<script>
+      // var map;
+      // function initMap() {
+      //   map = new google.maps.Map(document.getElementById('map'), {
+      //     center: {lat: 23.5948979, lng: 119.8960512},
+      //     zoom: 8
+      //   });
+      // }
+
+      var map;
+      function initMap() {
+
+        var taiwan = {lat: 23.5878365, lng: 121};
+        map = new google.maps.Map(document.getElementById('map'), {
+          center:  {lat: 25.0338041 , lng: 121.5623621},
+          zoom: 15
+        });
+        var marker = new google.maps.Marker({
+          position: {lat: 25.0338041 , lng: 121.5623621},
+          map: map
+        });
+      }
+
+
+  // document.querySelector('.googlemap').addEventListener('blur', (e)=>{
+  //   console.log(e.target.value)
+  // })
+
+</script>
+
+
+
+<script src="https://maps.googleapis.com/maps/api/js?key=<%= ENV["map"] %>&callback=initMap"
+    async defer></script>

@@ -43,13 +43,6 @@ Rails
 
 
 
-  resources :events do
-    resources :booking, only: %i[index show]
-    resources :tickets, only: [:new, :create, :edit, :update]
-  end
-
-    
-
   resources :organizations, only: [:show]
 
   resources :line_items, only: %i[create destroy] do

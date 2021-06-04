@@ -12,28 +12,6 @@ export default class extends Controller {
       overlay.classList.remove('active')
       ticketInformation.classList.remove('active')
     }
-    if (window.history && window.history.pushState) {
-      window.onpopstate = () => {
-        if (
-          confirm(
-            '脫離訂位畫面，訂單將先行取消，座位亦不保留，您確定要離開嗎？'
-          )
-        ) {
-          window.location.href = '/events'
-          ax.delete('/carts')
-            .then((res) => {
-              localStorage.removeItem('comeBefore')
-              localStorage.removeItem('currentTime')
-              localStorage.removeItem('justOnce')
-            })
-            .catch((err) => {
-              console.log(err)
-            })
-        } else {
-          history.pushState('', '', '')
-        }
-      }
-    }
   }
   close() {
     const overlay = document.getElementById('overlay')

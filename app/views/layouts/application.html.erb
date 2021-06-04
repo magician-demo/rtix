@@ -12,9 +12,11 @@
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/responsive/2.2.7/css/responsive.dataTables.min.css">
   </head>
   <body>
-    <%= render 'layouts/messages' %>
-    <%= render 'layouts/header' %>
-    <%= yield %>
-    <%= render 'layouts/footer' %>
+      <div class="set_footer_bottom">
+        <%= render 'layouts/messages' %>
+        <%= render 'layouts/header' %>
+        <%= yield %>
+        <%= render 'layouts/footer' %>
+      </div>
   </body>
 </html>

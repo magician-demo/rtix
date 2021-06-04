@@ -1,3 +1,7 @@
 .alert {
   @apply bg-red-500 text-center text-white py-2 text-lg;
 }
+
+.set_footer_bottom {
+  @apply flex flex-col justify-between min-h-screen h-full;
+}

@@ -1,5 +1,4 @@
 import { Controller } from 'stimulus'
-import Swal from 'sweetalert2'
 import ax from '../lib/ax'
 
 export default class extends Controller {
@@ -40,8 +39,7 @@ export default class extends Controller {
           localStorage.removeItem('comeBefore')
           ax.delete('/carts')
             .then(() => {
-              window.location.href = '/events'
-              Swal.fire('時間已到！請重新購票')
+              window.location.href = '/overtime'
             })
             .catch((err) => {
               console.log(err)

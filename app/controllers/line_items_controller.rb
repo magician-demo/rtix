@@ -31,6 +31,14 @@ class LineItemsController < ApplicationController
     end
   end
 
+  def ticket_list
+    @ticket_id_array = []
+    current_cart.seats.each do |seat|
+      @ticket_id_array << seat.ticket.id
+    end
+    render json: @ticket_id_array.sort.uniq
+  end
+
   def random_create
     # params[:ticketCount] 為前端表格回傳的資料結構為一個 hash 內有陣列 (根據票種數量而定)
     params[:ticketCount].each do |per_ticket|

@@ -28,11 +28,11 @@ export default class extends Controller {
       })
   }
 }
-function addList({ area, id, price, itemId }) {
+function addList({ name, area, id, price, itemId }) {
   let div = document.createElement('div')
   div.className += 'cart_list'
   div.innerHTML = `
-    <span class="px-2">${area}${id}號位</span><br>
+    <span class="px-2">${name}｜${area}｜${id}號位</span><br>
     <span class="px-2">$${price}</span>
     <div class="remove_btn" 
          data-controller="booking-cart-list"

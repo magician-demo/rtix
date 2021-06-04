@@ -8,6 +8,7 @@ class LineItemsController < ApplicationController
     line_item = current_cart.line_items.new(seat_id: params[:seat_id])
     if line_item.save
       render json: {
+               name: seat.ticket.name,
                area: seat.area,
                id: seat.id,
                price: seat.ticket.price,

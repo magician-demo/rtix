@@ -2,6 +2,7 @@ class Event < ApplicationRecord
   has_many :tickets, :dependent => :destroy
   belongs_to :organization
   mount_uploader :image, ImageUploader
+  mount_uploader :seats_image, ImageUploader
 
   validates :title, presence: true
   validates :start_time, presence: true

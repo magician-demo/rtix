@@ -1,17 +1,29 @@
 import { Controller } from 'stimulus'
+import Swal from 'sweetalert2'
 
 export default class extends Controller {
   static targets = ['content', 'ticket', 'host', 'calendar']
 
   connect() {
+
     $('#table_id').DataTable({
-      scrollY: '200px',
-      scrollCollapse: true,
-      paging: false,
-      info: false,
-      responsive: true,
-      columnDefs: [{ width: '20%', targets: 3 }],
-    })
+      "scrollY":        "200px",
+      "scrollCollapse": true,
+      "paging":         false,
+      "info":           false,
+      responsive: true
+    });
+
+    let flash_message =  document.querySelector("#flash_message").textContent;
+    if (flash_message.length > 0) {
+      Swal.fire(
+        `${flash_message}`,
+        '按下方 OK 按鈕可關閉此提示訊息',
+        'success'
+      );
+    } else {
+      console.log('none');
+    }
   }
 
   showticket() {
@@ -23,13 +35,12 @@ export default class extends Controller {
     let ticketview = ticketTemplate.content.cloneNode(true)
     this.contentTarget.appendChild(ticketview)
     $('#table_id').DataTable({
-      scrollY: '200px',
-      scrollCollapse: true,
-      paging: false,
-      info: false,
-      responsive: true,
-      columnDefs: [{ width: '30%', targets: 3 }],
-    })
+      "scrollY":        "200px",
+      "scrollCollapse": true,
+      "paging":         false,
+      "info":           false,
+      responsive: true
+    });
   }
 
   showhost() {
@@ -47,8 +58,7 @@ export default class extends Controller {
       info: false,
       responsive: true,
       columnDefs: [
-        { width: '10%', targets: 1 },
-        { width: '20%', targets: 3 },
+        { width: '20%', targets: 1 }
       ],
     })
   }
@@ -61,32 +71,20 @@ export default class extends Controller {
     this.ticketTarget.style.background = ''
   }
 
-  import(e) {
-    let row = e.target.parentNode.parentNode.children
+  import(e){
+    let row = e.target.parentNode.parentNode.children;
+    let event = row[2].textContent;
+    let location = row[3].textContent;
+    let start_time = row[4].textContent.substr(0,16).replace(" ","").replace(":","").replace("-","").replace("-","");
+    let end_time = row[5].textContent.substr(0,16).replace(" ","").replace(":","").replace("-","").replace("-","");
 
-    let event = row[2].textContent
-    let s_year = row[0].textContent
-    let s_month = row[6].children[0].textContent
-    let s_date = row[6].children[1].textContent
-    let s_time = row[6].children[4].textContent
-    let e_year = row[0].textContent
-    let e_month = row[7].children[0].textContent
-    let e_date = row[7].children[1].textContent
-    let e_time = row[7].children[4].textContent
-    let location = row[4].textContent
 
-    let tMark = 'T'
+    let stime = start_time.slice(0,8) + "T" + start_time.slice(8,12)
+    let etime = end_time.slice(0,8) + "T" + end_time.slice(8,12)
 
-    let stime = s_year + s_month + s_date + tMark + s_time
-    let etime = e_year + e_month + e_date + tMark + e_time
 
-    window
-      .open(
-        `https://www.google.com/calendar/render?action=TEMPLATE&sf=true&output=xml&text=${event}&location=${location}&dates=${stime}/${etime}`,
-        '_blank'
-      )
-      .focus()
+    window.open(`https://www.google.com/calendar/render?action=TEMPLATE&sf=true&output=xml&text=${event}&location=${location}&dates=${stime}/${etime}`, '_blank').focus();
+    window.location.reload();
 
-    window.location.reload()
   }
 }

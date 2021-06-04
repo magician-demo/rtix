@@ -1,12 +1,12 @@
 <div class="event_img my-5">
   <% if @event.image? %> 
-    <%= image_tag(@event.image.url) %> 
+    <%= image_tag(@event.image.url, class:"m-auto") %> 
   <% else %>
     <img
       data-organizations-image-target="imagebox"
       id="preview"
       class="image m-auto"
-      src="https://fakeimg.pl/320x320/"
+      src="/image/RTIX.jpg"
     >
   <% end %>
 </div>
@@ -65,7 +65,14 @@
 
 <section class="event_information my-5">
   <div class="event_booking_area">
-    <img src="https://t.kfs.io/upload_images/arena_images/1492/__-__.jpg" alt="" class="area_setting">
+    <% if @event.seats_image? %> 
+      <%= image_tag(@event.seats_image.url, class:"area_setting") %> 
+    <% else %>
+      <img
+        class="image m-auto"
+        src="/image/RTIX.jpg"
+      >
+    <% end %>
   </div>
   <%=render 'ticket_table', tickets: @tickets%>
 </section>

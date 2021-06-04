@@ -76,6 +76,25 @@
       </div>
     </div>
 
+    <div class="org-image-group" data-controller="seats-image">
+      <h5>座位圖</h5>
+      <div class="image-box">
+        <% if @event.seats_image? %> <%= image_tag(@event.seats_image_url, class:"seats-image") %>
+        <% else %>
+        <img
+          id="seats-preview"
+          class="image seats-image m-auto"
+          src="/image/RTIX.jpg"
+        >
+        <% end %>
+      </div>
+      <div class="mt-8 flex justify-center">
+        <label class="org-image-button">
+          上傳圖片 <%= event.file_field :seats_image, id: :event_seats_image, class:"org-image-input", data: { action: "change->seats-image#update" }%>
+        </label>
+      </div>
+    </div>
+
   </div>
   <% end %>
 </div>

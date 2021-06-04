@@ -1,17 +1,13 @@
 require 'sidekiq/web'
 require 'sidekiq-scheduler/web'
 
-Rails
-  .application
-  .routes
-  .draw do
+Rails.application.routes.draw do
 
     root to: "events#index"
     get "/contacts", to: "events#contacts"
     devise_for :users, controllers: { omniauth_callbacks: "users/omniauth_callbacks" }
 
     resources :dashboards, path: 'dashboard', only: %i[index show] do
-
       collection do
         resources :organizations, except: [:show, :index] do
           member do
@@ -31,21 +27,24 @@ Rails
         post :contact, controller: :dashboards, action: 'create'
       end
 
+      get "mailing/:id", controller: :mailings, action: 'write_email', as: "mailing"
+      post "mailing/:id", controller: :mailings, action: 'send_email'
+
     end
 
     resources :events do
-      
       resources :booking, only: %i[index show]
       resources :tickets, only: [:new, :create, :edit, :update]
     end
 
-    
-
     resources :organizations, only: [:show]
 
-      resources :line_items, only: %i[create destroy show] do
-        collection { post :random_create }
+    resources :line_items, only: %i[create destroy] do
+      collection do 
+        post :random_create 
+        get :ticket_list
       end
+    end
 
     resource :carts, only: [:destroy]
 
@@ -63,4 +62,6 @@ Rails
       collection { post :return_url }
     end
     mount Sidekiq::Web => '/sidekiq'
+
+    get 'overtime', to: 'overtime#index'
   end

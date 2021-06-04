@@ -23,7 +23,7 @@ gem 'redis', '~> 4.0'
 # gem 'bcrypt', '~> 3.1.7'
 
 # Use Active Storage variant
-# gem 'image_processing', '~> 1.2'
+gem 'image_processing', '~> 1.2'
 gem 'carrierwave', '~> 2.0'
 gem 'mini_magick', '~> 4.11'
 
@@ -43,6 +43,7 @@ gem 'omniauth-google-oauth2'
 gem 'omniauth-github'
 gem 'omniauth-facebook'
 gem "omniauth-rails_csrf_protection"
+gem 'activerecord-session_store'
 gem 'figaro'
 gem 'geocoder', '~> 1.6', '>= 1.6.7'
 
@@ -66,7 +67,6 @@ group :development do
 
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
-
   gem 'hirb-unicode', '~> 0.0.5'
   gem 'faker', git: 'https://github.com/faker-ruby/faker.git', branch: 'master'
 end

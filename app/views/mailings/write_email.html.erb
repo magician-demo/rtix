@@ -1,0 +1,25 @@
+<div class="w-11/12 m-auto">
+    <div class="mt-8"><%= link_to '返回上一頁', dashboard_path(params[:dashboard_id]), class: "font-mono shadow-md font-bold p-4 rounded-xl bg-gray-100 hover:bg-red-700 hover:text-white cursor-pointer" %></div> 
+    
+    <h1 class="contact_heading">入場憑證寄送</h1>
+    <div class="contact_form p-10">
+        <%= form_for(@mailing, url: dashboard_mailing_path(params[:dashboard_id], params[:id]), method: "post") do |form| %>
+        <div class="mb-5">
+            <%= form.label :title, "主旨", class: "font-bold" %>:
+            <%= form.text_field :title, class: "contact_textfield" %>
+        </div>
+        <div class="mb-5">
+            <%= form.label :recipient, "收票人電子郵件", class: "font-bold" %>:
+            <%= form.text_field :recipient, class: "contact_textfield"%>
+        </div>
+        <div class="mb-5">
+            <%= form.label :content, "訊息", class: "font-bold" %>:
+            <%= form.rich_text_area :content, class: "contact_textfield" %>
+        </div>
+
+        <div class="mb-5"><%= image_tag "https://chart.googleapis.com/chart?chs=200x200&cht=qr&chl=https://rtix.site/checkin/#{u(@seat.check_in.first.id)}&choe=UTF-8", class:"w-1/4 m-auto shadow-2xl"%></div>
+
+        <div class="text-center"><%= form.submit "送出", class: "font-mono shadow-md font-bold p-4 rounded-xl bg-gray-100 hover:bg-red-700 hover:text-white cursor-pointer px-11" %></div>
+        <% end %>
+    </div>
+</div>

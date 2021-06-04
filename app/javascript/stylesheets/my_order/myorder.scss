@@ -11,31 +11,32 @@
 }
 
 .ticketab {
-  @apply font-mono p-4 rounded-xl bg-gradient-to-r from-gray-50 to-gray-100 hover:from-pink-500 hover:to-yellow-500 hover:from-pink-500 hover:to-yellow-500 cursor-pointer;
+  @apply font-mono font-bold p-4 rounded-xl bg-gray-100 hover:bg-red-700 hover:text-white cursor-pointer;
 }
 
 .hostab {
-  @apply font-mono p-4 rounded-xl bg-gradient-to-r from-gray-50 to-gray-100 hover:from-pink-500 hover:to-yellow-500 hover:from-pink-500 hover:to-yellow-500 cursor-pointer;
+  @apply font-mono font-bold p-4 rounded-xl bg-gray-100 hover:bg-red-700 hover:text-white cursor-pointer;
 }
 
 .addticketab {
-  @apply bg-gradient-to-r from-yellow-400 via-red-500 to-pink-500 text-white;
+  @apply bg-red-700 text-white;
 }
 
 .addhostab {
-  @apply bg-gradient-to-r from-yellow-400 via-red-500 to-pink-500 text-white;
+  @apply bg-red-700 text-white;
 }
 
 .subhead {
-  @apply my-10 font-mono text-4xl bg-gradient-to-r from-yellow-400 via-red-500 to-pink-500 text-white rounded-xl text-center;
+    @apply my-10 font-mono text-4xl shadow-2xl bg-red-700 text-white rounded-xl text-center 
 }
 
 .content {
   @apply w-10/12 m-auto;
 }
 
-.eventname {
-  @apply font-bold text-xs text-center align-middle font-mono;
+
+.event {
+    @apply font-mono text-xs align-middle text-center font-bold
 }
 
 .mtext {
@@ -58,18 +59,16 @@
   @apply font-mono bg-gradient-to-r from-gray-50 to-gray-100 hover:text-red-500 no-underline;
 }
 
-.revent {
-  @apply box-border p-5 w-full md:w-1/2 xl:w-1/3 float-left text-center;
-}
-
-.city {
-  @apply font-mono mt-5;
-}
 
 .container {
   @apply m-auto;
 }
 
 .descrp {
-  @apply text-left;
+    @apply text-left
+}
+
+img {
+    width: 100%;
+    height: auto;
 }

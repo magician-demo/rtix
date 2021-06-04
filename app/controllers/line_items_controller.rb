@@ -3,17 +3,12 @@ class LineItemsController < ApplicationController
 
   def create
     # 建立一個 line_item 加入座位
-    seat = Seat.where(status: 'for_sale').find(params[:seat_id])
-    ticket = seat.ticket
-    line_item = current_cart.line_items.new(seat_id: params[:seat_id])
-    if line_item.save
-      render json: {
-               area: seat.area,
-               id: seat.id,
-               price: seat.ticket.price,
-               itemId: line_item.id,
-               total_price: current_cart.total_price
-             }
+    @seat = Seat.where(status: 'for_sale').find(params[:seat_id])
+    @ticket = @seat.ticket
+    @line_item = current_cart.line_items.new(seat_id: params[:seat_id])
+    @total_price = current_cart.total_price
+    if @line_item.save
+      render 'create.json.jbuilder'
     else
       render json: { status: 'error' }
     end
@@ -29,6 +24,14 @@ class LineItemsController < ApplicationController
     else
       render json: { status: 'error' }
     end
+  end
+
+  def ticket_list
+    @ticket_id_array = []
+    current_cart.seats.each do |seat|
+      @ticket_id_array << seat.ticket.id
+    end
+    render json: @ticket_id_array.sort.uniq
   end
 
   def random_create

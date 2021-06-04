@@ -10,5 +10,6 @@ class AddMoreColumnsToEvents < ActiveRecord::Migration[6.1]
     add_column :events, :e_month, :string
     add_column :events, :e_date, :string
     add_column :events, :e_time, :string
+    add_column :events, :city, :string
   end
 end

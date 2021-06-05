@@ -28,6 +28,9 @@ module.exports = {
       width:{
         '550': '550px',
         '45%': '45%'
+      },
+      inset:{
+        '30': '7.5rem'
       }
     },
   },

@@ -10,7 +10,7 @@ class OrganizationsController < ApplicationController
   end
 
   def events
-    @events = Event.all
+    @events = Event.all.sort.reverse
   end
 
   def appropriations

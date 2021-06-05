@@ -37,7 +37,7 @@ class EventsController < ApplicationController
 
   def update
     @event.update(event_params)
-    redirect_to edit_event_ticket_path(@event.id, @event.organization_id), notice: "請接著看票券是否進行修改"
+    redirect_to events_organization_path(@event.organization_id)
   end
 
   def destroy
@@ -48,7 +48,8 @@ class EventsController < ApplicationController
   
   private
   def event_params
-    params.require(:event).permit(:title, :description, :location, :start_time, :end_time, :address, :image, :organization_id, :seats_image)
+    params.require(:event).permit(:title, :description, :location, :start_time, :end_time, :address, :image, :organization_id, :seats_image, :latitude, :longitude)
+    
   end
 
   def find_event

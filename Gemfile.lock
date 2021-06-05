@@ -136,6 +136,7 @@ GEM
     fugit (1.4.5)
       et-orbi (~> 1.1, >= 1.1.8)
       raabro (~> 1.4)
+    geocoder (1.6.7)
     globalid (0.4.2)
       activesupport (>= 4.2.0)
     hashie (4.1.0)
@@ -351,6 +352,7 @@ DEPENDENCIES
   figaro
   foreman
   friendly_id (~> 5.4, >= 5.4.2)
+  geocoder (~> 1.6, >= 1.6.7)
   hirb-unicode (~> 0.0.5)
   image_processing (~> 1.2)
   jbuilder (~> 2.7)

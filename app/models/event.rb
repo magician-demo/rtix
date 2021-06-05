@@ -11,6 +11,16 @@ class Event < ApplicationRecord
   validates :address, presence: true
   validates :description, presence: true
 
+  geocoded_by :address  #分析並紀錄 由geocoder
+  after_validation :geocode, if: :address_changed?  #選配，如果資料不會修改就不用
+
+  #能edit地址，
+  # def address_changed?
+  #   address_changed?
+  # end
+
+  
+
   
   # aasm column: 'status', no_direct_assignment: true do
   #   state :pending, initial: true

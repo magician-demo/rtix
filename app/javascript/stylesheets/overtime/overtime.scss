@@ -1,0 +1,7 @@
+.overtime {
+  @apply w-full m-auto flex-col py-5 lg:flex-row lg:max-w-5xl border border-black rounded-2xl flex justify-between items-center px-4 text-3xl shadow-sm;
+
+  .root_btn {
+    @apply my-6 border border-black p-2 rounded-2xl text-red-700 block hover:bg-red-700 hover:text-white shadow-sm lg:mr-20;
+  }
+}

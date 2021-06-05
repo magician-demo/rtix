@@ -10,8 +10,8 @@ export default class extends Controller {
     .then((res)=> {
       for (let i = 0; i < res.data.length; i++) {
         const area = document.querySelector(`area[href="booking/${res.data[i]}"]`)
-        const posX = Number((area.getAttribute('coords').split(',')[0]) * 75 / 1024).toFixed(2)
-        const posY = Number((area.getAttribute('coords').split(',')[1] * 66 / 730)).toFixed(2)
+        const posX = Number((area.coords.split(',')[0]) * 75 / 1024).toFixed(2)
+        const posY = Number((area.coords.split(',')[1] * 66 / 730)).toFixed(2)
         this.element.prepend(createPositionTips(posX, posY))
       }
     })

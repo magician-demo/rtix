@@ -59,9 +59,11 @@ form{
 
 footer{
   width: 100%;
-  position: relative;
+  // position: relative;
   bottom: 0;
   left: 0;
+  margin-top:auto ;
+  
 }
 
 table{
@@ -75,3 +77,6 @@ table{
   }
 }
 
+.set_footer_bottom {
+  @apply flex flex-col justify-between min-h-screen h-full;
+}

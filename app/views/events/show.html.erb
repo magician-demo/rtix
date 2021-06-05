@@ -15,7 +15,10 @@
 
 <div class="event_information">
   <h1 class="event_information_title"><%= @event.title %></h1>
-  <div class="event_information_column">
+  <div class="event_information_column flex">
+  <div class="w-1/2">
+  
+  
     <span class="event_column_title">開始時間</span>
     <span class="event_column_information">
     <% if @event.start_time != nil %>
@@ -34,10 +37,11 @@
     時間未定
     <% end %>
     </span>
-  <div class="event_information_column">
+  <div class="event_information_column ">
     <span class="event_column_title">活動地點</span>
     <span class="event_column_information"><%= @event.location %> / <%= @event.address %></span>
   </div>
+  
   <div class="event_information_column">
     <span class="event_column_title">主辦單位</span>
     <span class="event_column_information"> <%= @event.organization.title %></span>
@@ -52,7 +56,12 @@
   </div>
   </div>
 </div>
+  <div class="w-1/2">
+   <div class=" max-h-72" data-maplat="<%= @event.latitude %>" data-maplon="<%= @event.longitude %>" id="map"></div>
+  </div>
+</div> 
   <%= render 'booking_status'%>
+  
 
 <section class="event_information my-5">
   <div class="event_booking_area">
@@ -69,3 +78,34 @@
 </section>
 
 </div>
+
+
+<script>
+      
+      const lag = Number(document.getElementById('map').dataset['maplat'])
+      const lon = Number(document.getElementById('map').dataset['maplon'])
+
+      var map;
+      function initMap() {
+
+        var taiwan = {lat: 23.5878365, lng: 121};
+        map = new google.maps.Map(document.getElementById('map'), {
+          center:  {lat: lag , lng: lon},
+          zoom: 15
+        });
+        var marker = new google.maps.Marker({
+          position: {lat: lag, lng: lon},
+          map: map
+        });
+      }
+
+      // document.querySelector('.googlemap').addEventListener('blur', (e)=>{
+      //   console.log(e.target.value.geocode)
+      // })
+
+</script>
+
+
+
+<script src="https://maps.googleapis.com/maps/api/js?key=<%= ENV["map"] %>&callback=initMap"
+    async defer></script>

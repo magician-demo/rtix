@@ -1220,11 +1220,6 @@
     "@types/minimatch" "*"
     "@types/node" "*"
 
-"@types/googlemaps@^3.39.1":
-  version "3.43.3"
-  resolved "https://registry.yarnpkg.com/@types/googlemaps/-/googlemaps-3.43.3.tgz#70cf962154a160fe78bcd69d6ccc296dd9175b1f"
-  integrity sha512-ZWNoz/O8MPEpiajvj7QiqCY8tTLFNqNZ/a+s+zTV58wFVNAvvqV4bdGfnsjTb5Cs4V6wEsLrX8XRhmnyYJ2Tdg==
-
 "@types/json-schema@^7.0.5", "@types/json-schema@^7.0.6":
   version "7.0.7"
   resolved "https://registry.yarnpkg.com/@types/json-schema/-/json-schema-7.0.7.tgz#98a993516c859eb0d5c4c8f098317a9ea68db9ad"
@@ -1753,11 +1748,6 @@ babel-plugin-polyfill-regenerator@^0.2.0:
   dependencies:
     "@babel/helper-define-polyfill-provider" "^0.2.0"
 
-babel-plugin-transform-react-remove-prop-types@^0.4.24:
-  version "0.4.24"
-  resolved "https://registry.yarnpkg.com/babel-plugin-transform-react-remove-prop-types/-/babel-plugin-transform-react-remove-prop-types-0.4.24.tgz#f2edaf9b4c6a5fbe5c1d678bfb531078c1555f3a"
-  integrity sha512-eqj0hVcJUR57/Ug2zE1Yswsw4LhuqqHhD+8v120T1cl3kjg76QwtyBrdIk4WVwK+lAhBJVYCd/v+4nc4y+8JsA==
-
 bail@^1.0.0:
   version "1.0.5"
   resolved "https://registry.yarnpkg.com/bail/-/bail-1.0.5.tgz#b6fa133404a392cbc1f8c4bf63f5953351e7a776"
@@ -1865,11 +1855,6 @@ boolbase@^1.0.0, boolbase@~1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/boolbase/-/boolbase-1.0.0.tgz#68dff5fbe60c51eb37725ea9e3ed310dcc1e776e"
   integrity sha1-aN/1++YMUes3cl6p4+0xDcwed24=
-
-bootstrap@^5.0.1:
-  version "5.0.1"
-  resolved "https://registry.yarnpkg.com/bootstrap/-/bootstrap-5.0.1.tgz#e7939d599119dc818a90478a2a299bdaff037e09"
-  integrity sha512-Fl79+wsLOZKoiU345KeEaWD0ik8WKRI5zm0YSPj2oF1Qr+BO7z0fco6GbUtqjoG1h4VI89PeKJnMsMMVQdKKTw==
 
 brace-expansion@^1.1.7:
   version "1.1.11"
@@ -3759,13 +3744,6 @@ gonzales-pe@^4.3.0:
   integrity sha512-otgSPpUmdWJ43VXyiNgEYE4luzHCL2pz4wQ0OnDluC6Eg4Ko3Vexy/SrSynglw/eR+OhkzmqFCZa/OFa/RgAOQ==
   dependencies:
     minimist "^1.2.5"
-
-google-maps@^4.3.3:
-  version "4.3.3"
-  resolved "https://registry.yarnpkg.com/google-maps/-/google-maps-4.3.3.tgz#b8026723534e04713303f80853c32a1f1f6ed3cd"
-  integrity sha512-MQbEgBNQbGyV7mfS2tlFgW4EoGKLia24BvAl4a+kgsYWt4283kyPpaay/yKIsScQLr7nSUONaLNfOdMsCuJDEw==
-  dependencies:
-    "@types/googlemaps" "^3.39.1"
 
 graceful-fs@^4.1.11, graceful-fs@^4.1.15, graceful-fs@^4.1.2, graceful-fs@^4.1.6, graceful-fs@^4.2.0:
   version "4.2.6"

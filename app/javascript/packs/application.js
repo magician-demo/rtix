@@ -1,34 +1,59 @@
 import Rails from '@rails/ujs'
 import Turbolinks from "turbolinks"
 import * as ActiveStorage from "@rails/activestorage"
-import google from '@google/maps'
+require("trix")
+require("@rails/actiontext")
 
 
 
 Rails.start()
 ActiveStorage.start()
 
-
 import 'controllers'
 import 'channels'
 import 'stylesheets'
 import 'icon'
 import 'datatable'
-// import 'components'
+import { Loader } from "@googlemaps/js-api-loader"
 
 
-document.addEventListener("turbolinks:load",()=>{
-  var map;
-    function initMap() {
-      map = new google.maps.Map(document.getElementById('map'), {
-      center: {lat: 23.5948979, lng: 119.8960512},
-      zoom: 8
-      });
-    }
+document.addEventListener("DOMContentLoaded",()=>{
+  const loader = new Loader({
+    apiKey: "AIzaSyBU5QjaFGCG1bAAqy48WAscUP5psZstbFg",
+    version: "weekly",
+    
+  });
  
-  initMap();
-  
-  })
 
-require("trix")
-require("@rails/actiontext")
+  loader.load().then(() => {
+ 
+
+      const lag = Number(document.getElementById('map').dataset['maplat'])
+      const lon = Number(document.getElementById('map').dataset['maplon'])
+      window.google = google;
+
+      let map = new google.maps.Map(document.getElementById('map'), {
+        center:  {lat: lag , lng: lon},
+        zoom: 15
+      });
+      var marker = new google.maps.Marker({
+        position: {lat: lag, lng: lon},
+        map: map
+      });
+
+    var geocoder = new google.maps.Geocoder();
+    geocoder.geocode( { 'address': '交通大學'}, function(results, status) {
+      window.results = results
+      if (status == google.maps.GeocoderStatus.OK) {
+      results[0].geometry.location.lat()
+          var latitude = results[0].geometry.location.lat();
+          var longitude = results[0].geometry.location.lng();
+          console.log("latitude: ", latitude)
+          console.log("longitude: ", longitude)
+        }
+    });
+
+  });
+})
+
+

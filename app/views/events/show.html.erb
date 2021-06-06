@@ -57,7 +57,7 @@
   </div>
 </div>
   <div class="w-1/2">
-   <div class=" max-h-72" data-maplat="<%= @event.latitude %>" data-maplon="<%= @event.longitude %>" id="map"></div>
+   <div class=" max-h-72" data-mapid="<%= ENV["map"] %>" data-maplat="<%= @event.latitude %>" data-maplon="<%= @event.longitude %>" id="map"></div>
   </div>
 </div> 
   <%= render 'booking_status'%>

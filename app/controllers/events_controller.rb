@@ -37,7 +37,7 @@ class EventsController < ApplicationController
 
   def update
     @event.update(event_params)
-    redirect_to events_organization_path(@event.organization_id)
+    redirect_to events_organization_path(@event.organization_id), notice: "活動資訊更新成功!"
   end
 
   def destroy

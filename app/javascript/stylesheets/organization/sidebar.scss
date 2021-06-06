@@ -1,8 +1,8 @@
 .org-sidebar{
-  @apply hidden w-60 fixed  bg-gray-700 md:relative md:block;
+  @apply hidden w-60 fixed bg-gray-700 md:relative md:block;
 
   .delete-button{
-    @apply block text-center mt-10 mx-10 px-2 py-1 ring-opacity-30 rounded text-black bg-red-500 hover:bg-red-400 ;
+    @apply text-center mt-10 mx-10 px-2 py-1 ring-opacity-30 rounded text-black bg-red-500 hover:bg-red-400 ;
   }  
 }
 

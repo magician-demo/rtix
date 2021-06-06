@@ -1,6 +1,6 @@
 class DashboardsController < ApplicationController
     def index
-      @orders = current_user.orders
+      @orders = current_user.orders.where("status = 'paid' OR status = 'pending' ")
       @hosts = current_user.organizations
       @host_events = @hosts.map{|host| host.events }.flatten
 

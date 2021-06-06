@@ -57,7 +57,7 @@
           <img
             id="preview"
             class="image m-auto"
-            src="/image/RTIX.jpg"
+            src="/image/activity.png"
           >
           <% end %>
         </div>
@@ -69,15 +69,16 @@
       </div>
     </div>
 
+
     <div class="org-image-group" data-controller="seats-image">
-      <h5>座位圖</h5>
+      <h5 class="text-center text-red-700 my-14 font-bold">座位圖</h5>
       <div class="image-box">
         <% if @event.seats_image? %> <%= image_tag(@event.seats_image_url, class:"seats-image") %>
         <% else %>
         <img
           id="seats-preview"
           class="image seats-image m-auto"
-          src="/image/RTIX.jpg"
+          src="/image/seats.png"
         >
         <% end %>
       </div>

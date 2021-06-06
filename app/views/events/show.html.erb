@@ -6,7 +6,7 @@
       data-organizations-image-target="imagebox"
       id="preview"
       class="image m-auto"
-      src="/image/RTIX.jpg"
+      src="/image/activity.png"
     >
   <% end %>
 </div>
@@ -57,7 +57,7 @@
   </div>
 </div>
   <div class="w-1/2">
-   <div class=" max-h-72" data-maplat="<%= @event.latitude %>" data-maplon="<%= @event.longitude %>" id="map"></div>
+   <div class=" max-h-72" data-mapid="<%= ENV["map"] %>" data-maplat="<%= @event.latitude %>" data-maplon="<%= @event.longitude %>" id="map"></div>
   </div>
 </div> 
   <%= render 'booking_status'%>
@@ -70,7 +70,7 @@
     <% else %>
       <img
         class="image m-auto"
-        src="/image/RTIX.jpg"
+        src="/image/seats.png"
       >
     <% end %>
   </div>
@@ -79,33 +79,3 @@
 
 </div>
 
-
-<script>
-      
-      const lag = Number(document.getElementById('map').dataset['maplat'])
-      const lon = Number(document.getElementById('map').dataset['maplon'])
-
-      var map;
-      function initMap() {
-
-        var taiwan = {lat: 23.5878365, lng: 121};
-        map = new google.maps.Map(document.getElementById('map'), {
-          center:  {lat: lag , lng: lon},
-          zoom: 15
-        });
-        var marker = new google.maps.Marker({
-          position: {lat: lag, lng: lon},
-          map: map
-        });
-      }
-
-      // document.querySelector('.googlemap').addEventListener('blur', (e)=>{
-      //   console.log(e.target.value.geocode)
-      // })
-
-</script>
-
-
-
-<script src="https://maps.googleapis.com/maps/api/js?key=<%= ENV["map"] %>&callback=initMap"
-    async defer></script>

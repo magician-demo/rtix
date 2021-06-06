@@ -34,7 +34,7 @@
       </div>      
       
       <div class="w-5/6 h-6 rounded-lg" data-maplat="<%= @event.latitude %>" data-maplon="<%= @event.longitude %>" id="map"></div> 
-      <!-- FIXME: 加進地圖整個版面壞掉, 後面再處理 -->
+    
 
       <div class="event_num my-2">
         <abbr title="required" class="text-red-500 text-lg">*</abbr><%= event.label :description, "活動描述", class: "font-bold"%>
@@ -96,30 +96,6 @@
 </div>
 
 
-<script>
-      
-      // const lag = Number(document.getElementById('map').dataset['maplat'])
-      // const lon = Number(document.getElementById('map').dataset['maplon'])
-
-      // var map;
-      // function initMap() {
-
-      //   var taiwan = {lat: 23.5878365, lng: 121};
-      //   map = new google.maps.Map(document.getElementById('map'), {
-      //     center:  {lat: lag , lng: lon},
-      //     zoom: 15
-      //   });
-      //   var marker = new google.maps.Marker({
-      //     position: {lat: lag, lng: lon},
-      //     map: map
-      //   });
-      // }
-
-      // document.querySelector('.googlemap').addEventListener('blur', (e)=>{
-      //   console.log(e.target.value.geocode)
-      // })
-
-</script>
 
 
 

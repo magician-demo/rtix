@@ -98,22 +98,22 @@
 
 <script>
       
-      const lag = Number(document.getElementById('map').dataset['maplat'])
-      const lon = Number(document.getElementById('map').dataset['maplon'])
+      // const lag = Number(document.getElementById('map').dataset['maplat'])
+      // const lon = Number(document.getElementById('map').dataset['maplon'])
 
-      var map;
-      function initMap() {
+      // var map;
+      // function initMap() {
 
-        var taiwan = {lat: 23.5878365, lng: 121};
-        map = new google.maps.Map(document.getElementById('map'), {
-          center:  {lat: lag , lng: lon},
-          zoom: 15
-        });
-        var marker = new google.maps.Marker({
-          position: {lat: lag, lng: lon},
-          map: map
-        });
-      }
+      //   var taiwan = {lat: 23.5878365, lng: 121};
+      //   map = new google.maps.Map(document.getElementById('map'), {
+      //     center:  {lat: lag , lng: lon},
+      //     zoom: 15
+      //   });
+      //   var marker = new google.maps.Marker({
+      //     position: {lat: lag, lng: lon},
+      //     map: map
+      //   });
+      // }
 
       // document.querySelector('.googlemap').addEventListener('blur', (e)=>{
       //   console.log(e.target.value.geocode)
@@ -123,7 +123,6 @@
 
 
 
-<script src="https://maps.googleapis.com/maps/api/js?key=<%= ENV["map"] %>&callback=initMap"
-    async defer></script>
+
 
  

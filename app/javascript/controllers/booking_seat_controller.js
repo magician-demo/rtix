@@ -20,19 +20,19 @@ export default class extends Controller {
         count.innerHTML = Number(count.textContent) + 1
         // 即時在 cart 中新增欄位，函式在下方，資料都從後端傳遞過來再進行拆解
         this.element.classList.add('owner')
-        cart.prepend(addList(res.data))
-        total_price.innerHTML = `票券總價：$${res.data['total_price']}`
+        cart.prepend(addList(res.data.data))
+        total_price.innerHTML = `票券總價：$${res.data.data['total_price']}`
       })
       .catch((err) => {
         alert(err)
       })
   }
 }
-function addList({ area, id, price, itemId }) {
+function addList({ name, area, id, price, itemId }) {
   let div = document.createElement('div')
   div.className += 'cart_list'
   div.innerHTML = `
-    <span class="px-2">${area}${id}號位</span><br>
+    <span class="px-2">${name}｜${area}｜${id}號位</span><br>
     <span class="px-2">$${price}</span>
     <div class="remove_btn" 
          data-controller="booking-cart-list"

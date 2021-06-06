@@ -15,8 +15,8 @@ class TicketMailer < ApplicationMailer
     attachments['rtix_logo.png'] = File.read('app/assets/images/rtix_logo.png')
 
     mail(
-       to: @user.email,
-       subject: @title
+      to: @recipient,
+      subject: @title
     )
   end
 end

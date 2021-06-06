@@ -1,3 +1,4 @@
+<div class="container h-full">
 <h3 class="p-8 mb-5 border-2 border-gray-100 font-bold text-4xl">組織名稱: <span class="text-red-600 font-bold"><%= @event.organization.title%></span></h3>
   
 <div class="apply_area w-11/12 px-8 m-auto">
@@ -31,8 +32,14 @@
       </div>
       <div class="event_num my-2">
         <abbr title="required" class="text-red-500 text-lg">*</abbr><%= event.label :address, "活動地址", class: "font-bold"%>
-        <div><%= event.text_field :address, class: "border border-gray-400 rounded-lg w-5/6" %></div>
+        <div><%= event.text_field :address, class: "googlemap border border-gray-400 rounded-lg w-5/6", placeholder: "請務必填寫完整地址，包含市、區、路等" %></div>
+        <%# <span type="button" class="map-button border p-1 my-1 ">觀看地圖</span> %>
       </div>
+
+      <%# 地圖 %>
+      
+      <div class=" max-h-72" data-maplat="<%= @event.latitude %>" data-maplon="<%= @event.longitude %>" id="map"></div>
+
       <div class="event_num my-2">
         <abbr title="required" class="text-red-500 text-lg">*</abbr><%= event.label :description, "活動描述", class: "font-bold"%>
         <div><%= event.text_area :description, class: "border border-gray-400 rounded-lg w-5/6", cols: 30, rows: 8 %></div>
@@ -91,3 +98,37 @@
   </div>
   <% end %>
 </div>
+
+
+<script>
+      
+      const lag = Number(document.getElementById('map').dataset['maplat'])
+      const lon = Number(document.getElementById('map').dataset['maplon'])
+
+      var map;
+      function initMap() {
+
+        var taiwan = {lat: 23.5878365, lng: 121};
+        map = new google.maps.Map(document.getElementById('map'), {
+          center:  {lat: lag , lng: lon},
+          zoom: 15
+        });
+        var marker = new google.maps.Marker({
+          position: {lat: lag, lng: lon},
+          map: map
+        });
+      }
+
+      // document.querySelector('.googlemap').addEventListener('blur', (e)=>{
+      //   console.log(e.target.value.geocode)
+      // })
+
+</script>
+
+
+
+<script src="https://maps.googleapis.com/maps/api/js?key=<%= ENV["map"] %>&callback=initMap"
+    async defer></script>
+
+ </div>
+ 

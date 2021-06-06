@@ -1,3 +1,6 @@
+#map {
+  @apply h-64;
+}
 .event-next{
   @apply bg-red-500 block cursor-pointer;
 }
@@ -45,13 +48,6 @@ form{
 .card-text{
   width: 400px;
   height: 250px;
-}
-
-footer{
-  width: 100%;
-  position: relative;
-  bottom: 0;
-  left: 0;
 }
 
 table{

@@ -29,7 +29,7 @@ class TicketsController < ApplicationController
   def update
     @event = Event.find_by(id: params[:event_id])
     @event.tickets.destroy_all #因:dependent => :destroy in Model, 連帶刪除所有seats
-
+    
     params.require(:tickets).each do |ticket|
       @permited_ticket = ticket.permit(:name, :price, :amount).to_h 
 

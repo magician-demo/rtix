@@ -1,13 +1,6 @@
 #map {
-  height: 100%;
+  @apply h-64;
 }
-
-html, body {
-  height: 100%;
-  margin: 0;
-  padding: 0;
-}
-
 .event-next{
   @apply bg-red-500 block cursor-pointer;
 }
@@ -57,15 +50,6 @@ form{
   height: 250px;
 }
 
-footer{
-  width: 100%;
-  // position: relative;
-  bottom: 0;
-  left: 0;
-  margin-top:auto ;
-  
-}
-
 table{
   @apply border w-full;
   tr{
@@ -75,8 +59,4 @@ table{
       @apply border p-2 text-center;
     }
   }
-}
-
-.set_footer_bottom {
-  @apply flex flex-col justify-between min-h-screen h-full;
 }

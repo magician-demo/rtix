@@ -16,7 +16,7 @@ class TicketsController < ApplicationController
         (@ticket_record[:amount].to_i).times { Seat.create(area: (@ticket_record[:name]), ticket_id: @ticket_record[:id], status: 'for_sale') } 
       end
     end
-    redirect_to event_path(params[:event_id]), notice: "活動創建成功!"
+    redirect_to events_organization_path(@event.organization.id), notice: "票券創建成功!"
   end
 
   def edit 

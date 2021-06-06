@@ -18,8 +18,9 @@ import { Loader } from "@googlemaps/js-api-loader"
 
 
 document.addEventListener("DOMContentLoaded",()=>{
+  var mapid = document.getElementById('map').dataset['mapid']
   const loader = new Loader({
-    apiKey: "AIzaSyBU5QjaFGCG1bAAqy48WAscUP5psZstbFg",
+    apiKey: mapid,
     version: "weekly",
     
   });

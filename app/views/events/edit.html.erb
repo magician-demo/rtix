@@ -33,7 +33,7 @@
         <div><%= event.text_field :address, class: "googlemap border border-gray-400 rounded-lg w-5/6", placeholder: "請務必填寫完整地址，包含市、區、路等" %></div>
       </div>      
       
-      <div class="w-5/6 h-6 rounded-lg" data-maplat="<%= @event.latitude %>" data-maplon="<%= @event.longitude %>" id="map"></div> 
+      <div class="w-5/6 h-6 rounded-lg" data-mapid="<%= ENV["map"] %>" data-maplat="<%= @event.latitude %>" data-maplon="<%= @event.longitude %>" id="map"></div> 
     
 
       <div class="event_num my-2">

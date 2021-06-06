@@ -7,10 +7,11 @@ class OrganizationsController < ApplicationController
   end
 
   def info
+
   end
 
   def events
-    @events = Event.all.sort.reverse
+    @events = Organization.find(params[:id]).events.all.sort.reverse
   end
 
   def appropriations
@@ -24,7 +25,7 @@ class OrganizationsController < ApplicationController
     @organization = current_user.organizations.new(organization_params)
 
     if @organization.save
-      redirect_to info_organization_path(@organization), notice: "創建成功！"
+      redirect_to info_organization_path(@organization.id), notice: "創建成功！"
     else
       render :new
     end

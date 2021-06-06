@@ -7,18 +7,23 @@ class LineItem < ApplicationRecord
   private
 
   def variation_increase
-    seat.ticket.amount -= 1
-    seat.ticket.save
-    seat.select!
+    if seat 
+      seat.ticket.amount -= 1
+      seat.ticket.save
+      seat.select!
+    end
   end
 
   def variation_decrease
-    if seat.selected?
-      seat.ticket.amount += 1
-      seat.ticket.save
-      seat.return!
-    else
-      return
+    if seat
+      if seat.selected?
+        seat.ticket.amount += 1
+        seat.ticket.save
+        seat.return!
+      else
+        return
+      end
     end
   end
+  
 end

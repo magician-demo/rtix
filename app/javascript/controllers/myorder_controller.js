@@ -1,3 +1,5 @@
+import { $ } from 'datatables.net'
+import { Responsive } from 'datatables.net-responsive'
 import { Controller } from 'stimulus'
 import Swal from 'sweetalert2'
 
@@ -21,8 +23,6 @@ export default class extends Controller {
         '按下方 OK 按鈕可關閉此提示訊息',
         'success'
       );
-    } else {
-      console.log('none');
     }
   }
 

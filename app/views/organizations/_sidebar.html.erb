@@ -1,22 +1,15 @@
-<div data-controller="organizations-sidebar">
+<div data-controller="organizations-sidebar" class="h-full">
   <nav class="org-sidebar z-10" data-organizations-sidebar-target="sidebar">
     <div class="org-list">
-      <%= link_to '組織公開頁面', "/organizations/#{params[:id]}", target:"_blank"%> 
-      <%= link_to '活動列表', events_organization_path %> 
-      <%=link_to '組織帳務', appropriations_organization_path %>
-      <h2
-        class=" title w-full bg-black hover:bg-black text-2xl text-white text-center p-2">
-        組織設定
-      </h2>
-      <%= link_to '一般資訊', info_organization_path %>
-      <a href="#/business_infos">帳務設定</a>
-      <%= link_to '繳費記錄', orders_organization_path %>
+      <div class="my-5"><%= link_to '組織公開頁面', "/organizations/#{params[:id]}", target:"_blank"%> </div>
+      <div class="my-5"><%= link_to '活動列表', events_organization_path %> </div>
+      <div class="my-5"><%=link_to '組織帳務', appropriations_organization_path %></div>
+      <h2 class=" title w-full bg-black hover:bg-black text-2xl text-white text-center p-2">組織設定</h2>
+      <div class="my-5"><%= link_to '一般資訊', info_organization_path %></div>
+      <div class="my-5"><a href="#/business_infos">帳務設定</a></div>
+      <div class="my-5"><%= link_to '繳費記錄', orders_organization_path %></div>
+      <div class="my-16"><%= link_to '刪除組織', organization_path(@organization.id), method: :delete, data: { confirm: '確定要刪除組織嗎？' }, class: "delete-button" %></div>
     </div>
-    <%= link_to '刪除組織', organization_path(@organization.id), method: :delete,
-    data: { confirm: '確定要刪除組織嗎？' }, class: "delete-button" %>
-    <div class="h-screen z-0 bg-gray-700 w-full" aria-hidden="true"></div>
   </nav>
-  <div class="sidebar-button" data-action="click->organizations-sidebar#toggle">
-    ＞
-  </div>
+  <div class="sidebar-button" data-action="click->organizations-sidebar#toggle"></div>
 </div>

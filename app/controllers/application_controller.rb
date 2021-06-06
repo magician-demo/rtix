@@ -10,11 +10,11 @@ class ApplicationController < ActionController::Base
   end
 
   def booking_event
-    @event = Event.find(params[:event_id])
+    @event = Event.find_by(id: params[:event_id])
   end
 
   def current_event
-    @event = Event.find(params[:id])
+    @event = Event.find_by(id: params[:id])
   end
 
   protected

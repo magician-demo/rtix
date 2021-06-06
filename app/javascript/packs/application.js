@@ -1,7 +1,6 @@
 import Rails from '@rails/ujs'
 import Turbolinks from "turbolinks"
 import * as ActiveStorage from "@rails/activestorage"
-// import google from '@google/maps'
 require("trix")
 require("@rails/actiontext")
 
@@ -9,27 +8,25 @@ require("@rails/actiontext")
 
 Rails.start()
 ActiveStorage.start()
-// Turbolinks.start()
 
 import 'controllers'
 import 'channels'
 import 'stylesheets'
 import 'icon'
 import 'datatable'
-// import 'components'
 import { Loader } from "@googlemaps/js-api-loader"
-console.log('!!1')
+
 
 document.addEventListener("DOMContentLoaded",()=>{
   const loader = new Loader({
     apiKey: "AIzaSyBU5QjaFGCG1bAAqy48WAscUP5psZstbFg",
     version: "weekly",
-    // ...additionalOptions,
+    
   });
-  console.log('!!2')
+ 
 
   loader.load().then(() => {
-    console.log('!!3')
+ 
 
       const lag = Number(document.getElementById('map').dataset['maplat'])
       const lon = Number(document.getElementById('map').dataset['maplon'])

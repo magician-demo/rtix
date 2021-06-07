@@ -1,15 +1,15 @@
 <div class="booking-navbar">
-  <span class="cancel-ticket">
-    <span data-controller="booking-clean-cart"
-          data-action="click->booking-clean-cart#emptyCart"
-    >取消購票 </span>
-  </span>
-  <span class="timer"
-        data-controller="booking-timer"
-  ></span>
-  <span class="ticket-list" 
-        data-controller="booking-cart" 
-        data-action="click->booking-cart#showCart" >
-    購票清單(<span id="ticket_count"><%= ticket_count%></span>)
-  </span>
+    <span class="cancel-ticket">
+      <span data-controller="booking-clean-cart"
+            data-action="click->booking-clean-cart#emptyCart"
+      >取消購票 </span>
+    </span>
+    <span class="timer"
+          data-controller="booking-timer"
+    ></span>
+    <span class="ticket-list"
+          data-controller="booking-cart"
+          data-action="click->booking-cart#showCart" >
+      購票清單(<span id="ticket_count"><%= ticket_count%></span>)
+    </span>
 </div>

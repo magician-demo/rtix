@@ -1,14 +1,16 @@
-<div class="event_img my-5">
-  <% if @event.image? %> 
-    <%= image_tag(@event.image.url, class:"m-auto") %> 
-  <% else %>
-    <img
-      data-organizations-image-target="imagebox"
-      id="preview"
-      class="image m-auto"
-      src="/image/activity.png"
-    >
-  <% end %>
+<div class="flex justify-center lg:max-w-4xl w-full m-auto">
+  <div class="mt-5 w-full">
+    <% if @event.image? %>
+      <%= image_tag(@event.image.url, class:"m-auto") %>
+    <% else %>
+      <img
+        data-organizations-image-target="imagebox"
+        id="preview"
+        class="image m-auto"
+        src="/image/activity.png"
+      >
+    <% end %>
+  </div>
 </div>
 
 <div class="divide"></div>

@@ -5,8 +5,8 @@ class LineItemsController < ApplicationController
     # 建立一個 line_item 加入座位
     @seat = Seat.where(status: 'for_sale').find(params[:seat_id])
     @ticket = @seat.ticket
-    @line_item = current_cart.line_items.new(seat_id: params[:seat_id])
     @total_price = current_cart.total_price
+    @line_item = current_cart.line_items.new(seat_id: params[:seat_id])
     if @line_item.save
       render 'create.json.jbuilder'
     else

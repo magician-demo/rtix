@@ -24,7 +24,7 @@ export default class extends Controller {
         total_price.innerHTML = `票券總價：$${res.data.data['total_price']}`
       })
       .catch((err) => {
-        alert(err)
+        console.log(err);
       })
   }
 }

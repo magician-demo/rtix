@@ -23,11 +23,7 @@
     </div>
     <% end %>
   </div> 
-  <div class="timer_button" 
-       data-controller="booking-ticket-information"              
-       data-action="click->booking-ticket-information#close">
-    <div  data-controller="booking-timer-button"></div>
-  </div>
+    <div class="timer_button z-30" data-controller="booking-timer-button" data-action="click->booking-timer-button#close"></div>
 </div>
 <div id="overlay" class="active" 
      data-controller="booking-ticket-information"

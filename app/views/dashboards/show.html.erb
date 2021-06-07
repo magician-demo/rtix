@@ -42,7 +42,8 @@
                 <p class="text-left font-bold text-red-700 box-border p-16 ">您的訂單尚未付款喔, 請於訂單成立後30分鐘內儘速付款, 方才顯示入場QRCode. 謝謝!若有任何疑問, 請洽RTIX客服人員. 謝謝!</p>
 
                 <% else %>
-
+                
+                
                 <div><%= image_tag "https://chart.googleapis.com/chart?chs=200x200&cht=qr&chl=https://rtix.site/checkin/#{u(seat.check_in.first.id)}&choe=UTF-8", class:"shadow-md rounded-lg"%></div>
                 <div class="mt-5 mb-10"><%= link_to "寄送票券", dashboard_mailing_path(@order.id, seat.id), class:"font-mono font-bold p-5 rounded-xl bg-gray-100 hover:bg-red-700 hover:text-white cursor-pointer shadow-md text-sm md:text-sm lg:text-base" %> </div>
 

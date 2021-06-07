@@ -52,7 +52,7 @@ class OrganizationsController < ApplicationController
 
   def publish
     Event.find_by(id: params[:id]).update(status: "已發佈")
-    redirect_to events_organization_path(params[:organization_id]), notice: "活動發布成功！" 
+    redirect_to events_organization_path(params[:organization_id]), notice: "活動發佈成功！" 
   end
 
   def pending

@@ -11,7 +11,7 @@
   width: 100px;
 }
 
-form{
+.firstpage{
   .input{
     border: 1px solid rgb(184, 174, 174);
   }
@@ -50,13 +50,13 @@ form{
   height: 250px;
 }
 
-table{
-  @apply border w-full;
+.org-event-list{
+  @apply  w-full;
   tr{
-    @apply border;
+    
     
     td{
-      @apply border p-2 text-center;
+      @apply p-2 text-center;
     }
   }
 }

@@ -34,4 +34,11 @@ export default class extends Controller {
       })
     }
   }
+  close() {
+    const overlay = document.getElementById('overlay')
+    const ticketInformation = document.querySelector('.ticket_information')
+    overlay.classList.remove('active')
+    ticketInformation.classList.remove('active')
+    localStorage.setItem('comeBefore', 'shown')
+  }
 }

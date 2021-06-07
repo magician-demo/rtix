@@ -28,11 +28,11 @@ export default class extends Controller {
     allValue.forEach((e) => {
       ticketCount[e.dataset['ticketId']] = e.value
     })
-    ax.post('/line_items/random_create', { ticketCount: ticketCount })
+    ax.post('/line_items/random_create/', { ticketCount: ticketCount })
       .then(() => {
       })
       .catch((err) => {
-        alert(err)
+        console.log(err);
       })
   }
 }

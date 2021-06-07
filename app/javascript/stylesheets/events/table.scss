@@ -15,8 +15,16 @@
         @apply w-4/12 cursor-pointer font-bold border-none pr-1;
       }
 
+      .table-row-add-sub.unuseful {
+        @apply pointer-events-none opacity-40;
+      }
+
       .table-row-add-sub-right {
         @apply w-4/12 cursor-pointer font-bold border-none pl-1;
+      }
+
+      .table-row-add-sub-right.unuseful {
+        @apply pointer-events-none opacity-40;
       }
 
       .table-row-input {

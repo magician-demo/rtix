@@ -3,7 +3,7 @@ class CheckinController < ApplicationController
   before_action :authenticate_admin
 
   def show
-    @seat = CheckIn.find(params[:id]).seat
+    @checkin_id = CheckIn.find(params[:id]).id
   end
 
   def update
@@ -18,7 +18,7 @@ class CheckinController < ApplicationController
 
   def checkin_list
     @events = Event.all
-    @check_in = CheckIn.where(event_id: params[:id])
+    @check_in = CheckIn.where(event_id: params[:id]).sort
   end
 
 end

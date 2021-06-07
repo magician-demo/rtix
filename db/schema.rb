@@ -96,9 +96,9 @@ ActiveRecord::Schema.define(version: 2021_06_07_045852) do
     t.datetime "end_time"
     t.string "image"
     t.string "status", default: "待發佈"
-    t.string "seats_image"
     t.float "latitude"
     t.float "longitude"
+    t.string "seats_image"
     t.index ["organization_id"], name: "index_events_on_organization_id"
   end
 

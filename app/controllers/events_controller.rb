@@ -2,7 +2,7 @@ class EventsController < ApplicationController
   before_action :find_event, only: [:show, :edit, :update, :destroy]
 
   def index
-    @events = Event.where(status: "published")
+    @events = Event.where(status: "已發佈").order('start_time desc').select{|event| event.start_time > Time.now }
 
     if user_signed_in?
       @organizations = current_user.organizations.all

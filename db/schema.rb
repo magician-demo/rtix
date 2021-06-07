@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_06_04_151822) do
+ActiveRecord::Schema.define(version: 2021_06_07_045852) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -95,7 +95,7 @@ ActiveRecord::Schema.define(version: 2021_06_04_151822) do
     t.datetime "start_time"
     t.datetime "end_time"
     t.string "image"
-    t.string "status", default: "pending"
+    t.string "status", default: "待發佈"
     t.string "seats_image"
     t.float "latitude"
     t.float "longitude"

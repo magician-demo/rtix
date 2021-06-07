@@ -18,6 +18,9 @@ import { Loader } from "@googlemaps/js-api-loader"
 
 
 document.addEventListener("DOMContentLoaded",()=>{
+  if(document.getElementById('map')){
+
+  
   var mapid = document.getElementById('map').dataset['mapid']
   const loader = new Loader({
     apiKey: mapid,
@@ -74,6 +77,8 @@ document.addEventListener("DOMContentLoaded",()=>{
 
 
 
+      if(document.querySelector('.googlemap')){
+
       
       // 監測輸入地址的欄位
       document.querySelector('.googlemap').addEventListener('blur', (e)=>{
@@ -117,11 +122,11 @@ document.addEventListener("DOMContentLoaded",()=>{
     
     
     })
-
+  }
     
     
 
   });
-})
+}})
 
 

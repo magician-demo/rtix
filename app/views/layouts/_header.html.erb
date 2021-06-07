@@ -3,9 +3,9 @@
       <div class="flex-1 flex justify-between items-center text-3xl  duration-500">
         <div class="hover:text-white transition-colors"><%= link_to "RTIX", root_path %> <i class="fas fa-ticket-alt"></i></div>
         <% if current_user%>
-        <div class="mx-4 text-sm mr-auto"><%= link_to "我的票卷", dashboards_path(current_user.id) %> </div>
+        <div class="mx-4 text-sm mr-auto hover:text-white"><%= link_to "我的票卷", dashboards_path(current_user.id) %> </div>
         <% else %>
-        <div class="mx-4 text-sm mr-auto"><%= link_to('我的票卷', new_session_path(:user)) %></div>
+        <div class="mx-4 text-sm mr-auto hover:text-white"><%= link_to('我的票卷', new_session_path(:user) ) %></div>
         <% end %>
       </div>
       

@@ -3,7 +3,6 @@ import ax from '../lib/ax'
 
 export default class extends Controller {
   connect() {
-    initializeClock()
     const element = this.element
     // 判斷 localStorage 中是否已經有存放進入的時間，以利於重整後倒數計時功能還是存在
     if (localStorage.getItem('currentTime')) {
@@ -26,6 +25,7 @@ export default class extends Controller {
         total,
       }
     }
+    initializeClock()
     // 根據 localStorage 渲染時間， 時間若到將會轉址到活動頁面，此處還能夠在修繕！
     function initializeClock() {
       const timeInterval = setInterval(() => {
@@ -37,6 +37,7 @@ export default class extends Controller {
           clearInterval(timeInterval)
           localStorage.removeItem('currentTime')
           localStorage.removeItem('comeBefore')
+          localStorage.removeItem('justOnce')
           ax.delete('/carts')
             .then(() => {
               window.location.href = '/overtime'

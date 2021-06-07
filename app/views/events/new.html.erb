@@ -31,7 +31,8 @@
       </div>
       <div class="event_num my-2">
         <abbr title="required" class="text-red-500 text-lg">*</abbr><%= event.label :address, "活動地址", class: "font-bold"%>
-        <div><%= event.text_field :address, class: "border border-gray-400 rounded-lg w-5/6", placeholder: "請務必填寫完整地址，包含市、區、路等" %></div>
+        <div><%= event.text_field :address, class: "googlemap mb-2 border border-gray-400 rounded-lg w-5/6", placeholder: "請務必填寫完整地址，包含市、區、路等" %></div>
+        <div class="w-5/6 h-6 rounded-lg" data-mapid="<%= ENV["map"] %>" data-maplat="<%= @event.latitude %>" data-maplon="<%= @event.longitude %>" id="map"></div> 
       </div>
       <div class="event_num my-2">
         <abbr title="required" class="text-red-500 text-lg">*</abbr><%= event.label :description, "活動描述", class: "font-bold"%>

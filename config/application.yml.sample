@@ -5,4 +5,11 @@ merchant_id:
 hash_key: 
 hash_iv: 
 sendgrid_key:
+facebook_client_id: 
+facebook_client_secret: 
+github_client_id: 
+github_client_secret: 
+google_client_id: 
+google_client_secret:
+map:
 

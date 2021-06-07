@@ -23,15 +23,15 @@
       </div>
     </div>
     <div class="order-info border">
-      <div class="order-no tracking-wide bg-gray-500 text-white p-1 px-2  ">訂單編號：<%# @order.serial %></div>
+      <div class="order-no tracking-wide bg-gray-500 text-white p-1 px-2  ">訂單編號：<%= @order.serial %></div>
         <% @seats.each do |s|%>
       <div class="order-detail px-3 flex space-x-1 border-b-2 border-black p-2">
         <div class="item-name w-2/12">票卷</div>
         <div class="item-area w-2/12"><%= s.area %></div>
         <div class="item-seat w-3/12"><%= s.id %>號座位</div>
-        <div class="item-price w-2/12"><%= s.ticket.price%></div>
+        <div class="item-price w-2/12">$<%= s.ticket.price%></div>
         <div class="item-qty w-2/12">x 1</div>
-        <div class="item-calc w-1/12"><%= s.ticket.price%></div>  
+        <div class="item-calc w-1/12">$<%= s.ticket.price%></div>  
       </div>
       <% end %> 
       <div class="order-total_price px-3 flex justify-end space-x-1 border-b-2 border-black p-2 bg-red-50 font-bold text-lg">
@@ -39,7 +39,7 @@
         總計
         </div>
         <div class="total_price w-1/12">
-        <%= @price %>
+        $<%= @price %>
         </div>
       </div>
       <div class="order-checkin px-3 flex space-x-1 border-b-2 border-black p-2">

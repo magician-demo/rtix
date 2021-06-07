@@ -105,6 +105,9 @@ document.addEventListener("DOMContentLoaded",()=>{
             markers.push(marker)
 
             /////
+            map.addListener('idle', function() {
+              map.panTo(marker.getPosition());
+            });
             map.addListener('mouseover', function() {
               map.panTo(marker.getPosition());
             });

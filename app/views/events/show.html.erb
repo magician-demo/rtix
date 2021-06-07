@@ -1,6 +1,6 @@
 <div class="flex justify-center lg:max-w-5xl w-full m-auto">
   <div class="mt-5 w-full">
-    <% if @event.image %>
+    <% if @event.image? %>
       <%= image_tag(@event.image.url, class:"m-auto") %>
     <% else %>
       <img
@@ -68,7 +68,7 @@
 
 <section class="event_information">
   <div class="event_booking_area">
-    <% if @event.seats_image %> 
+    <% if @event.seats_image? %> 
       <%= image_tag(@event.seats_image.url, class:"area_setting") %> 
     <% else %>
       <img

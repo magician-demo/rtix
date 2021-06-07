@@ -111,7 +111,6 @@
 
 
 
-
 <main class="max-w-5xl m-auto pt-8  pb-8 w-full">
   <section class="shadow">
       <div class="tabs">
@@ -186,10 +185,21 @@
 
 
 
+<div class="content">
+  <div class="items-center justify-between w-full mb-4 pl-4 sm:pr-4">
+      <div class="mr-6 text-center">
+        <h2 class="text-3xl md:text-4xl font-semibold tracking-tight leading-7 md:leading-10 mb-1 truncate">平台活動綜覽</h2>
+      </div>
+  </div>
+  <div class="flex justify-center items-center">
+    <div class="overflow-y-scroll h-96">
+      <%= render "events/published" %>
+    </div>
+  </div>
+</div>
 
 
-
-
+<div class="my-8"></div>
 
 
 <!-- component -->
@@ -485,6 +495,8 @@
 	<!--actual component end-->
 </div>
 </div>
+
+<div class="my-5"></div>
 
 <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
 

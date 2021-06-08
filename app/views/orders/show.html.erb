@@ -83,7 +83,7 @@
   <input name="PaymentType" value="aio">
   <input type=integer name="TotalAmount" value=<%= @order.totalAmount %>>
   <input name="TradeDesc" value="Des">
-  <input name="ItemName" value="<%= @order.serial %>">
+  <input name="ItemName" value="rtixorder">
   <input name="ReturnURL" value="<%= ENV["server"]%>/orders/return_url/">
   <input name="ChoosePayment" value="Credit">
   <input name="CheckMacValue" value=<%= @order.checkMacValue %>>

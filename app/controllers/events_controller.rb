@@ -45,6 +45,22 @@ class EventsController < ApplicationController
     redirect_to events_organization_path(params[:organization_id]), notice: "活動刪除成功！" 
   end
 
+  def search
+    if params[:search].blank?  
+      redirect_to(root_path, alert: "請勿搜尋空白")
+    end
+
+    if params[:search]
+      parameter = params[:search].downcase
+      @results = Event.all.select{ 
+        |event| 
+        event.title.downcase.include?(parameter)||
+        event.description.downcase.include?(parameter)
+      }
+    end
+  end
+
+
   
   private
   def event_params

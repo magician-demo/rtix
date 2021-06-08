@@ -33,6 +33,9 @@ Rails.application.routes.draw do
     end
 
     resources :events do
+      collection do
+        get :tag
+      end
       resources :booking, only: %i[index show]
       resources :tickets, only: [:new, :create, :edit, :update]
     end

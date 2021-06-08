@@ -73,17 +73,17 @@
 
 </div>
 
- 
 
-<form class="new_order" style="display: none" id="new_order" action="<%= ENV["payment_url"]%>" method="post">
+
+<form class="new_order" style="display: none " id="new_order" action="<%= ENV["payment_url"]%>" method="post">
 
   <input name="MerchantID" value="<%= ENV["merchant_id"]%>">
   <input name="MerchantTradeNo" value="<%= @order.serial %>">
-  <input name="MerchantTradeDate" value="<%= Time.now.strftime('%Y/%m/%d %H:%M:%S') %>">
+  <input name="MerchantTradeDate" value="<%= @order.ordertime %>">
   <input name="PaymentType" value="aio">
   <input type=integer name="TotalAmount" value=<%= @order.totalAmount %>>
   <input name="TradeDesc" value="Des">
-  <input name="ItemName" value="<%= @order.serial %>">
+  <input name="ItemName" value="rtixorder">
   <input name="ReturnURL" value="<%= ENV["server"]%>/orders/return_url/">
   <input name="ChoosePayment" value="Credit">
   <input name="CheckMacValue" value=<%= @order.checkMacValue %>>

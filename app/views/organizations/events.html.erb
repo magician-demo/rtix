@@ -18,6 +18,7 @@
                 <%= link_to "活動頁面", event_path(event.id), class: "event-page shadow-2xl rounded-lg hover:bg-red-700 hover:text-white cursor-pointer font-bold" %>
                 <%= link_to '編輯活動', edit_event_path(event.id), class: "event-page shadow-2xl rounded-lg hover:bg-red-700 hover:text-white cursor-pointer font-bold"%>
                 <%= link_to "新增票卷", new_event_ticket_path(event.id), class: "event-page shadow-2xl rounded-lg hover:bg-red-700 hover:text-white cursor-pointer font-bold" %>
+                <%= link_to "報到管理", list_checkin_index_path(event.id, :organization_id => @organization.id), class: "event-page shadow-2xl rounded-lg hover:bg-red-700 hover:text-white cursor-pointer font-bold" %>
               </div>
               <div>
                 <%= link_to "發布活動", publish_organization_path(event.id, :organization_id => @organization.id), class: "event-page shadow-2xl rounded-lg hover:bg-red-700 hover:text-white cursor-pointer font-bold" %>

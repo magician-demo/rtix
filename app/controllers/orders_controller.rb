@@ -38,6 +38,8 @@ class OrdersController < ApplicationController
       @order.order_items.new(seat_id: seat.id) 
       seat.check_in.create(status: 'pending', event_id: seat.ticket.event.id)
     end
+    #訂單成立時間
+    @order.ordertime = Time.now.strftime('%Y/%m/%d %H:%M:%S')
 
     #訂單成立、先產生訂單序號跟總金額到欄位中，讓下面的檢查碼抓取
     @order.save
@@ -45,14 +47,10 @@ class OrdersController < ApplicationController
     #清空購物車
     empty_cart!
 
+
+    beforeURLEncode = "HashKey=#{ENV["hash_key"]}&ChoosePayment=Credit&ClientBackURL=#{ENV["server"]}/&EncryptType=1&ItemName=rtixorder&MerchantID=#{ENV["merchant_id"]}&MerchantTradeDate=#{@order.ordertime}&MerchantTradeNo=#{@order.serial}&PaymentType=aio&ReturnURL=#{ENV["server"]}/orders/return_url/&TotalAmount=#{@order.totalAmount}&TradeDesc=Des&HashIV=#{ENV["hash_iv"]}"
     #檢查碼
-    #回傳的網址:導回首頁
-    # ClientBackURL=https://949c2e887532.ngrok.io/&
-
-    # beforeURLEncode =
-    #   "HashKey=#{ENV['hash_key']}&ChoosePayment=Credit&ClientBackURL=#{ENV['server']}/&EncryptType=1&ItemName=#{@order.serial}&MerchantID=#{ENV['merchant_id']}&MerchantTradeDate=#{Time.now.strftime('%Y/%m/%d %H:%M:%S')}&MerchantTradeNo=#{@order.serial}&PaymentType=aio&ReturnURL=#{ENV['server']}/orders/return_url/&TotalAmount=#{@order.totalAmount}&TradeDesc=Des&HashIV=#{ENV['hash_iv']}"
-
-    beforeURLEncode = "HashKey=#{ENV["hash_key"]}&ChoosePayment=Credit&ClientBackURL=#{ENV["server"]}/&EncryptType=1&ItemName=rtixorder&MerchantID=#{ENV["merchant_id"]}&MerchantTradeDate=#{Time.now.strftime('%Y/%m/%d %H:%M:%S')}&MerchantTradeNo=#{@order.serial}&PaymentType=aio&ReturnURL=#{ENV["server"]}/orders/return_url/&TotalAmount=#{@order.totalAmount}&TradeDesc=Des&HashIV=#{ENV["hash_iv"]}"
+    
 
     query = URI.encode_www_form_component(beforeURLEncode).downcase
     @order.checkMacValue = Digest::SHA256.hexdigest(query).upcase

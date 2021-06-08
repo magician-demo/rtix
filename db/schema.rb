@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_06_04_151822) do
+ActiveRecord::Schema.define(version: 2021_06_08_070015) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -95,10 +95,10 @@ ActiveRecord::Schema.define(version: 2021_06_04_151822) do
     t.datetime "start_time"
     t.datetime "end_time"
     t.string "image"
-    t.string "status", default: "pending"
-    t.string "seats_image"
+    t.string "status", default: "待發佈"
     t.float "latitude"
     t.float "longitude"
+    t.string "seats_image"
     t.index ["organization_id"], name: "index_events_on_organization_id"
   end
 
@@ -152,6 +152,7 @@ ActiveRecord::Schema.define(version: 2021_06_04_151822) do
     t.text "item_list"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "ordertime"
     t.index ["user_id"], name: "index_orders_on_user_id"
   end
 

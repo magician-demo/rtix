@@ -29,7 +29,7 @@ class DashboardsController < ApplicationController
     def create
       @user = current_user
       @event = Event.find(params[:id])
-      @contact = Contact.new(contact_params)
+      @contact = @user.contacts.new(contact_params)
       
       if @contact.save
         ContactMailer.with(user: current_user, event: @event, contact: @contact).contact_created.deliver_later 
@@ -41,6 +41,6 @@ class DashboardsController < ApplicationController
 
     private 
     def contact_params
-      params.require(:contact).permit(:name, :email, :tel, :event, :title, :feedback, :user_id)
+      params.require(:contact).permit(:name, :email, :tel, :event, :title, :feedback)
     end
 end

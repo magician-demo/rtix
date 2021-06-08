@@ -1,14 +1,16 @@
-<div class="event_img my-5">
-  <% if @event.image? %> 
-    <%= image_tag(@event.image.url, class:"m-auto") %> 
-  <% else %>
-    <img
-      data-organizations-image-target="imagebox"
-      id="preview"
-      class="image m-auto"
-      src="/image/activity.png"
-    >
-  <% end %>
+<div class="flex justify-center lg:max-w-5xl w-full m-auto">
+  <div class="mt-5 w-full">
+    <% if @event.image? %>
+      <%= image_tag(@event.image.url, class:"m-auto") %>
+    <% else %>
+      <img
+        data-organizations-image-target="imagebox"
+        id="preview"
+        class="image m-auto"
+        src="/image/activity.png"
+      >
+    <% end %>
+  </div>
 </div>
 
 <div class="divide"></div>
@@ -60,10 +62,11 @@
    <div class=" max-h-72" data-mapid="<%= ENV["map"] %>" data-maplat="<%= @event.latitude %>" data-maplon="<%= @event.longitude %>" id="map"></div>
   </div>
 </div> 
+
   <%= render 'booking_status'%>
   
 
-<section class="event_information my-5">
+<section class="event_information">
   <div class="event_booking_area">
     <% if @event.seats_image? %> 
       <%= image_tag(@event.seats_image.url, class:"area_setting") %> 

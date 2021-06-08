@@ -1,5 +1,4 @@
 import { Controller } from 'stimulus'
-import ax from '../lib/ax'
 export default class extends Controller {
   connect() {
     if (localStorage.justOnce != 'true') {

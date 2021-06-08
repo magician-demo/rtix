@@ -60,8 +60,7 @@
           <% if @event.image? %> <%= image_tag(@event.image_url) %>
           <% else %>
           <img
-            id="preview"
-            class="image m-auto"
+            class="image m-auto image-preview"
             src="/image/activity.png"
           >
           <% end %>

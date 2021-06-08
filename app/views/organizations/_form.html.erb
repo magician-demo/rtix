@@ -1,70 +1,68 @@
 <div class="my-5">
   <%= form_for(@organization) do |form| %>
-  <div class="org-image-group" data-controller="image">
-    <div class="image-box">
-  
-  
-      <% if @organization.image? %> <%= image_tag(@organization.image_url, class: "image") %> <%
-      else %>
-      <img
-        id="preview"
-        class="image"
-        src="/image/organization.png"
-      />
-      <% end %>
+    <div class="org-image-group" data-controller="image">
+      <div class="image-box">
+    
+    
+        <% if @organization.image? %> <%= image_tag(@organization.image_url, class: "image image-preview") %> <%
+        else %>
+        <img
+          class="image image-preview"
+          src="/image/organization.png"
+        />
+        <% end %>
+      </div>
+      <div class="mt-4 flex justify-center">
+        <label class="org-image-button">
+          上傳圖片 <%= form.file_field :image, id: :org_image, class:
+          "org-image-input", data: { action: "change->image#update" }
+          %>
+        </label>
+      </div>
     </div>
-    <div class="mt-4 flex justify-center">
-      <label class="org-image-button">
-        上傳圖片 <%= form.file_field :image, id: :org_image, class:
-        "org-image-input", data: { action: "change->image#update" }
-        %>
-      </label>
+    
+    <div class="org-info-group">
+      <div class="org-field-group">
+        <%= form.label :組織名稱 %> <%= form.text_field :title, class: "org-field"%>
+        <%= organization.errors.full_messages_for(:title).join(', ') if organization.errors.full_messages_for(:title) %>
+      </div>
+      <div class="org-field-group">
+        <%= form.label :網址 %> <%= form.text_field :domain_name, class: "org-field"%>
+        <p class="domin-name-help">3 到 16 個小寫英文或數字。</p>
+        <p class="text-sm text-red-700 italic"><%= organization.errors.full_messages_for(:domain_name).join(', ') if organization.errors.full_messages_for(:domain_name) %></p>
+      </div>
+      <div class="org-field-group">
+        <%= form.label :網站 %> <%= form.text_field :web, class: "org-field"%>
+        <p class="text-sm text-red-700 italic"><%= organization.errors.full_messages_for(:web).join(', ') if organization.errors.full_messages_for(:web) %></p>
+      </div>
+      <div class="org-field-group flex-grow">
+        <%= form.label :描述 %>
+        <br />
+        <%= form.text_area :description, class: "org-field", placeholder:'請介紹一下這個組織' %>
+        <p class="text-sm text-red-700 italic"><%= organization.errors.full_messages_for(:description).join(', ') if organization.errors.full_messages_for(:description) %> </p>
+      </div>
+      <div class="org-field-group">
+        <%= form.label :"Facebook 粉絲專頁網址" %> <%= form.text_field :facebook, class: "org-field"%>
+        <p class="text-sm text-red-700 italic"><%= organization.errors.full_messages_for(:facebook).join(', ') if organization.errors.full_messages_for(:facebook) %></p>
+      </div>
+      <div class="org-field-group">
+        <%= form.label :"Twitter 帳號" %> <%= form.text_field :twitter, class: "org-field"%>
+        <p class="text-sm text-red-700 italic"><%= organization.errors.full_messages_for(:twitter).join(', ') if organization.errors.full_messages_for(:twitter) %></p>
+      </div>
+      <div class="org-field-group">
+        <%= form.label :"Flickr 相簿網址" %> <%= form.text_field :flickr, class: "org-field"%>
+        <p class="text-sm text-red-700 italic"><%= organization.errors.full_messages_for(:flickr).join(', ') if organization.errors.full_messages_for(:flickr) %></p>
+      </div>
+      <div class="org-field-group">
+        <%= form.label :"回覆 E-mail 地址" %> <%= form.email_field :e_mail, class: "org-field"%>
+        <p class="text-sm text-red-700 italic"><%= organization.errors.full_messages_for(:e_mail).join(', ') if organization.errors.full_messages_for(:e_mail) %></p>
+      </div>
+    
+      <div class="org-button-group">
+        <%= form.submit "送出", class:"org-button" %> <% if @organization.id %> <%=
+        link_to '取消',info_organization_path(@organization), class: "org-button
+        org-cancel-button" %> <% end %>
+      </div>
     </div>
-  </div>
-  
-  <div class="org-info-group">
-    <div class="org-field-group">
-      <%= form.label :組織名稱 %> <%= form.text_field :title, class: "org-field"%>
-      <%= organization.errors.full_messages_for(:title).join(', ') if organization.errors.full_messages_for(:title) %>
-    </div>
-    <div class="org-field-group">
-      <%= form.label :網址 %> <%= form.text_field :domain_name, class: "org-field"%>
-      <p class="domin-name-help">3 到 16 個小寫英文或數字。</p>
-      <p class="text-sm text-red-700 italic"><%= organization.errors.full_messages_for(:domain_name).join(', ') if organization.errors.full_messages_for(:domain_name) %></p>
-    </div>
-    <div class="org-field-group">
-      <%= form.label :網站 %> <%= form.text_field :web, class: "org-field"%>
-      <p class="text-sm text-red-700 italic"><%= organization.errors.full_messages_for(:web).join(', ') if organization.errors.full_messages_for(:web) %></p>
-    </div>
-    <div class="org-field-group flex-grow">
-      <%= form.label :描述 %>
-      <br />
-      <%= form.text_area :description, class: "org-field", placeholder:'請介紹一下這個組織' %>
-      <p class="text-sm text-red-700 italic"><%= organization.errors.full_messages_for(:description).join(', ') if organization.errors.full_messages_for(:description) %> </p>
-    </div>
-    <div class="org-field-group">
-      <%= form.label :"Facebook 粉絲專頁網址" %> <%= form.text_field :facebook, class: "org-field"%>
-      <p class="text-sm text-red-700 italic"><%= organization.errors.full_messages_for(:facebook).join(', ') if organization.errors.full_messages_for(:facebook) %></p>
-    </div>
-    <div class="org-field-group">
-      <%= form.label :"Twitter 帳號" %> <%= form.text_field :twitter, class: "org-field"%>
-      <p class="text-sm text-red-700 italic"><%= organization.errors.full_messages_for(:twitter).join(', ') if organization.errors.full_messages_for(:twitter) %></p>
-    </div>
-    <div class="org-field-group">
-      <%= form.label :"Flickr 相簿網址" %> <%= form.text_field :flickr, class: "org-field"%>
-      <p class="text-sm text-red-700 italic"><%= organization.errors.full_messages_for(:flickr).join(', ') if organization.errors.full_messages_for(:flickr) %></p>
-    </div>
-    <div class="org-field-group">
-      <%= form.label :"回覆 E-mail 地址" %> <%= form.email_field :e_mail, class: "org-field"%>
-      <p class="text-sm text-red-700 italic"><%= organization.errors.full_messages_for(:e_mail).join(', ') if organization.errors.full_messages_for(:e_mail) %></p>
-    </div>
-  
-    <div class="org-button-group">
-      <%= form.submit "送出", class:"org-button" %> <% if @organization.id %> <%=
-      link_to '取消',info_organization_path(@organization), class: "org-button
-      org-cancel-button" %> <% end %>
-    </div>
-  </div>
-  
   <% end %>
 </div>

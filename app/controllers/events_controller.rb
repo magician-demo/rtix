@@ -10,6 +10,7 @@ class EventsController < ApplicationController
   end
 
   def tag
+    @events = Event.where(tag: params[:event_tag]).where(status: "已發佈").order('start_time desc').select{|event| event.start_time > Time.now }
   end
 
   def contacts

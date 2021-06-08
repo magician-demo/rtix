@@ -6,7 +6,6 @@
     <h1 class="contact_heading">聯繫主辦單位<br><%=@event.organization.title %></h1>
     <div class="contact_form">
             <%= form_for(@contact, url: contact_dashboard_path(@event.id))  do |form| %>
-            <%= form.hidden_field :user_id, value: @user.id %>
         <div class="pl-20 md:pl-0">
             <div class="contact_field">
                 <%= form.label :name, "您的大名:" ,class: 'font-mono font-bold text-lg' %>

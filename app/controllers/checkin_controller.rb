@@ -1,6 +1,6 @@
 class CheckinController < ApplicationController
   before_action :authenticate_user!
-  before_action :authenticate_admin
+  before_action :authenticate_admin_or_org
 
   def show
     @checkin_id = CheckIn.find(params[:id]).id
@@ -17,6 +17,7 @@ class CheckinController < ApplicationController
   end
 
   def checkin_list
+    @organization = Organization.find_by(id: params[:organization_id])
     @events = Event.all
     @check_in = CheckIn.where(event_id: params[:id]).sort
   end

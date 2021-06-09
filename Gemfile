@@ -26,7 +26,7 @@ gem 'redis', '~> 4.0'
 gem 'image_processing', '~> 1.2'
 gem 'carrierwave', '~> 2.0'
 gem 'mini_magick', '~> 4.11'
-
+gem 'fog-aws', '~> 3.10'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.4', require: false
 gem 'paranoia', '~> 2.4', '>= 2.4.3'

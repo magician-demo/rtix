@@ -12,4 +12,6 @@ github_client_secret:
 google_client_id: 
 google_client_secret:
 map:
-
+aws_access_key_id:
+aws_secret_access_key:
+s3_bucket_name:

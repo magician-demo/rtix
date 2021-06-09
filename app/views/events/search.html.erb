@@ -1,6 +1,8 @@
 <% if @results.empty?%>
   <h1 class="no_found">查無搜尋結果！</h1>
 <% end %>
+
+<% unless @results.empty?%>
 <h1 class="result">符合搜尋結果如下：</h1>
 <% @results.each do |result|%>
 <div class="w-full bg-white text-center max-w-5xl m-auto">
@@ -40,5 +42,6 @@
         </a>
     </div>
 </div>
+<% end %>
 <% end %>
 

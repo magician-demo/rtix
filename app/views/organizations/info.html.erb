@@ -5,21 +5,23 @@
       <div class="w-full text-xl mb-4 text-center md:text-left mt-5 text-gray-500 border-b border-gray-400 px-4">
           組織名稱 <span class="inline-block ml-3 text-3xl text-red-600"><%= @organization.title %></span>
       </div>
-      <div class="p-3">
+      <div class="p-1.5">
         <div class="flex">
           <div class="orginfo w-1/2 overflow-auto h-2/3 p-8 border-gray-100 border-2 shadow-lg">
-            <h5 class="show-title font-bold mb-5">描述: <span class="text-lg font-light"><%= @organization.description %></span></h5>  
-            <div class="mb-5">
-              <h5 class="show-title font-bold mb-3">RTIX URL</h5>
-              <%= link_to "https://rtix.site/organizations/#{@organization.domain_name}",
-                          "/organizations/#{params[:id]}",
-                          class:"url" %>
+            <h5 class="text-lg font-bold mb-3">描述: <span class="text-lg font-light"><%= @organization.description %></span></h5>  
+            <div class="mb-1.5">
+              <h5 class="text-lg font-bold">RTIX URL</h5>
+              <div>
+                <%= link_to "https://rtix.site/organizations/#{@organization.domain_name}",
+                            "/organizations/#{params[:id]}",
+                            class:"url" %>
+              </div>
             </div>
-            <h5 class="show-title font-bold mb-5">網站: <a href="<%= @organization.web %>" class="url"><%= @organization.web %></a></h5>
-            <h5 class="show-title font-bold mb-5">Facebook 粉絲專頁: <a href="<%= @organization.facebook %>" class="url"><%= @organization.facebook %></a></h5>
-            <h5 class="show-title font-bold mb-5">Twitter 帳號: <a href="<%= @organization.twitter %>" class="url"><%= @organization.twitter %></a></h5>
-            <h5 class="show-title font-bold mb-5">Flickr 相簿網址: <a href="<%= @organization.flickr %>" class="url"><%= @organization.flickr %></a></h5>
-            <h5 class="show-title font-bold mb-3">回覆 E-mail: <span class="text-red-500"><%= @organization.e_mail %></span></h5>
+            <h6 class="text-lg font-bold mb-1.5">網站: <a href="<%= @organization.web %>" class="url"><%= @organization.web %></a></h6>
+            <h6 class="text-lg font-bold mb-1.5">Facebook 粉絲專頁: <a href="<%= @organization.facebook %>" class="url"><%= @organization.facebook %></a></h6>
+            <h6 class="text-lg font-bold mb-1.5">Twitter 帳號: <a href="<%= @organization.twitter %>" class="url"><%= @organization.twitter %></a></h6>
+            <h6 class="text-lg font-bold mb-1.5">Flickr 相簿網址: <a href="<%= @organization.flickr %>" class="url"><%= @organization.flickr %></a></h6>
+            <h6 class="text-lg font-bold mb-1.5">回覆 E-mail: <span class="text-red-500"><%= @organization.e_mail %></span></h6>
             <div class="mt-3">
               <%= link_to '編輯', edit_organization_path(@organization), class: "org-edit-button" %>
             </div>

@@ -7,26 +7,23 @@
             <div class="hostab" data-action="click->myorder#showhost mouseover->myorder#hosthover" data-myorder-target="host">舉辦活動總覽</div>
         </div>
 
-        
-        <div class="content" data-myorder-target="content">
+        <div class="my_order_content" data-myorder-target="content">
             <h2 class="subhead">我的票券</h2>
             <div><%= render "tickets/ticket" %></div>
         </div>
 
-
         <div style="clear:both;"></div>
 
-
-        <div class="content">
+        <div class="my_order_content">
             <h2 class="subhead">RTIX精選活動</h2>
-            <div class="overflow-y-auto h-80 rounded-3xl">
+            <div class="overflow-y-auto h-96 rounded-3xl">
                 <%= render "events/event" %>
             </div>
         </div>
 
         <div style="clear:both;"></div>
-    </div>
 
+    </div>
 </div>
 
 

@@ -3,7 +3,7 @@
 }
 
 .myorder {
-  @apply my-20;
+  @apply my-10;
 }
 
 .subtab {
@@ -27,10 +27,10 @@
 }
 
 .subhead {
-    @apply my-10 font-mono text-4xl shadow-2xl bg-red-700 text-white rounded-xl text-center 
+    @apply my-5 font-mono text-4xl shadow-2xl bg-red-700 text-white rounded-xl text-center 
 }
 
-.content {
+.my_order_content {
   @apply w-10/12 m-auto;
 }
 

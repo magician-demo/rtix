@@ -11,7 +11,7 @@ class OrganizationsController < ApplicationController
   end
 
   def events
-    @events = Organization.find(params[:id]).events.all.sort.reverse
+    @events = Organization.find(params[:id]).events.all.includes(:tickets).sort.reverse
   end
 
   def appropriations

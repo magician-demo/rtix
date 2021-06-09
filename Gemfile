@@ -66,6 +66,7 @@ group :development do
   gem 'spring'
   gem 'hirb-unicode', '~> 0.0.5'
   gem 'faker', git: 'https://github.com/faker-ruby/faker.git', branch: 'master'
+  gem 'bullet'
 end
 
 group :test do

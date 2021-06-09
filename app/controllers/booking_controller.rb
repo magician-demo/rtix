@@ -16,7 +16,6 @@ class BookingController < ApplicationController
         .tickets
         .find(params[:id])
         .seats
-        .includes(:ticket)
         .sort_by { |seat| seat.id }
     @seat = current_cart.seats.includes(:ticket).includes(:line_item)
     @seats_count = current_cart.seats.count

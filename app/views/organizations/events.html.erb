@@ -13,26 +13,26 @@
         <div class="card my-10 border-2 border-red-700 rounded-lg shadow-2xl" id="event<%=event.id%>">
           <h5 class="text-2xl italic mt-5 font-bold text-center"><%= event.title %></h5> 
           <h6 class="text-base text-center">(<%= event.status %>)</h6>
-          <div class="mt-3 text-center">
-            <div class="inline-block"><%= link_to "活動頁面", event_path(event.id), class: "event-page shadow-2xl rounded-lg hover:bg-red-700 hover:text-white cursor-pointer font-bold" %></div>
-            <div class="inline-block ml-3"><%= link_to '編輯活動', edit_event_path(event.id), class: "event-page shadow-2xl rounded-lg hover:bg-red-700 hover:text-white cursor-pointer font-bold"%></div>
-            <div class="inline-block ml-3"><%= link_to "新增票卷", new_event_ticket_path(event.id), class: "event-page shadow-2xl rounded-lg hover:bg-red-700 hover:text-white cursor-pointer font-bold" %></div>
-            <div class="inline-block ml-3"><%= link_to "報到管理", list_checkin_index_path(event.id, :organization_id => @organization.id), class: "event-page shadow-2xl rounded-lg hover:bg-red-700 hover:text-white cursor-pointer font-bold" %></div>
-            <div class="inline-block ml-3"><%= link_to "發布活動", publish_organization_path(event.id, :organization_id => @organization.id), class: "event-page shadow-2xl rounded-lg hover:bg-red-700 hover:text-white cursor-pointer font-bold" %></div>
-            <div class="inline-block ml-3"><%= link_to "暫緩活動", pending_organization_path(event.id, :organization_id => @organization.id), class: "event-page shadow-2xl rounded-lg hover:bg-red-700 hover:text-white cursor-pointer font-bold" %></div>
-            <div class="inline-block ml-3"><%= button_to '刪除活動', event_path(event.id, :organization_id => @organization.id ), method: :delete, data: { confirm: '確定要刪除活動嗎？'}, class: "event-page shadow-2xl rounded-lg hover:bg-red-700 hover:text-white cursor-pointer font-bold" %></div>
+          <div class="mt-3 text-left w-11/12 m-auto">
+            <div class="inline-block pl-3"><%= link_to "活動頁面", event_path(event.id), class: "event-page shadow-2xl rounded-lg hover:bg-red-700 hover:text-white cursor-pointer font-bold" %></div>
+            <div class="inline-block pl-3"><%= link_to '編輯活動', edit_event_path(event.id), class: "event-page shadow-2xl rounded-lg hover:bg-red-700 hover:text-white cursor-pointer font-bold"%></div>
+            <div class="inline-block pl-3"><%= link_to "新增票卷", new_event_ticket_path(event.id), class: "event-page shadow-2xl rounded-lg hover:bg-red-700 hover:text-white cursor-pointer font-bold" %></div>
+            <div class="inline-block pl-3"><%= link_to "報到管理", list_checkin_index_path(event.id, :organization_id => @organization.id), class: "event-page shadow-2xl rounded-lg hover:bg-red-700 hover:text-white cursor-pointer font-bold" %></div>
+            <div class="inline-block pl-3"><%= link_to "發布活動", publish_organization_path(event.id, :organization_id => @organization.id), class: "event-page shadow-2xl rounded-lg hover:bg-red-700 hover:text-white cursor-pointer font-bold" %></div>
+            <div class="inline-block pl-3"><%= link_to "暫緩活動", pending_organization_path(event.id, :organization_id => @organization.id), class: "event-page shadow-2xl rounded-lg hover:bg-red-700 hover:text-white cursor-pointer font-bold" %></div>
+            <div class="inline-block pl-3"><%= button_to '刪除活動', event_path(event.id, :organization_id => @organization.id ), method: :delete, data: { confirm: '確定要刪除活動嗎？'}, class: "event-page shadow-2xl rounded-lg hover:bg-red-700 hover:text-white cursor-pointer font-bold" %></div>
           </div>
 
-          <div class="mt-3 mx-10 h-20 rounded-lg flex">
-            <h5 class="w-1/4 text-center font-bold bg-red-500 text-white flex flex-col justify-center items-center">活動描述</h5>
+          <div class="mt-3 mx-10 h-20 rounded-lg shadow-2xl flex">
+            <h5 class="w-1/4 text-center font-bold bg-red-700 text-white flex flex-col justify-center items-center">活動描述</h5>
             <p class="w-3/4 p-3 overflow-y-auto"><%= event.description %> </p>
           </div>
 
 
 
           <div class="my-3 mx-6 overflow-y-auto h-32 p-5">
-            <table class="org-event-list rounded-2xl">
-              <tr class="bg-red-500 text-white">
+            <table class="org-event-list rounded-2xl shadow-2xl">
+              <tr class="bg-red-700 text-white">
                 <th class="text-sm font-bold border-r border-red-300">票種名稱</td>
                 <th class="text-sm font-bold border-r border-red-300">售價</td>
                 <th class="text-sm font-bold border-r border-red-300">數量</td>

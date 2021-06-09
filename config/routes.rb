@@ -36,6 +36,7 @@ Rails.application.routes.draw do
       collection do
         get :tag
       end
+      collection { get 'search', to: 'events#search' }
       resources :booking, only: %i[index show]
       resources :tickets, only: [:new, :create, :edit, :update]
     end

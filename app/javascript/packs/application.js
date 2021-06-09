@@ -7,7 +7,7 @@ require("@rails/actiontext")
 
 
 Rails.start()
-ActiveStorage.start()
+ActiveStorage.start() 
 
 import 'controllers'
 import 'channels'

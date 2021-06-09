@@ -51,17 +51,10 @@ class EventsController < ApplicationController
   end
 
   def search
-    if params[:search].blank?  
-      redirect_to(root_path, alert: "請勿搜尋空白")
-    end
-
-    if params[:search]
-      parameter = params[:search].downcase
-      @results = Event.all.select{ 
-        |event| 
-        event.title.downcase.include?(parameter)||
-        event.description.downcase.include?(parameter)
-      }
+    @events = Event.ransack(title_or_description_cont: params[:q]).result(distinct: true)
+    respond_to do |format|
+      format.html { @results = @events.limit(5) }
+      format.json { @events = @events.limit(5) }
     end
   end
 

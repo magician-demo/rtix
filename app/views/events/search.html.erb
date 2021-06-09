@@ -1,18 +1,22 @@
 <% if @results.empty?%>
-  <h1 class="no_found">查無搜尋結果！</h1>
-<% end %>
-
-<% unless @results.empty?%>
-<h1 class="result">符合搜尋結果如下：</h1>
-<% @results.each do |result|%>
-<div class="w-full bg-white text-center max-w-5xl m-auto">
-    <div class="grid mt-8 gap-8 grid-cols-1 md:w-1/2 md:float-left">
-        <a href="<%= event_path(result.id) %>">
-            <div>
-                <div class="bg-white shadow-md rounded-3xl p-4 group hover:shadow-lg hover:border-transparent">
-                    <div class="flex-none lg:flex">
+    <h2 class="no_found">根據條件查無此活動</h2>
+  <% else%>
+  <div class="events_content my-5">
+  <div class="items-center justify-between w-full pl-4 sm:pr-4">
+      <div class="mr-6 text-center">
+        <h2 class="text-3xl md:text-4xl font-semibold tracking-tight leading-7 md:leading-10 mb-5 truncate">搜尋結果如下：</h2>
+      </div>
+  </div>
+  <div class="flex justify-center items-center">
+    <div class="overflow-y-scroll h-96 border border-red-700 rounded-2xl px-5">
+    <div class="w-full bg-white text-center max-w-5xl m-auto">
+    <div class="grid grid-cols-1 gap-8 md:grid-cols-2">
+        <% @results.each do |result|%>
+                <div class="bg-white shadow-md rounded-3xl p-4 group hover:shadow-lg hover:border-transparent w-full">
+                <a href="<%= event_path(result.id)%>">
+                    <div class="flex lg:flex">
                         <div class=" h-full w-full lg:h-48 lg:mb-0 mb-3 group-hover:opacity-80">
-                        <%=image_tag(result.image_url, class: "w-full object-scale-down lg:object-cover  lg:h-48 rounded-2xl" ) %>
+                        <img src=<%= result.image_url %> class=" w-full object-scale-down lg:object-cover  lg:h-48 rounded-2xl">
                         </div>
                         <div class="flex-auto ml-3 justify-evenly py-2">
                             <div class="flex flex-wrap ">
@@ -33,15 +37,17 @@
                                 <button
                                     class="mb-2 md:mb-0 bg-gray-900 px-5 py-2 shadow-sm tracking-wider text-white rounded-full group-hover:bg-red-700"
                                     type="button" aria-label="like"><%= link_to '購票去', event_path(result.id) %>
-                                </button>
-                            </div>
-                        </div>
+                      </button>
                     </div>
+                  </div>
                 </div>
-            </div>
-        </a>
+                </a>
+              </div>
+           <% end %>   
+        </div>
+      </div>
     </div>
+  </div>
 </div>
-<% end %>
 <% end %>
 

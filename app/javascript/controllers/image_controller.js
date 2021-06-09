@@ -12,6 +12,6 @@ function readUrl(input) {
   reader.readAsDataURL(input)
   reader.onload = (e) => {
     // 將圖片塞到 <img>
-    document.querySelector('img').src = e.target.result
+    document.querySelector('.image-preview').src = e.target.result
   }
 }

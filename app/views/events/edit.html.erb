@@ -55,11 +55,10 @@
       </div>
       <div class="org-image-group" data-controller="image">
         <div class="image-box">
-          <% if @event.image? %> <%= image_tag(@event.image_url) %>
+          <% if @event.image? %> <%= image_tag(@event.image_url, class:"image-preview") %>
           <% else %>
           <img
-            id="preview"
-            class="image m-auto"
+            class="image m-auto image-preview"
             src="/image/organization.png"
           >
           <% end %>

@@ -14,13 +14,16 @@
       
       
         <div class="hidden lg:flex lg:items-center lg:w-auto w-full" id="menu">
-       <div class="relative mx-auto text-gray-600 mt-6 lg:mt-0 ">
-          <input class="border-2 border-gray-300 bg-white h-10 px-5 pr-16 my-2 rounded-lg text-sm focus:outline-none w-full lg:w-15"
-            type="search" name="search" placeholder="搜尋活動">
-          <button type="submit" class="absolute right-0 top-0 mt-2 mr-4">
-            <i class="fas fa-search"></i>
-          </button>
-        </div>
+          <%= form_tag(search_events_path, method: 'get') do %>  
+            <div class="flex relative my-2">  
+              <%= search_field_tag 'search', params[:search], placeholder: "搜尋活動", class: "rounded-sm py-2 px-4 shadow" %>  
+                <div class="absolute right-0 bg-red-700 border border-white px-2 rounded-sm h-full flex items-center">  
+                  <%= button_tag '', name: nil do%>  
+                    <i class="fas fa-search text-white"></i>
+                  <% end %>
+                </div>  
+            </div>  
+          <% end %>
       <nav>
         <ul class="lg:flex items-center justify-between text-base text-white pt-4 lg:pt-0 mx-3 ">
       

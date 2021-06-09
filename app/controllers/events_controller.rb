@@ -9,6 +9,11 @@ class EventsController < ApplicationController
     end
   end
 
+  def tag
+    @events = Event.where(tag: params[:event_tag]).where(status: "已發佈").order('start_time desc').select{|event| event.start_time > Time.now }
+    @tag =  params[:event_tag]
+  end
+
   def contacts
   end
 
@@ -64,7 +69,7 @@ class EventsController < ApplicationController
   
   private
   def event_params
-    params.require(:event).permit(:title, :description, :location, :start_time, :end_time, :address, :image, :organization_id, :seats_image, :latitude, :longitude)    
+    params.require(:event).permit(:title, :description, :location, :start_time, :end_time, :address, :image, :organization_id, :seats_image, :latitude, :longitude, :tag)    
   end
 
   def find_event

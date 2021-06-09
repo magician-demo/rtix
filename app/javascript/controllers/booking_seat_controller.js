@@ -1,4 +1,5 @@
 import { Controller } from 'stimulus'
+import Swal from 'sweetalert2'
 import ax from '../lib/ax'
 
 export default class extends Controller {
@@ -15,6 +16,7 @@ export default class extends Controller {
     let total_price = document.querySelector('.cart_total_price')
     const id = this.element.dataset['seatId']
     // 將資料 post 到後端新增訂單資訊
+    if(count.textContent < '4'){
     ax.post('/line_items', { seat_id: id, booking_id: booking_id })
       .then((res) => {
         count.innerHTML = Number(count.textContent) + 1
@@ -24,8 +26,15 @@ export default class extends Controller {
         total_price.innerHTML = `票券總價：$${res.data.data['total_price']}`
       })
       .catch((err) => {
-        alert(err)
+        console.log(err);
       })
+    } else {
+      Swal.fire({
+        icon: 'warning',
+        title: '很抱歉',
+        text: '最多只能購買四張票券！'
+      })
+    }
   }
 }
 function addList({ name, area, id, price, itemId }) {

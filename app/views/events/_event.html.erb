@@ -6,7 +6,7 @@
             <h5 class="font-bold tex-xl mt-3"><%= event.title %></h5>
             <p class="text-sm h-16 rounded-lg text-left p-3 overflow-auto"><%= event.description %> Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut corrupti fugiat doloribus itaque accusamus magnam eius fugit, repudiandae explicabo provident ipsa nostrum tempore et quo, assumenda suscipit dolores facere iusto?</p>
             <p class="italic my-3"><%= event.city %></p>
-            <a href="" class="linkto">活動頁面</a>
+            <a href="<%= event_path(event.id) %>" class="linkto">活動頁面</a>
         </div>
     </div>
 </div>

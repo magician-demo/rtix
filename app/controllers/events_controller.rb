@@ -2,11 +2,16 @@ class EventsController < ApplicationController
   before_action :find_event, only: [:show, :edit, :update, :destroy]
 
   def index
-    @events = Event.where(status: "published")
+    @events = Event.where(status: "已發佈").order('start_time desc').select{|event| event.start_time > Time.now }
 
     if user_signed_in?
       @organizations = current_user.organizations.all
     end
+  end
+
+  def tag
+    @events = Event.where(tag: params[:event_tag]).where(status: "已發佈").order('start_time desc').select{|event| event.start_time > Time.now }
+    @tag =  params[:event_tag]
   end
 
   def contacts
@@ -45,11 +50,26 @@ class EventsController < ApplicationController
     redirect_to events_organization_path(params[:organization_id]), notice: "活動刪除成功！" 
   end
 
+  def search
+    if params[:search].blank?  
+      redirect_to(root_path, alert: "請勿搜尋空白")
+    end
+
+    if params[:search]
+      parameter = params[:search].downcase
+      @results = Event.all.select{ 
+        |event| 
+        event.title.downcase.include?(parameter)||
+        event.description.downcase.include?(parameter)
+      }
+    end
+  end
+
+
   
   private
   def event_params
-    params.require(:event).permit(:title, :description, :location, :start_time, :end_time, :address, :image, :organization_id, :seats_image, :latitude, :longitude)
-    
+    params.require(:event).permit(:title, :description, :location, :start_time, :end_time, :address, :image, :organization_id, :seats_image, :latitude, :longitude, :tag)    
   end
 
   def find_event

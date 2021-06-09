@@ -25,6 +25,10 @@
         </div>
       </div>
       <div class="event_num my-2">
+        <abbr title="required" class="text-red-500 text-lg">*</abbr><%= event.label :tag, "活動類型", class: "font-bold"%>
+        <div><%= event.select :tag, {:類型 => ["學習", "演出", "聯誼", "美食", "戶外"]}, class:"event_tag" %></div>
+      </div>
+      <div class="event_num my-2">
         <abbr title="required" class="text-red-500 text-lg">*</abbr><%= event.label :location, "活動地點", class: "font-bold"%>
         <div><%= event.text_field :location, class: "input rounded-lg w-5/6" %></div>
       </div>
@@ -55,11 +59,10 @@
       </div>
       <div class="org-image-group" data-controller="image">
         <div class="image-box">
-          <% if @event.image? %> <%= image_tag(@event.image_url) %>
+          <% if @event.image? %> <%= image_tag(@event.image_url, class:"image-preview") %>
           <% else %>
           <img
-            id="preview"
-            class="image m-auto"
+            class="image m-auto image-preview"
             src="/image/organization.png"
           >
           <% end %>

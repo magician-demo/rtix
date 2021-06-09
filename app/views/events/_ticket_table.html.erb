@@ -1,4 +1,6 @@
-<div class="table">
+<div class="table"
+     data-controller="events-count-input"      
+>
   <div class="table-row">
     <span class="table-row-header">票券名稱</span>
     <span class="table-row-column">票價</span>
@@ -11,13 +13,13 @@
     <span class="table-row-column">NT$ <%=ticket.price%></span>
     <span class="table-row-column"><%=ticket.amount%></span>
     <span class="table-row-column">
-      <span class="table-row-add-sub"
+      <span class="table-row-add-sub unuseful"
             data-controller="events-count"
             data-action="click->events-count#less"
       >－</span>
       <input type="number" 
               class="table-row-input" 
-              value="0" max="4" min="0" 
+              value="0" max="4" min="0"
               data-ticket-id="<%= ticket.id%>">
       <span class="table-row-add-sub-right"
             data-controller="events-count"

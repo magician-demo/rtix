@@ -1,11 +1,11 @@
 <div class="relative ">
   <div class="sliderAx h-4/5">
       <div id="slider-1" class="mx-auto">
-          <div class="bg-cover bg-center  h-auto text-white py-24 px-10 object-fill" style="background-image: url(https://images.unsplash.com/photo-1544427920-c49ccfb85579?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1422&q=80)">
+          <div class="bg-cover bg-center  h-auto text-white py-24 px-10 object-fill" style="background-image: url(https://myofb.de/wp-content/uploads/die-unfassbaren-now-you-see-me-1280x720.jpg)">
               <div class="max-w-5xl w-full m-auto">
                 <p class="text-4xl font-bold">2021出神入化</p>
                 <p class="text-2xl mb-10 leading-20">Now You See Me</p>
-                <a href="http://tradydaddy.com/" target="_blank" class="bg-red-700 py-4 px-8 text-white font-bold uppercase text-xs rounded hover:bg-gray-200 hover:text-gray-800 text-xl">了解詳情</a>
+                <div  class="w-32 bg-red-700 py-4 px-8 text-white font-bold uppercase text-xs rounded hover:bg-gray-200 hover:text-gray-800 text-xl"><%= link_to "購票去", event_path(1) %></div>
               </div>
           </div> <!-- container -->
           <br>
@@ -16,7 +16,7 @@
               <div class="max-w-5xl m-auto w-full">
                 <p class="text-4xl font-bold">無妄合作社 《No Mercy》</p>
                 <p class="text-2xl mb-10 leading-20">2021/09/05(周日)</p>
-                <a href="http://tradydaddy.com/" target="_blank" class="bg-red-700 py-4 px-8 text-white font-bold uppercase text-xs rounded hover:bg-gray-200 hover:text-gray-800 text-xl">購票去</a>
+                <a href="http://tradydaddy.com/" target="_blank" class="bg-red-700 py-4 px-8 text-white font-bold uppercase text-xs rounded hover:bg-gray-200 hover:text-gray-800 text-xl">了解詳情</a>
               </div>
           </div> <!-- container -->
           <br>
@@ -44,7 +44,8 @@
     <div class="bg-gray-100 border-indigo-600 dark:bg-gray-800 bg-opacity-95 border-opacity-60 | p-4 border-solid rounded-3xl | justify-around cursor-pointer | hover:bg-yellow-600 dark:hover:bg-yellow-600 hover:border-transparent | transition-colors duration-500">
       <P class="text-center"><i class="fas fa-atlas fa-4x"></i></P>
       <div class="flex flex-col justify-center">
-        <p class="text-gray-900 dark:text-gray-300 font-semibold text-center leading-8">學習</p>
+        <p class="text-gray-900 dark:text-gray-300 font-semibold text-center leading-8"><%= link_to "學習", tag_events_path(:event_tag => "學習") %></p>
+        
       </div>
     </div>
     <!-- END SMALL CARD ROUNDED -->
@@ -53,7 +54,7 @@
     <div class="bg-gray-100 border-red-600 dark:bg-gray-800 bg-opacity-95 border-opacity-60 | p-4 border-solid rounded-3xl | justify-around cursor-pointer | hover:bg-red-400 dark:hover:bg-red-600 hover:border-transparent | transition-colors duration-500">
       <P class="text-center"><i class="fas fa-guitar fa-4x"></i></P>
       <div class="flex flex-col justify-center">
-        <p class="text-gray-900 dark:text-gray-300 font-semibold text-center leading-8">演出</p>
+        <p class="text-gray-900 dark:text-gray-300 font-semibold text-center leading-8"><%= link_to "演出", tag_events_path(:event_tag => "演出") %></p>
       </div>
     </div>
     <!-- END SMALL CARD ROUNDED -->
@@ -62,7 +63,7 @@
     <div class="bg-gray-100 border-purple-600 dark:bg-gray-800 bg-opacity-95 border-opacity-60 | p-4 border-solid rounded-3xl | justify-around cursor-pointer | hover:bg-purple-500 dark:hover:bg-purple-500 hover:border-transparent | transition-colors duration-500">
       <P class="text-center"><i class="fas fa-palette fa-4x"></i></P>
       <div class="flex flex-col justify-center">
-        <p class="text-gray-900 dark:text-gray-300 font-semibold text-center leading-8">展覽</p>
+        <p class="text-gray-900 dark:text-gray-300 font-semibold text-center leading-8"><%= link_to "展覽", tag_events_path(:event_tag => "展覽") %></p>
       </div>
     </div>
     <!-- END SMALL CARD ROUNDED -->
@@ -71,7 +72,7 @@
     <div class="bg-gray-100 border-green-600 dark:bg-gray-800 bg-opacity-95 border-opacity-60 | p-4 border-solid rounded-3xl | justify-around cursor-pointer | hover:bg-pink-400 dark:hover:bg-pink-600 hover:border-transparent | transition-colors duration-500">
       <P class="text-center"><i class="fas fa-heart fa-4x"></i></P>
       <div class="flex flex-col justify-center">
-        <p class="text-gray-900 dark:text-gray-300 font-semibold text-center leading-8">聯誼</p>
+        <p class="text-gray-900 dark:text-gray-300 font-semibold text-center leading-8"><%= link_to "聯誼", tag_events_path(:event_tag => "聯誼") %></p>
       </div>
     </div>
     <!-- END SMALL CARD ROUNDED -->
@@ -80,7 +81,7 @@
     <div class="bg-gray-100 border-yellow-600 dark:bg-gray-800 bg-opacity-95 border-opacity-60 | p-4 border-solid rounded-3xl | justify-around cursor-pointer | hover:bg-yellow-400 dark:hover:bg-yellow-600 hover:border-transparent | transition-colors duration-500">
       <P class="text-center"><i class="fas fa-utensils fa-4x"></i></P>
       <div class="flex flex-col justify-center">
-        <p class="text-gray-900 dark:text-gray-300 font-semibold text-center leading-8">美食</p>
+        <p class="text-gray-900 dark:text-gray-300 font-semibold text-center leading-8"><%= link_to "美食", tag_events_path(:event_tag => "美食") %></p>
       </div>
     </div>
     <!-- END SMALL CARD ROUNDED -->
@@ -89,14 +90,13 @@
     <div class="bg-gray-100 border-green-600 dark:bg-gray-800 bg-opacity-95 border-opacity-60 | p-4 border-solid rounded-3xl | justify-around cursor-pointer | hover:bg-green-400 dark:hover:bg-green-600 hover:border-transparent | transition-colors duration-500">
       <P class="text-center"><i class="fas fa-mountain fa-4x"></i></P>
       <div class="flex flex-col justify-center">
-        <p class="text-gray-900 dark:text-gray-300 font-semibold text-center leading-8">戶外</p>
+        <p class="text-gray-900 dark:text-gray-300 font-semibold text-center leading-8"><%= link_to "戶外", tag_events_path(:event_tag => "戶外") %></p>
       </div>
     </div>
     <!-- END SMALL CARD ROUNDED -->
 
   </div>
 </div>
-
 
 
 
@@ -186,14 +186,22 @@
 
 
 
-
-
-
-
+<div class="events_content my-5">
+  <div class="items-center justify-between w-full pl-4 sm:pr-4">
+      <div class="mr-6 text-center">
+        <h2 class="text-3xl md:text-4xl font-semibold tracking-tight leading-7 md:leading-10 mb-1 truncate">平台活動綜覽</h2>
+      </div>
+  </div>
+  <div class="flex justify-center items-center">
+    <div class="overflow-y-scroll h-96">
+      <%= render "events/published" %>
+    </div>
+  </div>
+</div>
 
 
 <!-- component -->
-<div class="content">
+<div class="events_content my-5">
   <div class="items-center justify-between w-full mb-4 pl-4 sm:pr-4">
       <div class="mr-6 text-center">
         <h2 class="text-3xl md:text-4xl font-semibold tracking-tight leading-7 md:leading-10 mb-1 truncate">讓精彩活動豐富你的每日行事曆</h2>
@@ -485,6 +493,8 @@
 	<!--actual component end-->
 </div>
 </div>
+
+<div class="my-5"></div>
 
 <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
 

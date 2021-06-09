@@ -8,7 +8,7 @@ class TicketsController < ApplicationController
   def create
     @event = Event.find_by(id: params[:event_id])
     params.require(:tickets).each do |ticket|
-      @permited_ticket = ticket.permit(:name, :price, :amount).to_h  
+      @permited_ticket = ticket.permit(:name, :price, :amount)
 
       if @permited_ticket[:name].present? && @permited_ticket[:price].present? && @permited_ticket[:amount].present?
         @ticket_record = @event.tickets.new(@permited_ticket)

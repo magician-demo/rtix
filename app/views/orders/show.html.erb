@@ -23,15 +23,15 @@
       </div>
     </div>
     <div class="order-info border">
-      <div class="order-no tracking-wide bg-gray-500 text-white p-1 px-2  ">訂單編號：<%# @order.serial %></div>
+      <div class="order-no tracking-wide bg-gray-500 text-white p-1 px-2  ">訂單編號：<%= @order.serial %></div>
         <% @seats.each do |s|%>
       <div class="order-detail px-3 flex space-x-1 border-b-2 border-black p-2">
         <div class="item-name w-2/12">票卷</div>
         <div class="item-area w-2/12"><%= s.area %></div>
         <div class="item-seat w-3/12"><%= s.id %>號座位</div>
-        <div class="item-price w-2/12"><%= s.ticket.price%></div>
+        <div class="item-price w-2/12">$<%= s.ticket.price%></div>
         <div class="item-qty w-2/12">x 1</div>
-        <div class="item-calc w-1/12"><%= s.ticket.price%></div>  
+        <div class="item-calc w-1/12">$<%= s.ticket.price%></div>  
       </div>
       <% end %> 
       <div class="order-total_price px-3 flex justify-end space-x-1 border-b-2 border-black p-2 bg-red-50 font-bold text-lg">
@@ -39,7 +39,7 @@
         總計
         </div>
         <div class="total_price w-1/12">
-        <%= @price %>
+        $<%= @price %>
         </div>
       </div>
       <div class="order-checkin px-3 flex space-x-1 border-b-2 border-black p-2">
@@ -64,7 +64,7 @@
     <% elsif @order.status =="paid" %>
       <div class="pay-cancel m-auto my-8 max-w-max bg-red-700 p-2.5 text-white rounded-sm">已付款，請到<span class="font-bold text-gray-900"> <%= link_to '我的票卷', dashboards_path %> </span>確認</div>
     <% else %>
-      <div class="pay-button m-auto my-8 max-w-max "><input id="pay" type="submit" value="確認訂單並繳費" class="bg-red-700 p-2.5 text-white rounded-sm opacity-40"></div>
+      <div class="pay-button m-auto my-8 max-w-max "><input id="pay" type="submit" value="確認訂單並繳費" data-controller="clean-timer" data-action="click->clean-timer#cleanIt" class="bg-red-700 p-2.5 text-white rounded-sm opacity-40"></div>
     <% end %>
   </div>
 </div>
@@ -73,17 +73,17 @@
 
 </div>
 
- 
 
-<form class="new_order" style="display: none" id="new_order" action="<%= ENV["payment_url"]%>" method="post">
+
+<form class="new_order" style="display: none " id="new_order" action="<%= ENV["payment_url"]%>" method="post">
 
   <input name="MerchantID" value="<%= ENV["merchant_id"]%>">
   <input name="MerchantTradeNo" value="<%= @order.serial %>">
-  <input name="MerchantTradeDate" value="<%= Time.now.strftime('%Y/%m/%d %H:%M:%S') %>">
+  <input name="MerchantTradeDate" value="<%= @order.ordertime %>">
   <input name="PaymentType" value="aio">
   <input type=integer name="TotalAmount" value=<%= @order.totalAmount %>>
   <input name="TradeDesc" value="Des">
-  <input name="ItemName" value="<%= @order.serial %>">
+  <input name="ItemName" value="rtixorder">
   <input name="ReturnURL" value="<%= ENV["server"]%>/orders/return_url/">
   <input name="ChoosePayment" value="Credit">
   <input name="CheckMacValue" value=<%= @order.checkMacValue %>>

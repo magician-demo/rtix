@@ -30,8 +30,8 @@ class ApplicationController < ActionController::Base
 
   end
 
-  def authenticate_admin
-    unless current_user.admin?
+  def authenticate_admin_or_org
+    unless current_user.admin? || params[:organization_id]
       flash[:alert] = "你沒有權限進入！"
       redirect_to root_path
     end

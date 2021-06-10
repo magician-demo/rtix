@@ -2,7 +2,6 @@ class LineItemsController < ApplicationController
   before_action :authenticate_user!
 
   def create
-    # 建立一個 line_item 加入座位
     if current_cart.line_items.count < 4
       @seat = Seat.where(status: 'for_sale').find(params[:seat_id])
       @ticket = @seat.ticket
@@ -17,7 +16,6 @@ class LineItemsController < ApplicationController
   end
 
   def destroy
-    # 刪除一個line_item 並恢復座位狀態及票券數量調整
     line_item = LineItem.find(params[:id])
     seat = line_item.seat
     ticket = seat.ticket
@@ -30,9 +28,7 @@ class LineItemsController < ApplicationController
 
   def ticket_list
     @ticket_id_array = []
-    current_cart.seats.each do |seat|
-      @ticket_id_array << seat.ticket.id
-    end
+    current_cart.seats.each { |seat| @ticket_id_array << seat.ticket.id }
     render json: @ticket_id_array.sort.uniq
   end
 
@@ -42,6 +38,7 @@ class LineItemsController < ApplicationController
       # 找出還能被選擇的座位
       for_sale_ticket =
         Ticket.find(per_ticket[0].to_i).seats.where(status: 'for_sale')
+
       # 找出座位的中位數
       num = (for_sale_ticket.ids.count / 2).ceil
 

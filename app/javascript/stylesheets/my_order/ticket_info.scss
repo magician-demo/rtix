@@ -3,7 +3,7 @@
 }
 
 .ticket_event {
-    @apply my-5 sm:my-5 md:my-10 lg:my-20 text-center align-middle text-3xl sm:text-3xl md:text-5xl lg:text-6xl p-12 sm:p-12 md:p-28 lg:p-44 bg-red-700 text-white rounded-lg;
+  @apply my-5 sm:my-5 md:my-10 lg:my-20 text-center align-middle text-3xl sm:text-3xl md:text-5xl lg:text-6xl p-12 sm:p-12 md:p-28 lg:p-44 bg-red-700 text-white rounded-lg;
 }
 
 .ticket_backlink_container {
@@ -15,7 +15,7 @@
 }
 
 .ticket_order_container {
-    @apply w-3/4 m-auto border-2 sm:my-10 shadow-md rounded-lg;
+  @apply w-3/4 m-auto border-2 sm:my-10 shadow-md rounded-lg;
 }
 
 .ticket_subhead {
@@ -28,11 +28,11 @@
 }
 
 .ticket_section {
-    @apply w-full sm:my-10 shadow-xl border-2 text-center rounded-lg;
+  @apply w-full sm:my-10 shadow-xl border-2 text-center rounded-lg;
 }
 
 .ticket_name {
-    @apply md:mx-10 lg:m-auto lg:w-3/4 md:flex md:justify-between my-5;
+  @apply md:mx-10 lg:m-auto lg:w-3/4 md:flex md:justify-between my-5;
 }
 
 .ticket_belongs_to {

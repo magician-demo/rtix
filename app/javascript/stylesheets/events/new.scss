@@ -1,67 +1,62 @@
 #map {
   @apply h-64;
 }
-.event-next{
+.event-next {
   @apply bg-red-500 block cursor-pointer;
 }
 
-.event-page{
+.event-page {
   @apply bg-red-700 p-1 my-2 text-center text-white hover:bg-gray-400 hover:text-black;
   display: block;
   width: 100px;
 }
 
-.firstpage{
-  .input{
+.firstpage {
+  .input {
     border: 1px solid rgb(184, 174, 174);
   }
-  .text{
+  .text {
     border: 1px solid rgb(184, 174, 174);
     width: 300px;
   }
-  .textarea{
+  .textarea {
     border: 1px solid rgb(184, 174, 174);
     width: 300px;
     height: 200px;
   }
-  .timearea{
+  .timearea {
     border: 1px solid rgb(184, 174, 174);
     width: 250px;
   }
 
-  .ticket_info{
+  .ticket_info {
     @apply my-3;
   }
-
 }
 
-.event-detail{
+.event-detail {
   display: block;
-
-  
 }
 
-.button-area{
+.button-area {
   border-top: grey 1px solid;
 }
 
-.card-text{
+.card-text {
   width: 400px;
   height: 250px;
 }
 
-.org-event-list{
-  @apply  w-full;
-  tr{
-    
-    
-    td{
+.org-event-list {
+  @apply w-full;
+  tr {
+    td {
       @apply p-2 text-center;
     }
   }
 }
 
-#event_tag{
+#event_tag {
   @apply w-40 rounded-md p-1 text-center text-lg;
   border: 1px solid rgb(184, 174, 174);
 }

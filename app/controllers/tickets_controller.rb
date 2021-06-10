@@ -7,19 +7,30 @@ class TicketsController < ApplicationController
 
   def create
     @event = Event.find_by(id: params[:event_id])
-    params.require(:tickets).each do |ticket|
-      @permited_ticket = ticket.permit(:name, :price, :amount)
+    params
+      .require(:tickets)
+      .each do |ticket|
+        @permited_ticket = ticket.permit(:name, :price, :amount)
 
-      if @permited_ticket[:name].present? && @permited_ticket[:price].present? && @permited_ticket[:amount].present?
-        @ticket_record = @event.tickets.new(@permited_ticket)
-        @ticket_record.save 
-        (@ticket_record[:amount].to_i).times { Seat.create(area: (@ticket_record[:name]), ticket_id: @ticket_record[:id], status: 'for_sale') } 
+        if @permited_ticket[:name].present? &&
+             @permited_ticket[:price].present? &&
+             @permited_ticket[:amount].present?
+          @ticket_record = @event.tickets.new(@permited_ticket)
+          @ticket_record.save
+          (@ticket_record[:amount].to_i).times do
+            Seat.create(
+              area: (@ticket_record[:name]),
+              ticket_id: @ticket_record[:id],
+              status: 'for_sale',
+            )
+          end
+        end
       end
-    end
-    redirect_to events_organization_path(@event.organization.id), notice: "票券創建成功!"
+    redirect_to events_organization_path(@event.organization.id),
+                notice: '票券創建成功!'
   end
 
-  def edit 
+  def edit
     @event = Event.find_by(id: params[:event_id])
     @ticket = @event.tickets.find_by(id: params[:id])
     @organization = @event.organization
@@ -29,10 +40,12 @@ class TicketsController < ApplicationController
     event = Event.find(params[:event_id])
     @ticket = Ticket.find_by(id: params[:ticket_id])
     @ticket.update(ticket_params)
-    redirect_to events_organization_path(event.organization_id), notice: "票券更新成功!"
+    redirect_to events_organization_path(event.organization_id),
+                notice: '票券更新成功!'
   end
 
   private
+
   def ticket_params
     params.require(:tickets).first.permit(:name, :price, :amount)
   end

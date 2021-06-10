@@ -10,9 +10,9 @@ class CheckinController < ApplicationController
     @check_in = CheckIn.find(params[:id])
     if @check_in.pending?
       @check_in.use!
-      render json: {event_id: @check_in.event_id}
+      render json: { event_id: @check_in.event_id }
     else
-      render json: {errors: 'alread used!'}
+      render json: { errors: 'alread used!' }
     end
   end
 
@@ -21,5 +21,4 @@ class CheckinController < ApplicationController
     @events = Event.all
     @check_in = CheckIn.where(event_id: params[:id]).sort
   end
-
 end

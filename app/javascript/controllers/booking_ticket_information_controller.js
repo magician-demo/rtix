@@ -2,8 +2,8 @@ import { Controller } from 'stimulus'
 export default class extends Controller {
   connect() {
     if (localStorage.justOnce != 'true') {
-        localStorage.setItem("justOnce", "true");
-        window.location.reload();
+      localStorage.setItem('justOnce', 'true')
+      window.location.reload()
     }
     const overlay = document.getElementById('overlay')
     const ticketInformation = document.querySelector('.ticket_information')

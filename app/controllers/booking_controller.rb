@@ -12,11 +12,7 @@ class BookingController < ApplicationController
   def show
     @ticket = booking_event.tickets.find(params[:id])
     @seats =
-      booking_event
-        .tickets
-        .find(params[:id])
-        .seats
-        .sort_by { |seat| seat.id }
+      booking_event.tickets.find(params[:id]).seats.sort_by { |seat| seat.id }
     @seat = current_cart.seats.includes(:ticket).includes(:line_item)
     @seats_count = current_cart.seats.count
     @total_price = current_cart.total_price

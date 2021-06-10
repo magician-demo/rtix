@@ -12,8 +12,6 @@ class OrdersController < ApplicationController
     @current_id = current_order.id
   end
 
-
-
   #抓綠界付款成功回傳值
   def return_url
     ecpay_order = Order.find_by(serial: params[:MerchantTradeNo])
@@ -34,10 +32,14 @@ class OrdersController < ApplicationController
     @order.serial
 
     #訂單與座位的第三方表格
-    current_user.cart.seats.each do |seat| 
-      @order.order_items.new(seat_id: seat.id) 
-      seat.check_in.create(status: 'pending', event_id: seat.ticket.event.id)
-    end
+    current_user
+      .cart
+      .seats
+      .each do |seat|
+        @order.order_items.new(seat_id: seat.id)
+        seat.check_in.create(status: 'pending', event_id: seat.ticket.event.id)
+      end
+
     #訂單成立時間
     @order.ordertime = Time.now.strftime('%Y/%m/%d %H:%M:%S')
 
@@ -47,14 +49,14 @@ class OrdersController < ApplicationController
     #清空購物車
     empty_cart!
 
+    beforeURLEncode =
+      "HashKey=#{ENV['hash_key']}&ChoosePayment=Credit&ClientBackURL=#{ENV['server']}/&EncryptType=1&ItemName=rtixorder&MerchantID=#{ENV['merchant_id']}&MerchantTradeDate=#{@order.ordertime}&MerchantTradeNo=#{@order.serial}&PaymentType=aio&ReturnURL=#{ENV['server']}/orders/return_url/&TotalAmount=#{@order.totalAmount}&TradeDesc=Des&HashIV=#{ENV['hash_iv']}"
 
-    beforeURLEncode = "HashKey=#{ENV["hash_key"]}&ChoosePayment=Credit&ClientBackURL=#{ENV["server"]}/&EncryptType=1&ItemName=rtixorder&MerchantID=#{ENV["merchant_id"]}&MerchantTradeDate=#{@order.ordertime}&MerchantTradeNo=#{@order.serial}&PaymentType=aio&ReturnURL=#{ENV["server"]}/orders/return_url/&TotalAmount=#{@order.totalAmount}&TradeDesc=Des&HashIV=#{ENV["hash_iv"]}"
     #檢查碼
-    
 
     query = URI.encode_www_form_component(beforeURLEncode).downcase
     @order.checkMacValue = Digest::SHA256.hexdigest(query).upcase
-    
+
     #把檢查碼存進資料庫中
     @order.save
 
@@ -67,8 +69,10 @@ class OrdersController < ApplicationController
   def update
     # 使用
     @order.use
+
     # 過期
     @order.expire if Time.now > @event.date
+
     # 退費
     @order.refund
   end

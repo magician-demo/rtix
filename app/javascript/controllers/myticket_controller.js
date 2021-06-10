@@ -5,15 +5,11 @@ export default class extends Controller {
   static targets = []
 
   connect() {
-    let flash_message =  document.querySelector("#flash_message").textContent;
+    let flash_message = document.querySelector('#flash_message').textContent
     if (flash_message.length > 0) {
-      Swal.fire(
-        `${flash_message}`,
-        '按下方 OK 按鈕可關閉此提示訊息',
-        'success'
-      );
+      Swal.fire(`${flash_message}`, '按下方 OK 按鈕可關閉此提示訊息', 'success')
     } else {
-      console.log('none');
+      console.log('none')
     }
   }
 }

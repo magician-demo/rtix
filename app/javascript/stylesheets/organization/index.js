@@ -1,5 +1,5 @@
-import "./form"
-import "./new"
-import "./sidebar"
-import "./show"
-import "./info"
+import './form'
+import './new'
+import './sidebar'
+import './show'
+import './info'

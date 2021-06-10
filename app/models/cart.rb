@@ -8,11 +8,10 @@ class Cart < ApplicationRecord
   end
 
   def total_price
-    seats.reduce(0) { |sum, seat| sum + seat.ticket.price }
+    seats.includes(:ticket).reduce(0) { |sum, seat| sum + seat.ticket.price }
   end
 
   def seat_return!
     seats.each { |seat| seat.line_item.destroy }
   end
-
 end

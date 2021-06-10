@@ -3,10 +3,10 @@ import Swal from 'sweetalert2'
 import ax from '../lib/ax'
 
 export default class extends Controller {
-  showInformation(){
+  showInformation() {
     this.element.firstElementChild.classList.add('showit')
   }
-  closeInformation(){
+  closeInformation() {
     this.element.firstElementChild.classList.remove('showit')
   }
   addLineItem() {
@@ -16,23 +16,23 @@ export default class extends Controller {
     let total_price = document.querySelector('.cart_total_price')
     const id = this.element.dataset['seatId']
     // 將資料 post 到後端新增訂單資訊
-    if(count.textContent < '4'){
-    ax.post('/line_items', { seat_id: id, booking_id: booking_id })
-      .then((res) => {
-        count.innerHTML = Number(count.textContent) + 1
-        // 即時在 cart 中新增欄位，函式在下方，資料都從後端傳遞過來再進行拆解
-        this.element.classList.add('owner')
-        cart.prepend(addList(res.data.data))
-        total_price.innerHTML = `票券總價：$${res.data.data['total_price']}`
-      })
-      .catch((err) => {
-        console.log(err);
-      })
+    if (count.textContent < '4') {
+      ax.post('/line_items', { seat_id: id, booking_id: booking_id })
+        .then((res) => {
+          count.innerHTML = Number(count.textContent) + 1
+          // 即時在 cart 中新增欄位，函式在下方，資料都從後端傳遞過來再進行拆解
+          this.element.classList.add('owner')
+          cart.prepend(addList(res.data.data))
+          total_price.innerHTML = `票券總價：$${res.data.data['total_price']}`
+        })
+        .catch((err) => {
+          console.log(err)
+        })
     } else {
       Swal.fire({
         icon: 'warning',
         title: '很抱歉',
-        text: '最多只能購買四張票券！'
+        text: '最多只能購買四張票券！',
       })
     }
   }

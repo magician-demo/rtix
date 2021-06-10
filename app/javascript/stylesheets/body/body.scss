@@ -1,61 +1,59 @@
-
 #menu-toggle:checked + #menu {
-    display: block;
-  }
-  
-  .snap-x {
-    scroll-snap-type: x mandatory;
-    scroll-behavior: smooth;
-    -webkit-overflow-scrolling: touch;
-  }
-  
-  .snap-start {
-    scroll-snap-align: start;
-  }
-  
-  .tab {
-    overflow: hidden;
-  }
-  
-  .tab-content {
-    max-height: 0;
-    transition: all 0.5s;
-  }
-  
-  input:checked {
-    + .tab-label {
-      .test {
-        background-color: #000;
-  
-        svg {
-          transform: rotate(180deg);
-          stroke: #fff;
-        }
-      }
-  
-      &::after {
-        transform: rotate(90deg);
+  display: block;
+}
+
+.snap-x {
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+}
+
+.snap-start {
+  scroll-snap-align: start;
+}
+
+.tab {
+  overflow: hidden;
+}
+
+.tab-content {
+  max-height: 0;
+  transition: all 0.5s;
+}
+
+input:checked {
+  + .tab-label {
+    .test {
+      background-color: #000;
+
+      svg {
+        transform: rotate(180deg);
+        stroke: #fff;
       }
     }
-  
-    ~ .tab-content {
-      max-height: 100vh;
+
+    &::after {
+      transform: rotate(90deg);
     }
   }
 
-  .field{
-    @apply px-16;
-    .input-field {
-      border: 1px solid rgb(184, 174, 174);
-      @apply mt-1 mb-3 w-96;
-    }
+  ~ .tab-content {
+    max-height: 100vh;
   }
+}
 
-  .sign-up{
-    @apply text-center text-lg bg-red-700 p-1 mr-2 mt-1 rounded-xl;
+.field {
+  @apply px-16;
+  .input-field {
+    border: 1px solid rgb(184, 174, 174);
+    @apply mt-1 mb-3 w-96;
   }
+}
 
-  .logn-in{
-    @apply text-center text-lg bg-red-700 p-2 mr-2 mt-1 rounded-xl;
-  }
+.sign-up {
+  @apply text-center text-lg bg-red-700 p-1 mr-2 mt-1 rounded-xl;
+}
 
+.logn-in {
+  @apply text-center text-lg bg-red-700 p-2 mr-2 mt-1 rounded-xl;
+}

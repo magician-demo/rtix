@@ -1,15 +1,14 @@
 import Rails from '@rails/ujs'
-import Turbolinks from "turbolinks"
-import * as ActiveStorage from "@rails/activestorage"
-require("trix")
-require("@rails/actiontext")
-require("jquery/dist/jquery")
-require("packs/autocomplete")
-require("packs/googlemap")
-
+import Turbolinks from 'turbolinks'
+import * as ActiveStorage from '@rails/activestorage'
+require('trix')
+require('@rails/actiontext')
+require('jquery/dist/jquery')
+require('packs/autocomplete')
+require('packs/googlemap')
 
 Rails.start()
-ActiveStorage.start() 
+ActiveStorage.start()
 Turbolinks.start()
 
 import 'easy-autocomplete/dist/jquery.easy-autocomplete'
@@ -18,6 +17,3 @@ import 'channels'
 import 'stylesheets'
 import 'icon'
 import 'datatable'
-
-
-

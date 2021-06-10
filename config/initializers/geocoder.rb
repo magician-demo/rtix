@@ -19,9 +19,9 @@ Geocoder.configure(
   # Calculation options
   # units: :mi,                 # :km for kilometers or :mi for miles
   # distances: :linear          # :spherical or :linear
-  timeout: 3,                 # geocoding service timeout (secs)
-  lookup: :google,         # name of geocoding
-  ip_lookup: :maxmind,       # name of IP address geocoding service (symbol)
-  use_https: true,           # use HTTPS for lookup requests? (if supported)
-  api_key: ENV["map"], 
+  timeout: 3, # geocoding service timeout (secs)
+  lookup: :google, # name of geocoding
+  ip_lookup: :maxmind, # name of IP address geocoding service (symbol)
+  use_https: true, # use HTTPS for lookup requests? (if supported)
+  api_key: ENV['map'],
 )

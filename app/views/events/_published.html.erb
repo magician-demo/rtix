@@ -1,6 +1,4 @@
-
 <% @events.each do |event| %>
-
 <div class="w-full bg-white text-center max-w-5xl m-auto">
     <div class="grid mt-8 gap-8 grid-cols-1 md:w-1/2 md:float-left">
         <a href="<%= event_path(event.id) %>">
@@ -8,7 +6,7 @@
                 <div class="bg-white shadow-md rounded-3xl p-4 group hover:shadow-lg hover:border-transparent">
                     <div class="flex-none lg:flex">
                         <div class=" h-full w-full lg:h-48 lg:mb-0 mb-3 group-hover:opacity-80">
-                        <img src=<%= event.image %> class=" w-full object-scale-down lg:object-cover  lg:h-48 rounded-2xl">
+                        <img src=<%= event.image_url %> class=" w-full object-scale-down lg:object-cover  lg:h-48 rounded-2xl">
                         </div>
                         <div class="flex-auto ml-3 justify-evenly py-2">
                             <div class="flex flex-wrap ">

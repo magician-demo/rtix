@@ -1,7 +1,15 @@
 .no_found {
-  @apply text-center bg-red-700 max-w-5xl p-4 text-white m-auto rounded-sm font-bold;
+  @apply text-center bg-red-700 max-w-5xl p-4 text-white text-5xl m-auto rounded-sm font-bold;
 }
 
 .result {
-  @apply text-3xl font-bold;
+  @apply text-3xl font-bold text-center pt-5;
+}
+
+.search_bar {
+  @apply py-2;
+
+  .search_button {
+    @apply bg-red-700 text-white ml-2;
+  }
 }

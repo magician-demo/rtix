@@ -46,6 +46,7 @@ gem "omniauth-rails_csrf_protection"
 gem 'activerecord-session_store'
 gem 'figaro'
 gem 'geocoder', '~> 1.6', '>= 1.6.7'
+gem 'ransack'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -65,6 +66,7 @@ group :development do
   gem 'spring'
   gem 'hirb-unicode', '~> 0.0.5'
   gem 'faker', git: 'https://github.com/faker-ruby/faker.git', branch: 'master'
+  gem 'bullet'
 end
 
 group :test do

@@ -13,6 +13,7 @@ class LineItem < ApplicationRecord
         seat.ticket.amount -= 1
         seat.ticket.save
         seat.select!
+        seat.save!
       end
     end
   end
@@ -24,6 +25,7 @@ class LineItem < ApplicationRecord
         seat.ticket.amount += 1
         seat.ticket.save
         seat.return!
+        seat.save!
       end
     end
   end

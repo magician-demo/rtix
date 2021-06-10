@@ -12,6 +12,6 @@ class Cart < ApplicationRecord
   end
 
   def seat_return!
-    seats.each { |seat| seat.line_item.destroy }
+    seats.includes(:line_item).each { |seat| seat.line_item.destroy }
   end
 end

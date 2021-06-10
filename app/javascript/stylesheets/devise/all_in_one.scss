@@ -30,14 +30,22 @@
   }
 
   .devise_login {
-    @apply border inline-block w-1/2 rounded-md border-red-700 p-2 hover:text-white hover:bg-red-700 my-2;
+    @apply border inline-block w-1/2 rounded-md border-red-700 p-2 hover:text-white hover:bg-red-700 my-1;
   }
 
   .third_party {
-    @apply flex m-auto w-1/2 justify-between;
+    @apply  m-auto w-1/2 justify-between lg:flex ;
 
     .party_log {
-      @apply border rounded-md p-2 border-red-700 hover:text-white hover:bg-red-700 mt-3 mb-6 cursor-pointer;
+      @apply border rounded-md p-2 border-red-700 hover:text-white hover:bg-red-700 mt-3 mb-6 cursor-pointer ;
+      .fa-facebook{       
+        font-size: large;
+        @apply ml-4 lg:ml-0;
+      }
+      .fa-github{
+        font-size: large
+      }
     }
+    
   }
 }

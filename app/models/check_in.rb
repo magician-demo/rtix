@@ -1,5 +1,6 @@
 class CheckIn < ApplicationRecord
   belongs_to :seat
+  belongs_to :event
   include AASM
 
   aasm column: :status do

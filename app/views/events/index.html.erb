@@ -1,40 +1,36 @@
-<div class="relative ">
-  <div class="sliderAx h-4/5">
-      <div id="slider-1" class="mx-auto">
-          <div class="bg-cover bg-center  h-auto text-white py-24 px-10 object-fill" style="background-image: url(https://myofb.de/wp-content/uploads/die-unfassbaren-now-you-see-me-1280x720.jpg)">
-              <div class="max-w-5xl w-full m-auto">
-                <p class="text-4xl font-bold">2021出神入化</p>
-                <p class="text-2xl mb-10 leading-20">Now You See Me</p>
-                <div  class="w-32 bg-red-700 py-4 px-8 text-white font-bold uppercase text-xs rounded hover:bg-gray-200 hover:text-gray-800 text-xl"><%= link_to "購票去", event_path(1) %></div>
-              </div>
-          </div> <!-- container -->
-          <br>
+<!-- Slider main container -->
+<div class="swiper-container">
+  <!-- Additional required wrapper -->
+  <div class="swiper-wrapper">
+    <!-- Slides -->
+    <div class="swiper-slide">
+      <div class="bg-cover bg-center h-full text-white py-24 px-10 object-fill" style="background-image: url(https://myofb.de/wp-content/uploads/die-unfassbaren-now-you-see-me-1280x720.jpg)">
+        <div class="max-w-5xl w-full m-auto">
+          <p class="text-4xl font-bold">2021出神入化</p>
+          <p class="text-2xl mb-10 leading-20">Now You See Me</p>
+          <div  class="w-32 bg-red-700 py-4 px-8 text-white font-bold uppercase rounded hover:bg-gray-200 hover:text-gray-800 text-xl"><%= link_to "購票去", event_path(1) %></div>
+        </div>
+      </div> 
+    </div>
+    <div class="swiper-slide">
+      <div class="bg-cover bg-center h-full text-white py-24 px-10 object-fill" style="background-image: url(https://images.unsplash.com/photo-1544144433-d50aff500b91?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80)"> 
+        <div class="max-w-5xl m-auto w-full">
+          <p class="text-4xl font-bold">無妄合作社 《No Mercy》</p>
+          <p class="text-2xl mb-10 leading-20">2021/09/05(周日)</p>
+          <div  class="w-32 bg-red-700 py-4 px-8 text-white font-bold uppercase rounded hover:bg-gray-200 hover:text-gray-800 text-xl"><%= link_to "購票去", event_path(1) %></div>
+        </div>
       </div>
+    </div>
+    <div class="swiper-slide">Slide 3</div>
+    ...
+  </div>
+  <!-- If we need pagination -->
+  <div class="swiper-pagination"></div>
 
-      <div id="slider-2" class=" mx-auto">
-          <div class="bg-cover bg-top  h-auto text-white py-24 px-10 object-fill" style="background-image: url(https://images.unsplash.com/photo-1544144433-d50aff500b91?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80)"> 
-              <div class="max-w-5xl m-auto w-full">
-                <p class="text-4xl font-bold">無妄合作社 《No Mercy》</p>
-                <p class="text-2xl mb-10 leading-20">2021/09/05(周日)</p>
-                <a href="http://tradydaddy.com/" target="_blank" class="bg-red-700 py-4 px-8 text-white font-bold uppercase text-xs rounded hover:bg-gray-200 hover:text-gray-800 text-xl">了解詳情</a>
-              </div>
-          </div> <!-- container -->
-          <br>
-      </div>
-  </div>
-  <div  class="flex justify-between w-12 mx-auto pb-2">
-      <button id="sButton1" onclick="sliderButton1()" class="bg-purple-400 rounded-full w-4 pb-2 " ></button>
-      <button id="sButton2" onclick="sliderButton2() " class="bg-purple-400 rounded-full w-4 p-2"></button>
-  </div>
+  <!-- If we need navigation buttons -->
+  <div class="swiper-button-prev"></div>
+  <div class="swiper-button-next"></div>
 </div>
-
-
-
-
-
-
-
-
 
 <!-- component -->
 <div class="dark:bg-gray-900 py-6 flex flex-col justify-center max-w-5xl w-full m-auto">

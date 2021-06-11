@@ -56,7 +56,7 @@
               <% if @event.image? %> <%= image_tag(@event.image_url) %>
               <% else %>
               <img
-                class="image m-auto image-preview"
+                class="image m-auto image-preview rounded-3xl"
                 src="/image/activity.png"
               >
               <% end %>
@@ -79,7 +79,7 @@
             <% else %>
             <img
               id="seats-preview"
-              class="image seats-image m-auto"
+              class="image seats-image m-auto rounded-3xl"
               src="/image/seats.png"
             >
             <% end %>

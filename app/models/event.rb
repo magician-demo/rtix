@@ -17,7 +17,7 @@ class Event < ApplicationRecord
   scope :available, -> {
     where(status: '已發佈')
     .order('start_time desc')
-    .select { |event| event.start_time > Time.now }
+    .where("start_time > ?", Time.now)
   }
 
   #能edit地址，

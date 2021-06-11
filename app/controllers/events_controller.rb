@@ -3,22 +3,20 @@ class EventsController < ApplicationController
 
   def index
     @events =
-      Event
-        .where(status: '已發佈')
-        .order('start_time desc')
-        .select { |event| event.start_time > Time.now }
+      Event.available
 
     @organizations = current_user.organizations.all if user_signed_in?
 
     #每日精選
     
     @focusevent = 
-      Event.available
-        .select { |event| ((event.start_time - Time.now)/60/60/24).to_i < 7 }
+      Event
+        .where(start_time: (Time.now - 7.days)..Time.now)
+        .available
 
     @relaxevent = 
     Event
-      .where("tag = '美食' OR tag = '戶外' ")
+      .where("tag = ? or tag = ?", '美食', '戶外')
       .available
 
     @featureevent = 

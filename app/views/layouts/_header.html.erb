@@ -40,7 +40,7 @@
               <div class="org_choice_button font-bold cursor-pointer" id="org_choice_button">選擇組織</div>
               <div class="org_dropdown_list" id="org_dropdown_list">
                 <% current_user.organizations.each do |organization|%>
-                  <div class="bg-gray-100 px-1 rounded-lg text-center"><%= link_to "#{organization.title}", events_organization_path(organization.id), class: "text-black text-xs hover:bg-gray-900 hover:text-white font-bold rounded-lg px-2"%></div>
+                  <div class="bg-gray-100 px-1 rounded-lg text-center mb-1.5"><%= link_to "#{organization.title}", events_organization_path(organization.id), class: "text-black text-xs hover:bg-gray-900 hover:text-white font-bold rounded-lg px-2"%></div>
                 <% end %>
               </div>
             </li>

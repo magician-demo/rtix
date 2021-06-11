@@ -13,6 +13,7 @@ export default class extends Controller {
       paging: false,
       info: false,
       responsive: true,
+      retrieve: true
     })
 
     let flash_message = document.querySelector('#flash_message').textContent
@@ -35,6 +36,7 @@ export default class extends Controller {
       paging: false,
       info: false,
       responsive: true,
+      retrieve: true
     })
   }
 
@@ -53,6 +55,7 @@ export default class extends Controller {
       info: false,
       responsive: true,
       columnDefs: [{ width: '20%', targets: 1 }],
+      retrieve: true
     })
   }
 

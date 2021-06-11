@@ -258,73 +258,14 @@
 
         <!--放鬆去處-->
         <div class="grid mt-8  gap-8 grid-cols-1 md:grid-cols-2 xl:grid-cols-2">
-          <a href="">
-            <div class="flex flex-col ">
-                <div class="bg-white shadow-md  rounded-3xl p-4 group hover:shadow-lg hover:border-transparent">
-                    <div class="flex-none lg:flex">
-                        <div class=" h-full w-full lg:h-48 lg:mb-0 mb-3 group-hover:opacity-80">
-                          <img src="https://picsum.photos/1500/600/?random=1" class=" w-full  object-scale-down lg:object-cover  lg:h-48 rounded-2xl">
-                        </div>
-                        <div class="flex-auto ml-3 justify-evenly py-2">
-                            <div class="flex flex-wrap ">
-                                <h2 class="flex-auto text-lg font-medium">202020 當我們談論愛情－梁靜茹世界巡迴演唱會－高雄站</h2>
-                            </div>
-                            <p class="mt-3"></p>
-                            <div class="flex p-4 pb-2 border-t border-gray-200 "></div>
-                            <div class="flex space-x-3 text-sm font-medium">
-                                <div class="flex-auto flex space-x-3">
-                                    <button
-                                        class="mb-2 md:mb-0 bg-white px-5 py-2 shadow-sm tracking-wider border text-gray-600 rounded-full group-hover:bg-gray-100 inline-flex items-center space-x-2 ">
-                                        <span class="text-red-600 group-hover:text-red-700 rounded-lg">
-                                          <i class="far fa-calendar-alt"></i>
-                                        </span>
-                                        <span>5/22(六)</span>
-                                    </button>
-                                </div>
-                                <button
-                                    class="mb-2 md:mb-0 bg-gray-900 px-5 py-2 shadow-sm tracking-wider text-white rounded-full group-hover:bg-red-700"
-                                    type="button" aria-label="like">購票去
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+          <% if @relaxevent == [] %>
+            <div class="daycommed text-2xl text-center ">
+            目前沒活動
             </div>
-          </a>
-          <a href="">
-            <div class="flex flex-col ">
-                <div class="bg-white shadow-md  rounded-3xl p-4 group hover:shadow-lg hover:border-transparent">
-                    <div class="flex-none lg:flex">
-                        <div class=" h-full w-full lg:h-48 lg:mb-0 mb-3 group-hover:opacity-80">
-                          <img src="https://picsum.photos/1500/600/?random=1" class=" w-full  object-scale-down lg:object-cover  lg:h-48 rounded-2xl">
-                        </div>
-                        <div class="flex-auto ml-3 justify-evenly py-2">
-                            <div class="flex flex-wrap ">
-                                <h2 class="flex-auto text-lg font-medium">202020 當我們談論愛情－梁靜茹世界巡迴演唱會－高雄站</h2>
-                            </div>
-                            <p class="mt-3"></p>
-                            <div class="flex p-4 pb-2 border-t border-gray-200 "></div>
-                            <div class="flex space-x-3 text-sm font-medium">
-                                <div class="flex-auto flex space-x-3">
-                                    <button
-                                        class="mb-2 md:mb-0 bg-white px-5 py-2 shadow-sm tracking-wider border text-gray-600 rounded-full group-hover:bg-gray-100 inline-flex items-center space-x-2 ">
-                                        <span class="text-red-600 group-hover:text-red-700 rounded-lg">
-                                          <i class="far fa-calendar-alt"></i>
-                                        </span>
-                                        <span>5/22(六)</span>
-                                    </button>
-                                </div>
-                                <button
-                                    class="mb-2 md:mb-0 bg-gray-900 px-5 py-2 shadow-sm tracking-wider text-white rounded-full group-hover:bg-red-700"
-                                    type="button" aria-label="like">購票去
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-          </a>
-      </div>
+          <% else %>
+            <%= render "events/relaxevent" %>
+          <% end %>
+        </div>
 
    <!--放鬆去處結束-->
 
@@ -332,75 +273,16 @@
       </div>
 			<div x-show="activeTab===2">
 
-                <!--特色-->
-                <div class="grid mt-8  gap-8 grid-cols-1 md:grid-cols-2 xl:grid-cols-2">
-                  <a href="">
-                    <div class="flex flex-col ">
-                        <div class="bg-white shadow-md  rounded-3xl p-4 group hover:shadow-lg hover:border-transparent">
-                            <div class="flex-none lg:flex">
-                                <div class=" h-full w-full lg:h-48 lg:mb-0 mb-3 group-hover:opacity-80">
-                                  <img src="https://picsum.photos/1500/600/?random=8" class=" w-full  object-scale-down lg:object-cover  lg:h-48 rounded-2xl">
-                                </div>
-                                <div class="flex-auto ml-3 justify-evenly py-2">
-                                    <div class="flex flex-wrap ">
-                                        <h2 class="flex-auto text-lg font-medium">【如何快樂學習，學習快樂】~給孩子的品格教育指南</h2>
-                                    </div>
-                                    <p class="mt-3"></p>
-                                    <div class="flex p-4 pb-2 border-t border-gray-200 "></div>
-                                    <div class="flex space-x-3 text-sm font-medium">
-                                        <div class="flex-auto flex space-x-3">
-                                            <button
-                                                class="mb-2 md:mb-0 bg-white px-5 py-2 shadow-sm tracking-wider border text-gray-600 rounded-full group-hover:bg-gray-100 inline-flex items-center space-x-2 ">
-                                                <span class="text-red-600 group-hover:text-red-700 rounded-lg">
-                                                  <i class="far fa-calendar-alt"></i>
-                                                </span>
-                                                <span>5/22(六)</span>
-                                            </button>
-                                        </div>
-                                        <button
-                                            class="mb-2 md:mb-0 bg-gray-900 px-5 py-2 shadow-sm tracking-wider text-white rounded-full group-hover:bg-red-700"
-                                            type="button" aria-label="like">購票去
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                  </a>
-                  <a href="">
-                    <div class="flex flex-col ">
-                        <div class="bg-white shadow-md  rounded-3xl p-4 group hover:shadow-lg hover:border-transparent">
-                            <div class="flex-none lg:flex">
-                                <div class=" h-full w-full lg:h-48  lg:mb-0 mb-3 group-hover:opacity-80">
-                                  <img src="https://picsum.photos/1500/600/?random=8" class=" w-full  object-scale-down lg:object-cover  lg:h-48 rounded-2xl">
-                                </div>
-                                <div class="flex-auto ml-3 justify-evenly py-2">
-                                    <div class="flex flex-wrap ">
-                                        <h2 class="flex-auto text-lg font-medium">【如何快樂學習，學習快樂】~給孩子的品格教育指南</h2>
-                                    </div>
-                                    <p class="mt-3"></p>
-                                    <div class="flex p-4 pb-2 border-t border-gray-200 "></div>
-                                    <div class="flex space-x-3 text-sm font-medium">
-                                        <div class="flex-auto flex space-x-3">
-                                            <button
-                                                class="mb-2 md:mb-0 bg-white px-5 py-2 shadow-sm tracking-wider border text-gray-600 rounded-full group-hover:bg-gray-100 inline-flex items-center space-x-2 ">
-                                                <span class="text-red-600 group-hover:text-red-700 rounded-lg">
-                                                  <i class="far fa-calendar-alt"></i>
-                                                </span>
-                                                <span>5/22(六)</span>
-                                            </button>
-                                        </div>
-                                        <button
-                                            class="mb-2 md:mb-0 bg-gray-900 px-5 py-2 shadow-sm tracking-wider text-white rounded-full group-hover:bg-red-700"
-                                            type="button" aria-label="like">購票去
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                  </a>
-              </div>
+        <!--特色-->
+        <div class="grid mt-8  gap-8 grid-cols-1 md:grid-cols-2 xl:grid-cols-2">
+          <% if @featureevent == [] %>
+            <div class="daycommed text-2xl text-center ">
+            目前沒活動
+            </div>
+          <% else %>
+            <%= render "events/featureevent" %>
+          <% end %>
+        </div>
         
            <!--特色結束-->
         

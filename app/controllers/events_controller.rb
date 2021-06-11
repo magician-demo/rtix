@@ -13,20 +13,26 @@ class EventsController < ApplicationController
     #每日精選
     
     @focusevent = 
-      Event
-        .where(status: '已發佈')
-        .order('start_time desc')
-        .select { |event| event.start_time > Time.now }
+      Event.available
         .select { |event| ((event.start_time - Time.now)/60/60/24).to_i < 7 }
+
+    @relaxevent = 
+    Event
+      .where("tag = '美食' OR tag = '戶外' ")
+      .available
+
+    @featureevent = 
+    Event
+      .where(tag: '演出')
+      .available
+      
   end
 
   def tag
     @events =
       Event
         .where(tag: params[:event_tag])
-        .where(status: '已發佈')
-        .order('start_time desc')
-        .select { |event| event.start_time > Time.now }
+        .available
     @tag = params[:event_tag]
   end
 

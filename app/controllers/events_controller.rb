@@ -46,6 +46,7 @@ class EventsController < ApplicationController
 
   def edit
     @event = Event.find_by(id: params[:id])
+    @organization = @event.organization
   end
 
   def update

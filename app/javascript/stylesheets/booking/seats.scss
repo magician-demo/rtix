@@ -1,5 +1,5 @@
 .row {
-  @apply flex flex-wrap my-36 md:my-20 w-full lg:w-row lg:m-auto lg:mb-16 lg:mt-20;
+  @apply flex flex-wrap my-36 md:my-20 w-full lg:w-row lg:m-auto lg:mb-16 lg:mt-28;
 
   .seat {
     @apply w-seats m-1.5 h-ssm bg-seat rounded-tl-xl rounded-tr-xl cursor-pointer relative;

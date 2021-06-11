@@ -14,6 +14,12 @@ class Event < ApplicationRecord
   geocoded_by :address #分析並紀錄 由geocoder
   after_validation :geocode, if: :address_changed? #選配，如果資料不會修改就不用
 
+  scope :available, -> {
+    where(status: '已發佈')
+    .order('start_time desc')
+    .where("start_time > ?", Time.now)
+  }
+
   #能edit地址，
   # def address_changed?
   #   address_changed?

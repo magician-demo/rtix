@@ -11,7 +11,6 @@
   
     <%= form_for(@event) do |event| %>
     <div class="firstpage xl:flex mb-8">
-
       <div class="apply_table xl:w-1/2 pl-3">
         <%= event.hidden_field :organization_id, value: @organization.id %>
         <div class="event_name">

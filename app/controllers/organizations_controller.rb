@@ -2,6 +2,7 @@ class OrganizationsController < ApplicationController
   before_action :find_organization,
                 only: %i[appropriations info events edit update destroy]
   before_action :authenticate_user!, except: [:show]
+  before_action :find_event, only: [:publish, :pending]
 
   def show
     @organization = Organization.friendly.find(params[:id])
@@ -49,13 +50,13 @@ class OrganizationsController < ApplicationController
   end
 
   def publish
-    Event.find_by(id: params[:id]).update(status: '已發佈')
+    @event.update(status: '已發佈')
     redirect_to events_organization_path(params[:organization_id]),
                 notice: '活動發佈成功！'
   end
 
   def pending
-    Event.find_by(id: params[:id]).update(status: '待發佈')
+    @event.update(status: '待發佈')
     redirect_to events_organization_path(params[:organization_id]),
                 notice: '活動暫停發布！'
   end
@@ -64,6 +65,10 @@ class OrganizationsController < ApplicationController
 
   def find_organization
     @organization = current_user.organizations.friendly.find(params[:id])
+  end
+
+  def find_event
+    @event = Event.find_by(id: params[:id])
   end
 
   def organization_params

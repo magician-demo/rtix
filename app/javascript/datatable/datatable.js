@@ -8,5 +8,6 @@ document.addEventListener('turbolinks:load', function () {
     paging: false,
     info: false,
     responsive: true,
+    retrieve: true
   })
 })

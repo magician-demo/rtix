@@ -1,21 +1,18 @@
 class DashboardsController < ApplicationController
+  before_action :find_event, only: [:new, :create]
+
   def index
-    @orders =
-      current_user.orders.where("status = 'paid' OR status = 'pending' ")
+    @orders = current_user.orders.where(status: "paid").or(current_user.orders.where(status: "pending"))
     @hosts = current_user.organizations
     @host_events = @hosts.map { |host| host.events }.flatten
 
-    new_events = Event.order(:created_at).last(5)
-    hot_events =
-      CheckIn.group(:event_id).count.to_a.sort_by do |event, times|
-        times
-      end.first(5).map { |event_info| Event.find(event_info[0]) }
+    new_events = Event.order(created_at: :desc).limit(5)
+    hot_events = Event.left_joins(:check_ins).group(:id).order("COUNT(check_ins.id) DESC").first(5)
 
     @best_events = (new_events + hot_events).uniq
   end
 
   def show
-    @user = current_user
     @order = Order.find(params[:id])
     @seats = @order.seats
     @event = @seats.map { |seat| seat.ticket.event }.uniq[0]
@@ -24,13 +21,10 @@ class DashboardsController < ApplicationController
   def new
     @user = current_user
     @contact = Contact.new
-    @event = Event.find(params[:id])
   end
 
   def create
-    @user = current_user
-    @event = Event.find(params[:id])
-    @contact = @user.contacts.new(contact_params)
+    @contact = current_user.contacts.new(contact_params)
 
     if @contact.save
       ContactMailer
@@ -45,6 +39,9 @@ class DashboardsController < ApplicationController
   end
 
   private
+  def find_event 
+    @event = Event.find(params[:id])
+  end
 
   def contact_params
     params

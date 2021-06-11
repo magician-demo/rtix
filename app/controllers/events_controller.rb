@@ -11,7 +11,7 @@ class EventsController < ApplicationController
     
     @focusevent = 
       Event
-        .where(start_time: (Time.now - 7.days)..Time.now)
+        .where(start_time: Time.now..(Time.now + 7.days))
         .available
 
     @relaxevent = 

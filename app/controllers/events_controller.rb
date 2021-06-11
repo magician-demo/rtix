@@ -3,21 +3,34 @@ class EventsController < ApplicationController
 
   def index
     @events =
-      Event
-        .where(status: '已發佈')
-        .order('start_time desc')
-        .select { |event| event.start_time > Time.now }
+      Event.available
 
     @organizations = current_user.organizations.all if user_signed_in?
+
+    #每日精選
+    
+    @focusevent = 
+      Event
+        .where(start_time: Time.now..(Time.now + 7.days))
+        .available
+
+    @relaxevent = 
+    Event
+      .where("tag = ? or tag = ?", '美食', '戶外')
+      .available
+
+    @featureevent = 
+    Event
+      .where(tag: '演出')
+      .available
+      
   end
 
   def tag
     @events =
       Event
         .where(tag: params[:event_tag])
-        .where(status: '已發佈')
-        .order('start_time desc')
-        .select { |event| event.start_time > Time.now }
+        .available
     @tag = params[:event_tag]
   end
 

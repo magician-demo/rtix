@@ -9,6 +9,15 @@ class EventsController < ApplicationController
         .select { |event| event.start_time > Time.now }
 
     @organizations = current_user.organizations.all if user_signed_in?
+
+    #每日精選
+    
+    @focusevent = 
+      Event
+        .where(status: '已發佈')
+        .order('start_time desc')
+        .select { |event| event.start_time > Time.now }
+        .select { |event| ((event.start_time - Time.now)/60/60/24).to_i < 7 }
   end
 
   def tag

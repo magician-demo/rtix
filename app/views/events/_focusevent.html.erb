@@ -1,0 +1,35 @@
+  <% @focusevent.each do |event| %>
+  <div>
+    <div class="flex flex-col ">
+        <div class="bg-white shadow-md  rounded-3xl p-4 group hover:shadow-lg hover:border-transparent">
+            <div class="flex-none lg:flex">
+                <div class=" h-full w-full lg:h-48 lg:mb-0 mb-3 group-hover:opacity-80">
+                  <img src=<%= event.image_url %> class=" w-full object-scale-down lg:object-cover  lg:h-48 rounded-2xl">
+                </div>
+                <div class="flex-auto ml-3 justify-evenly py-2">
+                    <div class="flex flex-wrap ">
+                        <h2 class="flex-auto text-lg font-medium"><%= event.title %></h2>
+                    </div>
+                    <p class="mt-3"></p>
+                    <div class="flex p-4 pb-2 border-t border-gray-200 "></div>
+                    <div class="flex space-x-3 text-sm font-medium">
+                        <div class="flex-auto flex space-x-3">
+                            <button
+                                class="mb-2 md:mb-0 bg-white px-5 py-2 shadow-sm tracking-wider border text-gray-600 rounded-full group-hover:bg-gray-100 inline-flex items-center space-x-2 ">
+                                <span class="text-red-600 group-hover:text-red-700 rounded-lg">
+                                  <i class="far fa-calendar-alt"></i>
+                                </span>
+                                <span><%= date_convert(event.start_time) %></span>
+                            </button>
+                        </div>
+                        <button
+                          class="mb-2 md:mb-0 bg-gray-900 px-5 py-2 shadow-sm tracking-wider text-white rounded-full group-hover:bg-red-700"
+                          type="button" aria-label="like"><%= link_to '購票去', event_path(event.id) %>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+  </div>
+  <% end %>

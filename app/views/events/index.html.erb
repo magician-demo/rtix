@@ -1,41 +1,42 @@
-<div class="relative ">
-  <div class="sliderAx h-4/5">
-      <div id="slider-1" class="mx-auto">
-          <div class="bg-cover bg-center  h-auto text-white py-24 px-10 object-fill" style="background-image: url(https://myofb.de/wp-content/uploads/die-unfassbaren-now-you-see-me-1280x720.jpg)">
-              <div class="max-w-5xl w-full m-auto">
-                <p class="text-4xl font-bold">2021出神入化</p>
-                <p class="text-2xl mb-10 leading-20">Now You See Me</p>
-                <div  class="w-32 bg-red-700 py-4 px-8 text-white font-bold uppercase text-xs rounded hover:bg-gray-200 hover:text-gray-800 text-xl"><%= link_to "購票去", event_path(1) %></div>
-              </div>
-          </div> <!-- container -->
-          <br>
+<!-- Slider main container -->
+<div class="swiper-container">
+  <!-- Additional required wrapper -->
+  <div class="swiper-wrapper">
+    <!-- Slides -->
+    <div class="swiper-slide">
+      <div class="bg-cover bg-center h-full text-white py-24 px-10 object-fill" style="background-image: url(https://images.unsplash.com/photo-1583688010103-17a8ba0fab79?ixid=MnwxMjA3fDB8MHxzZWFyY2h8Nzd8fG1hZ2ljfGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80)">
+        <div class="max-w-5xl w-full m-auto">
+          <p class="text-4xl font-bold">2021《出神入化》</p>
+          <p class="text-2xl mb-10 leading-20 mt-5">2021/06/19(周六)</p>
+          <div  class="w-32 bg-red-700 py-4 px-8 text-white font-bold uppercase rounded hover:bg-gray-200 hover:text-gray-800 text-xl"><%= link_to "購票去", event_path(1) %></div>
+        </div>
+      </div> 
+    </div>
+    <div class="swiper-slide">
+      <div class="bg-cover bg-center h-full text-white py-24 px-10 object-fill" style="background-image: url(https://images.unsplash.com/photo-1544144433-d50aff500b91?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80)"> 
+        <div class="max-w-5xl m-auto w-full">
+          <p class="text-4xl font-bold">無妄合作社 《No Mercy》</p>
+          <p class="text-2xl mb-10 leading-20 mt-5">2021/09/05(周日)</p>
+          <div  class="w-32 bg-red-700 py-4 px-8 text-white font-bold uppercase rounded hover:bg-gray-200 hover:text-gray-800 text-xl"><%= link_to "購票去", event_path(1) %></div>
+        </div>
       </div>
-
-      <div id="slider-2" class=" mx-auto">
-          <div class="bg-cover bg-top  h-auto text-white py-24 px-10 object-fill" style="background-image: url(https://images.unsplash.com/photo-1544144433-d50aff500b91?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80)"> 
-              <div class="max-w-5xl m-auto w-full">
-                <p class="text-4xl font-bold">無妄合作社 《No Mercy》</p>
-                <p class="text-2xl mb-10 leading-20">2021/09/05(周日)</p>
-                <a href="http://tradydaddy.com/" target="_blank" class="bg-red-700 py-4 px-8 text-white font-bold uppercase text-xs rounded hover:bg-gray-200 hover:text-gray-800 text-xl">了解詳情</a>
-              </div>
-          </div> <!-- container -->
-          <br>
+    </div>
+    <div class="swiper-slide">
+      <div class="bg-cover bg-center h-full text-white py-24 px-10 object-fill" style="background-image: url(https://images.unsplash.com/photo-1600511314646-797ce92c70fa?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MzF8fHRhaXdhbiUyMHRlbXBsZXxlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80)"> 
+        <div class="max-w-5xl m-auto w-full">
+          <p class="text-4xl font-bold">血肉果汁機《GOLDEN 太子 BRO》</p>
+          <p class="text-2xl mb-10 leading-20 mt-5">2021/05/28(周五)</p>
+          <div  class="w-32 bg-red-700 py-4 px-8 text-white font-bold uppercase rounded hover:bg-gray-200 hover:text-gray-800 text-xl"><%= link_to "購票去", event_path(1) %></div>
+        </div>
       </div>
+    </div>
   </div>
-  <div  class="flex justify-between w-12 mx-auto pb-2">
-      <button id="sButton1" onclick="sliderButton1()" class="bg-purple-400 rounded-full w-4 pb-2 " ></button>
-      <button id="sButton2" onclick="sliderButton2() " class="bg-purple-400 rounded-full w-4 p-2"></button>
-  </div>
+  <!-- If we need pagination -->
+  <div class="swiper-pagination"></div>
+  <!-- If we need navigation buttons -->
+  <div class="swiper-button-prev"></div>
+  <div class="swiper-button-next"></div>
 </div>
-
-
-
-
-
-
-
-
-
 <!-- component -->
 <div class="dark:bg-gray-900 py-6 flex flex-col justify-center max-w-5xl w-full m-auto">
   <div class="grid lg:grid-cols-6 md:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-4">
@@ -250,7 +251,6 @@
 
    <!--焦點活動結束-->
 
-
       </div>
 			<div x-show="activeTab===1">
 
@@ -311,84 +311,6 @@
       ]
     };
   };
-
- 
-    var cont=0;
-function loopSlider(){
-  var xx= setInterval(function(){
-        switch(cont)
-        {
-        case 0:{
-            $("#slider-1").fadeOut(400);
-            $("#slider-2").delay(400).fadeIn(400);
-            $("#sButton1").removeClass("bg-purple-800");
-            $("#sButton2").addClass("bg-purple-800");
-        cont=1;
-        
-        break;
-        }
-        case 1:
-        {
-        
-            $("#slider-2").fadeOut(400);
-            $("#slider-1").delay(400).fadeIn(400);
-            $("#sButton2").removeClass("bg-purple-800");
-            $("#sButton1").addClass("bg-purple-800");
-           
-        cont=0;
-        
-        break;
-        }
-        
-        
-        }},8000);
-
-}
-
-function reinitLoop(time){
-clearInterval(xx);
-setTimeout(loopSlider(),time);
-}
-
-
-
-function sliderButton1(){
-
-    $("#slider-2").fadeOut(400);
-    $("#slider-1").delay(400).fadeIn(400);
-    $("#sButton2").removeClass("bg-purple-800");
-    $("#sButton1").addClass("bg-purple-800");
-    reinitLoop(4000);
-    cont=0
-    
-    }
-    
-    function sliderButton2(){
-    $("#slider-1").fadeOut(400);
-    $("#slider-2").delay(400).fadeIn(400);
-    $("#sButton1").removeClass("bg-purple-800");
-    $("#sButton2").addClass("bg-purple-800");
-    reinitLoop(4000);
-    cont=1
-    
-    }
-
-    $(window).ready(function(){
-        $("#slider-2").hide();
-        $("#sButton1").addClass("bg-purple-800");
-        
-
-        loopSlider();
-     
-        
-    
-    
-    
-    
-    });
-
-  
-
 </script>
   
 

@@ -6,6 +6,7 @@ require('@rails/actiontext')
 require('jquery/dist/jquery')
 require('packs/autocomplete')
 require('packs/googlemap')
+require('packs/swiper')
 
 Rails.start()
 ActiveStorage.start()

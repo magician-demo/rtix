@@ -56,7 +56,7 @@
               <% if @event.image? %> <%= image_tag(@event.image_url) %>
               <% else %>
               <img
-                class="image m-auto image-preview"
+                class="image m-auto image-preview rounded-3xl"
                 src="/image/activity.png"
               >
               <% end %>
@@ -75,12 +75,13 @@
             <p>放上座位圖將可有效協助報名者,讓購票流程更順暢, 因而提升購買意願!!!</p>
           </div>
           <div class="image-box">
-            <% if @event.seats_image? %> <%= image_tag(@event.seats_image_url, class:"seats-image") %>
+            <% if @event.seats_image? %> 
+              <%= image_tag(@event.seats_image_url, class:"seats-image") %>
             <% else %>
             <img
               id="seats-preview"
-              class="image seats-image m-auto"
-              src="/image/seats.png"
+              class="image seats-image m-auto rounded-3xl"
+              src="/image/seat.png"
             >
             <% end %>
           </div>

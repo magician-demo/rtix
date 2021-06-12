@@ -16,11 +16,11 @@
             </div>
             <% if @order.status == "paid" %>
             <div class="w-1/2 my-5">
-                <img src="<%= asset_path( 'paid.png' ) %>" class="w-48 sm:w-60 h-48 sm:h-60">
+                <img src="/image/paid.png" class="w-48 sm:w-60 h-48 sm:h-60">
             </div>
             <% else %>
             <div class="w-1/2 my-5">
-                <img src="<%= asset_path( 'pending.png' ) %>" class="sm:w-72 sm:h-60">
+                <img src="/image/pending.png" class="sm:w-72 sm:h-60">
             </div>
             <% end %>
         </div>

@@ -3,7 +3,7 @@ class DashboardsController < ApplicationController
 
   def index
     @orders = current_user.orders.where(status: "paid").or(current_user.orders.where(status: "pending"))
-    @hosts = current_user.organizations
+    @hosts = current_user.organizations.includes(:events)
     @host_events = @hosts.map { |host| host.events }.flatten
 
     new_events = Event.order(created_at: :desc).limit(5)
@@ -14,7 +14,7 @@ class DashboardsController < ApplicationController
 
   def show
     @order = Order.find(params[:id])
-    @seats = @order.seats
+    @seats = @order.seats.includes(:ticket)
     @event = @seats.map { |seat| seat.ticket.event }.uniq[0]
   end
 

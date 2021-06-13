@@ -1,10 +1,16 @@
 <% @best_events.each do |event| %>
 <div class="text-center box-border p-5 float-left w-full md:w-1/2 lg:w-1/3">
     <div class="border-2 border-gray-200 rounded-lg p-5 bg-gray-50 shadow-2xl">
-        <img src="https://picsum.photos/300/150" class="rounded-lg">
+        <div>
+            <% if event.image? %>
+            <img src=<%= event.image_url %> class="rounded-lg">
+            <% else %>
+            <img src="/image/activity.png" class="rounded-lg">
+            <% end %>
+        </div>
         <div>
             <h5 class="font-bold tex-xl mt-3"><%= event.title %></h5>
-            <p class="text-sm h-16 rounded-lg text-left p-3 overflow-auto"><%= event.description %> Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut corrupti fugiat doloribus itaque accusamus magnam eius fugit, repudiandae explicabo provident ipsa nostrum tempore et quo, assumenda suscipit dolores facere iusto?</p>
+            <p class="text-sm h-16 rounded-lg text-left p-3 overflow-auto"><%= event.description %></p>
             <p class="italic my-3"><%= event.city %></p>
             <a href="<%= event_path(event.id) %>" class="linkto">活動頁面</a>
         </div>

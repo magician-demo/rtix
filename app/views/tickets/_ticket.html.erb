@@ -14,10 +14,12 @@
       </tr>
     </thead>
     <tbody>
+
       <% @orders.each do |order| %>
-        <% seats = order.seats %>
+        <% seats = order.seats.includes(:ticket) %>
         <% events= seats.map{|seat| seat.ticket.event }.uniq %>
         <% event = events[0] %>
+
       <tr>
         <td class="ftext numbers"><%= link_to order.serial, dashboard_path(order.id), class: "linkto" %></td>
         <td class="ftext pay"><%= order.status %></td>       

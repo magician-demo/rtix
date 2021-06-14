@@ -7,7 +7,7 @@
 }
 
 .search_bar {
-  @apply py-2;
+  @apply py-2 flex justify-center;
 
   .search_button {
     @apply bg-red-700 text-white ml-2;

@@ -20,21 +20,17 @@ class ApplicationController < ActionController::Base
   protected
 
   def configure_permitted_parameters
-    devise_parameter_sanitizer.permit(:sign_up, keys: [:name, :tel])
+    devise_parameter_sanitizer.permit(:sign_up, keys: %i[name tel])
   end
 
   def check_order
-    if current_order.paid?
-      redirect_to dashboards_path
-    end
-
+    redirect_to dashboards_path if current_order.paid?
   end
 
   def authenticate_admin_or_org
     unless current_user.admin? || params[:organization_id]
-      flash[:alert] = "你沒有權限進入！"
+      flash[:alert] = '你沒有權限進入！'
       redirect_to root_path
     end
   end
-  
 end

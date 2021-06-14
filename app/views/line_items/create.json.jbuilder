@@ -1,4 +1,4 @@
-json.data do 
+json.data do
   json.name @seat.ticket.name
   json.area @seat.area
   json.id @seat.id

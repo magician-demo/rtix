@@ -54,5 +54,4 @@ class Order < ApplicationRecord
       CheckIn.find_by(seat_id: seat.id).destroy
     end
   end
-
 end

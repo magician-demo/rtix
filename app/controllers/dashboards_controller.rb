@@ -1,46 +1,51 @@
 class DashboardsController < ApplicationController
-    def index
-      @orders = current_user.orders.where("status = 'paid' OR status = 'pending' ")
-      @hosts = current_user.organizations
-      @host_events = @hosts.map{|host| host.events }.flatten
+  before_action :find_event, only: [:new, :create]
 
-      new_events = Event.order(:created_at).last(5)
-      hot_events = CheckIn.group(:event_id).count.to_a.sort_by { |event,times| times }.first(5).map do |event_info|
-        Event.find(event_info[0])
-      end
-      
-      @best_events = (new_events + hot_events).uniq
-      
-    end
+  def index
+    @orders = current_user.orders.where(status: "paid").or(current_user.orders.where(status: "pending"))
+    @hosts = current_user.organizations.includes(:events)
+    @host_events = @hosts.map { |host| host.events }.flatten
 
-    def show
-      @user = current_user
-      @order = Order.find(params[:id])
-      @seats = @order.seats
-      @event = @seats.map{|seat| seat.ticket.event }.uniq[0]
-    end
+    new_events = Event.order(created_at: :desc).limit(5)
+    hot_events = Event.left_joins(:check_ins).group(:id).order("COUNT(check_ins.id) DESC").first(5)
 
-    def new
-      @user = current_user
-      @contact = Contact.new
-      @event = Event.find(params[:id])
-    end
+    @best_events = (new_events + hot_events).uniq
+  end
 
-    def create
-      @user = current_user
-      @event = Event.find(params[:id])
-      @contact = @user.contacts.new(contact_params)
-      
-      if @contact.save
-        ContactMailer.with(user: current_user, event: @event, contact: @contact).contact_created.deliver_later 
-        redirect_to dashboards_path, notice: "感謝您的意見反饋!活動舉辦方將會盡快回應您!"
-      else
-        render :new 
-      end
-    end
+  def show
+    @order = Order.find(params[:id])
+    @seats = @order.seats.includes(:ticket)
+    @event = @seats.map { |seat| seat.ticket.event }.uniq[0]
+  end
 
-    private 
-    def contact_params
-      params.require(:contact).permit(:name, :email, :tel, :event, :title, :feedback)
+  def new
+    @user = current_user
+    @contact = Contact.new
+  end
+
+  def create
+    @contact = current_user.contacts.new(contact_params)
+
+    if @contact.save
+      ContactMailer
+        .with(user: current_user, event: @event, contact: @contact)
+        .contact_created
+        .deliver_later
+      redirect_to dashboards_path,
+                  notice: '感謝您的意見反饋!活動舉辦方將會盡快回應您!'
+    else
+      render :new
     end
+  end
+
+  private
+  def find_event 
+    @event = Event.find(params[:id])
+  end
+
+  def contact_params
+    params
+      .require(:contact)
+      .permit(:name, :email, :tel, :event, :title, :feedback)
+  end
 end

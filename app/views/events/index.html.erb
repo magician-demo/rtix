@@ -1,98 +1,111 @@
-<div class="relative ">
-  <div class="sliderAx h-4/5">
-      <div id="slider-1" class="mx-auto">
-          <div class="bg-cover bg-center  h-auto text-white py-24 px-10 object-fill" style="background-image: url(https://myofb.de/wp-content/uploads/die-unfassbaren-now-you-see-me-1280x720.jpg)">
-              <div class="max-w-5xl w-full m-auto">
-                <p class="text-4xl font-bold">2021出神入化</p>
-                <p class="text-2xl mb-10 leading-20">Now You See Me</p>
-                <div  class="w-32 bg-red-700 py-4 px-8 text-white font-bold uppercase text-xs rounded hover:bg-gray-200 hover:text-gray-800 text-xl"><%= link_to "購票去", event_path(1) %></div>
-              </div>
-          </div> <!-- container -->
-          <br>
+<!-- Slider main container -->
+<div class="swiper-container">
+  <!-- Additional required wrapper -->
+  <div class="swiper-wrapper">
+    <!-- Slides -->
+    <div class="swiper-slide">
+      <div class="bg-cover bg-center h-full text-white py-24 px-10 object-fill" style="background-image: url(https://images.unsplash.com/photo-1583688010103-17a8ba0fab79?ixid=MnwxMjA3fDB8MHxzZWFyY2h8Nzd8fG1hZ2ljfGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80)">
+        <div class="max-w-5xl w-full m-auto">
+          <p class="text-4xl font-bold">2021《出神入化》</p>
+          <p class="text-2xl mb-10 leading-20 mt-5">2021/06/19(周六)</p>
+          <div  class="w-32 bg-red-700 py-4 px-8 text-white font-bold uppercase rounded hover:bg-gray-200 hover:text-gray-800 text-xl"><%= link_to "購票去", event_path(1) %></div>
+        </div>
+      </div> 
+    </div>
+    <div class="swiper-slide">
+      <div class="bg-cover bg-center h-full text-white py-24 px-10 object-fill" style="background-image: url(https://images.unsplash.com/photo-1544144433-d50aff500b91?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80)"> 
+        <div class="max-w-5xl m-auto w-full">
+          <p class="text-4xl font-bold">無妄合作社 《No Mercy》</p>
+          <p class="text-2xl mb-10 leading-20 mt-5">2021/09/05(周日)</p>
+          <div  class="w-32 bg-red-700 py-4 px-8 text-white font-bold uppercase rounded hover:bg-gray-200 hover:text-gray-800 text-xl"><%= link_to "購票去", event_path(1) %></div>
+        </div>
       </div>
-
-      <div id="slider-2" class=" mx-auto">
-          <div class="bg-cover bg-top  h-auto text-white py-24 px-10 object-fill" style="background-image: url(https://images.unsplash.com/photo-1544144433-d50aff500b91?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80)"> 
-              <div class="max-w-5xl m-auto w-full">
-                <p class="text-4xl font-bold">無妄合作社 《No Mercy》</p>
-                <p class="text-2xl mb-10 leading-20">2021/09/05(周日)</p>
-                <a href="http://tradydaddy.com/" target="_blank" class="bg-red-700 py-4 px-8 text-white font-bold uppercase text-xs rounded hover:bg-gray-200 hover:text-gray-800 text-xl">了解詳情</a>
-              </div>
-          </div> <!-- container -->
-          <br>
+    </div>
+    <div class="swiper-slide">
+      <div class="bg-cover bg-center h-full text-white py-24 px-10 object-fill" style="background-image: url(https://images.unsplash.com/photo-1600511314646-797ce92c70fa?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MzF8fHRhaXdhbiUyMHRlbXBsZXxlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80)"> 
+        <div class="max-w-5xl m-auto w-full">
+          <p class="text-4xl font-bold">血肉果汁機《GOLDEN 太子 BRO》</p>
+          <p class="text-2xl mb-10 leading-20 mt-5">2021/05/28(周五)</p>
+          <div  class="w-32 bg-red-700 py-4 px-8 text-white font-bold uppercase rounded hover:bg-gray-200 hover:text-gray-800 text-xl"><%= link_to "購票去", event_path(1) %></div>
+        </div>
       </div>
+    </div>
   </div>
-  <div  class="flex justify-between w-12 mx-auto pb-2">
-      <button id="sButton1" onclick="sliderButton1()" class="bg-purple-400 rounded-full w-4 pb-2 " ></button>
-      <button id="sButton2" onclick="sliderButton2() " class="bg-purple-400 rounded-full w-4 p-2"></button>
-  </div>
+  <!-- If we need pagination -->
+  <div class="swiper-pagination"></div>
+  <!-- If we need navigation buttons -->
+  <div class="swiper-button-prev"></div>
+  <div class="swiper-button-next"></div>
 </div>
-
-
-
-
-
-
-
-
-
 <!-- component -->
 <div class="dark:bg-gray-900 py-6 flex flex-col justify-center max-w-5xl w-full m-auto">
   <div class="grid lg:grid-cols-6 md:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-4">
 
     <!-- SMALL CARD ROUNDED -->
-    <div class="bg-gray-100 border-indigo-600 dark:bg-gray-800 bg-opacity-95 border-opacity-60 | p-4 border-solid rounded-3xl | justify-around cursor-pointer | hover:bg-yellow-600 dark:hover:bg-yellow-600 hover:border-transparent | transition-colors duration-500">
-      <P class="text-center"><i class="fas fa-atlas fa-4x"></i></P>
-      <div class="flex flex-col justify-center">
-        <p class="text-gray-900 dark:text-gray-300 font-semibold text-center leading-8"><%= link_to "學習", tag_events_path(:event_tag => "學習") %></p>
-        
+     <%= link_to  tag_events_path(:event_tag => "學習") do %>
+      <div class="bg-gray-100 border-indigo-600 dark:bg-gray-800 bg-opacity-95 border-opacity-60 | p-4 border-solid rounded-3xl | justify-around cursor-pointer | hover:bg-yellow-600 dark:hover:bg-yellow-600 hover:border-transparent | transition-colors duration-500">
+        <P class="text-center"><i class="fas fa-atlas fa-4x"></i></P>
+        <div class="flex flex-col justify-center">
+          <p class="text-gray-900 dark:text-gray-300 font-semibold text-center leading-8">學習</p>
+
+        </div>
       </div>
-    </div>
+    <% end %>
     <!-- END SMALL CARD ROUNDED -->
 
     <!-- SMALL CARD ROUNDED -->
-    <div class="bg-gray-100 border-red-600 dark:bg-gray-800 bg-opacity-95 border-opacity-60 | p-4 border-solid rounded-3xl | justify-around cursor-pointer | hover:bg-red-400 dark:hover:bg-red-600 hover:border-transparent | transition-colors duration-500">
-      <P class="text-center"><i class="fas fa-guitar fa-4x"></i></P>
-      <div class="flex flex-col justify-center">
-        <p class="text-gray-900 dark:text-gray-300 font-semibold text-center leading-8"><%= link_to "演出", tag_events_path(:event_tag => "演出") %></p>
+    <%= link_to tag_events_path(:event_tag => "演出") do %>
+      <div class="bg-gray-100 border-red-600 dark:bg-gray-800 bg-opacity-95 border-opacity-60 | p-4 border-solid rounded-3xl | justify-around cursor-pointer | hover:bg-red-400 dark:hover:bg-red-600 hover:border-transparent | transition-colors duration-500">
+        <P class="text-center"><i class="fas fa-guitar fa-4x"></i></P>
+        <div class="flex flex-col justify-center">
+          <p class="text-gray-900 dark:text-gray-300 font-semibold text-center leading-8">演出</p>
+        </div>
       </div>
-    </div>
+    <% end %>
     <!-- END SMALL CARD ROUNDED -->
 
     <!-- SMALL CARD ROUNDED -->
-    <div class="bg-gray-100 border-purple-600 dark:bg-gray-800 bg-opacity-95 border-opacity-60 | p-4 border-solid rounded-3xl | justify-around cursor-pointer | hover:bg-purple-500 dark:hover:bg-purple-500 hover:border-transparent | transition-colors duration-500">
-      <P class="text-center"><i class="fas fa-palette fa-4x"></i></P>
-      <div class="flex flex-col justify-center">
-        <p class="text-gray-900 dark:text-gray-300 font-semibold text-center leading-8"><%= link_to "展覽", tag_events_path(:event_tag => "展覽") %></p>
+    <%= link_to tag_events_path(:event_tag => "展覽") do %>
+      <div class="bg-gray-100 border-purple-600 dark:bg-gray-800 bg-opacity-95 border-opacity-60 | p-4 border-solid rounded-3xl | justify-around cursor-pointer | hover:bg-purple-500 dark:hover:bg-purple-500 hover:border-transparent | transition-colors duration-500">
+        <P class="text-center"><i class="fas fa-palette fa-4x"></i></P>
+        <div class="flex flex-col justify-center">
+          <p class="text-gray-900 dark:text-gray-300 font-semibold text-center leading-8">展覽</p>
+        </div>
       </div>
-    </div>
+    <% end %>
     <!-- END SMALL CARD ROUNDED -->
 
     <!-- SMALL CARD ROUNDED -->
-    <div class="bg-gray-100 border-green-600 dark:bg-gray-800 bg-opacity-95 border-opacity-60 | p-4 border-solid rounded-3xl | justify-around cursor-pointer | hover:bg-pink-400 dark:hover:bg-pink-600 hover:border-transparent | transition-colors duration-500">
-      <P class="text-center"><i class="fas fa-heart fa-4x"></i></P>
-      <div class="flex flex-col justify-center">
-        <p class="text-gray-900 dark:text-gray-300 font-semibold text-center leading-8"><%= link_to "聯誼", tag_events_path(:event_tag => "聯誼") %></p>
+    <%= link_to tag_events_path(:event_tag => "聯誼") do %>
+      <div class="bg-gray-100 border-green-600 dark:bg-gray-800 bg-opacity-95 border-opacity-60 | p-4 border-solid rounded-3xl | justify-around cursor-pointer | hover:bg-pink-400 dark:hover:bg-pink-600 hover:border-transparent | transition-colors duration-500">
+        <P class="text-center"><i class="fas fa-heart fa-4x"></i></P>
+        <div class="flex flex-col justify-center">
+          <p class="text-gray-900 dark:text-gray-300 font-semibold text-center leading-8">聯誼</p>
+        </div>
       </div>
-    </div>
+    <% end %>
     <!-- END SMALL CARD ROUNDED -->
 
     <!-- SMALL CARD ROUNDED -->
-    <div class="bg-gray-100 border-yellow-600 dark:bg-gray-800 bg-opacity-95 border-opacity-60 | p-4 border-solid rounded-3xl | justify-around cursor-pointer | hover:bg-yellow-400 dark:hover:bg-yellow-600 hover:border-transparent | transition-colors duration-500">
-      <P class="text-center"><i class="fas fa-utensils fa-4x"></i></P>
-      <div class="flex flex-col justify-center">
-        <p class="text-gray-900 dark:text-gray-300 font-semibold text-center leading-8"><%= link_to "美食", tag_events_path(:event_tag => "美食") %></p>
+    <%= link_to tag_events_path(:event_tag => "美食") do %>
+      <div class="bg-gray-100 border-yellow-600 dark:bg-gray-800 bg-opacity-95 border-opacity-60 | p-4 border-solid rounded-3xl | justify-around cursor-pointer | hover:bg-yellow-400 dark:hover:bg-yellow-600 hover:border-transparent | transition-colors duration-500">
+        <P class="text-center"><i class="fas fa-utensils fa-4x"></i></P>
+        <div class="flex flex-col justify-center">
+          <p class="text-gray-900 dark:text-gray-300 font-semibold text-center leading-8">美食</p>
+        </div>
       </div>
-    </div>
+    <% end %>
     <!-- END SMALL CARD ROUNDED -->
 
     <!-- SMALL CARD ROUNDED -->
-    <div class="bg-gray-100 border-green-600 dark:bg-gray-800 bg-opacity-95 border-opacity-60 | p-4 border-solid rounded-3xl | justify-around cursor-pointer | hover:bg-green-400 dark:hover:bg-green-600 hover:border-transparent | transition-colors duration-500">
-      <P class="text-center"><i class="fas fa-mountain fa-4x"></i></P>
-      <div class="flex flex-col justify-center">
-        <p class="text-gray-900 dark:text-gray-300 font-semibold text-center leading-8"><%= link_to "戶外", tag_events_path(:event_tag => "戶外") %></p>
+    <%= link_to tag_events_path(:event_tag => "戶外") do %>
+      <div class="bg-gray-100 border-green-600 dark:bg-gray-800 bg-opacity-95 border-opacity-60 | p-4 border-solid rounded-3xl | justify-around cursor-pointer | hover:bg-green-400 dark:hover:bg-green-600 hover:border-transparent | transition-colors duration-500">
+        <P class="text-center"><i class="fas fa-mountain fa-4x"></i></P>
+        <div class="flex flex-col justify-center">
+          <p class="text-gray-900 dark:text-gray-300 font-semibold text-center leading-8">戶外</p>
+        </div>
       </div>
-    </div>
+    <% end %>
     <!-- END SMALL CARD ROUNDED -->
 
   </div>
@@ -193,7 +206,7 @@
       </div>
   </div>
   <div class="flex justify-center items-center">
-    <div class="overflow-y-scroll h-96">
+    <div class="overflow-y-scroll h-80">
       <%= render "events/published" %>
     </div>
   </div>
@@ -226,110 +239,17 @@
 			<div x-show="activeTab===0">
 
    <!--焦點活動-->
-        <div class="grid mt-8  gap-8 grid-cols-1 md:grid-cols-2 xl:grid-cols-2">
-          <a href="">
-            <div class="flex flex-col ">
-                <div class="bg-white shadow-md  rounded-3xl p-4 group hover:shadow-lg hover:border-transparent">
-                    <div class="flex-none lg:flex">
-                        <div class=" h-full w-full lg:h-48 lg:mb-0 mb-3 group-hover:opacity-80">
-                          <img src="https://picsum.photos/1500/600/?random=3" class=" w-full  object-scale-down lg:object-cover  lg:h-48 rounded-2xl">
-                        </div>
-                        <div class="flex-auto ml-3 justify-evenly py-2">
-                            <div class="flex flex-wrap ">
-                                <h2 class="flex-auto text-lg font-medium">Just One 10 Minute With You 車銀優線上直播粉絲見面會</h2>
-                            </div>
-                            <p class="mt-3"></p>
-                            <div class="flex p-4 pb-2 border-t border-gray-200 "></div>
-                            <div class="flex space-x-3 text-sm font-medium">
-                                <div class="flex-auto flex space-x-3">
-                                    <button
-                                        class="mb-2 md:mb-0 bg-white px-5 py-2 shadow-sm tracking-wider border text-gray-600 rounded-full group-hover:bg-gray-100 inline-flex items-center space-x-2 ">
-                                        <span class="text-red-600 group-hover:text-red-700 rounded-lg">
-                                          <i class="far fa-calendar-alt"></i>
-                                        </span>
-                                        <span>5/22(六)</span>
-                                    </button>
-                                </div>
-                                <button
-                                    class="mb-2 md:mb-0 bg-gray-900 px-5 py-2 shadow-sm tracking-wider text-white rounded-full group-hover:bg-red-700"
-                                    type="button" aria-label="like">購票去
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+        <div class="daycommed grid mt-8  gap-8 grid-cols-1 md:grid-cols-2 xl:grid-cols-2">
+          <% if @focusevent == [] %>
+            <div class="daycommed text-2xl text-center ">
+            目前沒活動
             </div>
-          </a>
-          <a href="">
-            <div class="flex flex-col ">
-                <div class="bg-white shadow-md  rounded-3xl p-4 group hover:shadow-lg hover:border-transparent">
-                    <div class="flex-none lg:flex">
-                        <div class=" h-full w-full lg:h-48 lg:mb-0 mb-3 group-hover:opacity-80">
-                          <img src="https://picsum.photos/1500/600/?random=3" class=" w-full  object-scale-down lg:object-cover  lg:h-48 rounded-2xl">
-                        </div>
-                        <div class="flex-auto ml-3 justify-evenly py-2">
-                            <div class="flex flex-wrap ">
-                                <h2 class="flex-auto text-lg font-medium">Just One 10 Minute With You 車銀優線上直播粉絲見面會</h2>
-                            </div>
-                            <p class="mt-3"></p>
-                            <div class="flex p-4 pb-2 border-t border-gray-200 "></div>
-                            <div class="flex space-x-3 text-sm font-medium">
-                                <div class="flex-auto flex space-x-3">
-                                    <button
-                                        class="mb-2 md:mb-0 bg-white px-5 py-2 shadow-sm tracking-wider border text-gray-600 rounded-full group-hover:bg-gray-100 inline-flex items-center space-x-2 ">
-                                        <span class="text-red-600 group-hover:text-red-700 rounded-lg">
-                                          <i class="far fa-calendar-alt"></i>
-                                        </span>
-                                        <span>5/22(六)</span>
-                                    </button>
-                                </div>
-                                <button
-                                    class="mb-2 md:mb-0 bg-gray-900 px-5 py-2 shadow-sm tracking-wider text-white rounded-full group-hover:bg-red-700"
-                                    type="button" aria-label="like">購票去
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-          </a>
-          <a href="">
-            <div class="flex flex-col ">
-                <div class="bg-white shadow-md  rounded-3xl p-4 group hover:shadow-lg hover:border-transparent">
-                    <div class="flex-none lg:flex">
-                        <div class=" h-full w-full lg:h-48 lg:mb-0 mb-3 group-hover:opacity-80">
-                          <img src="https://picsum.photos/1500/600/?random=3" class=" w-full  object-scale-down lg:object-cover  lg:h-48 rounded-2xl">
-                        </div>
-                        <div class="flex-auto ml-3 justify-evenly py-2">
-                            <div class="flex flex-wrap ">
-                                <h2 class="flex-auto text-lg font-medium">Just One 10 Minute With You 車銀優線上直播粉絲見面會</h2>
-                            </div>
-                            <p class="mt-3"></p>
-                            <div class="flex p-4 pb-2 border-t border-gray-200 "></div>
-                            <div class="flex space-x-3 text-sm font-medium">
-                                <div class="flex-auto flex space-x-3">
-                                    <button
-                                        class="mb-2 md:mb-0 bg-white px-5 py-2 shadow-sm tracking-wider border text-gray-600 rounded-full group-hover:bg-gray-100 inline-flex items-center space-x-2 ">
-                                        <span class="text-red-600 group-hover:text-red-700 rounded-lg">
-                                          <i class="far fa-calendar-alt"></i>
-                                        </span>
-                                        <span>5/22(六)</span>
-                                    </button>
-                                </div>
-                                <button
-                                    class="mb-2 md:mb-0 bg-gray-900 px-5 py-2 shadow-sm tracking-wider text-white rounded-full group-hover:bg-red-700"
-                                    type="button" aria-label="like">購票去
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-          </a>
-      </div>
+          <% else %>
+            <%= render "events/focusevent" %>
+           <% end %>
+        </div>
 
    <!--焦點活動結束-->
-
 
       </div>
 			<div x-show="activeTab===1">
@@ -338,73 +258,14 @@
 
         <!--放鬆去處-->
         <div class="grid mt-8  gap-8 grid-cols-1 md:grid-cols-2 xl:grid-cols-2">
-          <a href="">
-            <div class="flex flex-col ">
-                <div class="bg-white shadow-md  rounded-3xl p-4 group hover:shadow-lg hover:border-transparent">
-                    <div class="flex-none lg:flex">
-                        <div class=" h-full w-full lg:h-48 lg:mb-0 mb-3 group-hover:opacity-80">
-                          <img src="https://picsum.photos/1500/600/?random=1" class=" w-full  object-scale-down lg:object-cover  lg:h-48 rounded-2xl">
-                        </div>
-                        <div class="flex-auto ml-3 justify-evenly py-2">
-                            <div class="flex flex-wrap ">
-                                <h2 class="flex-auto text-lg font-medium">202020 當我們談論愛情－梁靜茹世界巡迴演唱會－高雄站</h2>
-                            </div>
-                            <p class="mt-3"></p>
-                            <div class="flex p-4 pb-2 border-t border-gray-200 "></div>
-                            <div class="flex space-x-3 text-sm font-medium">
-                                <div class="flex-auto flex space-x-3">
-                                    <button
-                                        class="mb-2 md:mb-0 bg-white px-5 py-2 shadow-sm tracking-wider border text-gray-600 rounded-full group-hover:bg-gray-100 inline-flex items-center space-x-2 ">
-                                        <span class="text-red-600 group-hover:text-red-700 rounded-lg">
-                                          <i class="far fa-calendar-alt"></i>
-                                        </span>
-                                        <span>5/22(六)</span>
-                                    </button>
-                                </div>
-                                <button
-                                    class="mb-2 md:mb-0 bg-gray-900 px-5 py-2 shadow-sm tracking-wider text-white rounded-full group-hover:bg-red-700"
-                                    type="button" aria-label="like">購票去
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+          <% if @relaxevent == [] %>
+            <div class="daycommed text-2xl text-center ">
+            目前沒活動
             </div>
-          </a>
-          <a href="">
-            <div class="flex flex-col ">
-                <div class="bg-white shadow-md  rounded-3xl p-4 group hover:shadow-lg hover:border-transparent">
-                    <div class="flex-none lg:flex">
-                        <div class=" h-full w-full lg:h-48 lg:mb-0 mb-3 group-hover:opacity-80">
-                          <img src="https://picsum.photos/1500/600/?random=1" class=" w-full  object-scale-down lg:object-cover  lg:h-48 rounded-2xl">
-                        </div>
-                        <div class="flex-auto ml-3 justify-evenly py-2">
-                            <div class="flex flex-wrap ">
-                                <h2 class="flex-auto text-lg font-medium">202020 當我們談論愛情－梁靜茹世界巡迴演唱會－高雄站</h2>
-                            </div>
-                            <p class="mt-3"></p>
-                            <div class="flex p-4 pb-2 border-t border-gray-200 "></div>
-                            <div class="flex space-x-3 text-sm font-medium">
-                                <div class="flex-auto flex space-x-3">
-                                    <button
-                                        class="mb-2 md:mb-0 bg-white px-5 py-2 shadow-sm tracking-wider border text-gray-600 rounded-full group-hover:bg-gray-100 inline-flex items-center space-x-2 ">
-                                        <span class="text-red-600 group-hover:text-red-700 rounded-lg">
-                                          <i class="far fa-calendar-alt"></i>
-                                        </span>
-                                        <span>5/22(六)</span>
-                                    </button>
-                                </div>
-                                <button
-                                    class="mb-2 md:mb-0 bg-gray-900 px-5 py-2 shadow-sm tracking-wider text-white rounded-full group-hover:bg-red-700"
-                                    type="button" aria-label="like">購票去
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-          </a>
-      </div>
+          <% else %>
+            <%= render "events/relaxevent" %>
+          <% end %>
+        </div>
 
    <!--放鬆去處結束-->
 
@@ -412,75 +273,16 @@
       </div>
 			<div x-show="activeTab===2">
 
-                <!--特色-->
-                <div class="grid mt-8  gap-8 grid-cols-1 md:grid-cols-2 xl:grid-cols-2">
-                  <a href="">
-                    <div class="flex flex-col ">
-                        <div class="bg-white shadow-md  rounded-3xl p-4 group hover:shadow-lg hover:border-transparent">
-                            <div class="flex-none lg:flex">
-                                <div class=" h-full w-full lg:h-48 lg:mb-0 mb-3 group-hover:opacity-80">
-                                  <img src="https://picsum.photos/1500/600/?random=8" class=" w-full  object-scale-down lg:object-cover  lg:h-48 rounded-2xl">
-                                </div>
-                                <div class="flex-auto ml-3 justify-evenly py-2">
-                                    <div class="flex flex-wrap ">
-                                        <h2 class="flex-auto text-lg font-medium">【如何快樂學習，學習快樂】~給孩子的品格教育指南</h2>
-                                    </div>
-                                    <p class="mt-3"></p>
-                                    <div class="flex p-4 pb-2 border-t border-gray-200 "></div>
-                                    <div class="flex space-x-3 text-sm font-medium">
-                                        <div class="flex-auto flex space-x-3">
-                                            <button
-                                                class="mb-2 md:mb-0 bg-white px-5 py-2 shadow-sm tracking-wider border text-gray-600 rounded-full group-hover:bg-gray-100 inline-flex items-center space-x-2 ">
-                                                <span class="text-red-600 group-hover:text-red-700 rounded-lg">
-                                                  <i class="far fa-calendar-alt"></i>
-                                                </span>
-                                                <span>5/22(六)</span>
-                                            </button>
-                                        </div>
-                                        <button
-                                            class="mb-2 md:mb-0 bg-gray-900 px-5 py-2 shadow-sm tracking-wider text-white rounded-full group-hover:bg-red-700"
-                                            type="button" aria-label="like">購票去
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                  </a>
-                  <a href="">
-                    <div class="flex flex-col ">
-                        <div class="bg-white shadow-md  rounded-3xl p-4 group hover:shadow-lg hover:border-transparent">
-                            <div class="flex-none lg:flex">
-                                <div class=" h-full w-full lg:h-48  lg:mb-0 mb-3 group-hover:opacity-80">
-                                  <img src="https://picsum.photos/1500/600/?random=8" class=" w-full  object-scale-down lg:object-cover  lg:h-48 rounded-2xl">
-                                </div>
-                                <div class="flex-auto ml-3 justify-evenly py-2">
-                                    <div class="flex flex-wrap ">
-                                        <h2 class="flex-auto text-lg font-medium">【如何快樂學習，學習快樂】~給孩子的品格教育指南</h2>
-                                    </div>
-                                    <p class="mt-3"></p>
-                                    <div class="flex p-4 pb-2 border-t border-gray-200 "></div>
-                                    <div class="flex space-x-3 text-sm font-medium">
-                                        <div class="flex-auto flex space-x-3">
-                                            <button
-                                                class="mb-2 md:mb-0 bg-white px-5 py-2 shadow-sm tracking-wider border text-gray-600 rounded-full group-hover:bg-gray-100 inline-flex items-center space-x-2 ">
-                                                <span class="text-red-600 group-hover:text-red-700 rounded-lg">
-                                                  <i class="far fa-calendar-alt"></i>
-                                                </span>
-                                                <span>5/22(六)</span>
-                                            </button>
-                                        </div>
-                                        <button
-                                            class="mb-2 md:mb-0 bg-gray-900 px-5 py-2 shadow-sm tracking-wider text-white rounded-full group-hover:bg-red-700"
-                                            type="button" aria-label="like">購票去
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                  </a>
-              </div>
+        <!--特色-->
+        <div class="grid mt-8  gap-8 grid-cols-1 md:grid-cols-2 xl:grid-cols-2">
+          <% if @featureevent == [] %>
+            <div class="daycommed text-2xl text-center ">
+            目前沒活動
+            </div>
+          <% else %>
+            <%= render "events/featureevent" %>
+          <% end %>
+        </div>
         
            <!--特色結束-->
         
@@ -503,90 +305,12 @@
     return {
       activeTab: 0,
       tabs: [
-          "焦點活動",
+          "近期焦點",
           "放鬆好去處",
           "特色活動",
       ]
     };
   };
-
- 
-    var cont=0;
-function loopSlider(){
-  var xx= setInterval(function(){
-        switch(cont)
-        {
-        case 0:{
-            $("#slider-1").fadeOut(400);
-            $("#slider-2").delay(400).fadeIn(400);
-            $("#sButton1").removeClass("bg-purple-800");
-            $("#sButton2").addClass("bg-purple-800");
-        cont=1;
-        
-        break;
-        }
-        case 1:
-        {
-        
-            $("#slider-2").fadeOut(400);
-            $("#slider-1").delay(400).fadeIn(400);
-            $("#sButton2").removeClass("bg-purple-800");
-            $("#sButton1").addClass("bg-purple-800");
-           
-        cont=0;
-        
-        break;
-        }
-        
-        
-        }},8000);
-
-}
-
-function reinitLoop(time){
-clearInterval(xx);
-setTimeout(loopSlider(),time);
-}
-
-
-
-function sliderButton1(){
-
-    $("#slider-2").fadeOut(400);
-    $("#slider-1").delay(400).fadeIn(400);
-    $("#sButton2").removeClass("bg-purple-800");
-    $("#sButton1").addClass("bg-purple-800");
-    reinitLoop(4000);
-    cont=0
-    
-    }
-    
-    function sliderButton2(){
-    $("#slider-1").fadeOut(400);
-    $("#slider-2").delay(400).fadeIn(400);
-    $("#sButton1").removeClass("bg-purple-800");
-    $("#sButton2").addClass("bg-purple-800");
-    reinitLoop(4000);
-    cont=1
-    
-    }
-
-    $(window).ready(function(){
-        $("#slider-2").hide();
-        $("#sButton1").addClass("bg-purple-800");
-        
-
-        loopSlider();
-     
-        
-    
-    
-    
-    
-    });
-
-  
-
 </script>
   
 

@@ -14,16 +14,12 @@
       
       
         <div class="hidden lg:flex lg:items-center lg:w-auto w-full" id="menu">
-          <%= form_tag(search_events_path, method: 'get') do %>  
-            <div class="flex relative my-2">  
-              <%= search_field_tag 'search', params[:search], placeholder: "搜尋活動", class: "rounded-sm py-2 px-4 shadow" %>  
-                <div class="absolute right-0 bg-red-700 border border-white px-2 rounded-sm h-full flex items-center">  
-                  <%= button_tag '', name: nil do%>  
-                    <i class="fas fa-search text-white"></i>
-                  <% end %>
-                </div>  
-            </div>  
-          <% end %>
+        <%= form_with url:search_events_path, local: true, method: :get, html: { class:'search_bar flex' } do |form|%>
+            <%= form.text_field :q, data: { behavior: "autocomplete" }, class: "search_input"%>
+            <%= form.button '', class: "search_button" do%>
+              <i class="fas fa-search text-2xl"></i>
+            <% end %>
+        <% end %>
       <nav>
         <ul class="lg:flex items-center justify-between text-base text-white pt-4 lg:pt-0 mx-3 ">
       
@@ -44,7 +40,7 @@
               <div class="org_choice_button font-bold cursor-pointer" id="org_choice_button">選擇組織</div>
               <div class="org_dropdown_list" id="org_dropdown_list">
                 <% current_user.organizations.each do |organization|%>
-                  <div class="bg-gray-100 px-1 rounded-lg text-center"><%= link_to "#{organization.title}", events_organization_path(organization.id), class: "text-black text-xs hover:bg-gray-900 hover:text-white font-bold rounded-lg px-2"%></div>
+                  <div class="bg-gray-100 px-1 rounded-lg text-center mb-1.5"><%= link_to "#{organization.title}", events_organization_path(organization.id), class: "text-black text-xs hover:bg-gray-900 hover:text-white font-bold rounded-lg px-2"%></div>
                 <% end %>
               </div>
             </li>

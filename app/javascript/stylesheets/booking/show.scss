@@ -1,5 +1,5 @@
 .sample_status {
-  @apply absolute right-2 p-2 flex xl:flex-col xl:top-2 top-24 mt-4 items-center z-20 border border-gray-600 rounded-2xl px-1;
+  @apply absolute w-full text-center p-2 flex justify-between xl:flex-col xl:top-2 xl:right-2 xl:w-24 top-24 mt-4 items-center md:top-28 z-20 border border-gray-600 rounded-2xl px-1 lg:top-20;
 
   .sample_seat {
     @apply w-seats m-1.5 h-ssm bg-seat rounded-tl-xl rounded-tr-xl;
@@ -19,9 +19,9 @@
 }
 
 .back_area {
-  @apply absolute top-40 left-2 py-2 px-2 mt-8 border border-red-700 text-red-700 rounded-2xl xl:top-0 xl:mt-4 hover:text-white hover:bg-red-700 md:top-20;
+  @apply absolute w-full text-center top-40 py-2 px-2 mt-8 border border-red-700 text-red-700 rounded-2xl xl:top-0 xl:mt-4 hover:text-white hover:bg-red-700 md:top-36 xl:w-32 xl:left-2 lg:top-32;
 }
 
-.content{
+.content {
   min-height: 70vh;
 }

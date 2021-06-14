@@ -2,7 +2,7 @@
 <%= render 'cart', seat: @seat, price: @total_price%>
 <%= render 'events/booking_status'%>
 <div class="cutting_line">
-  <%= link_to event_booking_index_path do%>
+  <%= link_to event_booking_index_path, data: {turbolinks: false} do%>
     <div class="back_area">回到票區圖</div>
   <% end %>
   <div class="sample_status">

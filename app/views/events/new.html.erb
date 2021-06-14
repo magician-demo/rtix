@@ -11,7 +11,6 @@
   
     <%= form_for(@event) do |event| %>
     <div class="firstpage xl:flex mb-8">
-
       <div class="apply_table xl:w-1/2 pl-3">
         <%= event.hidden_field :organization_id, value: @organization.id %>
         <div class="event_name">
@@ -57,7 +56,7 @@
               <% if @event.image? %> <%= image_tag(@event.image_url) %>
               <% else %>
               <img
-                class="image m-auto image-preview"
+                class="image m-auto image-preview rounded-3xl"
                 src="/image/activity.png"
               >
               <% end %>
@@ -69,19 +68,20 @@
             </div>
           </div>
         </div>
-       
+    
         <div class="org-image-group md:w-1/2 border-2 border-gray-100 rounded-lg" data-controller="seats-image">
           <div class="tip w-2/3 my-8 m-auto">
             <h5 class="text-center text-red-700 font-bold">座位圖</h5>
             <p>放上座位圖將可有效協助報名者,讓購票流程更順暢, 因而提升購買意願!!!</p>
           </div>
           <div class="image-box">
-            <% if @event.seats_image? %> <%= image_tag(@event.seats_image_url, class:"seats-image") %>
+            <% if @event.seats_image? %> 
+              <%= image_tag(@event.seats_image_url, class:"seats-image") %>
             <% else %>
             <img
               id="seats-preview"
-              class="image seats-image m-auto"
-              src="/image/seats.png"
+              class="image seats-image m-auto rounded-3xl"
+              src="/image/seat.png"
             >
             <% end %>
           </div>

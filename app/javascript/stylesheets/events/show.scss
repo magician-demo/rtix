@@ -27,9 +27,21 @@
 }
 
 .event_booking_area {
-  @apply w-full border border-gray-500 my-4;
+  @apply w-full my-4;
 
   .area_setting {
     @apply w-8/12 m-auto;
   }
+}
+.daycommed{
+  min-width: 414px;
+  
+  @media only screen and (min-width: 769px){
+    min-width: 769px;
+    
+  }
+  @media only screen and (min-width: 1024px){
+    min-width: 1024px;
+  }
+  
 }

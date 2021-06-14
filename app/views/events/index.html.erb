@@ -236,8 +236,8 @@
 		</ul>
 
 		<div class="w-full bg-white text-center max-w-5xl m-auto">
-			<div x-show="activeTab===0">
 
+			<div x-show="activeTab===0">
    <!--焦點活動-->
         <div class="daycommed grid mt-8  gap-8 grid-cols-1 md:grid-cols-2 xl:grid-cols-2">
           <% if @focusevent == [] %>
@@ -248,14 +248,10 @@
             <%= render "events/focusevent" %>
            <% end %>
         </div>
-
-   <!--焦點活動結束-->
-
       </div>
+    <!--焦點活動結束-->
+
 			<div x-show="activeTab===1">
-
-
-
         <!--放鬆去處-->
         <div class="grid mt-8  gap-8 grid-cols-1 md:grid-cols-2 xl:grid-cols-2">
           <% if @relaxevent == [] %>
@@ -266,13 +262,10 @@
             <%= render "events/relaxevent" %>
           <% end %>
         </div>
-
+      </div>
    <!--放鬆去處結束-->
 
-
-      </div>
 			<div x-show="activeTab===2">
-
         <!--特色-->
         <div class="grid mt-8  gap-8 grid-cols-1 md:grid-cols-2 xl:grid-cols-2">
           <% if @featureevent == [] %>
@@ -283,22 +276,14 @@
             <%= render "events/featureevent" %>
           <% end %>
         </div>
-        
-           <!--特色結束-->
-        
+      </div>
+      <!--特色結束-->
 
-
-           
       </div>
     </div>
 	</div>
-	<!--actual component end-->
 </div>
 </div>
-
-<div class="my-5"></div>
-
-<script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
 
 <script>
 	function setup() {

@@ -11,7 +11,7 @@ class TicketMailer < ApplicationMailer
     @content = params[:content]
     @checkin_id = params[:checkin_id]
 
-    attachments['rtix_logo.png'] = File.read('app/assets/images/rtix_logo.png')
+    attachments['rtix_logo.png'] = File.read('public/image/rtix_logo.png')
 
     mail(to: @recipient, subject: @title)
   end

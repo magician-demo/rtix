@@ -226,18 +226,16 @@
 
 <div class="flex justify-center items-center">
 	<!--actual component start-->
-	<div x-data="setup()">
+	<div x-data="{ tab: 'first' }">
 		<ul class="flex justify-center items-center my-4">
-			<template x-for="(tab, index) in tabs" :key="index">
-				<li class="cursor-pointer py-2 px-4 text-black border-b-8 w-4/12 text-center text-xl"
-					:class="activeTab===index ? 'text-red-500 border-red-500 text-grey-darkest' : ''" @click="activeTab = index"
-					x-text="tab"></li>
-			</template>
+			<li :class="{ 'active text-red-500 border-red-500 text-grey-darkest': tab === 'first' }" @click="tab = 'first'" class="cursor-pointer py-2 px-4 text-black border-b-8 w-4/12 text-center text-xl outline-none">近期焦點</li>
+      <li :class="{ 'active text-red-500 border-red-500 text-grey-darkest': tab === 'second' }" @click="tab = 'second'" class="cursor-pointer py-2 px-4 text-black border-b-8 w-4/12 text-center text-xl outline-none">放鬆好去處</li>
+      <li :class="{ 'active text-red-500 border-red-500 text-grey-darkest': tab === 'third' }" @click="tab = 'third'" class="cursor-pointer py-2 px-4 text-black border-b-8 w-4/12 text-center text-xl outline-none">特色活動</li>
 		</ul>
 
 		<div class="w-full bg-white text-center max-w-5xl m-auto">
 
-			<div x-show="activeTab===0">
+			<div x-show="tab === 'first'">
    <!--焦點活動-->
         <div class="daycommed grid mt-8  gap-8 grid-cols-1 md:grid-cols-2 xl:grid-cols-2">
           <% if @focusevent == [] %>
@@ -251,7 +249,7 @@
       </div>
     <!--焦點活動結束-->
 
-			<div x-show="activeTab===1">
+			<div x-show="tab === 'second'">
         <!--放鬆去處-->
         <div class="grid mt-8  gap-8 grid-cols-1 md:grid-cols-2 xl:grid-cols-2">
           <% if @relaxevent == [] %>
@@ -265,7 +263,7 @@
       </div>
    <!--放鬆去處結束-->
 
-			<div x-show="activeTab===2">
+			<div x-show="tab === 'third'">
         <!--特色-->
         <div class="grid mt-8  gap-8 grid-cols-1 md:grid-cols-2 xl:grid-cols-2">
           <% if @featureevent == [] %>
@@ -284,20 +282,6 @@
 	</div>
 </div>
 </div>
-
-<script>
-	function setup() {
-    return {
-      activeTab: 0,
-      tabs: [
-          "近期焦點",
-          "放鬆好去處",
-          "特色活動",
-      ]
-    };
-  };
-</script>
-  
 
 
 

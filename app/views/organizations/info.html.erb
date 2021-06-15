@@ -1,41 +1,42 @@
-<div class="w-full">
-  <div class="flex">
-    <%= render 'sidebar' %>  
-    <div class="org-info w-full">
-      <div class="w-full text-xl mb-4 text-center md:text-left mt-5 text-gray-500 border-b border-gray-400 px-4">
-          組織名稱 <span class="inline-block ml-3 text-3xl text-red-600"><%= @organization.title %></span>
-      </div>
-      <div class="p-1.5">
-        <div class="flex">
-          <div class="orginfo w-1/2 overflow-auto h-2/3 p-8 border-gray-100 border-2 shadow-lg">
-            <h5 class="text-lg font-bold mb-3">描述: <span class="text-lg font-light"><%= @organization.description %></span></h5>  
-            <div class="mb-1.5">
-              <h5 class="text-lg font-bold">RTIX URL</h5>
-              <div>
-                <%= link_to "https://rtix.site/organizations/#{@organization.domain_name}",
-                            "/organizations/#{params[:id]}",
-                            class:"url" %>
-              </div>
-            </div>
-            <h6 class="text-lg font-bold mb-1.5">網站: <a href="<%= @organization.web %>" class="url"><%= @organization.web %></a></h6>
-            <h6 class="text-lg font-bold mb-1.5">Facebook 粉絲專頁: <a href="<%= @organization.facebook %>" class="url"><%= @organization.facebook %></a></h6>
-            <h6 class="text-lg font-bold mb-1.5">Twitter 帳號: <a href="<%= @organization.twitter %>" class="url"><%= @organization.twitter %></a></h6>
-            <h6 class="text-lg font-bold mb-1.5">Flickr 相簿網址: <a href="<%= @organization.flickr %>" class="url"><%= @organization.flickr %></a></h6>
-            <h6 class="text-lg font-bold mb-1.5">回覆 E-mail: <span class="text-red-500"><%= @organization.e_mail %></span></h6>
-            <div class="mt-3">
-              <%= link_to '編輯', edit_organization_path(@organization), class: "org-edit-button" %>
+<div class="h-screen">
+  <div class="org-info">
+    <div class="text-xl mb-4 text-center md:text-left mt-5 text-gray-500 border-b border-gray-400 px-4">
+        組織名稱 <span class="inline-block ml-3 text-3xl text-red-600"><%= @organization.title %></span>
+    </div>
+    <div class="p-1.5">
+      <div class="my-5"><%= link_to '活動列表', events_organization_path(@organization.id), class: "p-3 border border-gray-400 rounded-lg bg-white hover:bg-red-700 hover:text-white cursor-pointer font-bold shadow-2xl" %></div> 
+      <div class="flex">
+        <div class="orginfo w-1/2 overflow-auto h-2/3 p-8 border-gray-100 border-2 shadow-lg">
+          <h5 class="text-lg font-bold mb-3">描述: <span class="text-lg font-light"><%= @organization.description %></span></h5>  
+          <div class="mb-1.5">
+            <h5 class="text-lg font-bold">組織公開頁面</h5>
+            <div>
+              <%= link_to "https://rtix.site/organizations/#{@organization.domain_name}",
+                          "/organizations/#{params[:id]}",
+                          class:"org-url" %>
             </div>
           </div>
-          <div class="orgpic w-1/2 text-center">
-            <h5 class="show-title font-bold mb-5">組織圖像</h5>
+          <h6 class="text-lg font-bold mb-1.5">網站: <a href="<%= @organization.web %>" class="org-url"><%= @organization.web %></a></h6>
+          <h6 class="text-lg font-bold mb-1.5">Facebook 粉絲專頁: <a href="<%= @organization.facebook %>" class="org-url"><%= @organization.facebook %></a></h6>
+          <h6 class="text-lg font-bold mb-1.5">Twitter 帳號: <a href="<%= @organization.twitter %>" class="org-url"><%= @organization.twitter %></a></h6>
+          <h6 class="text-lg font-bold mb-1.5">Flickr 相簿網址: <a href="<%= @organization.flickr %>" class="org-url"><%= @organization.flickr %></a></h6>
+          <h6 class="text-lg font-bold mb-1.5">回覆 E-mail: <span class="font-normal"><%= @organization.e_mail %></span></h6>
+          <div class="mt-3">
+            <%= link_to '編輯組織', edit_organization_path(@organization), class: "org-edit-button" %>
+          </div>
+          <div class="mt-3"><%= link_to '刪除組織', organization_path(@organization.id), method: :delete, data: { confirm: '確定要刪除組織嗎？' }, class: "delete-button" %></div>
+        </div>
+        <div class="w-1/2 text-center">
+          <h5 class="show-title font-bold mb-5">組織圖像</h5>
+          <div class="image-box">
             <% if @organization.image? %>
               <%= image_tag(@organization.image.org.url, class:"image") %>
             <% else %>
             <img id="preview", class="image", src="/image/organization.png"/>
             <% end %>
-            <h5 class="font-bold mb-3 w-2/3 m-auto py-3 border-b-2 border-gray-400">進階設定</h5>
-            <p class="font-mono"><span class="font-bold">預設時區:</span> Taipei GMT +08:00 </p>
           </div>
+          <h5 class="font-bold mb-3 w-2/3 m-auto py-3 border-b-2 border-gray-400">進階設定</h5>
+          <p class="font-mono"><span class="font-bold">預設時區:</span> Taipei GMT +08:00 </p>
         </div>
       </div>
     </div>

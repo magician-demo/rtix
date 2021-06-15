@@ -1,11 +1,11 @@
 <div class="w-full h-screen m-auto flex">
-  <div class="bg-gray-700"><%= render 'sidebar' %></div>
-
   <div class="w-full p-5">
     <h3 class="w-full text-4xl text-center mt-5 text-gray-500 border-b border-gray-400 px-4 font-bold">
       <span class="text-4xl text-red-600"><%= @organization.title %></span> 的活動舉辦列表</h3>
-    <div class="my-8 mr-3 text-right">
-        <%= link_to '建立活動', new_event_path(:organization_id => @organization.id), class: "p-3 border border-gray-400 rounded-lg bg-white hover:bg-red-700 hover:text-white cursor-pointer font-bold shadow-2xl" %>
+
+    <div class="my-8 mr-3 text-right flex">
+        <div class="my-5 mr-4"><%= link_to '一般資訊設定', info_organization_path, class: "p-3 border border-gray-400 rounded-lg bg-white hover:bg-red-700 hover:text-white cursor-pointer font-bold shadow-2xl" %></div> 
+        <div class="my-5"><%= link_to '建立活動', new_event_path(:organization_id => @organization.id), class: "p-3 border border-gray-400 rounded-lg bg-white hover:bg-red-700 hover:text-white cursor-pointer font-bold shadow-2xl" %></div> 
     </div>
 
     <div class="overflow-y-scroll h-96 my-5">

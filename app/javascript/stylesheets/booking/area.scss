@@ -1,5 +1,5 @@
 .stage {
-  @apply max-w-4xl w-full h-20 bg-gray-500 m-auto text-white text-3xl rounded-xl text-center flex items-center justify-center lg:mt-0 lg:mb-0;
+  @apply max-w-4xl w-full h-24 bg-gray-500 m-auto text-white text-3xl rounded-xl text-center flex items-center justify-center lg:mt-0 lg:mb-0;
 }
 
 .cutting_line {
@@ -7,7 +7,7 @@
 }
 
 .area_column {
-  @apply grid grid-cols-3 max-w-4xl m-auto gap-2 mt-3;
+  @apply grid grid-cols-3 max-w-4xl m-auto gap-2 mt-3 h-96;
 
   .area {
     @apply bg-red-500 h-40 text-center text-3xl flex justify-center items-center text-white rounded-2xl;

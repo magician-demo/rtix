@@ -2,7 +2,7 @@
   @apply md:flex py-10 max-w-4xl m-auto;
 
   .left_side_bar {
-    @apply md:w-3/12 overflow-scroll;
+    @apply mx-3 md:w-3/12 overflow-scroll;
 
     .button_column {
       @apply flex-col flex max-w-4xl mx-2 md:ml-3 text-center;
@@ -14,7 +14,7 @@
   }
 
   .right_side_bar {
-    @apply px-4 md:w-9/12 overflow-scroll mt-3 md:mt-0;
+    @apply px-4 md:w-9/12 overflow-scroll mt-3 mx-3 md:mt-0;
 
     .right_side_table {
       @apply table-auto text-white rounded-2xl bg-red-700 w-full shadow;

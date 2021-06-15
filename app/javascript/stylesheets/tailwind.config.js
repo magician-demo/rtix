@@ -31,6 +31,7 @@ module.exports = {
       },
       inset: {
         30: '7.5rem',
+        34: '130px'
       },
     },
   },

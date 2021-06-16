@@ -18,6 +18,8 @@ Rails
           member do
             get :info
             get :events
+            get :publish
+            get :pending 
           end
         end
       end

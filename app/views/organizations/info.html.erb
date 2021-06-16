@@ -9,7 +9,7 @@
         <div class="orginfo w-1/2 overflow-auto h-2/3 p-8 border-gray-100 border-2 shadow-lg">
           <h5 class="text-lg font-bold mb-3">描述: <span class="text-lg font-light"><%= @organization.description %></span></h5>  
           <div class="mb-1.5">
-            <h5 class="text-lg font-bold">組織公開頁面</h5>
+            <h6 class="text-lg font-bold">組織公開頁面</h5>
             <div>
               <%= link_to "https://rtix.site/organizations/#{@organization.domain_name}",
                           "/organizations/#{params[:id]}",

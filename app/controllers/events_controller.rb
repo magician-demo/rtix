@@ -12,17 +12,17 @@ class EventsController < ApplicationController
     @focusevent = 
       Event
         .where(start_time: Time.now..(Time.now + 7.days))
-        .available
+        .available.sample(4)
 
     @relaxevent = 
     Event
       .where("tag = ? or tag = ?", '美食', '戶外')
-      .available
+      .available.sample(4)
 
     @featureevent = 
     Event
       .where(tag: '演出')
-      .available
+      .available.sample(4)
       
   end
 

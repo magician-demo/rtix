@@ -18,12 +18,7 @@ Rails
           member do
             get :info
             get :events
-            get :appropriations
-            get :orders
-            get :publish
-            get :pending
           end
-          resources :business_infos, only: %i[new create]
         end
       end
 

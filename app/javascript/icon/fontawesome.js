@@ -13,6 +13,7 @@ import {
   faCheck,
   faTimes,
   faStreetView,
+  faExternalLinkSquareAlt,
 } from '@fortawesome/free-solid-svg-icons'
 
 import { faCalendarAlt } from '@fortawesome/free-regular-svg-icons'
@@ -24,9 +25,14 @@ import {
   faGoogle,
   faFacebook,
   faGithub,
+  faTwitterSquare,
+  faFlickr,
 } from '@fortawesome/free-brands-svg-icons'
 
 library.add(
+  faExternalLinkSquareAlt,
+  faFlickr,
+  faTwitterSquare,
   fasFaCalendarAlt,
   faFacebookSquare,
   faInstagramSquare,

@@ -1,4 +1,4 @@
-<div class="w-full h-screen m-auto flex">
+<div class="w-full h-full m-auto flex">
   <div class="w-full p-5">
     <h3 class="w-full text-4xl text-center mt-5 text-gray-500 border-b border-gray-400 px-4 font-bold">
       <span class="text-4xl text-red-600"><%= @organization.title %></span> 的活動舉辦列表</h3>
@@ -8,7 +8,7 @@
         <div class="my-5"><%= link_to '建立活動', new_event_path(:organization_id => @organization.id), class: "p-3 border border-gray-400 rounded-lg bg-white hover:bg-red-700 hover:text-white cursor-pointer font-bold shadow-2xl" %></div> 
     </div>
 
-    <div class="overflow-y-scroll h-96 my-5">
+    <div class="  my-5">
       <% @events.each do |event| %>
         <div class="card my-10 border-2 border-red-700 rounded-lg shadow-2xl" id="event<%=event.id%>">
           <h5 class="text-2xl italic mt-5 font-bold text-center"><%= event.title %></h5> 
@@ -23,14 +23,14 @@
             <div class="inline-block pl-3"><%= button_to '刪除活動', event_path(event.id, :organization_id => @organization.id ), method: :delete, data: { confirm: '確定要刪除活動嗎？'}, class: "event-page shadow-2xl rounded-lg hover:bg-red-700 hover:text-white cursor-pointer font-bold" %></div>
           </div>
 
-          <div class="mt-3 mx-10 h-20 rounded-lg shadow-2xl flex">
+          <div class="mt-3 mx-10 h-40 rounded-lg shadow-2xl flex">
             <h5 class="w-1/4 text-center font-bold bg-red-700 text-white flex flex-col justify-center items-center">活動描述</h5>
             <p class="w-3/4 p-3 overflow-y-auto"><%= event.description %> </p>
           </div>
 
 
 
-          <div class="my-3 mx-6 overflow-y-auto h-32 p-5">
+          <div class="my-3 mx-6 overflow-y-auto h-56 p-5">
             <table class="org-event-list rounded-2xl shadow-2xl">
               <tr class="bg-red-700 text-white">
                 <th class="text-sm font-bold border-r border-red-300">票種名稱</td>

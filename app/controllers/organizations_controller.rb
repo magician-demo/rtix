@@ -43,7 +43,7 @@ class OrganizationsController < ApplicationController
   end
 
   def destroy
-    @organization.slug = @organization.id
+    @organization.slug = "#{@organization.id}_DELETE"
     @organization.save
     @organization.destroy
     redirect_to root_path, notice: '組織刪除成功！'

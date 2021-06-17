@@ -1,19 +1,35 @@
-<div class="h-screen">
-    <div class="w-full">
-      <div class="w-full text-xl text-center mt-5 text-gray-500 border-b border-gray-400 px-4 md:text-left">
-        組織名稱 <span class="text-3xl text-red-600"><%= @organization.title %></span>
-      </div>
-      
-      <div class="w-full flex flex-col items-center md:items-baseline">
-        <div class="px-4">
-            <%= image_tag(@organization.image_url, class: "image") if @organization.image? %>
-          </div>
-          <div>
-            <div class="show-title">描述：</div>
-            <div><%= @organization.description %></div>
-          </div>
-        </div>
-      </div>
-    </div>
+<div class="wrap h-screen pt-10 px-20">
+  <div class="image-box">
+    <% if @organization.image? %>
+      <%= image_tag(@organization.image.org.url, class:"image") %>
+    <% else %>
+      <img id="preview" class="image" src="/image/organization.png"/>
+    <% end %>
   </div>
+  <h1 class="text-5xl text-center text-red-600 mb-2"><%= @organization.title %></h1>
+  <ul class="flex mx-auto text-white text-center justify-center mb-5">
+      <% if @organization.web != "" %>
+        <li class="p-2 text-red-700 cursor-pointer text-4xl hover:text-red-300">
+          <a href="<%= @organization.web %>" target="_blank"><i class="fas fa-external-link-square-alt"></i></a>
+        </li>
+      <% end %>
+      <% if @organization.facebook != "" %>
+        <li class="p-2 text-red-700 cursor-pointer text-4xl hover:text-red-300">
+          <a href="<%= @organization.facebook %>" target="_blank"><i class="fab fa-facebook-square"></i></a>
+        </li>
+      <% end %>
+      <% if @organization.twitter != "" %>
+        <li class="p-2 text-red-700 cursor-pointer text-4xl hover:text-red-300">
+          <a href="<%= @organization.twitter %>" target="_blank"><i class="fab fa-twitter-square"></i></a>
+        </li>
+      <% end %>
+      <% if @organization.flickr != "" %>
+        <li class="p-2 text-red-700 cursor-pointer text-4xl hover:text-red-300">
+          <a href="<%= @organization.flickr %>" target="_blank"><i class="fab fa-flickr"></i></a>
+        </li>
+      <% end %>
+  </ul>
+  <p class="text-center text-2xl"><%= @organization.description %></p>
 </div>
+  
+    

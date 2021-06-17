@@ -1,9 +1,9 @@
-<div class="wrap h-screen">
+<div class="wrap h-screen pt-10 px-20">
   <div class="image-box">
     <% if @organization.image? %>
       <%= image_tag(@organization.image.org.url, class:"image") %>
     <% else %>
-    <img id="preview", class="image", src="/image/organization.png"/>
+      <img id="preview" class="image" src="/image/organization.png"/>
     <% end %>
   </div>
   <h1 class="text-5xl text-center text-red-600 mb-2"><%= @organization.title %></h1>

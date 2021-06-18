@@ -65,7 +65,7 @@
     <% if @order.status =="cancelled" %>
       <div class="pay-cancel m-auto my-8 max-w-max bg-red-700 p-2.5 text-white rounded-sm">超過時間，訂單已取消</div>
     <% elsif @order.status =="paid" %>
-      <div class="pay-cancel m-auto my-8 max-w-max bg-red-700 p-2.5 text-white rounded-sm">已付款，請到<span class="font-bold text-gray-900"> <%= link_to '我的票卷', dashboards_path %> </span>確認</div>
+      <div class="pay-cancel m-auto my-8 max-w-max bg-red-700 p-2.5 text-white rounded-sm">已付款，請到<span class="font-bold text-2xl text-red-300"> <%= link_to '我的票卷', dashboards_path %> </span>確認</div>
     <% else %>
       <div class="pay-button m-auto my-8 max-w-max "><input id="pay" type="submit" value="確認訂單並繳費" data-controller="clean-timer" data-action="click->clean-timer#cleanIt" class="bg-red-700 p-2.5 text-white rounded-sm opacity-40"></div>
     <% end %>

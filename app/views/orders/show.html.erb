@@ -95,7 +95,7 @@
   <input name="ChoosePayment" value="Credit">
   <input name="CheckMacValue" value=<%= @order.checkMacValue %>>
   <input name="EncryptType" value="1">
-  <input name="ClientBackURL" value="<%= ENV["server"]%>/orders/<%= @order.id%>">
+  <input name="ClientBackURL" value="<%= ENV["server"]%>/dashboard.<%= current_user.id%>">
   
 </form>
 <script>

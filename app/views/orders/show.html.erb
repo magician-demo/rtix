@@ -25,7 +25,7 @@
         3 取票繳費
       </div>
     </div>
-    <div class="order-info border">
+    <div class="order-info">
       <div class="order-no tracking-wide bg-gray-500 text-white p-1 px-2  ">訂單編號：<%= @order.serial %></div>
         <% @seats.each do |s|%>
       <div class="order-detail px-3 flex space-x-1 border-b-2 border-black p-2">
@@ -45,6 +45,9 @@
         $<%= @price %>
         </div>
       </div>
+      <% if @order.status == "paid" %>
+      <div class="p-6 text-3xl font-bold text-center">付款完成</div>
+      <% else %>
       <div class="order-checkin px-3 flex space-x-1 border-b-2 border-black p-2">
         <div class="checkin-way w-2/12">*取票方式</div>
         <div class="e-ticket">電子票卷</div>        
@@ -60,12 +63,13 @@
         <div class="order-total-amount w-6/12">總金額</div>
         <div class="order-total-amount-num text-right  w-9/12"><%# @order.totalAmount %></div>   
       </div>
+      <% end %>
     
     </div>
     <% if @order.status =="cancelled" %>
       <div class="pay-cancel m-auto my-8 max-w-max bg-red-700 p-2.5 text-white rounded-sm">超過時間，訂單已取消</div>
     <% elsif @order.status =="paid" %>
-      <div class="pay-cancel m-auto my-8 max-w-max bg-red-700 p-2.5 text-white rounded-sm">已付款，請到<span class="font-bold text-2xl text-red-300"> <%= link_to '我的票卷', dashboards_path %> </span>確認</div>
+      <div class="pay-cancel m-auto my-8 max-w-max bg-red-700 p-2.5 text-white rounded-sm">請到<span class="font-bold text-2xl text-red-300"> <%= link_to '我的票卷', dashboards_path %> </span>確認</div>
     <% else %>
       <div class="pay-button m-auto my-8 max-w-max "><input id="pay" type="submit" value="確認訂單並繳費" data-controller="clean-timer" data-action="click->clean-timer#cleanIt" class="bg-red-700 p-2.5 text-white rounded-sm opacity-40"></div>
     <% end %>
@@ -91,7 +95,7 @@
   <input name="ChoosePayment" value="Credit">
   <input name="CheckMacValue" value=<%= @order.checkMacValue %>>
   <input name="EncryptType" value="1">
-  <input name="ClientBackURL" value="<%= ENV["server"]%>/orders/<%= @order.id%>">
+  <input name="ClientBackURL" value="<%= ENV["server"]%>/dashboard.<%= current_user.id%>">
   
 </form>
 <script>

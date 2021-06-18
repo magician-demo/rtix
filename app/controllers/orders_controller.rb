@@ -6,7 +6,7 @@ class OrdersController < ApplicationController
   skip_before_action :authenticate_user!, only: :return_url
 
   def show
-    # check_order
+    check_order
     @price = current_order.totalAmount
     @seats = current_order.seats
     @current_id = current_order.id
@@ -50,7 +50,7 @@ class OrdersController < ApplicationController
     empty_cart!
 
     beforeURLEncode =
-      "HashKey=#{ENV['hash_key']}&ChoosePayment=Credit&ClientBackURL=#{ENV['server']}/orders/#{@order.id}&EncryptType=1&ItemName=rtixorder&MerchantID=#{ENV['merchant_id']}&MerchantTradeDate=#{@order.ordertime}&MerchantTradeNo=#{@order.serial}&PaymentType=aio&ReturnURL=#{ENV['server']}/orders/return_url/&TotalAmount=#{@order.totalAmount}&TradeDesc=Des&HashIV=#{ENV['hash_iv']}"
+      "HashKey=#{ENV['hash_key']}&ChoosePayment=Credit&ClientBackURL=#{ENV['server']}/dashboard.#{current_user.id}&EncryptType=1&ItemName=rtixorder&MerchantID=#{ENV['merchant_id']}&MerchantTradeDate=#{@order.ordertime}&MerchantTradeNo=#{@order.serial}&PaymentType=aio&ReturnURL=#{ENV['server']}/orders/return_url/&TotalAmount=#{@order.totalAmount}&TradeDesc=Des&HashIV=#{ENV['hash_iv']}"
 
     #檢查碼
 

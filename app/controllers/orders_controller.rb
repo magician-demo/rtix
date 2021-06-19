@@ -50,7 +50,7 @@ class OrdersController < ApplicationController
     empty_cart!
 
     beforeURLEncode =
-      "HashKey=#{ENV['hash_key']}&ChoosePayment=Credit&ClientBackURL=#{ENV['server']}/dashboard.#{current_user.id}&EncryptType=1&ItemName=rtixorder&MerchantID=#{ENV['merchant_id']}&MerchantTradeDate=#{@order.ordertime}&MerchantTradeNo=#{@order.serial}&PaymentType=aio&ReturnURL=#{ENV['server']}/orders/return_url/&TotalAmount=#{@order.totalAmount}&TradeDesc=Des&HashIV=#{ENV['hash_iv']}"
+      "HashKey=#{ENV['hash_key']}&ChoosePayment=Credit&ClientBackURL=#{ENV['server']}/dashboard/#{@order.id}&EncryptType=1&ItemName=rtixorder&MerchantID=#{ENV['merchant_id']}&MerchantTradeDate=#{@order.ordertime}&MerchantTradeNo=#{@order.serial}&PaymentType=aio&ReturnURL=#{ENV['server']}/orders/return_url/&TotalAmount=#{@order.totalAmount}&TradeDesc=Des&HashIV=#{ENV['hash_iv']}"
 
     #檢查碼
 

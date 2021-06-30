@@ -16,7 +16,8 @@ class EventsController < ApplicationController
 
     @relaxevent = 
     Event
-      .where("tag = ? or tag = ?", '美食', '戶外')
+      # .where("tag = ? or tag = ?", '美食', '戶外')
+      .where(tag:['美食', '戶外'])
       .available.sample(4)
 
     @featureevent = 
